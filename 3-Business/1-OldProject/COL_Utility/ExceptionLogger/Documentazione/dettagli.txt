@@ -1,0 +1,19 @@
+Writers:
+
+GenericLogWriter
+classe padre di tutti i LogWriter
+
+DBLogWriter
+salva il log nel db, specificare connectionstring e sql di insert
+
+DebugLogWriter
+scrive il log nella finestra di output di Visual Studio (debug.write)
+
+MailLogWriter
+invia una mail con il log, specificare smtp, mittente, destinatario
+
+TxtLogWriter
+salva il log in un file di testo, specificare filename, massima dimensione
+
+CsvLogWriter
+salva il log in un file di testo, comma separated, specificare filename, massima dimensione

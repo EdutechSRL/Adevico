@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetCommunityMembersID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommunityMembersIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommunityMembersIDResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCommunityRoleMembersID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RoleID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommunityRoleMembersIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommunityRoleMembersIDResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPermissionMembersID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ServiceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Permission" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPermissionMembersIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPermissionMembersIDResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPortalPermissionMembersID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ServiceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Permission" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPortalPermissionMembersIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPortalPermissionMembersIDResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemGuidMembersID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ItemID" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="objectTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Permission" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemGuidMembersIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetItemGuidMembersIDResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemIntMembersID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ItemID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="objectTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Permission" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemIntMembersIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetItemIntMembersIDResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemLongMembersID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ItemID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="objectTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Permission" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemLongMembersIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetItemLongMembersIDResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemVersionLongMembersID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCommunity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="moduleCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idItem" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idVersion" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="objectTypeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="permission" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemVersionLongMembersIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetItemVersionLongMembersIDResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCommunityMembersIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommunityMembersID" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunityMembersIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommunityMembersIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunityRoleMembersIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommunityRoleMembersID" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunityRoleMembersIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommunityRoleMembersIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPermissionMembersIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPermissionMembersID" />
+  </wsdl:message>
+  <wsdl:message name="GetPermissionMembersIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPermissionMembersIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPortalPermissionMembersIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPortalPermissionMembersID" />
+  </wsdl:message>
+  <wsdl:message name="GetPortalPermissionMembersIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPortalPermissionMembersIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetItemGuidMembersIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetItemGuidMembersID" />
+  </wsdl:message>
+  <wsdl:message name="GetItemGuidMembersIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetItemGuidMembersIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetItemIntMembersIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetItemIntMembersID" />
+  </wsdl:message>
+  <wsdl:message name="GetItemIntMembersIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetItemIntMembersIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetItemLongMembersIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetItemLongMembersID" />
+  </wsdl:message>
+  <wsdl:message name="GetItemLongMembersIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetItemLongMembersIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetItemVersionLongMembersIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetItemVersionLongMembersID" />
+  </wsdl:message>
+  <wsdl:message name="GetItemVersionLongMembersIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetItemVersionLongMembersIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CommunityServicesSoap">
+    <wsdl:operation name="GetCommunityMembersID">
+      <wsdl:input message="tns:GetCommunityMembersIDSoapIn" />
+      <wsdl:output message="tns:GetCommunityMembersIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityRoleMembersID">
+      <wsdl:input message="tns:GetCommunityRoleMembersIDSoapIn" />
+      <wsdl:output message="tns:GetCommunityRoleMembersIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissionMembersID">
+      <wsdl:input message="tns:GetPermissionMembersIDSoapIn" />
+      <wsdl:output message="tns:GetPermissionMembersIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalPermissionMembersID">
+      <wsdl:input message="tns:GetPortalPermissionMembersIDSoapIn" />
+      <wsdl:output message="tns:GetPortalPermissionMembersIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemGuidMembersID">
+      <wsdl:input message="tns:GetItemGuidMembersIDSoapIn" />
+      <wsdl:output message="tns:GetItemGuidMembersIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemIntMembersID">
+      <wsdl:input message="tns:GetItemIntMembersIDSoapIn" />
+      <wsdl:output message="tns:GetItemIntMembersIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemLongMembersID">
+      <wsdl:input message="tns:GetItemLongMembersIDSoapIn" />
+      <wsdl:output message="tns:GetItemLongMembersIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemVersionLongMembersID">
+      <wsdl:input message="tns:GetItemVersionLongMembersIDSoapIn" />
+      <wsdl:output message="tns:GetItemVersionLongMembersIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CommunityServicesSoap" type="tns:CommunityServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCommunityMembersID">
+      <soap:operation soapAction="http://tempuri.org/GetCommunityMembersID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityRoleMembersID">
+      <soap:operation soapAction="http://tempuri.org/GetCommunityRoleMembersID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissionMembersID">
+      <soap:operation soapAction="http://tempuri.org/GetPermissionMembersID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalPermissionMembersID">
+      <soap:operation soapAction="http://tempuri.org/GetPortalPermissionMembersID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemGuidMembersID">
+      <soap:operation soapAction="http://tempuri.org/GetItemGuidMembersID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemIntMembersID">
+      <soap:operation soapAction="http://tempuri.org/GetItemIntMembersID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemLongMembersID">
+      <soap:operation soapAction="http://tempuri.org/GetItemLongMembersID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemVersionLongMembersID">
+      <soap:operation soapAction="http://tempuri.org/GetItemVersionLongMembersID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CommunityServicesSoap12" type="tns:CommunityServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCommunityMembersID">
+      <soap12:operation soapAction="http://tempuri.org/GetCommunityMembersID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityRoleMembersID">
+      <soap12:operation soapAction="http://tempuri.org/GetCommunityRoleMembersID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermissionMembersID">
+      <soap12:operation soapAction="http://tempuri.org/GetPermissionMembersID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalPermissionMembersID">
+      <soap12:operation soapAction="http://tempuri.org/GetPortalPermissionMembersID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemGuidMembersID">
+      <soap12:operation soapAction="http://tempuri.org/GetItemGuidMembersID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemIntMembersID">
+      <soap12:operation soapAction="http://tempuri.org/GetItemIntMembersID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemLongMembersID">
+      <soap12:operation soapAction="http://tempuri.org/GetItemLongMembersID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemVersionLongMembersID">
+      <soap12:operation soapAction="http://tempuri.org/GetItemVersionLongMembersID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommunityServices">
+    <wsdl:port name="CommunityServicesSoap" binding="tns:CommunityServicesSoap">
+      <soap:address location="http://localhost:9450/CommunityServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CommunityServicesSoap12" binding="tns:CommunityServicesSoap12">
+      <soap12:address location="http://localhost:9450/CommunityServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

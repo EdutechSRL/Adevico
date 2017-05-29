@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/lm.ActionDataContract" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/lm.ActionDataContract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="LoginAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientIPadress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastActionDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LoginDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PersonID" type="xs:int" />
+      <xs:element minOccurs="0" name="PersonRoleID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProxyIPadress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkingSessionID" type="ser:guid" />
+      <xs:element minOccurs="0" name="isWorkingSessionClosed" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginAction" nillable="true" type="tns:LoginAction" />
+  <xs:complexType name="UserAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ClientIPadress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CommunityID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Interaction" type="tns:InteractionType" />
+      <xs:element minOccurs="0" name="ModuleID" type="xs:int" />
+      <xs:element minOccurs="0" name="ObjectActions" nillable="true" type="tns:ArrayOfObjectAction" />
+      <xs:element minOccurs="0" name="PersonID" type="xs:int" />
+      <xs:element minOccurs="0" name="PersonRoleID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProxyIPadress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkingSessionID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserAction" nillable="true" type="tns:UserAction" />
+  <xs:simpleType name="InteractionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UserWithUser">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UserWithCommunityAdministrator">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UserWithLearningObject">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Generic">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SystemToSystem">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SystemToUser">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SystemToModule">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ModuleToSystem">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ModuleToModule">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="InteractionType" nillable="true" type="tns:InteractionType" />
+  <xs:complexType name="ArrayOfObjectAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ObjectAction" nillable="true" type="tns:ObjectAction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfObjectAction" nillable="true" type="tns:ArrayOfObjectAction" />
+  <xs:complexType name="ObjectAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ModuleID" type="xs:int" />
+      <xs:element minOccurs="0" name="ObjectTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="ValueID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObjectAction" nillable="true" type="tns:ObjectAction" />
+  <xs:complexType name="BrowserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActiveXControls" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BrowserType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CanInitiateVoiceCall" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ClientIPAdress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cookies" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Frames" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMobileDevice" type="xs:boolean" />
+      <xs:element minOccurs="0" name="JScriptVersion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JavaApplets" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonID" type="xs:int" />
+      <xs:element minOccurs="0" name="PersonTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="Platform" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProxyIPAdress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScreenCharactersWidth" type="xs:int" />
+      <xs:element minOccurs="0" name="ScreenPixelsHeight" type="xs:int" />
+      <xs:element minOccurs="0" name="Tables" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="W3CDomVersion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkingSessionID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BrowserInfo" nillable="true" type="tns:BrowserInfo" />
+  <xs:complexType name="ModuleUsageTime">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ActionNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="CommunityID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModuleID" type="xs:int" />
+      <xs:element minOccurs="0" name="PersonID" type="xs:int" />
+      <xs:element minOccurs="0" name="UsageTime" type="xs:int" />
+      <xs:element minOccurs="0" name="UsageTimeToTimeSpan" type="ser:duration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModuleUsageTime" nillable="true" type="tns:ModuleUsageTime" />
+  <xs:complexType name="CommunityAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CommunityID" type="xs:int" />
+      <xs:element minOccurs="0" name="LastActionDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PersonID" type="xs:int" />
+      <xs:element minOccurs="0" name="PersonRoleID" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkingSessionID" type="ser:guid" />
+      <xs:element minOccurs="0" name="isExitCommunity" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommunityAction" nillable="true" type="tns:CommunityAction" />
+  <xs:complexType name="ModuleAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CommunityID" type="xs:int" />
+      <xs:element minOccurs="0" name="LastActionDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModuleID" type="xs:int" />
+      <xs:element minOccurs="0" name="PersonID" type="xs:int" />
+      <xs:element minOccurs="0" name="PersonRoleID" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkingSessionID" type="ser:guid" />
+      <xs:element minOccurs="0" name="isExitModule" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModuleAction" nillable="true" type="tns:ModuleAction" />
+</xs:schema>

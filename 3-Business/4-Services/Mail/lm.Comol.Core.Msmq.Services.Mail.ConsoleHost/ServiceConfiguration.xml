@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<ServiceConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Enabled>true</Enabled>
+  <Service>
+    <ServiceName>Mail Sender</ServiceName>
+    <ServiceDescription>WinService for sending mail</ServiceDescription>
+  </Service>
+  <WriteLogs>true</WriteLogs>
+  <Istances>
+    <IstanceConfig>
+      <UniqueIdentifier>SVILUPPO</UniqueIdentifier>
+      <Name>SVILUPPO</Name>
+      <AttachmentUploadPath>E:\inetpub\ProgettiWeb\LM_ComolElle3\main_ToRepNew\Src\Comunita_OnLine\Mail\</AttachmentUploadPath>
+      <AttachmentSentPath>E:\inetpub\ProgettiWeb\LM_ComolElle3\main_ToRepNew\Src\Comunita_OnLine\Mail\Sent\</AttachmentSentPath>
+      <ConnectionString>Data Source=#IP_SCORM_SERVER#;Initial Catalog=test;User ID=legge6;Password=lmadm1</ConnectionString>
+      <SaveAttachments>false</SaveAttachments>
+      <Enabled>true</Enabled>
+      <SmtpConfig>
+        <Host>smtpservice.smtp.it</Host>
+        <Port>25</Port>
+        <RelayAllowed>false</RelayAllowed>
+        <MaxRecipients>50</MaxRecipients>
+        <DefaultHTMLmode>true</DefaultHTMLmode>
+        <Authentication>
+          <Enabled>false</Enabled>
+          <EnableSsl>false</EnableSsl>
+          <AccountName></AccountName>
+          <AccountPassword></AccountPassword>
+        </Authentication>
+        <SendMailError>true</SendMailError>
+        <SystemSender>
+          <Address>HelpDesk@invalidmail.not</Address>
+        </SystemSender>
+        <ErrorSender>
+          <Address>HelpDesk@invalidmail.not</Address>
+          <DisplayName>noreply@invalidmail.not</DisplayName>
+        </ErrorSender>
+        <DefaultSettings>
+          <SenderSettings>
+            <IdLanguage>1</IdLanguage>
+            <CodeLanguage>it-IT</CodeLanguage>
+            <IsDefault>true</IsDefault>
+            <SubjectPrefix>[Adevico]</SubjectPrefix>
+            <SubjectForSenderCopy>Copia di:</SubjectForSenderCopy>
+            <Signature>----        invalidmail.not         ----</Signature>
+            <NoReplySignature>------------------------------------------------------------------------&lt;br&gt;Sistema Notifica Automatico – Si prega di non rispondere a questo indirizzo email------------------------------------------------------------------------&lt;br&gt;</NoReplySignature>
+          </SenderSettings>
+        </DefaultSettings>
+      </SmtpConfig>
+    </IstanceConfig>
+  </Istances>
+</ServiceConfig>

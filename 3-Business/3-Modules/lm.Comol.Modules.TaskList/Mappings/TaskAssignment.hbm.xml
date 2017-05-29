@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="lm.Comol.Modules.TaskList" namespace="lm.Comol.Modules.TaskList.Domain ">
+ 
+  <class name="lm.Comol.Modules.TaskList.Domain.TaskAssignment" abstract="true" table="TASK_ASSIGNMENT" lazy="false">
+    <id name="ID" column ="TKAS_id" type="long" >
+      <generator class="native"/>
+    </id>
+
+    <!--<discriminator column="TKAS_Discriminator"
+     not-null="true" insert ="true"
+     type="string"/>-->
+
+    <property name="Completeness">
+      <column name="TKAS_completeness" sql-type="int"/>
+    </property>
+    
+    <property name="TreeVisibility">
+      <column name="TKAS_tree_visibility" sql-type="int"/>
+    </property>
+    
+    <property name="TaskPermissions">
+      <column name="TKAS_Permissions" sql-type="int"/>
+    </property>
+    
+    <property  name="TaskRole"> 
+      <column name="TKAS_TaskRole" sql-type="int"/>
+    </property>
+    
+    <!--Mapping del Task-->
+    <many-to-one name="Task" class="lm.Comol.Modules.TaskList.Domain.Task" column="TKAS_TSK_id" foreign-key="TKAS_TSK_id" fetch="select" lazy="false" />
+    <!--Mapping del Project-->
+    <many-to-one name="Project" class="lm.Comol.Modules.TaskList.Domain.Task" column="TKAS_ProjectId" foreign-key="TKAS_ProjectId" fetch="select" lazy="false" />
+    <!--Mapping del MetaData-->
+    <many-to-one name="MetaInfo" class="lm.Comol.Core.DomainModel.MetaData, lm.Comol.Core.DomainModel" column="TKAS_MTDT_ID" foreign-key="TKAS_MTDT_ID" cascade="all-delete-orphan"/>
+    <!--Mapping dell AssignedUser-->
+    <many-to-one name="AssignedUser" class="lm.Comol.Core.DomainModel.Person, lm.Comol.Core.DomainModel" column="TKAS_PRSN_id" foreign-key="TKAS_PRSN_id"/>
+   
+    <!--<subclass
+      discriminator-value="Person"
+      name="TaskAssignmentByPerson">
+    <many-to-one name="AssignedUser" class="lm.Comol.Core.DomainModel.Person, lm.Comol.Core.DomainModel" column="TKAS_PRSN_id" foreign-key="TKAS_PRSN_id"></many-to-one>
+   </subclass>
+
+    <subclass
+     discriminator-value="CommunityRole"
+     name="TaskAssignmentByCommunityRole">
+	<many-to-one class="lm.Comol.Core.DomainModel.Role, lm.Comol.Core.DomainModel" name="CommunityRole" column="TKAS_CommunityRole_id"></many-to-one>
+    </subclass>-->
+    
+        
+    </class>
+</hibernate-mapping>
+

@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoInvolvingProjects">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAIAACAAAAAAABAAAAAABAAEAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoInvolvingProjects.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoRolesPerTask">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAgAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoRolesPerTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoSelectTask">
+    <Position X="2.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAEAAAAAAAggAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoSelectTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoInvolvingProjectsWithRoles">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAIAIDAABAAAABggAAAABEAEAAAAAAgA=</HashCode>
+      <FileName>Domain\dtoInvolvingProjectsWithRoles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoInvolvingProjectsWithRolesWithHeader">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAABACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoInvolvingProjectsWithRolesWithHeader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoSwichTask">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAABAEABAAAAAggAAABAAEAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoSwichTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoTaskMap">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAEBAEAAAAgAAggAAABAAEAAEAgAAA=</HashCode>
+      <FileName>Domain\dtoTaskMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoTaskSimple">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoTaskSimple.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoTaskAssignment">
+    <Position X="5.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAgIAAEAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoTaskAssignment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoReallocateTA">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAIgIAAEAAAAAAAAAgAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoReallocateTA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoAssignedTasksWithCommunityHeader">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAABACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoAssignedTasksWithCommunityHeader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoAssignedTasks">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAIAADAAAAAAABAgAAAABEAEAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoAssignedTasks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoAssignedTasksWithProjectHeader">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEAAAAAAAAAAAAACABACAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoAssignedTasksWithProjectHeader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoAssignUsers">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAgAAAAABAQAAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoAssignUsers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoReallocateTACompare" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoReallocateTA.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoReallocateTAWithHeader">
+    <Position X="12.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAgAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Domain\dtoReallocateTAWithHeader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoTaskDetailWithPermission">
+    <Position X="12.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoTaskDetailWithPermission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoTaskDetail">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAgAAAEAAAgAAAEDAEACAAgAAgABAABAAEAAEAgCAA=</HashCode>
+      <FileName>Domain\dtoTaskDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoUserWithRole">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\dtoUserWithRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.dtoTaskGantt">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAEBAEAAAAgAAggAAABAAEAAEAgAAA=</HashCode>
+      <FileName>Domain\dtoTaskGantt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

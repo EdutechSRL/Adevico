@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F54EB697-A6F8-4E15-B98A-F8DF5575E88E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lm.Comol.Core.Msmq.Services.Notifications.Service</RootNamespace>
+    <AssemblyName>lm.Comol.Core.Msmq.Services.Notifications.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.1.0.39271, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2">
+      <HintPath>..\..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq, Version=1.0.0.4000, Culture=neutral, PublicKeyToken=444cf6a87fdab271, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\NHibernate.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Library\lm.Comol.Core.CommonLib\_TEMPORARY\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\InternalNotificationService.cs" />
+    <Compile Include="Config\WebConferenceConfig.cs" />
+    <Compile Include="Exceptions\ErrorHandler.cs" />
+    <Compile Include="Exceptions\NotificationException.cs" />
+    <Compile Include="Exceptions\ExceptionType.cs" />
+    <Compile Include="Config\MailServiceConfig.cs" />
+    <Compile Include="Config\ModuleConfig.cs" />
+    <Compile Include="Business\NotificationsService.cs" />
+    <Compile Include="Config\MailConfig.cs" />
+    <Compile Include="Config\IstanceConfig.cs" />
+    <Compile Include="Config\ServiceConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\SrvMailSender\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Service References\SrvMailSender\lm.Comol.Core.MailCommons.Domain.Configurations.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SrvMailSender\lm.Comol.Core.MailCommons.Domain.Messages.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SrvMailSender\lm.Comol.Core.MailCommons.Domain.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SrvMailSender\lm.Comol.Core.Notification.Domain.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SrvMailSender\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SrvMailSender\configuration.svcinfo" />
+    <None Include="Service References\SrvMailSender\configuration91.svcinfo" />
+    <None Include="app.config" />
+    <None Include="Service References\SrvMailSender\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SrvMailSender\lm.Comol.Core.DomainModel.Languages.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SrvMailSender\lm.Comol.Core.DomainModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SrvMailSender\lm.Comol.Core.Mail.Messages.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SrvMailSender\lm.Comol.Core.Mail.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SrvMailSender\service.wsdl" />
+    <None Include="Service References\SrvMailSender\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SrvMailSender\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\1-OldProject\COL_Questionario\COL_Questionario.vbproj">
+      <Project>{10eeacdf-85f8-4aa9-a965-ee1b2fd233d4}</Project>
+      <Name>COL_Questionario</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\2-Core\lm.Comol.Core.DomainModel\lm.Comol.Core.DomainModel.csproj">
+      <Project>{9b7da676-5030-47cd-8b2b-a30a09c8d0b5}</Project>
+      <Name>lm.Comol.Core.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3-Modules\lm.Comol.Core.BaseModules\lm.Comol.Core.BaseModules.csproj">
+      <Project>{7fae537e-6acf-4c65-9d68-e22aec839eea}</Project>
+      <Name>lm.Comol.Core.BaseModules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\7-Data\lm.Comol.Core.Data\lm.Comol.Core.Data.vbproj">
+      <Project>{0890f82d-3130-489d-92b2-8b2a1e3dc5fe}</Project>
+      <Name>lm.Comol.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3-Modules\lm.Comol.Modules.CallForPapers\lm.Comol.Modules.CallForPapers.csproj">
+      <Project>{86ac380f-16e0-4e8f-af84-555e13ea456e}</Project>
+      <Name>lm.Comol.Modules.CallForPapers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3-Modules\lm.Comol.Modules.Standard\lm.Comol.Modules.Standard.csproj">
+      <Project>{d253bf62-a7f2-48d5-ad05-12ac8ea66279}</Project>
+      <Name>lm.Comol.Modules.Standard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\2-Core\lm.Comol.Core.File\lm.Comol.Core.File.csproj">
+      <Project>{ffa417b0-a44b-441a-921b-feb57c5fd7da}</Project>
+      <Name>lm.Comol.Core.File</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3-Modules\lm.Comol.Modules.EduPath\lm.Comol.Modules.EduPath.csproj">
+      <Project>{72bc03af-85e6-4d60-b529-5b0d303d6632}</Project>
+      <Name>lm.Comol.Modules.EduPath</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Mail\lm.Comol.Core.Msmq.Services.Mail.DataContract\lm.Comol.Core.Msmq.Services.Mail.DataContract.csproj">
+      <Project>{878f92a0-34dc-48cf-8977-a8d1bae96f7b}</Project>
+      <Name>lm.Comol.Core.Msmq.Services.Mail.DataContract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SrvMailSender\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

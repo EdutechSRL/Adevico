@@ -1,0 +1,1359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="AvailableTemplates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ActionID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tType" type="tns:dtoTemplateType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="dtoTemplateType">
+        <s:restriction base="s:string">
+          <s:enumeration value="UnknownType" />
+          <s:enumeration value="SummaryNotification" />
+          <s:enumeration value="SingleNotification" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="AvailableTemplatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AvailableTemplatesResult" type="tns:ArrayOfDtoTemplateMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDtoTemplateMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dtoTemplateMessage" nillable="true" type="tns:dtoTemplateMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dtoTemplateMessage">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:dtoTemplateType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModuleCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActionID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LanguageID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="template" type="tns:dtoTemplateMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveTemplateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveTemplateResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="templateID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveTemplateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveTemplateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AvailableModules">
+        <s:complexType />
+      </s:element>
+      <s:element name="AvailableModulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AvailableModulesResult" type="tns:ArrayOfDtoModule" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDtoModule">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dtoModule" nillable="true" type="tns:dtoModule" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dtoModule">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Actions" type="tns:ArrayOfDtoModuleAction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDtoModuleAction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dtoModuleAction" nillable="true" type="tns:dtoModuleAction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dtoModuleAction">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TypeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RemoveNews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NotificationID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveNewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveNewsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveCommunityNews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveCommunityNewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveCommunityNewsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveUserNews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveUserNewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveUserNewsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveUserNewsByCommunity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveUserNewsByCommunityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveUserNewsByCommunityResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveNewsSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NotificationID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveNewsSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveNewsSummaryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveCommunityNewsSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveCommunityNewsSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveCommunityNewsSummaryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveUserNewsSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveUserNewsSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveUserNewsSummaryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveUserNewsSummaryByCommunity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveUserNewsSummaryByCommunityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveUserNewsSummaryByCommunityResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetModulesWithNews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDay" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetModulesWithNewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetModulesWithNewsResult" type="tns:ArrayOfDtoModule" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommunityModulesWithNews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDay" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommunityModulesWithNewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommunityModulesWithNewsResult" type="tns:ArrayOfDtoModule" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersonalCommunityWithNews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersonalCommunityWithNewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPersonalCommunityWithNewsResult" type="tns:ArrayOfDtoCommunityWithNews" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDtoCommunityWithNews">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dtoCommunityWithNews" nillable="true" type="tns:dtoCommunityWithNews" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dtoCommunityWithNews">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActionCount" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUserRead" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateCommunityNewsCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="previous" type="tns:dtoCommunityWithNews" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCommunityNewsCountResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetWeekDaysWithNews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartDay" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWeekDaysWithNewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWeekDaysWithNewsResult" type="tns:ArrayOfDateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDateTime">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dateTime" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMonthDaysWithNews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartDay" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthDaysWithNewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMonthDaysWithNewsResult" type="tns:ArrayOfDateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommunitySummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartDay" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="LanguageID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommunitySummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommunitySummaryResult" type="tns:ArrayOfDtoCommunitySummaryNotification" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDtoCommunitySummaryNotification">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dtoCommunitySummaryNotification" nillable="true" type="tns:dtoCommunitySummaryNotification" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dtoCommunitySummaryNotification">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCommunityNews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OnlySummary" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDay" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserLanguageID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DefaultLanguageID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommunityNewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommunityNewsResult" type="tns:ArrayOfCommunityNews" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCommunityNews">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CommunityNews" nillable="true" type="tns:CommunityNews" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CommunityNews">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UniqueID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SentDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCommunityNewsCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OnlySummary" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDay" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserLanguageID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DefaultLanguageID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommunityNewsCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCommunityNewsCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersonCommunityNews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OnlySummary" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDay" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserLanguageID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DefaultLanguageID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersonCommunityNewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPersonCommunityNewsResult" type="tns:ArrayOfCommunityNews" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersonCommunityNewsCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OnlySummary" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDay" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserLanguageID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DefaultLanguageID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPersonCommunityNewsCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPersonCommunityNewsCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPortalAllNewsInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FromDay" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPortalAllNewsInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPortalAllNewsInfoResult" type="tns:ArrayOfDtoNewsInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDtoNewsInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dtoNewsInfo" nillable="true" type="tns:dtoNewsInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dtoNewsInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UniqueID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SentDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPortalAllNewsCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FromDay" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPortalAllNewsCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPortalAllNewsCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommunityAllNewsInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FromDay" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommunityAllNewsInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommunityAllNewsInfoResult" type="tns:ArrayOfDtoNewsInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommunityAllNewsCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FromDay" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommunityAllNewsCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCommunityAllNewsCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNotifications">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="notificationsID" type="tns:ArrayOfGuid" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserLanguageID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DefaultLanguageID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGuid">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="guid" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetNotificationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNotificationsResult" type="tns:ArrayOfCommunityNews" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AvailableTemplatesSoapIn">
+    <wsdl:part name="parameters" element="tns:AvailableTemplates" />
+  </wsdl:message>
+  <wsdl:message name="AvailableTemplatesSoapOut">
+    <wsdl:part name="parameters" element="tns:AvailableTemplatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveTemplate" />
+  </wsdl:message>
+  <wsdl:message name="SaveTemplateSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveTemplate" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTemplateSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AvailableModulesSoapIn">
+    <wsdl:part name="parameters" element="tns:AvailableModules" />
+  </wsdl:message>
+  <wsdl:message name="AvailableModulesSoapOut">
+    <wsdl:part name="parameters" element="tns:AvailableModulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveNewsSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveNews" />
+  </wsdl:message>
+  <wsdl:message name="RemoveNewsSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCommunityNewsSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveCommunityNews" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCommunityNewsSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveCommunityNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserNewsSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveUserNews" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserNewsSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveUserNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserNewsByCommunitySoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveUserNewsByCommunity" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserNewsByCommunitySoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveUserNewsByCommunityResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveNewsSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveNewsSummary" />
+  </wsdl:message>
+  <wsdl:message name="RemoveNewsSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveNewsSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCommunityNewsSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveCommunityNewsSummary" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCommunityNewsSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveCommunityNewsSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserNewsSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveUserNewsSummary" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserNewsSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveUserNewsSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserNewsSummaryByCommunitySoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveUserNewsSummaryByCommunity" />
+  </wsdl:message>
+  <wsdl:message name="RemoveUserNewsSummaryByCommunitySoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveUserNewsSummaryByCommunityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetModulesWithNewsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetModulesWithNews" />
+  </wsdl:message>
+  <wsdl:message name="GetModulesWithNewsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetModulesWithNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunityModulesWithNewsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommunityModulesWithNews" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunityModulesWithNewsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommunityModulesWithNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonalCommunityWithNewsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPersonalCommunityWithNews" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonalCommunityWithNewsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPersonalCommunityWithNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCommunityNewsCountSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCommunityNewsCount" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCommunityNewsCountSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCommunityNewsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWeekDaysWithNewsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWeekDaysWithNews" />
+  </wsdl:message>
+  <wsdl:message name="GetWeekDaysWithNewsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWeekDaysWithNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthDaysWithNewsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMonthDaysWithNews" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthDaysWithNewsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMonthDaysWithNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunitySummarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommunitySummary" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunitySummarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommunitySummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunityNewsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommunityNews" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunityNewsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommunityNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunityNewsCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommunityNewsCount" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunityNewsCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommunityNewsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonCommunityNewsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPersonCommunityNews" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonCommunityNewsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPersonCommunityNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonCommunityNewsCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPersonCommunityNewsCount" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonCommunityNewsCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPersonCommunityNewsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPortalAllNewsInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPortalAllNewsInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPortalAllNewsInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPortalAllNewsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPortalAllNewsCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPortalAllNewsCount" />
+  </wsdl:message>
+  <wsdl:message name="GetPortalAllNewsCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPortalAllNewsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunityAllNewsInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommunityAllNewsInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunityAllNewsInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommunityAllNewsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunityAllNewsCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommunityAllNewsCount" />
+  </wsdl:message>
+  <wsdl:message name="GetCommunityAllNewsCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommunityAllNewsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNotifications" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNotificationsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="NotificationManagementSoap">
+    <wsdl:operation name="AvailableTemplates">
+      <wsdl:input message="tns:AvailableTemplatesSoapIn" />
+      <wsdl:output message="tns:AvailableTemplatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTemplate">
+      <wsdl:input message="tns:SaveTemplateSoapIn" />
+      <wsdl:output message="tns:SaveTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTemplate">
+      <wsdl:input message="tns:RemoveTemplateSoapIn" />
+      <wsdl:output message="tns:RemoveTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AvailableModules">
+      <wsdl:input message="tns:AvailableModulesSoapIn" />
+      <wsdl:output message="tns:AvailableModulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveNews">
+      <wsdl:input message="tns:RemoveNewsSoapIn" />
+      <wsdl:output message="tns:RemoveNewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCommunityNews">
+      <wsdl:input message="tns:RemoveCommunityNewsSoapIn" />
+      <wsdl:output message="tns:RemoveCommunityNewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserNews">
+      <wsdl:input message="tns:RemoveUserNewsSoapIn" />
+      <wsdl:output message="tns:RemoveUserNewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserNewsByCommunity">
+      <wsdl:input message="tns:RemoveUserNewsByCommunitySoapIn" />
+      <wsdl:output message="tns:RemoveUserNewsByCommunitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveNewsSummary">
+      <wsdl:input message="tns:RemoveNewsSummarySoapIn" />
+      <wsdl:output message="tns:RemoveNewsSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCommunityNewsSummary">
+      <wsdl:input message="tns:RemoveCommunityNewsSummarySoapIn" />
+      <wsdl:output message="tns:RemoveCommunityNewsSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserNewsSummary">
+      <wsdl:input message="tns:RemoveUserNewsSummarySoapIn" />
+      <wsdl:output message="tns:RemoveUserNewsSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserNewsSummaryByCommunity">
+      <wsdl:input message="tns:RemoveUserNewsSummaryByCommunitySoapIn" />
+      <wsdl:output message="tns:RemoveUserNewsSummaryByCommunitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModulesWithNews">
+      <wsdl:input message="tns:GetModulesWithNewsSoapIn" />
+      <wsdl:output message="tns:GetModulesWithNewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityModulesWithNews">
+      <wsdl:input message="tns:GetCommunityModulesWithNewsSoapIn" />
+      <wsdl:output message="tns:GetCommunityModulesWithNewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalCommunityWithNews">
+      <wsdl:input message="tns:GetPersonalCommunityWithNewsSoapIn" />
+      <wsdl:output message="tns:GetPersonalCommunityWithNewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCommunityNewsCount">
+      <wsdl:input message="tns:UpdateCommunityNewsCountSoapIn" />
+      <wsdl:output message="tns:UpdateCommunityNewsCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWeekDaysWithNews">
+      <wsdl:input message="tns:GetWeekDaysWithNewsSoapIn" />
+      <wsdl:output message="tns:GetWeekDaysWithNewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthDaysWithNews">
+      <wsdl:input message="tns:GetMonthDaysWithNewsSoapIn" />
+      <wsdl:output message="tns:GetMonthDaysWithNewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunitySummary">
+      <wsdl:input message="tns:GetCommunitySummarySoapIn" />
+      <wsdl:output message="tns:GetCommunitySummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityNews">
+      <wsdl:input message="tns:GetCommunityNewsSoapIn" />
+      <wsdl:output message="tns:GetCommunityNewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityNewsCount">
+      <wsdl:input message="tns:GetCommunityNewsCountSoapIn" />
+      <wsdl:output message="tns:GetCommunityNewsCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonCommunityNews">
+      <wsdl:input message="tns:GetPersonCommunityNewsSoapIn" />
+      <wsdl:output message="tns:GetPersonCommunityNewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonCommunityNewsCount">
+      <wsdl:input message="tns:GetPersonCommunityNewsCountSoapIn" />
+      <wsdl:output message="tns:GetPersonCommunityNewsCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalAllNewsInfo">
+      <wsdl:input message="tns:GetPortalAllNewsInfoSoapIn" />
+      <wsdl:output message="tns:GetPortalAllNewsInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalAllNewsCount">
+      <wsdl:input message="tns:GetPortalAllNewsCountSoapIn" />
+      <wsdl:output message="tns:GetPortalAllNewsCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityAllNewsInfo">
+      <wsdl:input message="tns:GetCommunityAllNewsInfoSoapIn" />
+      <wsdl:output message="tns:GetCommunityAllNewsInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityAllNewsCount">
+      <wsdl:input message="tns:GetCommunityAllNewsCountSoapIn" />
+      <wsdl:output message="tns:GetCommunityAllNewsCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotifications">
+      <wsdl:input message="tns:GetNotificationsSoapIn" />
+      <wsdl:output message="tns:GetNotificationsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NotificationManagementSoap" type="tns:NotificationManagementSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AvailableTemplates">
+      <soap:operation soapAction="http://tempuri.org/AvailableTemplates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTemplate">
+      <soap:operation soapAction="http://tempuri.org/SaveTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTemplate">
+      <soap:operation soapAction="http://tempuri.org/RemoveTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AvailableModules">
+      <soap:operation soapAction="http://tempuri.org/AvailableModules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveNews">
+      <soap:operation soapAction="http://tempuri.org/RemoveNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCommunityNews">
+      <soap:operation soapAction="http://tempuri.org/RemoveCommunityNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserNews">
+      <soap:operation soapAction="http://tempuri.org/RemoveUserNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserNewsByCommunity">
+      <soap:operation soapAction="http://tempuri.org/RemoveUserNewsByCommunity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveNewsSummary">
+      <soap:operation soapAction="http://tempuri.org/RemoveNewsSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCommunityNewsSummary">
+      <soap:operation soapAction="http://tempuri.org/RemoveCommunityNewsSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserNewsSummary">
+      <soap:operation soapAction="http://tempuri.org/RemoveUserNewsSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserNewsSummaryByCommunity">
+      <soap:operation soapAction="http://tempuri.org/RemoveUserNewsSummaryByCommunity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModulesWithNews">
+      <soap:operation soapAction="http://tempuri.org/GetModulesWithNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityModulesWithNews">
+      <soap:operation soapAction="http://tempuri.org/GetCommunityModulesWithNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalCommunityWithNews">
+      <soap:operation soapAction="http://tempuri.org/GetPersonalCommunityWithNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCommunityNewsCount">
+      <soap:operation soapAction="http://tempuri.org/UpdateCommunityNewsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeekDaysWithNews">
+      <soap:operation soapAction="http://tempuri.org/GetWeekDaysWithNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthDaysWithNews">
+      <soap:operation soapAction="http://tempuri.org/GetMonthDaysWithNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunitySummary">
+      <soap:operation soapAction="http://tempuri.org/GetCommunitySummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityNews">
+      <soap:operation soapAction="http://tempuri.org/GetCommunityNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityNewsCount">
+      <soap:operation soapAction="http://tempuri.org/GetCommunityNewsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonCommunityNews">
+      <soap:operation soapAction="http://tempuri.org/GetPersonCommunityNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonCommunityNewsCount">
+      <soap:operation soapAction="http://tempuri.org/GetPersonCommunityNewsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalAllNewsInfo">
+      <soap:operation soapAction="http://tempuri.org/GetPortalAllNewsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalAllNewsCount">
+      <soap:operation soapAction="http://tempuri.org/GetPortalAllNewsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityAllNewsInfo">
+      <soap:operation soapAction="http://tempuri.org/GetCommunityAllNewsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityAllNewsCount">
+      <soap:operation soapAction="http://tempuri.org/GetCommunityAllNewsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotifications">
+      <soap:operation soapAction="http://tempuri.org/GetNotifications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NotificationManagementSoap12" type="tns:NotificationManagementSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AvailableTemplates">
+      <soap12:operation soapAction="http://tempuri.org/AvailableTemplates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTemplate">
+      <soap12:operation soapAction="http://tempuri.org/SaveTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTemplate">
+      <soap12:operation soapAction="http://tempuri.org/RemoveTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AvailableModules">
+      <soap12:operation soapAction="http://tempuri.org/AvailableModules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveNews">
+      <soap12:operation soapAction="http://tempuri.org/RemoveNews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCommunityNews">
+      <soap12:operation soapAction="http://tempuri.org/RemoveCommunityNews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserNews">
+      <soap12:operation soapAction="http://tempuri.org/RemoveUserNews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserNewsByCommunity">
+      <soap12:operation soapAction="http://tempuri.org/RemoveUserNewsByCommunity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveNewsSummary">
+      <soap12:operation soapAction="http://tempuri.org/RemoveNewsSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCommunityNewsSummary">
+      <soap12:operation soapAction="http://tempuri.org/RemoveCommunityNewsSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserNewsSummary">
+      <soap12:operation soapAction="http://tempuri.org/RemoveUserNewsSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserNewsSummaryByCommunity">
+      <soap12:operation soapAction="http://tempuri.org/RemoveUserNewsSummaryByCommunity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModulesWithNews">
+      <soap12:operation soapAction="http://tempuri.org/GetModulesWithNews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityModulesWithNews">
+      <soap12:operation soapAction="http://tempuri.org/GetCommunityModulesWithNews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalCommunityWithNews">
+      <soap12:operation soapAction="http://tempuri.org/GetPersonalCommunityWithNews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCommunityNewsCount">
+      <soap12:operation soapAction="http://tempuri.org/UpdateCommunityNewsCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeekDaysWithNews">
+      <soap12:operation soapAction="http://tempuri.org/GetWeekDaysWithNews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthDaysWithNews">
+      <soap12:operation soapAction="http://tempuri.org/GetMonthDaysWithNews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunitySummary">
+      <soap12:operation soapAction="http://tempuri.org/GetCommunitySummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityNews">
+      <soap12:operation soapAction="http://tempuri.org/GetCommunityNews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityNewsCount">
+      <soap12:operation soapAction="http://tempuri.org/GetCommunityNewsCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonCommunityNews">
+      <soap12:operation soapAction="http://tempuri.org/GetPersonCommunityNews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonCommunityNewsCount">
+      <soap12:operation soapAction="http://tempuri.org/GetPersonCommunityNewsCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalAllNewsInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetPortalAllNewsInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalAllNewsCount">
+      <soap12:operation soapAction="http://tempuri.org/GetPortalAllNewsCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityAllNewsInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetCommunityAllNewsInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityAllNewsCount">
+      <soap12:operation soapAction="http://tempuri.org/GetCommunityAllNewsCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotifications">
+      <soap12:operation soapAction="http://tempuri.org/GetNotifications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NotificationManagement">
+    <wsdl:port name="NotificationManagementSoap" binding="tns:NotificationManagementSoap">
+      <soap:address location="http://localhost:9460/NotificationManagement.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NotificationManagementSoap12" binding="tns:NotificationManagementSoap12">
+      <soap12:address location="http://localhost:9460/NotificationManagement.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

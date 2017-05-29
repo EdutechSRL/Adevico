@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="lm.Comol.Modules.TaskList" namespace="lm.Comol.Modules.TaskList.Domain">
+  <class name="lm.Comol.Modules.TaskList.Domain.PredecessionLink,  lm.Comol.Modules.TaskList" table="LK_TASK_PREDECESSOR_LINK" lazy="false">
+    <id name="ID" column="TKPRLK_id" type="Int32">
+      <generator class="native"/>
+    </id>
+    
+    <many-to-one name="MetaInfo" class="lm.Comol.Core.DomainModel.MetaData, lm.Comol.Core.DomainModel" column="TKPRLK_MTDT_ID" foreign-key="TKPRLK_MTDT_ID"  cascade="all-delete-orphan"/>
+    <many-to-one name="SuccessorTask" class="lm.Comol.Modules.TaskList.Domain.Task, lm.Comol.Modules.TaskList" column="TKPRLK_SCSS_id" foreign-key="TKPRLK_SCSS_id"  cascade="all-delete-orphan"/>
+    <many-to-one name="PredecessorTask" class="lm.Comol.Modules.TaskList.Domain.Task, lm.Comol.Modules.TaskList" column="TKPRLK_PRDC_id" foreign-key="TKPRLK_PRDC_id"  cascade="all-delete-orphan"/>
+  
+  </class>
+</hibernate-mapping>
+
+<!--<class name="Eg.Parent, Eg">
+    <id name="Id" column="id"/>
+    ....
+    <set name="Children" inverse="true" lazy="true">
+        <key column="parent_id"/>
+        <one-to-many class="Eg.Child, Eg"/>
+    </set>
+</class>
+
+<class name="Eg.Child, Eg">
+    <id name="Id" column="id"/>
+    ....
+    <many-to-one name="Parent" class="Eg.Parent, Eg" column="parent_id"/>
+</class>-->
+
+
+<!--<class name="NHibernate.Auction.Category, NHibernate.Auction">
+  <id name="Id" column="ID"/>
+  ...
+  <bag name="Items" table="CATEGORY_ITEM" lazy="true">
+    <key column="CATEGORY_ID"/>
+    <many-to-many class="NHibernate.Auction.Item, NHibernate.Auction" column="ITEM_ID"/>
+  </bag>
+</class>
+
+<class name="NHibernate.Auction.Item, NHibernate.Auction">
+  <id name="id" column="ID"/>
+  ...
+
+  x<!-x- inverse end -x-x>
+  <bag name="categories" table="CATEGORY_ITEM" inverse="true" lazy="true">
+    <key column="ITEM_ID"/>
+    <many-to-many class="NHibernate.Auction.Category, NHibernate.Auction" column="CATEGORY_ID"/>
+  </bag>
+</class>-->

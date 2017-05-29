@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="lm.Comol.Modules.TaskList.Domain.ProjectForGanttXML">
+    <Position X="13" Y="7.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\ProjectForGanttXML.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.TaskForGanttXML" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAEAJAYMEgIAAAAQAFCRIAACBAAAEAGAAAQARAAABA=</HashCode>
+      <FileName>Domain\ProjectForGanttXML.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.Task">
+    <Position X="3.25" Y="4.5" Width="1.5" />
+    <AssociationLine Name="TaskParent" Type="lm.Comol.Modules.TaskList.Domain.Task" ManuallyRouted="true">
+      <Path>
+        <Point X="3.782" Y="4.5" />
+        <Point X="3.782" Y="3.985" />
+        <Point X="4.228" Y="3.985" />
+        <Point X="4.228" Y="4.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="TaskChildren" Type="lm.Comol.Modules.TaskList.Domain.Task" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.438" Y="9.708" />
+        <Point X="3.438" Y="10.084" />
+        <Point X="2.875" Y="10.084" />
+        <Point X="2.875" Y="9.125" />
+        <Point X="3.25" Y="9.125" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAgAACGAAKggYBEAAAACBQgAAAAAAABAAEAAEAoSAA=</HashCode>
+      <FileName>Domain\Task.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Priority" />
+      <Property Name="Status" />
+      <Property Name="TaskParent" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="TaskChildren" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.TaskAssignment">
+    <Position X="6" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAgIAAAAAgCAAIAAAAAAAAAEEAAAAgAAA=</HashCode>
+      <FileName>Domain\TaskAssignment.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TaskRole" />
+      <Property Name="AssignedUser" />
+      <Property Name="Task" />
+      <Property Name="Project" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.TaskCategory">
+    <Position X="8.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\TaskCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.TaskListFile">
+    <Position X="10.5" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BAAAAACAAAAAAAEkABAAgABAQAAEEAAAAAAAYAAAEAA=</HashCode>
+      <FileName>Domain\TaskListFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.TaskListFilePermission">
+    <Position X="12.5" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAACAAAAQAAAAAAAAEAAAAAgCEEAAAAAAA=</HashCode>
+      <FileName>Domain\TaskListFilePermission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Modules.TaskList.Domain.TaskPermission">
+    <Position X="10.5" Y="9" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\TaskPermission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lm.Comol.Core.DomainModel.Person" Collapsed="true">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Enum Name="lm.Comol.Modules.TaskList.Domain.TaskPriority">
+    <Position X="6" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAoAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Enum\TaskPriority.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="lm.Comol.Modules.TaskList.Domain.TaskRole">
+    <Position X="8.5" Y="8.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAIAAAAAIgAAAAAAAAAAAABAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Domain\Enum\TaskRole.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="lm.Comol.Modules.TaskList.Domain.TaskStatus">
+    <Position X="8.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAQAAAAQAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Enum\TaskStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

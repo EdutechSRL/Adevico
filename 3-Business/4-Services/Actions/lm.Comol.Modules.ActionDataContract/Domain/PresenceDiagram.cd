@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="lm.Comol.Modules.UserActions.Domain.Action">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAQgAAAAAAAAAQAABAAAAQAAAAAAAAAQAQAAAAAEA=</HashCode>
+      <FileName>Domain\Class\Action.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="lm.Comol.Modules.UserActions.Domain.BaseIPaddress">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAQAIAAAAAAAEAAAAAAMAAA=</HashCode>
+      <FileName>Domain\Class\BaseIPaddress.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="lm.Comol.Modules.UserActions.Domain.BrowserInfo">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>aEAAAkAICAABIAAAABEAQAAAAAAAAAAACACIAAAAAEE=</HashCode>
+      <FileName>Domain\Class\BrowserInfo.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="lm.Comol.Modules.UserActions.Domain.LoginAction">
+    <Position X="3.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAAAAgCAAAAAAAAAAAAAAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Class\LoginAction.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="lm.Comol.Modules.UserActions.Domain.ModuleUsageTime">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAQAAAIAAAAAAAABBAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Class\ModuleUsageTime.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="lm.Comol.Modules.UserActions.Domain.ObjectAction">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>Domain\Class\ObjectAction.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="lm.Comol.Modules.UserActions.Domain.iAction">
+    <Position X="3.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAQgAAAAAAAAAQAABAAAAQAAAAAAAAAQAQAAAAAEA=</HashCode>
+      <FileName>Domain\Interface\iAction.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ObjectActions" />
+    </ShowAsCollectionAssociation>
+  </Interface>
+  <Interface Name="lm.Comol.Modules.UserActions.Domain.iBaseIPaddress">
+    <Position X="13.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAIAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Interface\iBaseIPaddress.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="lm.Comol.Modules.UserActions.Domain.iBrowserinfo">
+    <Position X="10.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>aEAAAkAICAABIAAAABEAQAAAAAAAAAAACACIAAAAAEE=</HashCode>
+      <FileName>Domain\Interface\iBrowserinfo.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="BaseIPaddress" />
+    </ShowAsCollectionAssociation>
+  </Interface>
+  <Interface Name="lm.Comol.Modules.UserActions.Domain.iLoginAction">
+    <Position X="3.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAAAAgCAAAAAAAAAAAAAAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Interface\iLoginAction.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="lm.Comol.Modules.UserActions.Domain.iModuleUsageTime">
+    <Position X="6" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAQAAAIAAAAAAAABBAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Interface\iModuleUsageTime.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="lm.Comol.Modules.UserActions.Domain.iObjectAction">
+    <Position X="6.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>Domain\Interface\iObjectAction.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="lm.Comol.Modules.UserActions.Domain.iType">
+    <Position X="8.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAQAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Interface\iType.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="lm.Comol.Modules.UserActions.Domain.InteractionType">
+    <Position X="13" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAABAAAAQAAAEAAAQAIABAAAAAABAAAAAAEAAAg=</HashCode>
+      <FileName>Domain\Interface\InteractionType.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{59560597-39BE-48BB-AD93-35C57C74E482}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lm.Comol.Modules.TaskList</RootNamespace>
+    <AssemblyName>lm.Comol.Modules.TaskList</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq, Version=1.0.0.4000, Culture=neutral, PublicKeyToken=444cf6a87fdab271, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\NHibernate.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\Control.cs" />
+    <Compile Include="Business\CoreTaskService.cs" />
+    <Compile Include="Business\TaskManager.cs" />
+    <Compile Include="Business\TaskManagerWithPredecessor.cs" />
+    <Compile Include="DataLayer\BasicSessionMgr.cs" />
+    <Compile Include="Domain\dtoAdminProjects.cs" />
+    <Compile Include="Domain\dtoAdminProjectsWithCommunityHeader.cs" />
+    <Compile Include="Domain\dtoAssignedTasks.cs" />
+    <Compile Include="Domain\dtoAssignedTasksWithCommunityHeader.cs" />
+    <Compile Include="Domain\dtoAssignedTasksWithProjectHeader.cs" />
+    <Compile Include="Domain\dtoAssignUsers.cs" />
+    <Compile Include="Domain\dtoCommunityForDDL.cs" />
+    <Compile Include="Domain\dtoInvolvingProjects.cs" />
+    <Compile Include="Domain\dtoInvolvingProjectsWithRoles.cs" />
+    <Compile Include="Domain\dtoInvolvingProjectsWithRolesWithHeader.cs" />
+    <Compile Include="Domain\dtoQuickUserSelection.cs" />
+    <Compile Include="Domain\dtoReallocateTA.cs" />
+    <Compile Include="Domain\dtoReallocateTAWithHeader.cs" />
+    <Compile Include="Domain\dtoRolesPerTask.cs" />
+    <Compile Include="Domain\dtoSelectTask.cs" />
+    <Compile Include="Domain\dtoSwichTask.cs" />
+    <Compile Include="Domain\dtoTask.cs" />
+    <Compile Include="Domain\dtoTaskAssignment.cs" />
+    <Compile Include="Domain\dtoTaskDetail.cs" />
+    <Compile Include="Domain\dtoTaskDetailWithPermission.cs" />
+    <Compile Include="Domain\dtoTaskGantt.cs" />
+    <Compile Include="Domain\dtoTaskMap.cs" />
+    <Compile Include="Domain\dtoTaskSimple.cs" />
+    <Compile Include="Domain\dtoTaskWithPortalComm.cs" />
+    <Compile Include="Domain\dtoUsers.cs" />
+    <Compile Include="Domain\dtoUsersOnQuickSelection.cs" />
+    <Compile Include="Domain\dtoUserWithRole.cs" />
+    <Compile Include="Domain\Enum\Enum Code Behind\Sorting.cs" />
+    <Compile Include="Domain\Enum\Enum Code Behind\TasksPageOrderBy.cs" />
+    <Compile Include="Domain\Enum\Enum Code Behind\TaskListOrder.cs" />
+    <Compile Include="Domain\Enum\Enum Code Behind\TaskListType.cs" />
+    <Compile Include="Domain\Enum\Enum Code Behind\TaskManagedType.cs" />
+    <Compile Include="Domain\Enum\Enum Code Behind\ViewModeType.cs" />
+    <Compile Include="Domain\Enum\TaskPermissionEnum.cs" />
+    <Compile Include="Domain\Enum\TaskPriority.cs" />
+    <Compile Include="Domain\Enum\TaskRole.cs" />
+    <Compile Include="Domain\Enum\TaskStatus.cs" />
+    <Compile Include="Domain\Enum\TreeVisibility.cs" />
+    <Compile Include="Domain\PredecessionLink.cs" />
+    <Compile Include="Domain\ProjectForGanttXML.cs" />
+    <Compile Include="Domain\Enum\Enum Code Behind\ProjectOrderBy.cs" />
+    <Compile Include="Domain\RootObject.cs" />
+    <Compile Include="Domain\Task.cs" />
+    <Compile Include="Domain\TaskAssignment.cs" />
+    <Compile Include="Domain\TaskCategory.cs" />
+    <Compile Include="Domain\Enum\Enum Code Behind\TaskFilter.cs" />
+    <Compile Include="Domain\TaskListFile.cs" />
+    <Compile Include="Domain\TaskListFilePermission.cs" />
+    <Compile Include="Domain\TaskPermission.cs" />
+    <Compile Include="FileManagementIViewPresenter\IViewLinkRepositoryItemsToTask.cs" />
+    <Compile Include="FileManagementIViewPresenter\IViewManagementTaskFile.cs" />
+    <Compile Include="FileManagementIViewPresenter\IViewMultipleTaskUpload.cs" />
+    <Compile Include="FileManagementIViewPresenter\IViewTaskMultipleUpload.cs" />
+    <Compile Include="FileManagementIViewPresenter\LinkRepositoryItemstoTaskPresenter.cs" />
+    <Compile Include="FileManagementIViewPresenter\ManagementTaskFilePresenter.cs" />
+    <Compile Include="FileManagementIViewPresenter\ModuleTasklist.cs" />
+    <Compile Include="FileManagementIViewPresenter\MultipleTaskUploadPresenter.cs" />
+    <Compile Include="FileManagementIViewPresenter\ServiceTaskList.cs" />
+    <Compile Include="FileManagementIViewPresenter\TaskMultipleUploadPresenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\2-Core\lm.Comol.Core.File\lm.Comol.Core.File.csproj">
+      <Project>{FFA417B0-A44B-441A-921B-FEB57C5FD7DA}</Project>
+      <Name>lm.Comol.Core.File</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\1-OldProject\COL_BusinessLogic\COL_BusinessLogic_v2.0.vbproj">
+      <Project>{51F57FB8-1245-4EA5-BF34-D6412C283AFB}</Project>
+      <Name>COL_BusinessLogic_v2.0</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\2-Core\lm.Comol.Core.DomainModel\lm.Comol.Core.DomainModel.csproj">
+      <Project>{9B7DA676-5030-47CD-8B2B-A30A09C8D0B5}</Project>
+      <Name>lm.Comol.Core.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lm.Comol.Core.BaseModules\lm.Comol.Core.BaseModules.csproj">
+      <Project>{7FAE537E-6ACF-4C65-9D68-E22AEC839EEA}</Project>
+      <Name>lm.Comol.Core.BaseModules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\7-Data\lm.Comol.Core.Data\lm.Comol.Core.Data.vbproj">
+      <Project>{0890F82D-3130-489D-92B2-8B2A1E3DC5FE}</Project>
+      <Name>lm.Comol.Core.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\PredecessionLink.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Task.hbm.xml" />
+    <EmbeddedResource Include="Mappings\TaskAssignment.hbm.xml" />
+    <EmbeddedResource Include="Mappings\TaskCategory.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="TaskList.cd" />
+    <None Include="Test\TasklistManager.cd" />
+    <None Include="Test\TaskList_dto.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\TaskListFile.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

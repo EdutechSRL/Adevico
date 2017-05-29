@@ -1,0 +1,21 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="lm.Notification.Core" namespace="lm.Notification.Core.Domain">
+  <class name="TemplateMessage" table="NotificationTemplate" >
+    <id name="ID" column="NTFT_ID" type="Int64" unsaved-value="0">
+      <generator class="native"/>
+    </id>
+    <!--<property name="Type" type="Int32" column="NTFT_Type" />-->
+	  <property  name="Type">
+		  <column name="NTFT_Type" sql-type="int32" not-null="true"/>
+		  <type name ="TemplateType">
+			  <param name ="enumClass">TemplateType</param>
+		  </type>
+	  </property>
+
+	  <property name="Name" type="String" column="NTFT_Name" />
+    <property name="ModuleCode" type="String" column="NTFT_ModuleCode" />
+    <property name="ModuleID" type="Int32" column="NTFT_ModuleID" />
+    <property name="ActionID" type="Int32" column="NTFT_ActionID" />
+    <property name="Message" type="String" column="NTFT_Message" />
+    <property name="LanguageID" type="Int32" column="NTFT_LanguageID" />
+  </class>
+</hibernate-mapping>

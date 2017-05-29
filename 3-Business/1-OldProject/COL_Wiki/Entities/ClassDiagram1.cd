@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="COL_Wiki.WikiNew.Files">
+    <Position X="9.75" Y="7.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="COL_Wiki.WikiNew.Files.TipoFile" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Entities\Files.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQAAAAEAAAAAAAIEAAAAAAAAhAAAARAAEAACAYJAAEQ=</HashCode>
+      <FileName>Entities\Files.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COL_Wiki.WikiNew.Wiki">
+    <Position X="0.75" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Comunita" Type="COL_BusinessLogic_v2.Comunita.COL_Comunita" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.562" Y="2.25" />
+        <Point X="1.562" Y="1.691" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.159" Y="0.36" Height="0.182" Width="1.118" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABgAAAAAAAIAAAAIAAAAAAAEAAAAEEAIA=</HashCode>
+      <FileName>Entities\Wiki.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Comunita" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="COL_Wiki.WikiNew.Permesso" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="5.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="EnumPermesso" Type="COL_Wiki.WikiNew.SingoloPermesso">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.108" Y="0.078" Height="0.182" Width="1.355" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IDCAIQgBAAAggAQCgABAAAAABAAAAIEQAAQCIgMAAAA=</HashCode>
+      <FileName>Entities\Permesso.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="EnumPermesso" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="COL_Wiki.WikiNew.SezioneWiki">
+    <Position X="3" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Wiki" Type="COL_Wiki.WikiNew.Wiki" FixedFromPoint="true">
+      <Path>
+        <Point X="3" Y="3.062" />
+        <Point X="2.25" Y="3.062" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.173" Y="0.07" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Persona" Type="COL_BusinessLogic_v2.CL_persona.COL_Persona">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.88" Y="0.862" Height="0.182" Width="0.785" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IRAAAYAAAAAAgIACAACBAAAAgAAIAAAACEGEAQMEApA=</HashCode>
+      <FileName>Entities\SezioneWiki.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Wiki" />
+      <Property Name="Persona" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="COL_Wiki.WikiNew.TopicHistoryWiki">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Persona" Type="COL_BusinessLogic_v2.CL_persona.COL_Persona" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.062" Y="3.5" />
+        <Point X="8.062" Y="1.188" />
+        <Point X="5.5" Y="1.188" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="2.631" Y="-2.263" Height="0.182" Width="0.889" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAABAIBAGAAAgIQAAAAAIAAAAAAEAgAQAEEEACEEAIA=</HashCode>
+      <FileName>Entities\TopicHistoryWiki.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Topic" />
+      <Property Name="Persona" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="COL_Wiki.WikiNew.TopicImmaginiWiki">
+    <Position X="7.25" Y="7.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="oFile" Type="COL_Wiki.WikiNew.Files">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.36" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="oTopic" Type="COL_Wiki.WikiNew.TopicWiki" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.25" Y="8.562" />
+        <Point X="6.062" Y="8.562" />
+        <Point X="6.062" Y="6.93" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.152" Y="1.417" Height="0.182" Width="0.737" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AACAAAAABAAAgCAAAAAAAEAAAhAAAAABAAAEAIAEABA=</HashCode>
+      <FileName>Entities\TopicImmaginiWiki.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="oFile" />
+      <Property Name="oTopic" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="COL_Wiki.WikiNew.TopicWiki">
+    <Position X="5.5" Y="3" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Sezione" Type="COL_Wiki.WikiNew.SezioneWiki">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.256" Y="0.029" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Persona" Type="COL_BusinessLogic_v2.CL_persona.COL_Persona" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.062" Y="3" />
+        <Point X="6.062" Y="1.5" />
+        <Point X="5.5" Y="1.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.641" Y="-1.471" Height="0.182" Width="0.753" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IBABAIRAGQABgIQAAACAIAAAAIAAAgAQAEEEACEEApA=</HashCode>
+      <FileName>Entities\TopicWiki.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Sezione" />
+      <Property Name="Persona" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="COL_BusinessLogic_v2.Comunita.COL_Comunita" Collapsed="true">
+    <Position X="0.75" Y="1" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COL_BusinessLogic_v2.CL_persona.COL_Persona" Collapsed="true">
+    <Position X="4" Y="1" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Enum Name="COL_Wiki.WikiNew.SingoloPermesso">
+    <Position X="3.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIgEAAAAAAAACkAAIAgAAAAAAAUQAAAAACAEQBA=</HashCode>
+      <FileName>Entities\Permesso.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

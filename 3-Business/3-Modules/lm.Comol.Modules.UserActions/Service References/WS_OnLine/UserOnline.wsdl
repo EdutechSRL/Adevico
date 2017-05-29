@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetGenericUsersOnline">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Order" type="tns:OrderItemsBy" />
+            <s:element minOccurs="1" maxOccurs="1" name="Ascending" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="OrderItemsBy">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="UserName" />
+          <s:enumeration value="CommunityName" />
+          <s:enumeration value="LastAction" />
+          <s:enumeration value="ModuleName" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetGenericUsersOnlineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGenericUsersOnlineResult" type="tns:ArrayOfUserAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUserAction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserAction" nillable="true" type="tns:UserAction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserAction">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActionDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Interaction" type="tns:InteractionType" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObjectActions" type="tns:ArrayOfObjectAction" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkingSessionID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientIPadress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProxyIPadress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonRoleID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="InteractionType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="UserWithUser" />
+          <s:enumeration value="UserWithCommunityAdministrator" />
+          <s:enumeration value="UserWithLearningObject" />
+          <s:enumeration value="Generic" />
+          <s:enumeration value="SystemToSystem" />
+          <s:enumeration value="SystemToUser" />
+          <s:enumeration value="SystemToModule" />
+          <s:enumeration value="ModuleToSystem" />
+          <s:enumeration value="ModuleToModule" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfObjectAction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ObjectAction" nillable="true" type="tns:ObjectAction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ObjectAction">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ObjectTypeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValueID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSelectedUsersOnline">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oDtoAccess" type="tns:ArrayOfDtoAccess" />
+            <s:element minOccurs="1" maxOccurs="1" name="oOrder" type="tns:OrderItemsBy" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDtoAccess">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dtoAccess" nillable="true" type="tns:dtoAccess" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dtoAccess">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkingSessionID" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSelectedUsersOnlineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSelectedUsersOnlineResult" type="tns:ArrayOfUserAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersOnlineID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Order" type="tns:OrderItemsBy" />
+            <s:element minOccurs="1" maxOccurs="1" name="Ascending" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersOnlineIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersOnlineIDResult" type="tns:ArrayOfDtoAccess" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersOnlineCommunityID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Order" type="tns:OrderItemsBy" />
+            <s:element minOccurs="1" maxOccurs="1" name="Ascending" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersOnlineCommunityIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersOnlineCommunityIDResult" type="tns:ArrayOfDtoAccess" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersOnlineModulesID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Order" type="tns:OrderItemsBy" />
+            <s:element minOccurs="1" maxOccurs="1" name="Ascending" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersOnlineModulesIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersOnlineModulesIDResult" type="tns:ArrayOfDtoAccess" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsersOnlineCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsersOnlineCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UsersOnlineCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WorkingSessionOnlineCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WorkingSessionOnlineCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WorkingSessionOnlineCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnLineActions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnLineActionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOnLineActionsResult" type="tns:ArrayOfOnLineUserAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOnLineUserAction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OnLineUserAction" nillable="true" type="tns:OnLineUserAction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OnLineUserAction">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActionDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccessDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkingSessionID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientIPadress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProxyIPadress" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Test_RecuperaTutteLeAzioniDallaCache">
+        <s:complexType />
+      </s:element>
+      <s:element name="Test_RecuperaTutteLeAzioniDallaCacheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Test_RecuperaTutteLeAzioniDallaCacheResult" type="tns:ArrayOfUserAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test_RecuperaElementiMAxUnoraFa">
+        <s:complexType />
+      </s:element>
+      <s:element name="Test_RecuperaElementiMAxUnoraFaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Test_RecuperaElementiMAxUnoraFaResult" type="tns:ArrayOfUserAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test_RemoveNotRecent">
+        <s:complexType />
+      </s:element>
+      <s:element name="Test_RemoveNotRecentResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetGenericUsersOnlineSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGenericUsersOnline" />
+  </wsdl:message>
+  <wsdl:message name="GetGenericUsersOnlineSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGenericUsersOnlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSelectedUsersOnlineSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSelectedUsersOnline" />
+  </wsdl:message>
+  <wsdl:message name="GetSelectedUsersOnlineSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSelectedUsersOnlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersOnlineIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsersOnlineID" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersOnlineIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersOnlineIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersOnlineCommunityIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsersOnlineCommunityID" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersOnlineCommunityIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersOnlineCommunityIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersOnlineModulesIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsersOnlineModulesID" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersOnlineModulesIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersOnlineModulesIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="UsersOnlineCountSoapIn">
+    <wsdl:part name="parameters" element="tns:UsersOnlineCount" />
+  </wsdl:message>
+  <wsdl:message name="UsersOnlineCountSoapOut">
+    <wsdl:part name="parameters" element="tns:UsersOnlineCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="WorkingSessionOnlineCountSoapIn">
+    <wsdl:part name="parameters" element="tns:WorkingSessionOnlineCount" />
+  </wsdl:message>
+  <wsdl:message name="WorkingSessionOnlineCountSoapOut">
+    <wsdl:part name="parameters" element="tns:WorkingSessionOnlineCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOnLineActionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOnLineActions" />
+  </wsdl:message>
+  <wsdl:message name="GetOnLineActionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOnLineActionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Test_RecuperaTutteLeAzioniDallaCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:Test_RecuperaTutteLeAzioniDallaCache" />
+  </wsdl:message>
+  <wsdl:message name="Test_RecuperaTutteLeAzioniDallaCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:Test_RecuperaTutteLeAzioniDallaCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="Test_RecuperaElementiMAxUnoraFaSoapIn">
+    <wsdl:part name="parameters" element="tns:Test_RecuperaElementiMAxUnoraFa" />
+  </wsdl:message>
+  <wsdl:message name="Test_RecuperaElementiMAxUnoraFaSoapOut">
+    <wsdl:part name="parameters" element="tns:Test_RecuperaElementiMAxUnoraFaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Test_RemoveNotRecentSoapIn">
+    <wsdl:part name="parameters" element="tns:Test_RemoveNotRecent" />
+  </wsdl:message>
+  <wsdl:message name="Test_RemoveNotRecentSoapOut">
+    <wsdl:part name="parameters" element="tns:Test_RemoveNotRecentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UserOnlineSoap">
+    <wsdl:operation name="GetGenericUsersOnline">
+      <wsdl:input message="tns:GetGenericUsersOnlineSoapIn" />
+      <wsdl:output message="tns:GetGenericUsersOnlineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectedUsersOnline">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetSelectedUsersOnline</wsdl:documentation>
+      <wsdl:input message="tns:GetSelectedUsersOnlineSoapIn" />
+      <wsdl:output message="tns:GetSelectedUsersOnlineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersOnlineID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetUsersOnlineID</wsdl:documentation>
+      <wsdl:input message="tns:GetUsersOnlineIDSoapIn" />
+      <wsdl:output message="tns:GetUsersOnlineIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersOnlineCommunitiesID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetUsersOnlineCommunityID</wsdl:documentation>
+      <wsdl:input name="GetUsersOnlineCommunityID" message="tns:GetUsersOnlineCommunityIDSoapIn" />
+      <wsdl:output name="GetUsersOnlineCommunityID" message="tns:GetUsersOnlineCommunityIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersOnlineModulesID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetUsersOnlineModulesID</wsdl:documentation>
+      <wsdl:input message="tns:GetUsersOnlineModulesIDSoapIn" />
+      <wsdl:output message="tns:GetUsersOnlineModulesIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserOnlineCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">UserOnlineCount</wsdl:documentation>
+      <wsdl:input name="UsersOnlineCount" message="tns:UsersOnlineCountSoapIn" />
+      <wsdl:output name="UsersOnlineCount" message="tns:UsersOnlineCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WorkingSessionOnlineCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">WorkingSessionOnlineCount</wsdl:documentation>
+      <wsdl:input message="tns:WorkingSessionOnlineCountSoapIn" />
+      <wsdl:output message="tns:WorkingSessionOnlineCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnLineActions">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GetOnLineActions</wsdl:documentation>
+      <wsdl:input message="tns:GetOnLineActionsSoapIn" />
+      <wsdl:output message="tns:GetOnLineActionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="_Test_RecuperaTutteLeAzioniDallaCache">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recupera dalla cache tutte le azioni.</wsdl:documentation>
+      <wsdl:input name="Test_RecuperaTutteLeAzioniDallaCache" message="tns:Test_RecuperaTutteLeAzioniDallaCacheSoapIn" />
+      <wsdl:output name="Test_RecuperaTutteLeAzioniDallaCache" message="tns:Test_RecuperaTutteLeAzioniDallaCacheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="_Test_RecuperaElementiMAxUnoraFa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recupera dalla cache le ultime azioni entro l'ultima ora.</wsdl:documentation>
+      <wsdl:input name="Test_RecuperaElementiMAxUnoraFa" message="tns:Test_RecuperaElementiMAxUnoraFaSoapIn" />
+      <wsdl:output name="Test_RecuperaElementiMAxUnoraFa" message="tns:Test_RecuperaElementiMAxUnoraFaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="_Test_RemoveNotRecent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Rimuovi gli elementi più vecchi della cache !</wsdl:documentation>
+      <wsdl:input name="Test_RemoveNotRecent" message="tns:Test_RemoveNotRecentSoapIn" />
+      <wsdl:output name="Test_RemoveNotRecent" message="tns:Test_RemoveNotRecentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserOnlineSoap" type="tns:UserOnlineSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetGenericUsersOnline">
+      <soap:operation soapAction="http://tempuri.org/GetGenericUsersOnline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectedUsersOnline">
+      <soap:operation soapAction="http://tempuri.org/GetSelectedUsersOnline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersOnlineID">
+      <soap:operation soapAction="http://tempuri.org/GetUsersOnlineID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersOnlineCommunitiesID">
+      <soap:operation soapAction="http://tempuri.org/GetUsersOnlineCommunityID" style="document" />
+      <wsdl:input name="GetUsersOnlineCommunityID">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetUsersOnlineCommunityID">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersOnlineModulesID">
+      <soap:operation soapAction="http://tempuri.org/GetUsersOnlineModulesID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserOnlineCount">
+      <soap:operation soapAction="http://tempuri.org/UsersOnlineCount" style="document" />
+      <wsdl:input name="UsersOnlineCount">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UsersOnlineCount">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorkingSessionOnlineCount">
+      <soap:operation soapAction="http://tempuri.org/WorkingSessionOnlineCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnLineActions">
+      <soap:operation soapAction="http://tempuri.org/GetOnLineActions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_Test_RecuperaTutteLeAzioniDallaCache">
+      <soap:operation soapAction="http://tempuri.org/Test_RecuperaTutteLeAzioniDallaCache" style="document" />
+      <wsdl:input name="Test_RecuperaTutteLeAzioniDallaCache">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Test_RecuperaTutteLeAzioniDallaCache">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_Test_RecuperaElementiMAxUnoraFa">
+      <soap:operation soapAction="http://tempuri.org/Test_RecuperaElementiMAxUnoraFa" style="document" />
+      <wsdl:input name="Test_RecuperaElementiMAxUnoraFa">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Test_RecuperaElementiMAxUnoraFa">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_Test_RemoveNotRecent">
+      <soap:operation soapAction="http://tempuri.org/Test_RemoveNotRecent" style="document" />
+      <wsdl:input name="Test_RemoveNotRecent">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Test_RemoveNotRecent">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserOnlineSoap12" type="tns:UserOnlineSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetGenericUsersOnline">
+      <soap12:operation soapAction="http://tempuri.org/GetGenericUsersOnline" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectedUsersOnline">
+      <soap12:operation soapAction="http://tempuri.org/GetSelectedUsersOnline" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersOnlineID">
+      <soap12:operation soapAction="http://tempuri.org/GetUsersOnlineID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersOnlineCommunitiesID">
+      <soap12:operation soapAction="http://tempuri.org/GetUsersOnlineCommunityID" style="document" />
+      <wsdl:input name="GetUsersOnlineCommunityID">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetUsersOnlineCommunityID">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersOnlineModulesID">
+      <soap12:operation soapAction="http://tempuri.org/GetUsersOnlineModulesID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserOnlineCount">
+      <soap12:operation soapAction="http://tempuri.org/UsersOnlineCount" style="document" />
+      <wsdl:input name="UsersOnlineCount">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UsersOnlineCount">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorkingSessionOnlineCount">
+      <soap12:operation soapAction="http://tempuri.org/WorkingSessionOnlineCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnLineActions">
+      <soap12:operation soapAction="http://tempuri.org/GetOnLineActions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_Test_RecuperaTutteLeAzioniDallaCache">
+      <soap12:operation soapAction="http://tempuri.org/Test_RecuperaTutteLeAzioniDallaCache" style="document" />
+      <wsdl:input name="Test_RecuperaTutteLeAzioniDallaCache">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Test_RecuperaTutteLeAzioniDallaCache">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_Test_RecuperaElementiMAxUnoraFa">
+      <soap12:operation soapAction="http://tempuri.org/Test_RecuperaElementiMAxUnoraFa" style="document" />
+      <wsdl:input name="Test_RecuperaElementiMAxUnoraFa">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Test_RecuperaElementiMAxUnoraFa">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_Test_RemoveNotRecent">
+      <soap12:operation soapAction="http://tempuri.org/Test_RemoveNotRecent" style="document" />
+      <wsdl:input name="Test_RemoveNotRecent">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Test_RemoveNotRecent">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserOnline">
+    <wsdl:port name="UserOnlineSoap" binding="tns:UserOnlineSoap">
+      <soap:address location="http://localhost/WS_Action/UserOnline.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserOnlineSoap12" binding="tns:UserOnlineSoap12">
+      <soap12:address location="http://localhost/WS_Action/UserOnline.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/WS_Chat/WS_Chat" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/WS_Chat/WS_Chat" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/WS_Chat/WS_Chat">
+      <s:element name="IsAlive">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsAliveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsAliveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Reset">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecureCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetErrorList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecureCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetErrorListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetErrorListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecuperaMessaggio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdUtente" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecuperaMessaggioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecuperaMessaggioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecuperaMessaggioXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IDUtente" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecuperaMessaggioXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecuperaMessaggioXMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InviaMessaggio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messaggio" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDPersona" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsBold" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsItalic" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsUnderline" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="TxtBgColor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TxtColor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InviaMessaggioResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InviaMessaggioPrivato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messaggio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IDPersona" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IDDest" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsBold" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsItalic" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsUnderline" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="TxtBgColor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TxtColor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InviaMessaggioPrivatoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="NuovoUtente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NuovoUtenteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="NumeroUtenti">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NumeroUtentiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumeroUtentiResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecuperaListaUtenti">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdUtente" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecuperaListaUtentiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecuperaListaUtentiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLvl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLvlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLvlResult" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemUtente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemUtenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemUtenteResult" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBlock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdFrom" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBlockResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemBlock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdFrom" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemBlockResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBlockFrom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdFrom" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBlockFromResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBlockFromResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBlockTo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdTo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBlockToResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBlockToResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecuperaTutti">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecuperaTuttiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecuperaTuttiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetLvl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IDAmm" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDSet" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewLvl" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetLvlResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ResetMsg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetMsgResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DistruggiTutto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Credenziale" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistruggiTuttoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SendAllADM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Credenziale" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messaggio" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendAllADMResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsUploadTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsUploadTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsUploadTimeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsUploadTimeCom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdCom" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsUploadTimeComResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsUploadTimeComResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="File" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UplName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDUpl" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="note" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IDUt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFileListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTmpDir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IDUt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTmpDirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTmpDirResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdUser" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileNum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileNumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetFileNumResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsFileExist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDComunita" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsFileExistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsFileExistResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AreaGetLvl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDArea" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AreaGetLvlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AreaGetLvlResult" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AreaNuovoUtente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDArea" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AreaNuovoUtenteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AreaRecuperaListaUtenti">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdUtente" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDArea" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AreaRecuperaListaUtentiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AreaRecuperaListaUtentiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AreaInviaMessaggio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messaggio" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDPersona" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDArea" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsBold" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsItalic" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsUnderline" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="TxtBgColor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TxtColor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AreaInviaMessaggioResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AreaInviaMessaggioPrivato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messaggio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IDPersona" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IDDest" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDArea" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsBold" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsItalic" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsUnderline" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="TxtBgColor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TxtColor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AreaInviaMessaggioPrivatoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AreaRecuperaMessaggio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdUtente" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDArea" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AreaRecuperaMessaggioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AreaRecuperaMessaggioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AreaRecuperaTutti">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDArea" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AreaRecuperaTuttiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AreaRecuperaTuttiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AreaSetLvl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IDAmm" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDSet" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewLvl" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDArea" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AreaSetLvlResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AreaResetMsg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDArea" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AreaResetMsgResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="IsAliveSoapIn">
+    <wsdl:part name="parameters" element="tns:IsAlive" />
+  </wsdl:message>
+  <wsdl:message name="IsAliveSoapOut">
+    <wsdl:part name="parameters" element="tns:IsAliveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResetSoapIn">
+    <wsdl:part name="parameters" element="tns:Reset" />
+  </wsdl:message>
+  <wsdl:message name="ResetSoapOut">
+    <wsdl:part name="parameters" element="tns:ResetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetErrorListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetErrorList" />
+  </wsdl:message>
+  <wsdl:message name="GetErrorListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetErrorListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecuperaMessaggioSoapIn">
+    <wsdl:part name="parameters" element="tns:RecuperaMessaggio" />
+  </wsdl:message>
+  <wsdl:message name="RecuperaMessaggioSoapOut">
+    <wsdl:part name="parameters" element="tns:RecuperaMessaggioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecuperaMessaggioXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:RecuperaMessaggioXML" />
+  </wsdl:message>
+  <wsdl:message name="RecuperaMessaggioXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:RecuperaMessaggioXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="InviaMessaggioSoapIn">
+    <wsdl:part name="parameters" element="tns:InviaMessaggio" />
+  </wsdl:message>
+  <wsdl:message name="InviaMessaggioSoapOut">
+    <wsdl:part name="parameters" element="tns:InviaMessaggioResponse" />
+  </wsdl:message>
+  <wsdl:message name="InviaMessaggioPrivatoSoapIn">
+    <wsdl:part name="parameters" element="tns:InviaMessaggioPrivato" />
+  </wsdl:message>
+  <wsdl:message name="InviaMessaggioPrivatoSoapOut">
+    <wsdl:part name="parameters" element="tns:InviaMessaggioPrivatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="NuovoUtenteSoapIn">
+    <wsdl:part name="parameters" element="tns:NuovoUtente" />
+  </wsdl:message>
+  <wsdl:message name="NuovoUtenteSoapOut">
+    <wsdl:part name="parameters" element="tns:NuovoUtenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="NumeroUtentiSoapIn">
+    <wsdl:part name="parameters" element="tns:NumeroUtenti" />
+  </wsdl:message>
+  <wsdl:message name="NumeroUtentiSoapOut">
+    <wsdl:part name="parameters" element="tns:NumeroUtentiResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecuperaListaUtentiSoapIn">
+    <wsdl:part name="parameters" element="tns:RecuperaListaUtenti" />
+  </wsdl:message>
+  <wsdl:message name="RecuperaListaUtentiSoapOut">
+    <wsdl:part name="parameters" element="tns:RecuperaListaUtentiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLvlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLvl" />
+  </wsdl:message>
+  <wsdl:message name="GetLvlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLvlResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemUtenteSoapIn">
+    <wsdl:part name="parameters" element="tns:RemUtente" />
+  </wsdl:message>
+  <wsdl:message name="RemUtenteSoapOut">
+    <wsdl:part name="parameters" element="tns:RemUtenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetBlockSoapIn">
+    <wsdl:part name="parameters" element="tns:SetBlock" />
+  </wsdl:message>
+  <wsdl:message name="SetBlockSoapOut">
+    <wsdl:part name="parameters" element="tns:SetBlockResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemBlockSoapIn">
+    <wsdl:part name="parameters" element="tns:RemBlock" />
+  </wsdl:message>
+  <wsdl:message name="RemBlockSoapOut">
+    <wsdl:part name="parameters" element="tns:RemBlockResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBlockFromSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBlockFrom" />
+  </wsdl:message>
+  <wsdl:message name="GetBlockFromSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBlockFromResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBlockToSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBlockTo" />
+  </wsdl:message>
+  <wsdl:message name="GetBlockToSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBlockToResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecuperaTuttiSoapIn">
+    <wsdl:part name="parameters" element="tns:RecuperaTutti" />
+  </wsdl:message>
+  <wsdl:message name="RecuperaTuttiSoapOut">
+    <wsdl:part name="parameters" element="tns:RecuperaTuttiResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetLvlSoapIn">
+    <wsdl:part name="parameters" element="tns:SetLvl" />
+  </wsdl:message>
+  <wsdl:message name="SetLvlSoapOut">
+    <wsdl:part name="parameters" element="tns:SetLvlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResetMsgSoapIn">
+    <wsdl:part name="parameters" element="tns:ResetMsg" />
+  </wsdl:message>
+  <wsdl:message name="ResetMsgSoapOut">
+    <wsdl:part name="parameters" element="tns:ResetMsgResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistruggiTuttoSoapIn">
+    <wsdl:part name="parameters" element="tns:DistruggiTutto" />
+  </wsdl:message>
+  <wsdl:message name="DistruggiTuttoSoapOut">
+    <wsdl:part name="parameters" element="tns:DistruggiTuttoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendAllADMSoapIn">
+    <wsdl:part name="parameters" element="tns:SendAllADM" />
+  </wsdl:message>
+  <wsdl:message name="SendAllADMSoapOut">
+    <wsdl:part name="parameters" element="tns:SendAllADMResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsUploadTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:IsUploadTime" />
+  </wsdl:message>
+  <wsdl:message name="IsUploadTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:IsUploadTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsUploadTimeComSoapIn">
+    <wsdl:part name="parameters" element="tns:IsUploadTimeCom" />
+  </wsdl:message>
+  <wsdl:message name="IsUploadTimeComSoapOut">
+    <wsdl:part name="parameters" element="tns:IsUploadTimeComResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadFile" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileList" />
+  </wsdl:message>
+  <wsdl:message name="GetFileListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTmpDirSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTmpDir" />
+  </wsdl:message>
+  <wsdl:message name="GetTmpDirSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTmpDirResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemFileSoapIn">
+    <wsdl:part name="parameters" element="tns:RemFile" />
+  </wsdl:message>
+  <wsdl:message name="RemFileSoapOut">
+    <wsdl:part name="parameters" element="tns:RemFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileNumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileNum" />
+  </wsdl:message>
+  <wsdl:message name="GetFileNumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsFileExistSoapIn">
+    <wsdl:part name="parameters" element="tns:IsFileExist" />
+  </wsdl:message>
+  <wsdl:message name="IsFileExistSoapOut">
+    <wsdl:part name="parameters" element="tns:IsFileExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="AreaGetLvlSoapIn">
+    <wsdl:part name="parameters" element="tns:AreaGetLvl" />
+  </wsdl:message>
+  <wsdl:message name="AreaGetLvlSoapOut">
+    <wsdl:part name="parameters" element="tns:AreaGetLvlResponse" />
+  </wsdl:message>
+  <wsdl:message name="AreaNuovoUtenteSoapIn">
+    <wsdl:part name="parameters" element="tns:AreaNuovoUtente" />
+  </wsdl:message>
+  <wsdl:message name="AreaNuovoUtenteSoapOut">
+    <wsdl:part name="parameters" element="tns:AreaNuovoUtenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="AreaRecuperaListaUtentiSoapIn">
+    <wsdl:part name="parameters" element="tns:AreaRecuperaListaUtenti" />
+  </wsdl:message>
+  <wsdl:message name="AreaRecuperaListaUtentiSoapOut">
+    <wsdl:part name="parameters" element="tns:AreaRecuperaListaUtentiResponse" />
+  </wsdl:message>
+  <wsdl:message name="AreaInviaMessaggioSoapIn">
+    <wsdl:part name="parameters" element="tns:AreaInviaMessaggio" />
+  </wsdl:message>
+  <wsdl:message name="AreaInviaMessaggioSoapOut">
+    <wsdl:part name="parameters" element="tns:AreaInviaMessaggioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AreaInviaMessaggioPrivatoSoapIn">
+    <wsdl:part name="parameters" element="tns:AreaInviaMessaggioPrivato" />
+  </wsdl:message>
+  <wsdl:message name="AreaInviaMessaggioPrivatoSoapOut">
+    <wsdl:part name="parameters" element="tns:AreaInviaMessaggioPrivatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AreaRecuperaMessaggioSoapIn">
+    <wsdl:part name="parameters" element="tns:AreaRecuperaMessaggio" />
+  </wsdl:message>
+  <wsdl:message name="AreaRecuperaMessaggioSoapOut">
+    <wsdl:part name="parameters" element="tns:AreaRecuperaMessaggioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AreaRecuperaTuttiSoapIn">
+    <wsdl:part name="parameters" element="tns:AreaRecuperaTutti" />
+  </wsdl:message>
+  <wsdl:message name="AreaRecuperaTuttiSoapOut">
+    <wsdl:part name="parameters" element="tns:AreaRecuperaTuttiResponse" />
+  </wsdl:message>
+  <wsdl:message name="AreaSetLvlSoapIn">
+    <wsdl:part name="parameters" element="tns:AreaSetLvl" />
+  </wsdl:message>
+  <wsdl:message name="AreaSetLvlSoapOut">
+    <wsdl:part name="parameters" element="tns:AreaSetLvlResponse" />
+  </wsdl:message>
+  <wsdl:message name="AreaResetMsgSoapIn">
+    <wsdl:part name="parameters" element="tns:AreaResetMsg" />
+  </wsdl:message>
+  <wsdl:message name="AreaResetMsgSoapOut">
+    <wsdl:part name="parameters" element="tns:AreaResetMsgResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WS_ChatSoap">
+    <wsdl:operation name="IsAlive">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Controlla se il WebService risponde.</wsdl:documentation>
+      <wsdl:input message="tns:IsAliveSoapIn" />
+      <wsdl:output message="tns:IsAliveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Reset">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Reset Application.</wsdl:documentation>
+      <wsdl:input message="tns:ResetSoapIn" />
+      <wsdl:output message="tns:ResetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Test salvataggio errori</wsdl:documentation>
+      <wsdl:input message="tns:GetErrorListSoapIn" />
+      <wsdl:output message="tns:GetErrorListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaMessaggio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recupero messaggio</wsdl:documentation>
+      <wsdl:input message="tns:RecuperaMessaggioSoapIn" />
+      <wsdl:output message="tns:RecuperaMessaggioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaMessaggioXML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recupero messaggio XML</wsdl:documentation>
+      <wsdl:input message="tns:RecuperaMessaggioXMLSoapIn" />
+      <wsdl:output message="tns:RecuperaMessaggioXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InviaMessaggio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Invio messaggio</wsdl:documentation>
+      <wsdl:input message="tns:InviaMessaggioSoapIn" />
+      <wsdl:output message="tns:InviaMessaggioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InviaMessaggioPrivato">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Invio messaggio privato</wsdl:documentation>
+      <wsdl:input message="tns:InviaMessaggioPrivatoSoapIn" />
+      <wsdl:output message="tns:InviaMessaggioPrivatoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NuovoUtente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Utenti: Inserimento</wsdl:documentation>
+      <wsdl:input message="tns:NuovoUtenteSoapIn" />
+      <wsdl:output message="tns:NuovoUtenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NumeroUtenti">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Utenti: Inserimento</wsdl:documentation>
+      <wsdl:input message="tns:NumeroUtentiSoapIn" />
+      <wsdl:output message="tns:NumeroUtentiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaListaUtenti">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Utenti: Recupera lista</wsdl:documentation>
+      <wsdl:input message="tns:RecuperaListaUtentiSoapIn" />
+      <wsdl:output message="tns:RecuperaListaUtentiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLvl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Utenti: recupera livello</wsdl:documentation>
+      <wsdl:input message="tns:GetLvlSoapIn" />
+      <wsdl:output message="tns:GetLvlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemUtente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Utenti: Rimuove utente</wsdl:documentation>
+      <wsdl:input message="tns:RemUtenteSoapIn" />
+      <wsdl:output message="tns:RemUtenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBlock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Blocco: imposta un blocco </wsdl:documentation>
+      <wsdl:input message="tns:SetBlockSoapIn" />
+      <wsdl:output message="tns:SetBlockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemBlock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Blocco: rimuove un blocco</wsdl:documentation>
+      <wsdl:input message="tns:RemBlockSoapIn" />
+      <wsdl:output message="tns:RemBlockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlockFrom">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Blocco: lista in base a chi ha effettuato il blocco </wsdl:documentation>
+      <wsdl:input message="tns:GetBlockFromSoapIn" />
+      <wsdl:output message="tns:GetBlockFromSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlockTo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Blocco: lista in base a chi subisce il blocco</wsdl:documentation>
+      <wsdl:input message="tns:GetBlockToSoapIn" />
+      <wsdl:output message="tns:GetBlockToSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaTutti">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AMMINISTRAZIONE: Recupera tutti i messaggi</wsdl:documentation>
+      <wsdl:input message="tns:RecuperaTuttiSoapIn" />
+      <wsdl:output message="tns:RecuperaTuttiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetLvl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AMMINISTRAZIONE: Modifica il livello di accesso di un utente</wsdl:documentation>
+      <wsdl:input message="tns:SetLvlSoapIn" />
+      <wsdl:output message="tns:SetLvlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetMsg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AMMINISTRAZIONE: Elimina tutti i messaggi di quella comunita</wsdl:documentation>
+      <wsdl:input message="tns:ResetMsgSoapIn" />
+      <wsdl:output message="tns:ResetMsgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DistruggiTutto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AMMINISTRAZIONE ALTO LIVELLO: Elimina tutte le variabili correttamente: salvataggio dati e cancellazione</wsdl:documentation>
+      <wsdl:input message="tns:DistruggiTuttoSoapIn" />
+      <wsdl:output message="tns:DistruggiTuttoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAllADM">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AMMINISTRAZIONE ALTO LIVELLO: Manda un messaggio a tutti gli utenti per dire che la chat verra' chiusa-riavviata...</wsdl:documentation>
+      <wsdl:input message="tns:SendAllADMSoapIn" />
+      <wsdl:output message="tns:SendAllADMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUploadTime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se True sono in corso operazioni di lettura/scrittura</wsdl:documentation>
+      <wsdl:input message="tns:IsUploadTimeSoapIn" />
+      <wsdl:output message="tns:IsUploadTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUploadTimeCom">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se True sono in corso operazioni di lettura/scrittura</wsdl:documentation>
+      <wsdl:input message="tns:IsUploadTimeComSoapIn" />
+      <wsdl:output message="tns:IsUploadTimeComSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Effettua l'upload del file</wsdl:documentation>
+      <wsdl:input message="tns:UploadFileSoapIn" />
+      <wsdl:output message="tns:UploadFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Restituisce l'elenco dei file disponibili</wsdl:documentation>
+      <wsdl:input message="tns:GetFileListSoapIn" />
+      <wsdl:output message="tns:GetFileListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTmpDir">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Restituisce la directory temporanea dei file</wsdl:documentation>
+      <wsdl:input message="tns:GetTmpDirSoapIn" />
+      <wsdl:output message="tns:GetTmpDirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Elimina il file specificato</wsdl:documentation>
+      <wsdl:input message="tns:RemFileSoapIn" />
+      <wsdl:output message="tns:RemFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileNum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recupera il numero di file uplodati per ogni comunita</wsdl:documentation>
+      <wsdl:input message="tns:GetFileNumSoapIn" />
+      <wsdl:output message="tns:GetFileNumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFileExist">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se True esiste già un file con quel nome</wsdl:documentation>
+      <wsdl:input message="tns:IsFileExistSoapIn" />
+      <wsdl:output message="tns:IsFileExistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaGetLvl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AREA - Utenti: recupera livello</wsdl:documentation>
+      <wsdl:input message="tns:AreaGetLvlSoapIn" />
+      <wsdl:output message="tns:AreaGetLvlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaNuovoUtente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AREA - Utenti: Inserimento</wsdl:documentation>
+      <wsdl:input message="tns:AreaNuovoUtenteSoapIn" />
+      <wsdl:output message="tns:AreaNuovoUtenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaRecuperaListaUtenti">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AREA - Utenti: Recupera lista</wsdl:documentation>
+      <wsdl:input message="tns:AreaRecuperaListaUtentiSoapIn" />
+      <wsdl:output message="tns:AreaRecuperaListaUtentiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaInviaMessaggio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AREA - Invio messaggio</wsdl:documentation>
+      <wsdl:input message="tns:AreaInviaMessaggioSoapIn" />
+      <wsdl:output message="tns:AreaInviaMessaggioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaInviaMessaggioPrivato">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AREA - Invio messaggio privato</wsdl:documentation>
+      <wsdl:input message="tns:AreaInviaMessaggioPrivatoSoapIn" />
+      <wsdl:output message="tns:AreaInviaMessaggioPrivatoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaRecuperaMessaggio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AREA - Recupero messaggio</wsdl:documentation>
+      <wsdl:input message="tns:AreaRecuperaMessaggioSoapIn" />
+      <wsdl:output message="tns:AreaRecuperaMessaggioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaRecuperaTutti">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AREA: Recupera tutti i messaggi</wsdl:documentation>
+      <wsdl:input message="tns:AreaRecuperaTuttiSoapIn" />
+      <wsdl:output message="tns:AreaRecuperaTuttiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaSetLvl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AREA: Modifica il livello di accesso di un utente</wsdl:documentation>
+      <wsdl:input message="tns:AreaSetLvlSoapIn" />
+      <wsdl:output message="tns:AreaSetLvlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AreaResetMsg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AREA: Elimina tutti i messaggi di quella comunita</wsdl:documentation>
+      <wsdl:input message="tns:AreaResetMsgSoapIn" />
+      <wsdl:output message="tns:AreaResetMsgSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WS_ChatSoap" type="tns:WS_ChatSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsAlive">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/IsAlive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Reset">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/Reset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorList">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/GetErrorList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaMessaggio">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/RecuperaMessaggio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaMessaggioXML">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/RecuperaMessaggioXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InviaMessaggio">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/InviaMessaggio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InviaMessaggioPrivato">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/InviaMessaggioPrivato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NuovoUtente">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/NuovoUtente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumeroUtenti">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/NumeroUtenti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaListaUtenti">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/RecuperaListaUtenti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLvl">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/GetLvl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemUtente">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/RemUtente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBlock">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/SetBlock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemBlock">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/RemBlock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlockFrom">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/GetBlockFrom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlockTo">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/GetBlockTo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaTutti">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/RecuperaTutti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetLvl">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/SetLvl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetMsg">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/ResetMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistruggiTutto">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/DistruggiTutto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAllADM">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/SendAllADM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUploadTime">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/IsUploadTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUploadTimeCom">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/IsUploadTimeCom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/UploadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileList">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/GetFileList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTmpDir">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/GetTmpDir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemFile">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/RemFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileNum">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/GetFileNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFileExist">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/IsFileExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaGetLvl">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaGetLvl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaNuovoUtente">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaNuovoUtente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaRecuperaListaUtenti">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaRecuperaListaUtenti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaInviaMessaggio">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaInviaMessaggio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaInviaMessaggioPrivato">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaInviaMessaggioPrivato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaRecuperaMessaggio">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaRecuperaMessaggio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaRecuperaTutti">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaRecuperaTutti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaSetLvl">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaSetLvl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaResetMsg">
+      <soap:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaResetMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WS_ChatSoap12" type="tns:WS_ChatSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsAlive">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/IsAlive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Reset">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/Reset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorList">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/GetErrorList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaMessaggio">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/RecuperaMessaggio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaMessaggioXML">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/RecuperaMessaggioXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InviaMessaggio">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/InviaMessaggio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InviaMessaggioPrivato">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/InviaMessaggioPrivato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NuovoUtente">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/NuovoUtente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumeroUtenti">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/NumeroUtenti" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaListaUtenti">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/RecuperaListaUtenti" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLvl">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/GetLvl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemUtente">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/RemUtente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBlock">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/SetBlock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemBlock">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/RemBlock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlockFrom">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/GetBlockFrom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlockTo">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/GetBlockTo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaTutti">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/RecuperaTutti" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetLvl">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/SetLvl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetMsg">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/ResetMsg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistruggiTutto">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/DistruggiTutto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAllADM">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/SendAllADM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUploadTime">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/IsUploadTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUploadTimeCom">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/IsUploadTimeCom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/UploadFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileList">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/GetFileList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTmpDir">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/GetTmpDir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemFile">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/RemFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileNum">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/GetFileNum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFileExist">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/IsFileExist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaGetLvl">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaGetLvl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaNuovoUtente">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaNuovoUtente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaRecuperaListaUtenti">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaRecuperaListaUtenti" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaInviaMessaggio">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaInviaMessaggio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaInviaMessaggioPrivato">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaInviaMessaggioPrivato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaRecuperaMessaggio">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaRecuperaMessaggio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaRecuperaTutti">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaRecuperaTutti" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaSetLvl">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaSetLvl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AreaResetMsg">
+      <soap12:operation soapAction="http://tempuri.org/WS_Chat/WS_Chat/AreaResetMsg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS_Chat">
+    <wsdl:port name="WS_ChatSoap" binding="tns:WS_ChatSoap">
+      <soap:address location="http://localhost/WS_Chat/WS_Chat.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WS_ChatSoap12" binding="tns:WS_ChatSoap12">
+      <soap12:address location="http://localhost/WS_Chat/WS_Chat.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

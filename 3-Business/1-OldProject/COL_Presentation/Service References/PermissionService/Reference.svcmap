@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7e0c9c18-b9ab-44f2-bc16-f721f5da71f9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1204/ServicePermission.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicePermission.xsd" MetadataType="Schema" ID="925da204-d0f4-4ffe-a5ee-7bc74a3121f8" SourceId="1" SourceUrl="http://localhost:1204/ServicePermission.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicePermission2.xsd" MetadataType="Schema" ID="74e76f6c-1254-4dce-af75-16d0c562bfb4" SourceId="1" SourceUrl="http://localhost:1204/ServicePermission.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicePermission1.xsd" MetadataType="Schema" ID="0fab5ada-dbc8-4fc4-8189-ce29df969ec0" SourceId="1" SourceUrl="http://localhost:1204/ServicePermission.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicePermission3.xsd" MetadataType="Schema" ID="19422a4e-2cb7-4f33-b0f2-6d53bac97c79" SourceId="1" SourceUrl="http://localhost:1204/ServicePermission.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServicePermission.disco" MetadataType="Disco" ID="040cee05-8197-4383-89e6-ca4b2a99c604" SourceId="1" SourceUrl="http://localhost:1204/ServicePermission.svc?disco" />
+    <MetadataFile FileName="ServicePermission.wsdl" MetadataType="Wsdl" ID="aa4373f3-f486-4546-baad-b991ddccdad4" SourceId="1" SourceUrl="http://localhost:1204/ServicePermission.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,1272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetStatCommunity_global">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonIDList" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="CommunityIDList" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleIDList" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="oStartDate" type="tns:dtoDate" />
+            <s:element minOccurs="0" maxOccurs="1" name="oEndDate" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dtoDate">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Hour" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStatCommunity_globalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatCommunity_globalResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBaseStatAction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BaseStatAction" nillable="true" type="tns:BaseStatAction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BaseStatAction">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="nAccess" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UsageTime" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Hour" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStatModule_global">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonIDList" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="CommunityIDList" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleIDList" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="oStartDate" type="tns:dtoDate" />
+            <s:element minOccurs="0" maxOccurs="1" name="oEndDate" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatModule_globalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatModule_globalResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatPerson_global">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleIDList" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="CommunityIDList" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="PersonIDList" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="oStartDate" type="tns:dtoDate" />
+            <s:element minOccurs="0" maxOccurs="1" name="oEndDate" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatPerson_globalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatPerson_globalResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatTotal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModuleIDList" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="CommunityIDList" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="PersonIDList" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="oStartDate" type="tns:dtoDate" />
+            <s:element minOccurs="0" maxOccurs="1" name="oEndDate" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatTotalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatTotalResult" type="tns:SummaryAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SummaryAction">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="nAccesses" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="totalTime" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStatModule_daily">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="tns:dtoDate" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatModule_dailyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatModule_dailyResult" type="tns:ArrayOfBaseStatAction" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatCommunity_daily">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="tns:dtoDate" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatCommunity_dailyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatCommunity_dailyResult" type="tns:ArrayOfBaseStatAction" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatPerson_daily">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="tns:dtoDate" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatPerson_dailyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatPerson_dailyResult" type="tns:ArrayOfBaseStatAction" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatAccess_daily">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="tns:dtoDate" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatAccess_dailyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatAccess_dailyResult" type="tns:ArrayOfBaseStatAction" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatPerson_hourly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="day" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatPerson_hourlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatPerson_hourlyResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatAccess_hourly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="day" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatAccess_hourlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatAccess_hourlyResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatModule_hourly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="day" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatModule_hourlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatModule_hourlyResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatCommunity_hourly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="day" type="tns:dtoDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatCommunity_hourlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatCommunity_hourlyResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatCommunity_global">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isModuleList" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isCommunityList" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPersonList" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="startYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDay" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatCommunity_globalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testGetStatCommunity_globalResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatPerson_global">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isModuleList" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isCommunityList" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPersonList" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="startYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDay" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatPerson_globalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testGetStatPerson_globalResult" type="tns:BaseStatAction_List" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BaseStatAction_List">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="statActionList" type="tns:ArrayOfBaseStatAction" />
+          <s:element minOccurs="0" maxOccurs="1" name="summary" type="tns:SummaryAction" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="testGetStatModule_global">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isCommunityList" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPersonList" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isModuleList" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="startYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDay" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatModule_globalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testGetStatModule_globalResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatTotal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isCommunityList" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPersonList" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isModuleList" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="startYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDay" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatTotalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testGetStatTotalResult" type="tns:SummaryAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatModule_daily">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDay" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatModule_dailyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testGetStatModule_dailyResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatCommunity_daily">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDay" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatCommunity_dailyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testGetStatCommunity_dailyResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatPerson_daily">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDay" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatPerson_dailyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testGetStatPerson_dailyResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatAccess_daily">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endMonth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDay" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatAccess_dailyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testGetStatAccess_dailyResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatPerson_hourly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatPerson_hourlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testGetStatPerson_hourlyResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatAccess_hourly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatAccess_hourlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testGetStatAccess_hourlyResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatCommunity_hourly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatCommunity_hourlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testGetStatCommunity_hourlyResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatModule_hourly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ModuleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testGetStatModule_hourlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testGetStatModule_hourlyResult" type="tns:ArrayOfBaseStatAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestResult" type="tns:BaseStatAction_List" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetStatCommunity_globalSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatCommunity_global" />
+  </wsdl:message>
+  <wsdl:message name="GetStatCommunity_globalSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatCommunity_globalResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatModule_globalSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatModule_global" />
+  </wsdl:message>
+  <wsdl:message name="GetStatModule_globalSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatModule_globalResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatPerson_globalSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatPerson_global" />
+  </wsdl:message>
+  <wsdl:message name="GetStatPerson_globalSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatPerson_globalResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatTotalSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatTotal" />
+  </wsdl:message>
+  <wsdl:message name="GetStatTotalSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatModule_dailySoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatModule_daily" />
+  </wsdl:message>
+  <wsdl:message name="GetStatModule_dailySoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatModule_dailyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatCommunity_dailySoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatCommunity_daily" />
+  </wsdl:message>
+  <wsdl:message name="GetStatCommunity_dailySoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatCommunity_dailyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatPerson_dailySoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatPerson_daily" />
+  </wsdl:message>
+  <wsdl:message name="GetStatPerson_dailySoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatPerson_dailyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatAccess_dailySoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatAccess_daily" />
+  </wsdl:message>
+  <wsdl:message name="GetStatAccess_dailySoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatAccess_dailyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatPerson_hourlySoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatPerson_hourly" />
+  </wsdl:message>
+  <wsdl:message name="GetStatPerson_hourlySoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatPerson_hourlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatAccess_hourlySoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatAccess_hourly" />
+  </wsdl:message>
+  <wsdl:message name="GetStatAccess_hourlySoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatAccess_hourlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatModule_hourlySoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatModule_hourly" />
+  </wsdl:message>
+  <wsdl:message name="GetStatModule_hourlySoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatModule_hourlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatCommunity_hourlySoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatCommunity_hourly" />
+  </wsdl:message>
+  <wsdl:message name="GetStatCommunity_hourlySoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatCommunity_hourlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatCommunity_globalSoapIn">
+    <wsdl:part name="parameters" element="tns:testGetStatCommunity_global" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatCommunity_globalSoapOut">
+    <wsdl:part name="parameters" element="tns:testGetStatCommunity_globalResponse" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatPerson_globalSoapIn">
+    <wsdl:part name="parameters" element="tns:testGetStatPerson_global" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatPerson_globalSoapOut">
+    <wsdl:part name="parameters" element="tns:testGetStatPerson_globalResponse" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatModule_globalSoapIn">
+    <wsdl:part name="parameters" element="tns:testGetStatModule_global" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatModule_globalSoapOut">
+    <wsdl:part name="parameters" element="tns:testGetStatModule_globalResponse" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatTotalSoapIn">
+    <wsdl:part name="parameters" element="tns:testGetStatTotal" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatTotalSoapOut">
+    <wsdl:part name="parameters" element="tns:testGetStatTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatModule_dailySoapIn">
+    <wsdl:part name="parameters" element="tns:testGetStatModule_daily" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatModule_dailySoapOut">
+    <wsdl:part name="parameters" element="tns:testGetStatModule_dailyResponse" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatCommunity_dailySoapIn">
+    <wsdl:part name="parameters" element="tns:testGetStatCommunity_daily" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatCommunity_dailySoapOut">
+    <wsdl:part name="parameters" element="tns:testGetStatCommunity_dailyResponse" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatPerson_dailySoapIn">
+    <wsdl:part name="parameters" element="tns:testGetStatPerson_daily" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatPerson_dailySoapOut">
+    <wsdl:part name="parameters" element="tns:testGetStatPerson_dailyResponse" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatAccess_dailySoapIn">
+    <wsdl:part name="parameters" element="tns:testGetStatAccess_daily" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatAccess_dailySoapOut">
+    <wsdl:part name="parameters" element="tns:testGetStatAccess_dailyResponse" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatPerson_hourlySoapIn">
+    <wsdl:part name="parameters" element="tns:testGetStatPerson_hourly" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatPerson_hourlySoapOut">
+    <wsdl:part name="parameters" element="tns:testGetStatPerson_hourlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatAccess_hourlySoapIn">
+    <wsdl:part name="parameters" element="tns:testGetStatAccess_hourly" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatAccess_hourlySoapOut">
+    <wsdl:part name="parameters" element="tns:testGetStatAccess_hourlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatCommunity_hourlySoapIn">
+    <wsdl:part name="parameters" element="tns:testGetStatCommunity_hourly" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatCommunity_hourlySoapOut">
+    <wsdl:part name="parameters" element="tns:testGetStatCommunity_hourlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatModule_hourlySoapIn">
+    <wsdl:part name="parameters" element="tns:testGetStatModule_hourly" />
+  </wsdl:message>
+  <wsdl:message name="testGetStatModule_hourlySoapOut">
+    <wsdl:part name="parameters" element="tns:testGetStatModule_hourlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSactionStatisticsSoap">
+    <wsdl:operation name="GetStatCommunity_global">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the usage time and number of accesses for each community</wsdl:documentation>
+      <wsdl:input message="tns:GetStatCommunity_globalSoapIn" />
+      <wsdl:output message="tns:GetStatCommunity_globalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatModule_global">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the usage time and number of accesses for each module</wsdl:documentation>
+      <wsdl:input message="tns:GetStatModule_globalSoapIn" />
+      <wsdl:output message="tns:GetStatModule_globalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatPerson_global">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the usage time and number of accesses for each person</wsdl:documentation>
+      <wsdl:input message="tns:GetStatPerson_globalSoapIn" />
+      <wsdl:output message="tns:GetStatPerson_globalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatTotal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the usage time and number of accesses to the system</wsdl:documentation>
+      <wsdl:input message="tns:GetStatTotalSoapIn" />
+      <wsdl:output message="tns:GetStatTotalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatModule_daily">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the usage time and number of accesses for each module, for each day in interval</wsdl:documentation>
+      <wsdl:input message="tns:GetStatModule_dailySoapIn" />
+      <wsdl:output message="tns:GetStatModule_dailySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatCommunity_daily">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the usage time and number of accesses for each community, for each day in interval</wsdl:documentation>
+      <wsdl:input message="tns:GetStatCommunity_dailySoapIn" />
+      <wsdl:output message="tns:GetStatCommunity_dailySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatPerson_daily">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the usage time and number of accesses for each person, for each day in interval</wsdl:documentation>
+      <wsdl:input message="tns:GetStatPerson_dailySoapIn" />
+      <wsdl:output message="tns:GetStatPerson_dailySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatAccess_daily">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the usage time and number of accesses to the system, for each day in interval</wsdl:documentation>
+      <wsdl:input message="tns:GetStatAccess_dailySoapIn" />
+      <wsdl:output message="tns:GetStatAccess_dailySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatPerson_hourly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the usage time and number of accesses for each person, for each hour in interval</wsdl:documentation>
+      <wsdl:input message="tns:GetStatPerson_hourlySoapIn" />
+      <wsdl:output message="tns:GetStatPerson_hourlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatAccess_hourly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the usage time and number of accesses to the system, for each hour in interval</wsdl:documentation>
+      <wsdl:input message="tns:GetStatAccess_hourlySoapIn" />
+      <wsdl:output message="tns:GetStatAccess_hourlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatModule_hourly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the usage time and number of accesses for each Module, for each hour in interval</wsdl:documentation>
+      <wsdl:input message="tns:GetStatModule_hourlySoapIn" />
+      <wsdl:output message="tns:GetStatModule_hourlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatCommunity_hourly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the usage time and number of accesses for each Community, for each hour in interval</wsdl:documentation>
+      <wsdl:input message="tns:GetStatCommunity_hourlySoapIn" />
+      <wsdl:output message="tns:GetStatCommunity_hourlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatCommunity_global">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">global usage of system by a single user</wsdl:documentation>
+      <wsdl:input message="tns:testGetStatCommunity_globalSoapIn" />
+      <wsdl:output message="tns:testGetStatCommunity_globalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatPerson_global">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">global usage of a module by each user. </wsdl:documentation>
+      <wsdl:input message="tns:testGetStatPerson_globalSoapIn" />
+      <wsdl:output message="tns:testGetStatPerson_globalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatModule_global">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">global usage of a module by each user. </wsdl:documentation>
+      <wsdl:input message="tns:testGetStatModule_globalSoapIn" />
+      <wsdl:output message="tns:testGetStatModule_globalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatTotal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">global usage of a module by each user. </wsdl:documentation>
+      <wsdl:input message="tns:testGetStatTotalSoapIn" />
+      <wsdl:output message="tns:testGetStatTotalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatModule_daily">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">global usage of system by a single user, day by day</wsdl:documentation>
+      <wsdl:input message="tns:testGetStatModule_dailySoapIn" />
+      <wsdl:output message="tns:testGetStatModule_dailySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatCommunity_daily">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">global usage of system by a single user, day by day</wsdl:documentation>
+      <wsdl:input message="tns:testGetStatCommunity_dailySoapIn" />
+      <wsdl:output message="tns:testGetStatCommunity_dailySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatPerson_daily">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">global usage of system by a single user, day by day</wsdl:documentation>
+      <wsdl:input message="tns:testGetStatPerson_dailySoapIn" />
+      <wsdl:output message="tns:testGetStatPerson_dailySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatAccess_daily">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">global usage of system by a single user, day by day</wsdl:documentation>
+      <wsdl:input message="tns:testGetStatAccess_dailySoapIn" />
+      <wsdl:output message="tns:testGetStatAccess_dailySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatPerson_hourly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">global usage of system by a single user, day by day</wsdl:documentation>
+      <wsdl:input message="tns:testGetStatPerson_hourlySoapIn" />
+      <wsdl:output message="tns:testGetStatPerson_hourlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatAccess_hourly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">global usage of system by a single user, day by day</wsdl:documentation>
+      <wsdl:input message="tns:testGetStatAccess_hourlySoapIn" />
+      <wsdl:output message="tns:testGetStatAccess_hourlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatCommunity_hourly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">global usage of system by a single user, day by day</wsdl:documentation>
+      <wsdl:input message="tns:testGetStatCommunity_hourlySoapIn" />
+      <wsdl:output message="tns:testGetStatCommunity_hourlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatModule_hourly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">global usage of system by a single user, day by day</wsdl:documentation>
+      <wsdl:input message="tns:testGetStatModule_hourlySoapIn" />
+      <wsdl:output message="tns:testGetStatModule_hourlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">UserOnlineCount</wsdl:documentation>
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSactionStatisticsSoap" type="tns:WSactionStatisticsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetStatCommunity_global">
+      <soap:operation soapAction="http://tempuri.org/GetStatCommunity_global" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatModule_global">
+      <soap:operation soapAction="http://tempuri.org/GetStatModule_global" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatPerson_global">
+      <soap:operation soapAction="http://tempuri.org/GetStatPerson_global" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatTotal">
+      <soap:operation soapAction="http://tempuri.org/GetStatTotal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatModule_daily">
+      <soap:operation soapAction="http://tempuri.org/GetStatModule_daily" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatCommunity_daily">
+      <soap:operation soapAction="http://tempuri.org/GetStatCommunity_daily" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatPerson_daily">
+      <soap:operation soapAction="http://tempuri.org/GetStatPerson_daily" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatAccess_daily">
+      <soap:operation soapAction="http://tempuri.org/GetStatAccess_daily" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatPerson_hourly">
+      <soap:operation soapAction="http://tempuri.org/GetStatPerson_hourly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatAccess_hourly">
+      <soap:operation soapAction="http://tempuri.org/GetStatAccess_hourly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatModule_hourly">
+      <soap:operation soapAction="http://tempuri.org/GetStatModule_hourly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatCommunity_hourly">
+      <soap:operation soapAction="http://tempuri.org/GetStatCommunity_hourly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatCommunity_global">
+      <soap:operation soapAction="http://tempuri.org/testGetStatCommunity_global" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatPerson_global">
+      <soap:operation soapAction="http://tempuri.org/testGetStatPerson_global" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatModule_global">
+      <soap:operation soapAction="http://tempuri.org/testGetStatModule_global" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatTotal">
+      <soap:operation soapAction="http://tempuri.org/testGetStatTotal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatModule_daily">
+      <soap:operation soapAction="http://tempuri.org/testGetStatModule_daily" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatCommunity_daily">
+      <soap:operation soapAction="http://tempuri.org/testGetStatCommunity_daily" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatPerson_daily">
+      <soap:operation soapAction="http://tempuri.org/testGetStatPerson_daily" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatAccess_daily">
+      <soap:operation soapAction="http://tempuri.org/testGetStatAccess_daily" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatPerson_hourly">
+      <soap:operation soapAction="http://tempuri.org/testGetStatPerson_hourly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatAccess_hourly">
+      <soap:operation soapAction="http://tempuri.org/testGetStatAccess_hourly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatCommunity_hourly">
+      <soap:operation soapAction="http://tempuri.org/testGetStatCommunity_hourly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatModule_hourly">
+      <soap:operation soapAction="http://tempuri.org/testGetStatModule_hourly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSactionStatisticsSoap12" type="tns:WSactionStatisticsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetStatCommunity_global">
+      <soap12:operation soapAction="http://tempuri.org/GetStatCommunity_global" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatModule_global">
+      <soap12:operation soapAction="http://tempuri.org/GetStatModule_global" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatPerson_global">
+      <soap12:operation soapAction="http://tempuri.org/GetStatPerson_global" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatTotal">
+      <soap12:operation soapAction="http://tempuri.org/GetStatTotal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatModule_daily">
+      <soap12:operation soapAction="http://tempuri.org/GetStatModule_daily" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatCommunity_daily">
+      <soap12:operation soapAction="http://tempuri.org/GetStatCommunity_daily" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatPerson_daily">
+      <soap12:operation soapAction="http://tempuri.org/GetStatPerson_daily" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatAccess_daily">
+      <soap12:operation soapAction="http://tempuri.org/GetStatAccess_daily" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatPerson_hourly">
+      <soap12:operation soapAction="http://tempuri.org/GetStatPerson_hourly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatAccess_hourly">
+      <soap12:operation soapAction="http://tempuri.org/GetStatAccess_hourly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatModule_hourly">
+      <soap12:operation soapAction="http://tempuri.org/GetStatModule_hourly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatCommunity_hourly">
+      <soap12:operation soapAction="http://tempuri.org/GetStatCommunity_hourly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatCommunity_global">
+      <soap12:operation soapAction="http://tempuri.org/testGetStatCommunity_global" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatPerson_global">
+      <soap12:operation soapAction="http://tempuri.org/testGetStatPerson_global" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatModule_global">
+      <soap12:operation soapAction="http://tempuri.org/testGetStatModule_global" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatTotal">
+      <soap12:operation soapAction="http://tempuri.org/testGetStatTotal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatModule_daily">
+      <soap12:operation soapAction="http://tempuri.org/testGetStatModule_daily" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatCommunity_daily">
+      <soap12:operation soapAction="http://tempuri.org/testGetStatCommunity_daily" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatPerson_daily">
+      <soap12:operation soapAction="http://tempuri.org/testGetStatPerson_daily" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatAccess_daily">
+      <soap12:operation soapAction="http://tempuri.org/testGetStatAccess_daily" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatPerson_hourly">
+      <soap12:operation soapAction="http://tempuri.org/testGetStatPerson_hourly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatAccess_hourly">
+      <soap12:operation soapAction="http://tempuri.org/testGetStatAccess_hourly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatCommunity_hourly">
+      <soap12:operation soapAction="http://tempuri.org/testGetStatCommunity_hourly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testGetStatModule_hourly">
+      <soap12:operation soapAction="http://tempuri.org/testGetStatModule_hourly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSactionStatistics">
+    <wsdl:port name="WSactionStatisticsSoap" binding="tns:WSactionStatisticsSoap">
+      <soap:address location="http://localhost/WS_ActionsStatistics/ServiceStatistics.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSactionStatisticsSoap12" binding="tns:WSactionStatisticsSoap12">
+      <soap12:address location="http://localhost/WS_ActionsStatistics/ServiceStatistics.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

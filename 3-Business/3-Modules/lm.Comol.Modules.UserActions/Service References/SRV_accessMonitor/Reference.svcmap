@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="62a9295b-cf29-4a62-9c85-9a0508db169a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/WS_ActionsStatistics/ServiceUserAccessMonitor.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceUserAccessMonitor5.xsd" MetadataType="Schema" ID="411bab8c-1330-40f0-aac6-d0d828ddc194" SourceId="1" SourceUrl="http://fenice.maieutiche.local/WS_ActionsStatistics/ServiceUserAccessMonitor.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceUserAccessMonitor51.xsd" MetadataType="Schema" ID="da3bb4bc-3486-4166-806e-a94301bcd3ac" SourceId="1" SourceUrl="http://fenice.maieutiche.local/WS_ActionsStatistics/ServiceUserAccessMonitor.svc?xsd=xsd4" />
+    <MetadataFile FileName="ServiceUserAccessMonitor52.xsd" MetadataType="Schema" ID="4cc0d3e3-b58e-472f-9e32-434f7027859f" SourceId="1" SourceUrl="http://fenice.maieutiche.local/WS_ActionsStatistics/ServiceUserAccessMonitor.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServiceUserAccessMonitor53.xsd" MetadataType="Schema" ID="263123fb-9cc2-41b2-a09c-702e9256ba48" SourceId="1" SourceUrl="http://fenice.maieutiche.local/WS_ActionsStatistics/ServiceUserAccessMonitor.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceUserAccessMonitor54.xsd" MetadataType="Schema" ID="8c7315eb-cf13-492e-8c09-5b531898b183" SourceId="1" SourceUrl="http://fenice.maieutiche.local/WS_ActionsStatistics/ServiceUserAccessMonitor.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceUserAccessMonitor1.disco" MetadataType="Disco" ID="9e1a10eb-f51d-4995-9bf6-342ab895a9ab" SourceId="1" SourceUrl="http://fenice.maieutiche.local/WS_ActionsStatistics/ServiceUserAccessMonitor.svc?disco" />
+    <MetadataFile FileName="ServiceUserAccessMonitor1.wsdl" MetadataType="Wsdl" ID="94239037-dd98-4a74-bfad-3525e247e14f" SourceId="1" SourceUrl="http://fenice.maieutiche.local/WS_ActionsStatistics/ServiceUserAccessMonitor.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

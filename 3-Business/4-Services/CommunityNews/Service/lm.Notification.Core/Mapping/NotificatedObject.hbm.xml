@@ -1,0 +1,13 @@
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="lm.Notification.Core" namespace="lm.Notification.Core.Domain">
+  <class name="lm.Notification.Core.Domain.NotificatedObject, lm.Notification.Core" table="Notificated_Object" lazy="false">
+    <id name="ID" column="NOBJ_ID" type="Guid">
+		<generator class="guid"/>
+	</id>
+	<property name="UniqueNotifyID" type="Guid" column="NOBJ_NTFC_UniqueID" />
+	<property name="ModuleID" type="Int32" column="NOBJ_ModuleID" />
+	<property name="ObjectTypeID" type="Int32" column="NOBJ_ObjectTypeID" />
+	<property name="ModuleCode" type="String" column="NOBJ_ModuleCode" />
+	<property name="FullyQualiFiedName" type="String" column="NOBJ_FullyQualiFiedName" /> 
+	<property name="ObjectID" type="String" column="NOBJ_ObjectID" />
+  </class>
+</hibernate-mapping>

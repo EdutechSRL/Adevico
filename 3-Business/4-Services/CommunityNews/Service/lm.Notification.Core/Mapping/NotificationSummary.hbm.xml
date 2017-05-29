@@ -1,0 +1,21 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="lm.Notification.Core" namespace="lm.Notification.Core.Domain">
+  <class name="NotificationSummary" table="Notification_Summary" >
+    <id name="ID" column="NTFS_ID" type="Guid">
+      <generator class="guid"/>
+    </id>
+    <property name="UniqueNotifyID" type="Guid" column="NTFS_UniqueID" />
+    <property name="LanguageID" type="Int32" column="NTFS_LanguageID" />
+    <property name="CommunityID" type="Int32" column="NTFS_CommunityID" />
+    <property name="ModuleCode" type="String" column="NTFS_ModuleCode" />
+    <property name="ModuleID" type="Int32" column="NTFS_ModuleID" />
+    <property name="ActionID" type="Int32" column="NTFS_ActionID" />
+    <property name="SentDate" type="DateTime" column="NTFS_SentDate" />
+    <property name="SavedDate" type="DateTime" column="NTFS_SavedDate"/>
+    <property name="PersonID" type="Int32" column="NTFS_PersonID" />
+    <property name="Day" type="DateTime" column="NTFS_Day" />
+    <many-to-one name="Template" class="lm.Notification.Core.Domain.TemplateMessage , lm.Notification.Core" column="NTFS_TemplateID" foreign-key="NTFS_TemplateID" fetch="select"/>
+    <property name="isDeleted" type="Boolean" column="NTFS_isDeleted" />
+    <property name="Message" type="String" column="NTFS_Message" />
+    <property name="TotalMessages" type="Int32" column="NTFS_CountAction" />
+  </class>
+</hibernate-mapping>

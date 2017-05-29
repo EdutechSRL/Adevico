@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4B3B3BA0-3835-4955-8B8F-E6E947526AD9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WCF_CoreServices</RootNamespace>
+    <AssemblyName>WCF_CoreServices</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\Lib\lm.Comol.CommonLib\NHibernate_21\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2">
+      <HintPath>..\..\Lib\lm.Comol.CommonLib\NHibernate_21\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\Lib\lm.Comol.CommonLib\NHibernate_21\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate">
+      <HintPath>..\..\Lib\lm.Comol.CommonLib\NHibernate_21\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\..\Lib\lm.Comol.CommonLib\NHibernate_21\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq">
+      <HintPath>..\..\Lib\lm.Comol.CommonLib\NHibernate_21\NHibernate.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hibernate.cfg.xml.config" />
+    <Content Include="Icodeon\Config_IcodeonConn_Dev.config" />
+    <Content Include="ServiceCommunity.svc" />
+    <Content Include="ServicePermission.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NHSessionHelper.cs" />
+    <Compile Include="IServiceCommunity.cs" />
+    <Compile Include="IServicePermission.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceCommunity.svc.cs">
+      <DependentUpon>ServiceCommunity.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServicePermission.svc.cs">
+      <DependentUpon>ServicePermission.svc</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Service\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\1-OldProject\COL_BusinessLogic\COL_BusinessLogic_v2.0.vbproj">
+      <Project>{51F57FB8-1245-4EA5-BF34-D6412C283AFB}</Project>
+      <Name>COL_BusinessLogic_v2.0</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\1-OldProject\COL_Questionario\COL_Questionario.vbproj">
+      <Project>{10eeacdf-85f8-4aa9-a965-ee1b2fd233d4}</Project>
+      <Name>COL_Questionario</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\2-Core\lm.Comol.Core.DomainModel\lm.Comol.Core.DomainModel.csproj">
+      <Project>{9B7DA676-5030-47CD-8B2B-A30A09C8D0B5}</Project>
+      <Name>lm.Comol.Core.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3-Modules\lm.Comol.Core.BaseModules\lm.Comol.Core.BaseModules.csproj">
+      <Project>{7FAE537E-6ACF-4C65-9D68-E22AEC839EEA}</Project>
+      <Name>lm.Comol.Core.BaseModules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\7-Data\lm.Comol.Core.Data\lm.Comol.Core.Data.vbproj">
+      <Project>{0890F82D-3130-489D-92B2-8B2A1E3DC5FE}</Project>
+      <Name>lm.Comol.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3-Modules\lm.Comol.Modules.Base\lm.Comol.Modules.Base.vbproj">
+      <Project>{7F38A696-661E-4BDF-9FAD-38E51B3E7E96}</Project>
+      <Name>lm.Comol.Modules.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3-Modules\lm.Comol.Modules.CallForPapers\lm.Comol.Modules.CallForPapers.csproj">
+      <Project>{86AC380F-16E0-4E8F-AF84-555E13EA456E}</Project>
+      <Name>lm.Comol.Modules.CallForPapers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3-Modules\lm.Comol.Modules.Standard\lm.Comol.Modules.Standard.csproj">
+      <Project>{d253bf62-a7f2-48d5-ad05-12ac8ea66279}</Project>
+      <Name>lm.Comol.Modules.Standard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3-Modules\lm.Comol.Modules.EduPath\lm.Comol.Modules.EduPath.csproj">
+      <Project>{72BC03AF-85E6-4D60-B529-5B0D303D6632}</Project>
+      <Name>lm.Comol.Modules.EduPath</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Deploy.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>1204</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/WCF_AdevicoCoreServices</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

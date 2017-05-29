@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{784726B6-C4D8-4BAB-A4EA-E6A4511FE4FF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lm.Comol.Core.CommonLib</RootNamespace>
+    <AssemblyName>lm.Comol.Core.CommonLib</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+    <Content Include="EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Common.xml" />
+    <Content Include="EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
+    <Content Include="EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Data.xml" />
+    <Content Include="EnterpriseLibrary\Microsoft.Practices.ObjectBuilder.dll" />
+    <Content Include="Enym\Enyim.Caching.dll" />
+    <Content Include="ManagedDesigns\ManagedDesigns.ApplicationBlocks.Validation.dll" />
+    <Content Include="Memcached\Memcached.ClientLibrary.dll" />
+    <Content Include="NHibernate_21\Antlr3.Runtime.dll" />
+    <Content Include="NHibernate_21\Castle.Core.dll" />
+    <Content Include="NHibernate_21\Castle.Core.xml" />
+    <Content Include="NHibernate_21\Castle.DynamicProxy.license.txt" />
+    <Content Include="NHibernate_21\Castle.DynamicProxy2.dll" />
+    <Content Include="NHibernate_21\Iesi.Collections.dll" />
+    <Content Include="NHibernate_21\log4net.dll" />
+    <Content Include="NHibernate_21\log4net.license.txt" />
+    <Content Include="NHibernate_21\log4net.xml" />
+    <Content Include="NHibernate_21\NHibernate.ByteCode.Castle.dll" />
+    <Content Include="NHibernate_21\NHibernate.dll" />
+    <Content Include="NHibernate_21\NHibernate.Linq.dll" />
+    <Content Include="NHibernate_21\NHibernate.SessionUtility.dll" />
+    <Content Include="SecureCookie\AdamTibi.Web.Security.dll" />
+    <Content Include="Utility\EeekSoft.Web.PopupWin.dll" />
+    <Content Include="Web\Mvc2\System.Web.Mvc.dll" />
+    <Content Include="Web\System.Web.Abstractions.dll" />
+    <Content Include="Web\System.Web.Mvc.dll" />
+    <Content Include="Web\System.Web.Routing.dll" />
+    <Content Include="Zip\Ionic.Utils.Zip.dll" />
+    <Content Include="_TEMPORARY\AspNet.ScriptManager.jQuery.dll" />
+    <Content Include="_TEMPORARY\AspNet.ScriptManager.jQuery.UI.Combined.dll" />
+    <Content Include="_TEMPORARY\DotNetOpenAuth.AspNet.dll" />
+    <Content Include="_TEMPORARY\DotNetOpenAuth.AspNet.xml" />
+    <Content Include="_TEMPORARY\DotNetOpenAuth.Core.dll" />
+    <Content Include="_TEMPORARY\DotNetOpenAuth.Core.xml" />
+    <Content Include="_TEMPORARY\DotNetOpenAuth.OAuth.Consumer.dll" />
+    <Content Include="_TEMPORARY\DotNetOpenAuth.OAuth.Consumer.xml" />
+    <Content Include="_TEMPORARY\DotNetOpenAuth.OAuth.dll" />
+    <Content Include="_TEMPORARY\DotNetOpenAuth.OAuth.xml" />
+    <Content Include="_TEMPORARY\DotNetOpenAuth.OpenId.dll" />
+    <Content Include="_TEMPORARY\DotNetOpenAuth.OpenId.RelyingParty.dll" />
+    <Content Include="_TEMPORARY\DotNetOpenAuth.OpenId.RelyingParty.xml" />
+    <Content Include="_TEMPORARY\DotNetOpenAuth.OpenId.xml" />
+    <Content Include="_TEMPORARY\DotNetZip.dll" />
+    <Content Include="_TEMPORARY\EntityFramework.dll" />
+    <Content Include="_TEMPORARY\EntityFramework.SqlServer.dll" />
+    <Content Include="_TEMPORARY\EntityFramework.SqlServer.xml" />
+    <Content Include="_TEMPORARY\EntityFramework.xml" />
+    <Content Include="_TEMPORARY\HibernatingRhinos.NHibernate.Profiler.Appender.dll" />
+    <Content Include="_TEMPORARY\HtmlAgilityPack.dll" />
+    <Content Include="_TEMPORARY\Microsoft.AspNet.Membership.OpenAuth.dll" />
+    <Content Include="_TEMPORARY\Microsoft.AspNet.Membership.OpenAuth.xml" />
+    <Content Include="_TEMPORARY\NLog.dll" />
+    <Content Include="_TEMPORARY\Telerik.Web.Device.Detection.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NHibernate_21\nhibernate-configuration.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NHibernate_21\nhibernate-mapping.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AdevicoLibrary\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

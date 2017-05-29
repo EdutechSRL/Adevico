@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8200A697-10D2-4BDE-8C63-085A9FBE2586}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lm.Comol.Modules.Faq</RootNamespace>
+    <AssemblyName>lm.Comol.Modules.Faq</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2">
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\lm.Comol.CommonLib\NHibernate_21\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq">
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\NHibernate.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAL\FAQDal.cs" />
+    <Compile Include="Faq\Category.cs" />
+    <Compile Include="Faq\Category_Int.cs" />
+    <Compile Include="Faq\Faq.cs" />
+    <Compile Include="Faq\FaqOnCategory.cs" />
+    <Compile Include="Faq\Faq_Int.cs" />
+    <Compile Include="Faq\Link.cs" />
+    <Compile Include="Enum\ErrorCodeEnum.cs" />
+    <Compile Include="Faq\Manager\FAQManager.cs" />
+    <Compile Include="Model\BaseFaqModel.cs" />
+    <Compile Include="Model\EditCategoryModel.cs" />
+    <Compile Include="Model\EditFaqModel.cs" />
+    <Compile Include="Model\FaqListModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\Category.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Category_Int.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Faq.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Faq_Int.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Link.xml" />
+    <EmbeddedResource Include="Mapping\FaqOnCategory.hbm.xml" />
+    <Content Include="Mapping\NotUsedCode.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Documentation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lm.Comol.Modules.Base\lm.Comol.Modules.Base.vbproj">
+      <Project>{7f38a696-661e-4bdf-9fad-38e51b3e7e96}</Project>
+      <Name>lm.Comol.Modules.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Config" nillable="true" type="Config" />
+  <xs:complexType name="Config">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Extension" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Impersonate" type="ImpersonateConfig" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Platforms" type="ArrayOfPlatform" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SourceDirectory" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ImpersonateConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Domain" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Password" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Username" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfPlatform">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Platform" nillable="true" type="Platform" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Platform">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ActiveTransferProtocol" type="TransferProtocolType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ConnectionString" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ScormConnectionString" type="xs:string" />      
+      <xs:element minOccurs="0" maxOccurs="1" name="MultimediaAnalysis" type="MultimediaAnalysisConfig" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MultimediaFilePath" type="xs:string" />      
+      <xs:element minOccurs="0" maxOccurs="1" name="RemoteFilePath" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ScormFilePath" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="WCF" type="WCFTransferProtocol" />
+      <xs:element minOccurs="0" maxOccurs="1" name="KeepFileStructure" type="xs:boolean" />
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" />
+  </xs:complexType>
+  <xs:simpleType name="TransferProtocolType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none" />      
+      <xs:enumeration value="WCF" />
+    </xs:restriction>
+  </xs:simpleType>  
+  <xs:complexType name="MultimediaAnalysisConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="DirectoryCandidates" type="ArrayOfString" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DocumentCandidates" type="ArrayOfString" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RulePriorityFrequencyRatio" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>  
+  <xs:complexType name="WCFTransferProtocol">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Active" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PhysicalPath" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

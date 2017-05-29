@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Sono uguali,&#xD;&#xA;solo che la prima, invece dei messaggi ha solo il numero degli stessi.&#xD;&#xA;&#xD;&#xA;Si poteva anche usare Chat_DTO come superclasse e l'altra come sottoclasse, ma preferivo tener separate le logiche sul numero di messaggi.">
+    <Position X="11.802" Y="0.5" Height="3.469" Width="1.075" />
+  </Comment>
+  <Class Name="WCF_StandardModules.InstantMessenger.Domain.IMMessageDTO">
+    <Position X="3.25" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAABAAgAAACAAAA=</HashCode>
+      <FileName>InstantMessenger\Domain\IMMessageDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WCF_StandardModules.InstantMessenger.Domain.IMMessagesContainerDTO">
+    <Position X="2.75" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAABACAAAAAAABQAAAQA=</HashCode>
+      <FileName>InstantMessenger\Domain\IMMessagesContainerDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserA" />
+      <Property Name="UserB" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Messages" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="WCF_StandardModules.InstantMessenger.Domain.IMUserDTO">
+    <Position X="7.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAEAAAAAAAAAAEEAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InstantMessenger\Domain\IMUserDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WCF_StandardModules.InstantMessenger.Domain.IMChatDTO">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <InheritanceLine Type="WCF_StandardModules.InstantMessenger.Domain.IMDomainObject" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="1.062" />
+        <Point X="4" Y="1.437" />
+        <Point X="1.062" Y="1.437" />
+        <Point X="1.062" Y="1.75" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="UserA" Type="WCF_StandardModules.InstantMessenger.Domain.IMUserDTO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.625" Y="3.56" />
+        <Point X="1.625" Y="3.75" />
+        <Point X="4.042" Y="3.75" Type="JumpStart" />
+        <Point X="4.208" Y="3.75" Type="JumpEnd" />
+        <Point X="7.5" Y="3.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="UserB" Type="WCF_StandardModules.InstantMessenger.Domain.IMUserDTO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.25" Y="3.56" />
+        <Point X="1.25" Y="4.062" />
+        <Point X="4.042" Y="4.062" Type="JumpStart" />
+        <Point X="4.208" Y="4.062" Type="JumpEnd" />
+        <Point X="7.5" Y="4.062" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAFACAAAAAAABAAAAQA=</HashCode>
+      <FileName>InstantMessenger\Domain\IMChatDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserA" />
+      <Property Name="UserB" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WCF_StandardModules.InstantMessenger.Domain.IMDomainObject" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InstantMessenger\Domain\IMDomainObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

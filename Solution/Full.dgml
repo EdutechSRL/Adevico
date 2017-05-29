@@ -1,0 +1,987 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph DataVirtualized="True" GraphDirection="RightToLeft" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@10)" Category="CodeSchema_Assembly" Bounds="846.93,604.987882584729,327.63,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Msmq.Service.CommunityNews, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(4d9e819f-663e-4c08-af48-5004dbc25b09.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Msmq.Service.CommunityNews.exe" />
+    <Node Id="(@101)" Category="CodeSchema_Assembly" Bounds="3421.71,604.987882584729,201.59,25" CodeSchemaProperty_StrongName="lm.Comol.Modules.Chat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(e2787342-b9bc-4831-b219-c6a09c2e20d6.OutputPath)" Group="Collapsed" Label="lm.Comol.Modules.Chat.dll" />
+    <Node Id="(@11)" Category="CodeSchema_Assembly" Bounds="2976.56333333333,604.987882584729,186.496666666666,25" CodeSchemaProperty_StrongName="FileTransfer.WinTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(1c770659-b39a-42be-bbdd-dbdd1d3b0ff4.OutputPath)" Group="Collapsed" Label="FileTransfer.WinTest.exe" />
+    <Node Id="(@110)" Category="CodeSchema_Assembly" Bounds="0,604.987882584729,256.623333333333,25" CodeSchemaProperty_StrongName="lm.ErrorsNotification.DataContract, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(7171a106-152a-41ec-bad4-49d9c084b629.OutputPath)" Group="Collapsed" Label="lm.ErrorsNotification.DataContract.dll" />
+    <Node Id="(@111)" Category="CodeSchema_Assembly" Bounds="769.043634643752,335.648875245062,376.71,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Msmq.Services.Notifications.DataContract, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(cef9b366-35ed-4ad0-ad99-fca2a885cd68.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Msmq.Services.Notifications.DataContract.dll" />
+    <Node Id="(@112)" Category="CodeSchema_Assembly" Bounds="1569.33333333333,604.987882584729,340.573333333334,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Msmq.Services.Ticket.DataContract, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(1c199e07-408a-4705-a276-d989e032bec9.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Msmq.Services.Ticket.DataContract.dll" />
+    <Node Id="(@117)" Category="CodeSchema_Assembly" Bounds="2349.16333333333,604.987882584729,168.703333333333,25" CodeSchemaProperty_StrongName="2_DynamicLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(ca4acde1-2ee9-4882-a406-1191ace2aa94.OutputPath)" Group="Collapsed" Label="2_DynamicLibrary.dll" />
+    <Node Id="(@12)" Category="CodeSchema_Assembly" Bounds="1204.56,604.987882584729,334.773333333333,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Msmq.Services.Mail.ConsoleHost, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(9cac28da-2c37-43fa-bb17-8c6c40588603.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Msmq.Services.Mail.ConsoleHost.exe" />
+    <Node Id="(@13)" Category="CodeSchema_Assembly" Bounds="254.923333333333,659.987882584729,228.456666666667,25" CodeSchemaProperty_StrongName="lm.Notification.ConsoleHost, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(9f903081-2663-4d2c-92b4-b54034c4e68a.OutputPath)" Group="Collapsed" Label="lm.Notification.ConsoleHost.exe" />
+    <Node Id="(@14)" Category="CodeSchema_Assembly" Bounds="797.193333333335,659.987882584729,259.17,25" CodeSchemaProperty_StrongName="lm.ErrorsNotification.ConsoleHost, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(b4ce0eb2-4ce9-44ae-816f-d9bb50951117.OutputPath)" Group="Collapsed" Label="lm.ErrorsNotification.ConsoleHost.exe" />
+    <Node Id="(@15)" Category="CodeSchema_Assembly" Bounds="1939.90666666667,604.987882584729,379.256666666666,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Msmq.Services.Notifications.ConsoleHost, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(8d2ab67d-8dd2-4b6c-a66f-a216d35996d7.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Msmq.Services.Notifications.ConsoleHost.exe" />
+    <Node Id="(@16)" Category="CodeSchema_Assembly" Bounds="3653.3,604.987882584729,202.94,25" CodeSchemaProperty_StrongName="lm.ActionsConsoleHost, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(233383d0-fe66-4640-bf9e-fcc4073d9f75.OutputPath)" Group="Collapsed" Label="lm.ActionsConsoleHost.exe" />
+    <Node Id="(@19)" Category="CodeSchema_Assembly" Bounds="513.38,659.987882584729,253.813333333334,25" CodeSchemaProperty_StrongName="lm.ErrorsNotification.WinSrvHost, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(814a55a0-fb05-4eff-ae30-8583d3c4cdea.OutputPath)" Group="Collapsed" Label="lm.ErrorsNotification.WinSrvHost.exe" />
+    <Node Id="(@3)" Category="CodeSchema_Assembly" Bounds="3538.51109583538,167.869277789639,202.07,25" CodeSchemaProperty_StrongName="FileTransfer.WinService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(94abad75-1e0c-454c-a091-7f9de9b79d1a.OutputPath)" Group="Collapsed" Label="FileTransfer.WinService.exe" />
+    <Node Id="(@30)" Category="CodeSchema_Assembly" Bounds="3886.24,604.987882584729,220.73,25" CodeSchemaProperty_StrongName="lm.Comol.Core.CommonLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(784726b6-c4d8-4bab-a4ea-e6a4511fe4ff.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.CommonLib.dll" />
+    <Node Id="(@39)" Category="CodeSchema_Assembly" Bounds="286.623333333333,604.987882584729,224.02,25" CodeSchemaProperty_StrongName="lm.ErrorsNotification.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(ae3bda4a-0265-469d-a7ba-e1bbc97062d7.OutputPath)" Group="Collapsed" Label="lm.ErrorsNotification.Service.dll" />
+    <Node Id="(@4)" Category="CodeSchema_Assembly" Bounds="4062.32004626957,246.749499239215,211.583333333334,25" CodeSchemaProperty_StrongName="FileTransfer.UnzipService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(c124d1c3-d3f5-4196-a927-0601e92b5d77.OutputPath)" Group="Collapsed" Label="FileTransfer.UnzipService.exe" />
+    <Node Id="(@42)" Category="CodeSchema_Assembly" Bounds="1031.16369753255,242.605712283532,307.97,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Msmq.Services.Ticket.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(4ae60db3-9bab-44cc-be7d-2348b66ba7cd.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Msmq.Services.Ticket.Service.dll" />
+    <Node Id="(@43)" Category="CodeSchema_Assembly" Bounds="1726.18671005278,384.991723885644,184.616666666667,25" CodeSchemaProperty_StrongName="lm.ActionPersistence, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(e2e213f2-4734-4590-8990-15177bf8a936.OutputPath)" Group="Collapsed" Label="lm.ActionPersistence.dll" />
+    <Node Id="(@72)" Category="CodeSchema_Assembly" Bounds="923.066841619584,423.122134651173,208.873333333333,25" CodeSchemaProperty_StrongName="lm.Comol.Core.DataLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(f0ff9247-93d9-4d75-be40-ea2d37d66d82.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.DataLayer.dll" />
+    <Node Id="(@79)" Category="CodeSchema_Assembly" Bounds="2761.30333333333,604.987882584729,185.26,25" CodeSchemaProperty_StrongName="WCF_ActionStatistics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(de1e3a9b-7c87-4e9e-8b4e-23a61b770249.OutputPath)" Group="Collapsed" Label="WCF_ActionStatistics.dll" />
+    <Node Id="(@80)" Category="CodeSchema_Assembly" Bounds="2547.86666666667,604.987882584729,183.436666666666,25" CodeSchemaProperty_StrongName="WS_ActionsStatistics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(d7a372d0-279a-4c49-9c50-ceadbc71aa31.OutputPath)" Group="Collapsed" Label="WS_ActionsStatistics.dll" />
+    <Node Id="(@85)" Category="CodeSchema_Assembly" Bounds="0,659.987882584729,224.923333333333,25" CodeSchemaProperty_StrongName="FileTransfer.ExternalLibraries, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(06e36482-0d3f-44ac-acce-9867bf72ca91.OutputPath)" Group="Collapsed" Label="FileTransfer.ExternalLibraries.dll" />
+    <Node Id="(@86)" Category="CodeSchema_Assembly" Bounds="3193.06,604.987882584729,198.65,25" CodeSchemaProperty_StrongName="WCF_StandardModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(70c04bc3-3bab-4f89-8a5b-9b2f6d569623.OutputPath)" Group="Collapsed" Label="WCF_StandardModules.dll" />
+    <Node Id="(@9)" Category="CodeSchema_Assembly" Bounds="540.643333333333,604.987882584729,276.286666666667,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Msmq.Service.Actions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(fae40127-0e71-45a4-9d45-2a2c8c71501f.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Msmq.Service.Actions.exe" />
+    <Node Id="@100" Category="CodeSchema_Assembly" Bounds="1817.78396411868,274.991633147407,174.766666666666,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Dss, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(5d1def77-9bef-4912-a93b-0633186c69d2.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Dss.dll" />
+    <Node Id="@103" Category="CodeSchema_Assembly" Bounds="2184.80734207712,109.994919073431,122.436666666666,25" CodeSchemaProperty_StrongName="WS_Chat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(26edbab2-4078-490f-835e-3cd19c468f41.OutputPath)" Group="Collapsed" Label="WS_Chat.dll" />
+    <Node Id="@105" Category="CodeSchema_Assembly" Bounds="1604.050449072,219.991682398357,231.266666666667,25" CodeSchemaProperty_StrongName="lm.Comol.Modules.ScormStat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(88ab4d29-203f-47ca-9f95-de1adacda528.OutputPath)" Group="Collapsed" Label="lm.Comol.Modules.ScormStat.dll" />
+    <Node Id="@107" Category="CodeSchema_Assembly" Bounds="687.601075156244,490.726066692016,332.226666666666,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Msmq.Services.Mail.DataContract, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(878f92a0-34dc-48cf-8977-a8d1bae96f7b.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Msmq.Services.Mail.DataContract.dll" />
+    <Node Id="@109" Category="CodeSchema_Assembly" Bounds="1411.38158803798,439.987741811856,225.91,25" CodeSchemaProperty_StrongName="lm.Notification.DataContract, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(a1a17311-6b8f-4670-95ec-4e87a9e71353.OutputPath)" Group="Collapsed" Label="lm.Notification.DataContract.dll" />
+    <Node Id="@114" Category="CodeSchema_Assembly" Bounds="1411.38155058426,384.987763261513,195.3,25" CodeSchemaProperty_StrongName="lm.ActionDataContract, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(679008cc-574e-46a6-ba1d-707ba8ee5cf4.OutputPath)" Group="Collapsed" Label="lm.ActionDataContract.dll" />
+    <Node Id="@116" Category="CodeSchema_Assembly" Bounds="2121.78078880114,164.995048706165,218.363333333333,25" CodeSchemaProperty_StrongName="lm.Comol.Modules.TaskList, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(59560597-39be-48bb-ad93-35c57c74e482.OutputPath)" Group="Collapsed" Label="lm.Comol.Modules.TaskList.dll" />
+    <Node Id="@119" Category="CodeSchema_Assembly" Bounds="1604.05037240718,109.991443821203,133.49,25" CodeSchemaProperty_StrongName="COL_Utility, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(8d15efa2-ec97-462d-813f-11cedb939f25.OutputPath)" Group="Collapsed" Label="COL_Utility.dll" />
+    <Node Id="@121" Category="CodeSchema_Assembly" Bounds="1421.93369966539,494.987793432707,152.116666666667,25" CodeSchemaProperty_StrongName="COMOL_Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(d1efb82a-de0c-43d2-8dc7-ad808b32c2a2.OutputPath)" Group="Collapsed" Label="COMOL_Entity.dll" />
+    <Node Id="@18" Category="CodeSchema_Assembly" Bounds="3383.83433153489,407.753859113007,329.416666666666,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Msmq.Services.Mail.WinSrvHost, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(04b0d336-1332-4930-93bb-9fcdb876f713.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Msmq.Services.Mail.WinSrvHost.exe" />
+    <Node Id="@2" Category="CodeSchema_Assembly" Bounds="3555.68085722759,314.974494611087,205.663333333334,25" CodeSchemaProperty_StrongName="FileTransfer.WCFService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(f12b4c8d-95b3-4171-a433-9bbf05c5afd2.OutputPath)" Group="Collapsed" Label="FileTransfer.WCFService.exe" />
+    <Node Id="@21" Category="CodeSchema_Assembly" Bounds="3791.34436550126,301.749834456202,373.9,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Msmq.Services.Notifications.WinSrvHost, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(20e55bac-e91e-48c9-aebe-3586990611dd.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Msmq.Services.Notifications.WinSrvHost.exe" />
+    <Node Id="@23" Category="CodeSchema_Assembly" Bounds="2516.96757525264,292.219238706411,256.273333333334,25" CodeSchemaProperty_StrongName="lm.Comol.Scorm.AnalyzeUserPlay, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(418ef089-1aef-4338-94a3-d138a5aaa5ba.OutputPath)" Group="Collapsed" Label="lm.Comol.Scorm.AnalyzeUserPlay.exe" />
+    <Node Id="@25" Category="CodeSchema_Assembly" Bounds="1952.83398212029,54.9959952593064,201.973333333333,25" CodeSchemaProperty_StrongName="COL_BusinessLogic_v2.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(51f57fb8-1245-4ea5-bf34-d6412c283afb.OutputPath)" Group="Collapsed" Label="COL_BusinessLogic_v2.0.dll" />
+    <Node Id="@27" Category="CodeSchema_Assembly" Bounds="820.303597532547,280.648904348878,180.860000000001,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(0890f82d-3130-489d-92b2-8b2a1e3dc5fe.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Data.dll" />
+    <Node Id="@29" Category="CodeSchema_Assembly" Bounds="1175.7537265134,300.199752034688,163.38,25" CodeSchemaProperty_StrongName="FileTransfer.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(38986ff7-e8e7-48a4-ad3b-11213b43467b.OutputPath)" Group="Collapsed" Label="FileTransfer.Data.dll" />
+    <Node Id="@32" Category="CodeSchema_Assembly" Bounds="1369.13378610355,274.987755470042,201.593333333333,25" CodeSchemaProperty_StrongName="FileTransfer.WCFUpload, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(83a1d11f-c87f-4261-beb0-5a1561ce4539.OutputPath)" Group="Collapsed" Label="FileTransfer.WCFUpload.dll" />
+    <Node Id="@34" Category="CodeSchema_Assembly" Bounds="2926.6273093915,223.021136772721,224.946666666667,25" CodeSchemaProperty_StrongName="lm.Comol.Modules.Standard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(d253bf62-a7f2-48d5-ad05-12ac8ea66279.OutputPath)" Group="Collapsed" Label="lm.Comol.Modules.Standard.dll" />
+    <Node Id="@36" Category="CodeSchema_Assembly" Bounds="1604.05064434571,494.99189001603,299.623333333333,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Msmq.Services.Mail.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(de89a79f-4408-490e-8da5-d09a1edccaa3.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Msmq.Services.Mail.Service.dll" />
+    <Node Id="@38" Category="CodeSchema_Assembly" Bounds="1862.51516041283,439.991660449967,193.306666666667,25" CodeSchemaProperty_StrongName="lm.Notification.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(c5b30153-0523-4808-9b3b-ca585f9f3f13.OutputPath)" Group="Collapsed" Label="lm.Notification.Service.dll" />
+    <Node Id="@41" Category="CodeSchema_Assembly" Bounds="3181.5741422027,333.021183217742,344.106666666667,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Msmq.Services.Notifications.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(f54eb697-a6f8-4e15-b98a-f8df5575e88e.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Msmq.Services.Notifications.Service.dll" />
+    <Node Id="@45" Category="CodeSchema_Assembly" Bounds="1377.80058964474,329.987763261513,188.313333333334,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Cache, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(b001a912-8d98-476c-8fe0-c1f6360352ea.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Cache.dll" />
+    <Node Id="@47" Category="CodeSchema_Assembly" Bounds="2184.80729734676,223.688407780019,210.363333333334,25" CodeSchemaProperty_StrongName="lm.Comol.Core.Statistiche, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(bf9492b9-a9ff-4637-a932-4d5c7710da2f.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.Statistiche.dll" />
+    <Node Id="@49" Category="CodeSchema_Assembly" Bounds="1399.93370574052,549.987882584729,174.116666666667,25" CodeSchemaProperty_StrongName="lm.Comol.Core.File, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(ffa417b0-a44b-441a-921b-feb57c5fd7da.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.File.dll" />
+    <Node Id="@51" Category="CodeSchema_Assembly" Bounds="1200.46151170085,424.823454201602,180.92,25" CodeSchemaProperty_StrongName="lm.Notification.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(4af9bb8f-e521-4842-96aa-88a68963592d.OutputPath)" Group="Collapsed" Label="lm.Notification.Core.dll" />
+    <Node Id="@53" Category="CodeSchema_Assembly" Bounds="3344.91447376174,278.021117852643,163.596666666666,25" CodeSchemaProperty_StrongName="FileTransfer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(aeb96f04-ed2b-4ce9-b8b9-3d89e3d98b02.OutputPath)" Group="Collapsed" Label="FileTransfer.Core.dll" />
+    <Node Id="@55" Category="CodeSchema_Assembly" Bounds="2695.07407527035,347.228328229756,201.553333333333,25" CodeSchemaProperty_StrongName="lm.Comol.Modules.Base, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(7f38a696-661e-4bdf-9fad-38e51b3e7e96.OutputPath)" Group="Collapsed" Label="lm.Comol.Modules.Base.dll" />
+    <Node Id="@57" Category="CodeSchema_Assembly" Bounds="2184.80736870722,-5.6843418860808E-14,220.806666666667,25" CodeSchemaProperty_StrongName="lm.Comol.Modules.EduPath, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(72bc03af-85e6-4d60-b529-5b0d303d6632.OutputPath)" Group="Collapsed" Label="lm.Comol.Modules.EduPath.dll" />
+    <Node Id="@59" Category="CodeSchema_Assembly" Bounds="2269.59742718599,278.688621495313,125.573333333333,25" CodeSchemaProperty_StrongName="COL_Wiki, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(3cb7809a-efab-4785-a18b-c6e1a6685134.OutputPath)" Group="Collapsed" Label="COL_Wiki.dll" />
+    <Node Id="@6" Category="CodeSchema_Assembly" Bounds="1604.05041364177,164.991672105845,212.35,25" CodeSchemaProperty_StrongName="RepositoryMigrationTool, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(b445c81a-db35-48d2-9fcf-e9cf7227a59a.OutputPath)" Group="Collapsed" Label="RepositoryMigrationTool.exe" />
+    <Node Id="@61" Category="CodeSchema_Assembly" Bounds="262.910101310419,292.008993790811,231.806666666667,25" CodeSchemaProperty_StrongName="lm.Comol.Core.DomainModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(9b7da676-5030-47cd-8b2b-a30a09c8d0b5.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.DomainModel.dll" />
+    <Node Id="@63" Category="CodeSchema_Assembly" Bounds="524.716867977086,310.030751831032,214.326666666667,25" CodeSchemaProperty_StrongName="FileTransfer.DomainModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(1ace12a8-3795-4d3e-a054-a81a54b259b0.OutputPath)" Group="Collapsed" Label="FileTransfer.DomainModel.dll" />
+    <Node Id="@65" Category="CodeSchema_Assembly" Bounds="2425.17083090877,237.218903747053,239.903333333333,25" CodeSchemaProperty_StrongName="lm.Modules.NotificationSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(fd38df95-3bf6-4f06-8ca3-2e93862e1f00.OutputPath)" Group="Collapsed" Label="lm.Modules.NotificationSystem.dll" />
+    <Node Id="@67" Category="CodeSchema_Assembly" Bounds="3181.57422697004,223.020943504679,208.99,25" CodeSchemaProperty_StrongName="lm.Comol.UI.Presentation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(3d1de719-d489-43dd-93d9-00b9b650fb63.OutputPath)" Group="Collapsed" Label="lm.Comol.UI.Presentation.dll" />
+    <Node Id="@69" Category="CodeSchema_Assembly" Bounds="2435.61403066563,388.68860394248,170.803333333333,25" CodeSchemaProperty_StrongName="COL_Questionario, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(10eeacdf-85f8-4aa9-a965-ee1b2fd233d4.OutputPath)" Group="Collapsed" Label="COL_Questionario.dll" />
+    <Node Id="@71" Category="CodeSchema_Assembly" Bounds="1600.72721571763,274.991626556007,187.056666666667,25" CodeSchemaProperty_StrongName="FileTransfer.FileUnzip, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(6399991c-f600-4c48-92d1-059dadef1600.OutputPath)" Group="Collapsed" Label="FileTransfer.FileUnzip.dll" />
+    <Node Id="@74" Category="CodeSchema_Assembly" Bounds="1767.54038780385,109.991672105845,155.293333333333,25" CodeSchemaProperty_StrongName="COL_DataLayer, Version=1.0.6184.25272, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(7eb220b9-ede7-4656-bb1a-d93b3882221b.OutputPath)" Group="Collapsed" Label="COL_DataLayer.dll" />
+    <Node Id="@76" Category="CodeSchema_Assembly" Bounds="2022.55066051932,295.307261690546,217.046666666667,25" CodeSchemaProperty_StrongName="FileTransfer.MediaAnalyzer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(c699ba4c-78b8-4f81-a655-bc6c366f9e9e.OutputPath)" Group="Collapsed" Label="FileTransfer.MediaAnalyzer.dll" />
+    <Node Id="@78" Category="CodeSchema_Assembly" Bounds="2269.59749376887,333.688591481773,217.37,25" CodeSchemaProperty_StrongName="FileTransfer.ScormAnalyzer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(ebf92b2a-08cb-4efa-9102-3606acae99f2.OutputPath)" Group="Collapsed" Label="FileTransfer.ScormAnalyzer.dll" />
+    <Node Id="@8" Category="CodeSchema_Assembly" Bounds="2803.240949225,278.021289003406,316.33,25" CodeSchemaProperty_StrongName="lm.Comol.Scorm.CalculatePackageEvaluation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(8281658f-1fce-40fd-b601-1f0cfd67c3e8.OutputPath)" Group="Collapsed" Label="lm.Comol.Scorm.CalculatePackageEvaluation.exe" />
+    <Node Id="@82" Category="CodeSchema_Assembly" Bounds="3181.57398864856,388.021253215947,172.26,25" CodeSchemaProperty_StrongName="WCF_CoreServices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(4b3b3ba0-3835-4955-8b8f-e6e947526ad9.OutputPath)" Group="Collapsed" Label="WCF_CoreServices.dll" />
+    <Node Id="@84" Category="CodeSchema_Assembly" Bounds="3149.57104042841,278.021120648264,165.343333333333,25" CodeSchemaProperty_StrongName="WS_CoreServices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(8406424e-99f8-4bb1-90ff-af9640bf238a.OutputPath)" Group="Collapsed" Label="WS_CoreServices.dll" />
+    <Node Id="@88" Category="CodeSchema_Assembly" Bounds="1865.31727207705,219.991483462186,226.463333333333,25" CodeSchemaProperty_StrongName="lm.Comol.Core.BaseModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(7fae537e-6acf-4c65-9d68-e22aec839eea.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.BaseModules.dll" />
+    <Node Id="@90" Category="CodeSchema_Assembly" Bounds="1667.29175868146,439.991832733075,165.223333333333,25" CodeSchemaProperty_StrongName="WS_Notifications, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(410c78c7-612a-41e8-82cc-c0d7ab045228.OutputPath)" Group="Collapsed" Label="WS_Notifications.dll" />
+    <Node Id="@92" Category="CodeSchema_Assembly" Bounds="3770.58125144746,185.958811509071,240.153333333334,25" CodeSchemaProperty_StrongName="lm.Comol.Modules.UserActions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(7484782c-db10-48dd-bf15-189af8a2443a.OutputPath)" Group="Collapsed" Label="lm.Comol.Modules.UserActions.dll" />
+    <Node Id="@94" Category="CodeSchema_Assembly" Bounds="1636.6818146622,329.991731713806,200.713333333333,25" CodeSchemaProperty_StrongName="WS_Comol_UserActions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(bf9f69e2-41e7-4d5e-ba10-59665a54b680.OutputPath)" Group="Collapsed" Label="WS_Comol_UserActions.dll" />
+    <Node Id="@96" Category="CodeSchema_Assembly" Bounds="0,346.805383662908,232.91,25" CodeSchemaProperty_StrongName="lm.Comol.Core.MailCommons, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(428243cb-28cd-4d81-8099-74d1448b5e1d.OutputPath)" Group="Collapsed" Label="lm.Comol.Core.MailCommons.dll" />
+    <Node Id="@98" Category="CodeSchema_Assembly" Bounds="2121.78060541038,399.679880443709,249.033333333333,25" CodeSchemaProperty_StrongName="lm.Comol.Modules.CallForPapers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(86ac380f-16e0-4e8f-af84-555e13ea456e.OutputPath)" Group="Collapsed" Label="lm.Comol.Modules.CallForPapers.dll" />
+  </Nodes>
+  <Links>
+    <Link Source="(@111)" Target="@61" Category="References" Bounds="429.178497314453,319.590759277344,339.865142822266,27.2888793945313" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="(@3)" Target="@53" Category="References" Bounds="3458.85802154188,192.869277789639,156.535812218418,81.0150886342548" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="6">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="(@39)" Target="(@110)" Category="References" Bounds="265.623321533203,617.487854003906,21,0" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="260">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="Implements" />
+    </Link>
+    <Link Source="(@4)" Target="@53" Category="References" Bounds="3517.50314520984,263.711707945506,544.816901059726,22.9799453571619" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="6">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="(@42)" Target="@61" Category="References" Bounds="503.699922931763,264.516941569146,527.843471297123,32.3403933877908" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="16" />
+    <Link Source="(@43)" Target="@114" Category="References" Bounds="1615.68155058352,397.489128206243,110.505159469262,0.00141428443532732" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="144">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="Implements" />
+    </Link>
+    <Link Source="(@72)" Target="@61" Category="References" Bounds="446.765228271484,318.869964599609,515.205413818359,104.252166748047" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="14" />
+    <Link Source="@100" Target="@61" Category="References" Bounds="498.700866699219,232.184204101563,1319.86395263672,58.8173217773438" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="231">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@103" Target="@25" Category="CodeSchema_Calls" Bounds="2106.15718957692,82.4719481267636,96.1846704753757,27.5229709466672" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="9" />
+    <Link Source="@103" Target="@49" Category="CodeSchema_Calls" Bounds="1533.06506347656,134.994918823242,661.062133789063,412.141738891602" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4" />
+    <Link Source="@105" Target="@27" Category="CodeSchema_Calls" Bounds="1010.15576171875,244.511901855469,596.757446289063,44.4870910644531" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@105" Target="@49" Category="CodeSchema_Calls" Bounds="1533.06506347656,244.991683959961,136.762573242188,302.144973754883" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@105" Target="@61" Category="References" Bounds="498.700866699219,232.438262939453,1105.34954833984,58.5632629394531" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1566">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@107" Target="@61" Category="References" Bounds="416.988828279078,320.483066066616,406.852645356914,170.2430006254" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="28">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@107" Target="@96" Category="References" Bounds="189.32175145989,373.529729285984,600.359174057293,117.196337406033" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="8">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@109" Target="@51" Category="References" Bounds="1390.36257838811,443.783846388687,21.0190096498675,1.36554293156678" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="38">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@116" Target="@49" Category="CodeSchema_Calls" Bounds="1533.06506347656,189.995056152344,674.655151367188,357.1416015625" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@116" Target="@61" Category="References" Bounds="498.700866699219,182.428909301758,1623.07989501953,108.572616577148" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1415">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldWrite" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@116" Target="@88" Category="References" Bounds="2044.71305605484,189.995048706165,128.87897216531,28.0804454377147" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@119" Target="@121" Category="CodeSchema_Calls" Bounds="1564.50073242188,134.991439819336,82.925048828125,358.091201782227" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="8" />
+    <Link Source="@119" Target="@49" Category="CodeSchema_Calls" Bounds="1533.06506347656,134.991439819336,114.360717773438,412.145217895508" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="16">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@18" Target="@36" Category="References" Bounds="1912.66336362718,428.25896110696,1471.1965461347,71.5137319469593" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@18" Target="@61" Category="CodeSchema_Calls" Bounds="503.714904785156,300.718444824219,2880.11932373047,121.025787353516" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@2" Target="@53" Category="InheritsFrom" Bounds="3513.38901759496,304.338989189265,66.7139883023306,10.6355054218217" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="8">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldWrite" />
+    </Link>
+    <Link Source="@2" Target="@63" Category="References" Bounds="748.042846679688,323.968017578125,2807.63806152344,6.17041015625" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="7">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldRead" />
+    </Link>
+    <Link Source="@21" Target="@41" Category="References" Bounds="3534.68017578125,326.749847412109,341.009033203125,16.8332214355469" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="7">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@21" Target="@61" Category="CodeSchema_Calls" Bounds="498.700866699219,232.184204101563,3355.66656494141,69.5656433105469" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="7" />
+    <Link Source="@23" Target="@105" Category="References" Bounds="1797.99816894531,246.585784912109,758.252319335938,45.6334533691406" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@23" Target="@27" Category="CodeSchema_Calls" Bounds="1010.15283203125,266.606994628906,1546.09765625,25.6122436523438" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3" />
+    <Link Source="@23" Target="@61" Category="References" Bounds="498.700866699219,232.184204101563,2057.54962158203,60.0350341796875" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="56">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@25" Target="@119" Category="CodeSchema_Calls" Bounds="1746.02190493963,79.9959952593064,220.740340289469,31.6942895901429" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="47" />
+    <Link Source="@25" Target="@121" Category="References" Bounds="1564.50073242188,79.9959945678711,473.533935546875,413.086647033691" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2865">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldRead" />
+      <Category Ref="CodeSchema_FieldWrite" />
+      <Category Ref="CodeSchema_FunctionPointer" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@25" Target="@49" Category="CodeSchema_Calls" Bounds="1533.06506347656,79.9959945678711,504.969604492188,467.140663146973" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="31" />
+    <Link Source="@25" Target="@74" Category="References" Bounds="1901.31023241971,79.9959952593064,105.089963006288,27.701644427132" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="14657">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@27" Target="@61" Category="Implements" Bounds="503.714716179212,295.080195846938,316.588881353335,6.76131167685668" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@29" Target="@61" Category="References" Bounds="503.716376938081,305.673362711105,672.037349575315,6.26485964820745" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="65">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@29" Target="@63" Category="References" Bounds="748.042423463243,313.983545512101,427.711303050153,6.72166704702897" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@32" Target="@61" Category="References" Bounds="503.421630859375,277.591827392578,865.712158203125,17.0970458984375" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="12">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@32" Target="@63" Category="References" Bounds="748.035676756436,291.702559077639,621.098109347118,25.971161929438" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="13">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@34" Target="@121" Category="References" Bounds="1564.50073242188,245.311935424805,1362.68212890625,247.770706176758" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="26">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@34" Target="@49" Category="CodeSchema_Calls" Bounds="1583.02465820313,245.311935424805,1344.158203125,309.894607543945" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="43" />
+    <Link Source="@34" Target="@55" Category="References" Bounds="2793.71313476563,248.021133422852,150.382568359375,90.2111968994141" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@34" Target="@61" Category="References" Bounds="498.700866699219,216.34016418457,2427.92633056641,74.6613616943359" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="9718">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldRead" />
+      <Category Ref="CodeSchema_FieldWrite" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@34" Target="@88" Category="References" Bounds="2100.77172851563,217.965255737305,825.85546875,13.6576232910156" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="57">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@34" Target="@96" Category="References" Bounds="241.903656005859,248.021133422852,2712.56216430664,106.568923950195" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="16">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldWrite" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@36" Target="@107" Category="Implements" Bounds="1028.82397460938,486.797698974609,606.606201171875,11.3690490722656" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="34">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@36" Target="@27" Category="CodeSchema_Calls" Bounds="995.138977050781,307.118469238281,717.621765136719,187.873413085938" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5" />
+    <Link Source="@36" Target="@49" Category="CodeSchema_Calls" Bounds="1556.46356646059,519.99189001603,136.741990424397,28.1794650059096" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="15" />
+    <Link Source="@36" Target="@61" Category="References" Bounds="429.187316894531,319.561157226563,1178.55340576172,175.605377197266" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="559">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@36" Target="@96" Category="References" Bounds="210.922744750977,373.106414794922,1424.50743103027,121.885467529297" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="315">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldRead" />
+      <Category Ref="CodeSchema_FieldWrite" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@38" Target="@109" Category="References" Bounds="1628.19494628906,429.854766845703,235.072631835938,12.4990844726563" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="92">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="Implements" />
+    </Link>
+    <Link Source="@38" Target="@51" Category="References" Bounds="1390.38073730469,431.044464111328,504.438232421875,8.94720458984375" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="238">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@41" Target="@27" Category="CodeSchema_Calls" Bounds="1007.87890625,305.974243164063,2173.6953125,36.6636657714844" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5" />
+    <Link Source="@41" Target="@34" Category="CodeSchema_Calls" Bounds="3082.564453125,251.059448242188,188.340576171875,81.9617309570313" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="32">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@41" Target="@61" Category="References" Bounds="503.714904785156,300.718444824219,2677.85931396484,41.9194641113281" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="115">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+    </Link>
+    <Link Source="@41" Target="@88" Category="CodeSchema_Calls" Bounds="2100.31713867188,242.781478881836,1081.25708007813,98.3271636962891" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@45" Target="@61" Category="CodeSchema_Calls" Bounds="503.657989501953,291.559967041016,874.142547607422,45.8804931640625" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@47" Target="@25" Category="CodeSchema_Calls" Bounds="2062.8671875,88.2460021972656,165.298828125,135.442398071289" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4" />
+    <Link Source="@47" Target="@49" Category="CodeSchema_Calls" Bounds="1533.06506347656,248.688400268555,699.481323242188,298.448257446289" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4" />
+    <Link Source="@47" Target="@61" Category="References" Bounds="498.700866699219,206.293533325195,1729.46514892578,84.7079925537109" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="6">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@49" Target="@61" Category="References" Bounds="429.187316894531,319.561157226563,1021.63677978516,230.426696777344" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="47">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@53" Target="@29" Category="References" Bounds="1348.13122558594,303.021118164063,2022.43615722656,22.5771789550781" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="16">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@53" Target="@32" Category="CodeSchema_Calls" Bounds="1545.42504882813,265.38330078125,1825.14233398438,12.6378173828125" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3" />
+    <Link Source="@53" Target="@61" Category="References" Bounds="498.700866699219,232.184204101563,2871.86651611328,58.8173217773438" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="45">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@53" Target="@63" Category="References" Bounds="694.448120117188,232.184204101563,2676.11926269531,75.8097839355469" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="57">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldRead" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@53" Target="@71" Category="CodeSchema_Calls" Bounds="1785.82495117188,258.215026855469,1584.74243164063,19.8060913085938" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@53" Target="@76" Category="References" Bounds="2248.58911132813,303.021118164063,1121.97827148438,17.9273681640625" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="7">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@53" Target="@78" Category="CodeSchema_Calls" Bounds="2495.95849609375,303.008422851563,853.599853515625,37.9486083984375" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@55" Target="@105" Category="CodeSchema_Calls" Bounds="1803.39233398438,246.474517822266,894.28369140625,101.366363525391" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4" />
+    <Link Source="@55" Target="@116" Category="References" Bounds="2300.21215820313,191.817932128906,397.4638671875,156.02294921875" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1068">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@55" Target="@121" Category="References" Bounds="1564.50073242188,372.228332519531,1196.38232421875,120.854339599609" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="61">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@55" Target="@25" Category="References" Bounds="2080.875,84.8240585327148,712.96728515625,262.404273986816" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="232">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@55" Target="@49" Category="CodeSchema_Calls" Bounds="1583.02465820313,372.228332519531,1177.8583984375,182.978210449219" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="21" />
+    <Link Source="@55" Target="@61" Category="References" Bounds="503.714904785156,300.718444824219,2191.35906982422,61.452880859375" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="7454">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldRead" />
+      <Category Ref="CodeSchema_FieldWrite" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@55" Target="@65" Category="References" Bounds="2646.05517578125,263.430419921875,147.787109375,83.7979125976563" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="32">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldRead" />
+      <Category Ref="CodeSchema_FieldWrite" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@55" Target="@88" Category="CodeSchema_Calls" Bounds="2100.31713867188,242.781478881836,597.35888671875,105.05940246582" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@57" Target="@121" Category="References" Bounds="1564.50073242188,25,714.592041015625,468.082641601563" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="30">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@57" Target="@25" Category="CodeSchema_Calls" Bounds="2117.46115634239,24.9999999999999,122.884175020846,27.9967522099603" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="6" />
+    <Link Source="@57" Target="@61" Category="References" Bounds="465.877410888672,21.2191696166992,1719.08084106445,269.368843078613" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4908">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@57" Target="@88" Category="References" Bounds="2003.93315381528,24.9999999999999,273.284706052864,189.856543670352" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="17">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@59" Target="@121" Category="CodeSchema_Calls" Bounds="1564.50073242188,303.688629150391,739.72119140625,189.394012451172" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="15" />
+    <Link Source="@59" Target="@25" Category="References" Bounds="2065.0615234375,87.8767929077148,207.846435546875,191.105934143066" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="290">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@59" Target="@61" Category="References" Bounds="498.700866699219,232.184204101563,1770.89654541016,58.8173217773438" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="20">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@6" Target="@27" Category="CodeSchema_Calls" Bounds="941.161376953125,185.907180786133,662.973510742188,90.3791961669922" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@6" Target="@49" Category="CodeSchema_Calls" Bounds="1533.06506347656,189.991668701172,132.240600585938,357.144989013672" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4" />
+    <Link Source="@6" Target="@61" Category="References" Bounds="502.31643404031,187.553450989388,1102.4401131676,105.173299250321" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1339">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@61" Target="@96" Category="References" Bounds="185.113370993668,317.008993790811,133.851587487664,27.9563482795305" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="177">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@63" Target="@61" Category="References" Bounds="503.637486119113,313.398145388706,21.0811073857813,1.50125842887491" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="13">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@65" Target="@25" Category="References" Bounds="2160.82763671875,80.6363830566406,365.298095703125,156.58251953125" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="157">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@65" Target="@61" Category="References" Bounds="498.700866699219,232.184204101563,1926.47003173828,58.8173217773438" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="323">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldRead" />
+      <Category Ref="CodeSchema_FieldWrite" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@67" Target="@25" Category="CodeSchema_Calls" Bounds="2154.40967767716,81.2119505239896,1039.98800058456,141.80899298069" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="14" />
+    <Link Source="@67" Target="@27" Category="CodeSchema_Calls" Bounds="1010.15283203125,246.249420166016,2172.603515625,42.0335693359375" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4" />
+    <Link Source="@67" Target="@61" Category="CodeSchema_Calls" Bounds="498.700866699219,211.191101074219,2718.68780517578,79.8104248046875" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="40">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@69" Target="@121" Category="References" Bounds="1564.50073242188,413.688598632813,879.58154296875,79.3940734863281" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="380">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@69" Target="@25" Category="References" Bounds="2080.875,84.8240585327148,436.290283203125,303.864540100098" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="141">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@69" Target="@49" Category="CodeSchema_Calls" Bounds="1583.02465820313,413.688598632813,879.12451171875,141.517944335938" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@69" Target="@57" Category="References" Bounds="2305.33715820313,33.0749549865723,211.828125,355.61364364624" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="8">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@69" Target="@61" Category="References" Bounds="503.714904785156,300.718444824219,1931.89910888672,97.7995300292969" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1511">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldWrite" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@69" Target="@96" Category="References" Bounds="241.901519775391,364.754302978516,2233.44735717773,68.74365234375" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="11">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@71" Target="@61" Category="References" Bounds="498.700866699219,232.184204101563,1117.64910888672,58.8173217773438" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@74" Target="@121" Category="CodeSchema_Calls" Bounds="1564.50073242188,134.991668701172,280.7333984375,358.090972900391" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="18" />
+    <Link Source="@76" Target="@29" Category="References" Bounds="1348.13358538744,308.415012337813,674.417075131889,3.77685978996146" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="16">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@76" Target="@61" Category="References" Bounds="503.714904785156,300.718444824219,1518.83575439453,31.8430480957031" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="77">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@76" Target="@63" Category="References" Bounds="748.042846679688,310.586547851563,1274.5078125,19.5518798828125" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="16">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldRead" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@78" Target="@105" Category="CodeSchema_Calls" Bounds="1839.68786621094,245.978561401367,505.481811523438,87.7100372314453" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="7">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@78" Target="@29" Category="References" Bounds="1348.13110351563,314.89208984375,921.46630859375,27.141357421875" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@78" Target="@61" Category="References" Bounds="503.714904785156,300.718444824219,1765.88250732422,57.2621459960938" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="19">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@78" Target="@63" Category="References" Bounds="748.042114257813,319.315368652344,1521.55529785156,38.6652221679688" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="9">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldRead" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@8" Target="@105" Category="References" Bounds="1821.4130859375,245.348052978516,981.827880859375,38.9057922363281" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="14">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@8" Target="@27" Category="CodeSchema_Calls" Bounds="1010.15283203125,261.866760253906,1793.08813476563,26.4162292480469" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3" />
+    <Link Source="@8" Target="@61" Category="References" Bounds="498.700866699219,232.184204101563,2304.54010009766,58.8173217773438" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="21">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@82" Target="@27" Category="References" Bounds="998.982299804688,307.049255371094,2182.59167480469,91.8673095703125" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="27">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@82" Target="@34" Category="CodeSchema_Calls" Bounds="3082.560546875,251.070419311523,147.96533203125,136.950820922852" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="9" />
+    <Link Source="@82" Target="@57" Category="CodeSchema_Calls" Bounds="2324.61669921875,29.505558013916,875.18359375,358.515682220459" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="9" />
+    <Link Source="@82" Target="@61" Category="References" Bounds="503.714904785156,300.718444824219,2677.85906982422,98.1981201171875" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="215">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@82" Target="@69" Category="CodeSchema_Calls" Bounds="2615.41736040444,400.598231680381,566.156628244128,0.506001020217184" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3" />
+    <Link Source="@82" Target="@88" Category="CodeSchema_Calls" Bounds="2099.90942382813,243.574584960938,1116.55737304688,144.446655273438" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="18" />
+    <Link Source="@82" Target="@98" Category="CodeSchema_Calls" Bounds="2342.361328125,382.923004150391,839.212646484375,15.5411071777344" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="10" />
+    <Link Source="@84" Target="@25" Category="CodeSchema_Calls" Bounds="2160.82763671875,80.6363830566406,989.9150390625,199.16845703125" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="25" />
+    <Link Source="@84" Target="@27" Category="CodeSchema_Calls" Bounds="1010.15283203125,261.21728515625,2165.4619140625,27.0657043457031" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="11" />
+    <Link Source="@84" Target="@61" Category="References" Bounds="498.700866699219,232.184204101563,2676.91387939453,58.8173217773438" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="199">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@88" Target="@105" Category="References" Bounds="1844.31711573866,232.491570479977,21.000156338388,1.61384821240063E-05" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="80">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@88" Target="@49" Category="References" Bounds="1533.06506347656,244.991485595703,469.619750976563,302.145172119141" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="133">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@88" Target="@61" Category="References" Bounds="498.700866699219,206.081436157227,1398.67828369141,84.9200897216797" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="44737">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldRead" />
+      <Category Ref="CodeSchema_FieldWrite" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@88" Target="@96" Category="References" Bounds="241.903656005859,244.991485595703,1663.14102172852,109.598571777344" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="81">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldWrite" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@90" Target="@109" Category="References" Bounds="1646.2915880365,452.489953609935,21.0001706449586,0.000380862917211289" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="281">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+    </Link>
+    <Link Source="@90" Target="@45" Category="References" Bounds="1536.68640136719,356.950256347656,191.789428710938,83.0415649414063" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@90" Target="@51" Category="References" Bounds="1390.38146972656,436.404235839844,308.128662109375,3.58758544921875" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="137">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@92" Target="@25" Category="References" Bounds="2163.6142578125,77.0263290405273,1606.96704101563,125.743354797363" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="106">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@92" Target="@61" Category="References" Bounds="501.481567382813,199.281356811523,3269.09973144531,92.6769561767578" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2295">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldRead" />
+      <Category Ref="CodeSchema_FieldWrite" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@94" Target="@114" Category="References" Bounds="1569.60413776128,354.991731713806,115.610847324313,27.8857216574131" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="614">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+    </Link>
+    <Link Source="@94" Target="@45" Category="References" Bounds="1575.11392297707,342.489307589333,61.5678916851275,0.000921714621313185" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="16">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@94" Target="@61" Category="CodeSchema_Calls" Bounds="503.714904785156,300.718444824219,1133.08013916016,64.4035034179688" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@98" Target="@100" Category="References" Bounds="1947.81861417338,303.08134476015,264.280369169372,96.5985356835596" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="829">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@98" Target="@49" Category="References" Bounds="1583.02465820313,424.679870605469,628.03515625,130.526672363281" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="37">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@98" Target="@61" Category="References" Bounds="503.714904785156,300.718444824219,1633.61273193359,98.96142578125" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="9591">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_FieldRead" />
+      <Category Ref="CodeSchema_FieldWrite" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+      <Category Ref="InheritsFrom" />
+    </Link>
+    <Link Source="@98" Target="@88" Category="References" Bounds="1985.81201171875,253.49739074707,224.718505859375,146.182479858398" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="61">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@98" Target="@96" Category="References" Bounds="241.901519775391,364.754302978516,1879.87899780273,48.6566772460938" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="59">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Assembly" Label="Assembly" BasedOn="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Assembly" NavigationActionLabel="Assemblies" />
+    <Category Id="CodeSchema_Calls" Label="Calls" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Called By" OutgoingActionLabel="Calls" />
+    <Category Id="CodeSchema_FieldRead" Label="Field Read" BasedOn="CodeSchema_FieldReference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Read By" OutgoingActionLabel="Reads Fields" />
+    <Category Id="CodeSchema_FieldReference" Label="Field Reference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Referenced By" OutgoingActionLabel="References Fields" />
+    <Category Id="CodeSchema_FieldWrite" Label="Field Write" BasedOn="CodeSchema_FieldReference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Written By" OutgoingActionLabel="Writes Fields" />
+    <Category Id="CodeSchema_FunctionPointer" Label="Function Pointer" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Function Pointers" OutgoingActionLabel="Function Pointers" />
+    <Category Id="CodeSchema_ReturnTypeLink" Label="Return" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Return types" OutgoingActionLabel="Return types" />
+    <Category Id="File" Label="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="File" NavigationActionLabel="Files" />
+    <Category Id="Implements" Label="Implements" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Implemented by" OutgoingActionLabel="Implements" />
+    <Category Id="InheritsFrom" Label="Inherits From" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Inherited By" OutgoingActionLabel="Inherits From" />
+    <Category Id="References" Label="References" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Referenced By" OutgoingActionLabel="References" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_StrongName" Label="StrongName" Description="StrongName" DataType="System.String" />
+    <Property Id="DataVirtualized" Label="Data Virtualized" Description="If true, the graph can contain nodes and links that represent data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="DelayedChildNodesState" Label="Delayed Child Nodes State" Description="Unspecified if the delayed child nodes state is not specified. NotFetched if the group contains child nodes that are not fetched into the graph yet. Fetched if the group has all its delayed child nodes already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="DelayedCrossGroupLinksState" Label="Delayed Cross-Group Links State" Description="Unspecified if the delayed cross-group links state is not specified. NotFetched if delayed cross-group links on this node are not fetched into the graph yet. Fetched if all delayed cross-group links have already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="FilePath" Label="File Path" Description="File Path" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsSourceVirtualized" Label="Link Source Virtualized" Description="If true, the link source end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="IsTargetVirtualized" Label="Link Target Virtualized" Description="If true, the link target end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
+    <Property Id="Weight" Label="Weight" Description="Weight" DataType="System.Double" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(f12b4c8d-95b3-4171-a433-9bbf05c5afd2.OutputPathUri)" />
+    <Alias n="2" Id="(@1)" />
+    <Alias n="3" Uri="Assembly=$(94abad75-1e0c-454c-a091-7f9de9b79d1a.OutputPathUri)" />
+    <Alias n="4" Uri="Assembly=$(c124d1c3-d3f5-4196-a927-0601e92b5d77.OutputPathUri)" />
+    <Alias n="5" Uri="Assembly=$(b445c81a-db35-48d2-9fcf-e9cf7227a59a.OutputPathUri)" />
+    <Alias n="6" Id="(@5)" />
+    <Alias n="7" Uri="Assembly=$(8281658f-1fce-40fd-b601-1f0cfd67c3e8.OutputPathUri)" />
+    <Alias n="8" Id="(@7)" />
+    <Alias n="9" Uri="Assembly=$(fae40127-0e71-45a4-9d45-2a2c8c71501f.OutputPathUri)" />
+    <Alias n="10" Uri="Assembly=$(4d9e819f-663e-4c08-af48-5004dbc25b09.OutputPathUri)" />
+    <Alias n="11" Uri="Assembly=$(1c770659-b39a-42be-bbdd-dbdd1d3b0ff4.OutputPathUri)" />
+    <Alias n="12" Uri="Assembly=$(9cac28da-2c37-43fa-bb17-8c6c40588603.OutputPathUri)" />
+    <Alias n="13" Uri="Assembly=$(9f903081-2663-4d2c-92b4-b54034c4e68a.OutputPathUri)" />
+    <Alias n="14" Uri="Assembly=$(b4ce0eb2-4ce9-44ae-816f-d9bb50951117.OutputPathUri)" />
+    <Alias n="15" Uri="Assembly=$(8d2ab67d-8dd2-4b6c-a66f-a216d35996d7.OutputPathUri)" />
+    <Alias n="16" Uri="Assembly=$(233383d0-fe66-4640-bf9e-fcc4073d9f75.OutputPathUri)" />
+    <Alias n="17" Uri="Assembly=$(04b0d336-1332-4930-93bb-9fcdb876f713.OutputPathUri)" />
+    <Alias n="18" Id="(@17)" />
+    <Alias n="19" Uri="Assembly=$(814a55a0-fb05-4eff-ae30-8583d3c4cdea.OutputPathUri)" />
+    <Alias n="20" Uri="Assembly=$(20e55bac-e91e-48c9-aebe-3586990611dd.OutputPathUri)" />
+    <Alias n="21" Id="(@20)" />
+    <Alias n="22" Uri="Assembly=$(418ef089-1aef-4338-94a3-d138a5aaa5ba.OutputPathUri)" />
+    <Alias n="23" Id="(@22)" />
+    <Alias n="24" Uri="Assembly=$(51f57fb8-1245-4ea5-bf34-d6412c283afb.OutputPathUri)" />
+    <Alias n="25" Id="(@24)" />
+    <Alias n="26" Uri="Assembly=$(0890f82d-3130-489d-92b2-8b2a1e3dc5fe.OutputPathUri)" />
+    <Alias n="27" Id="(@26)" />
+    <Alias n="28" Uri="Assembly=$(38986ff7-e8e7-48a4-ad3b-11213b43467b.OutputPathUri)" />
+    <Alias n="29" Id="(@28)" />
+    <Alias n="30" Uri="Assembly=$(784726b6-c4d8-4bab-a4ea-e6a4511fe4ff.OutputPathUri)" />
+    <Alias n="31" Uri="Assembly=$(83a1d11f-c87f-4261-beb0-5a1561ce4539.OutputPathUri)" />
+    <Alias n="32" Id="(@31)" />
+    <Alias n="33" Uri="Assembly=$(d253bf62-a7f2-48d5-ad05-12ac8ea66279.OutputPathUri)" />
+    <Alias n="34" Id="(@33)" />
+    <Alias n="35" Uri="Assembly=$(de89a79f-4408-490e-8da5-d09a1edccaa3.OutputPathUri)" />
+    <Alias n="36" Id="(@35)" />
+    <Alias n="37" Uri="Assembly=$(c5b30153-0523-4808-9b3b-ca585f9f3f13.OutputPathUri)" />
+    <Alias n="38" Id="(@37)" />
+    <Alias n="39" Uri="Assembly=$(ae3bda4a-0265-469d-a7ba-e1bbc97062d7.OutputPathUri)" />
+    <Alias n="40" Uri="Assembly=$(f54eb697-a6f8-4e15-b98a-f8df5575e88e.OutputPathUri)" />
+    <Alias n="41" Id="(@40)" />
+    <Alias n="42" Uri="Assembly=$(4ae60db3-9bab-44cc-be7d-2348b66ba7cd.OutputPathUri)" />
+    <Alias n="43" Uri="Assembly=$(e2e213f2-4734-4590-8990-15177bf8a936.OutputPathUri)" />
+    <Alias n="44" Uri="Assembly=$(b001a912-8d98-476c-8fe0-c1f6360352ea.OutputPathUri)" />
+    <Alias n="45" Id="(@44)" />
+    <Alias n="46" Uri="Assembly=$(bf9492b9-a9ff-4637-a932-4d5c7710da2f.OutputPathUri)" />
+    <Alias n="47" Id="(@46)" />
+    <Alias n="48" Uri="Assembly=$(ffa417b0-a44b-441a-921b-feb57c5fd7da.OutputPathUri)" />
+    <Alias n="49" Id="(@48)" />
+    <Alias n="50" Uri="Assembly=$(4af9bb8f-e521-4842-96aa-88a68963592d.OutputPathUri)" />
+    <Alias n="51" Id="(@50)" />
+    <Alias n="52" Uri="Assembly=$(aeb96f04-ed2b-4ce9-b8b9-3d89e3d98b02.OutputPathUri)" />
+    <Alias n="53" Id="(@52)" />
+    <Alias n="54" Uri="Assembly=$(7f38a696-661e-4bdf-9fad-38e51b3e7e96.OutputPathUri)" />
+    <Alias n="55" Id="(@54)" />
+    <Alias n="56" Uri="Assembly=$(72bc03af-85e6-4d60-b529-5b0d303d6632.OutputPathUri)" />
+    <Alias n="57" Id="(@56)" />
+    <Alias n="58" Uri="Assembly=$(3cb7809a-efab-4785-a18b-c6e1a6685134.OutputPathUri)" />
+    <Alias n="59" Id="(@58)" />
+    <Alias n="60" Uri="Assembly=$(9b7da676-5030-47cd-8b2b-a30a09c8d0b5.OutputPathUri)" />
+    <Alias n="61" Id="(@60)" />
+    <Alias n="62" Uri="Assembly=$(1ace12a8-3795-4d3e-a054-a81a54b259b0.OutputPathUri)" />
+    <Alias n="63" Id="(@62)" />
+    <Alias n="64" Uri="Assembly=$(fd38df95-3bf6-4f06-8ca3-2e93862e1f00.OutputPathUri)" />
+    <Alias n="65" Id="(@64)" />
+    <Alias n="66" Uri="Assembly=$(3d1de719-d489-43dd-93d9-00b9b650fb63.OutputPathUri)" />
+    <Alias n="67" Id="(@66)" />
+    <Alias n="68" Uri="Assembly=$(10eeacdf-85f8-4aa9-a965-ee1b2fd233d4.OutputPathUri)" />
+    <Alias n="69" Id="(@68)" />
+    <Alias n="70" Uri="Assembly=$(6399991c-f600-4c48-92d1-059dadef1600.OutputPathUri)" />
+    <Alias n="71" Id="(@70)" />
+    <Alias n="72" Uri="Assembly=$(f0ff9247-93d9-4d75-be40-ea2d37d66d82.OutputPathUri)" />
+    <Alias n="73" Uri="Assembly=$(7eb220b9-ede7-4656-bb1a-d93b3882221b.OutputPathUri)" />
+    <Alias n="74" Id="(@73)" />
+    <Alias n="75" Uri="Assembly=$(c699ba4c-78b8-4f81-a655-bc6c366f9e9e.OutputPathUri)" />
+    <Alias n="76" Id="(@75)" />
+    <Alias n="77" Uri="Assembly=$(ebf92b2a-08cb-4efa-9102-3606acae99f2.OutputPathUri)" />
+    <Alias n="78" Id="(@77)" />
+    <Alias n="79" Uri="Assembly=$(de1e3a9b-7c87-4e9e-8b4e-23a61b770249.OutputPathUri)" />
+    <Alias n="80" Uri="Assembly=$(d7a372d0-279a-4c49-9c50-ceadbc71aa31.OutputPathUri)" />
+    <Alias n="81" Uri="Assembly=$(4b3b3ba0-3835-4955-8b8f-e6e947526ad9.OutputPathUri)" />
+    <Alias n="82" Id="(@81)" />
+    <Alias n="83" Uri="Assembly=$(8406424e-99f8-4bb1-90ff-af9640bf238a.OutputPathUri)" />
+    <Alias n="84" Id="(@83)" />
+    <Alias n="85" Uri="Assembly=$(06e36482-0d3f-44ac-acce-9867bf72ca91.OutputPathUri)" />
+    <Alias n="86" Uri="Assembly=$(70c04bc3-3bab-4f89-8a5b-9b2f6d569623.OutputPathUri)" />
+    <Alias n="87" Uri="Assembly=$(7fae537e-6acf-4c65-9d68-e22aec839eea.OutputPathUri)" />
+    <Alias n="88" Id="(@87)" />
+    <Alias n="89" Uri="Assembly=$(410c78c7-612a-41e8-82cc-c0d7ab045228.OutputPathUri)" />
+    <Alias n="90" Id="(@89)" />
+    <Alias n="91" Uri="Assembly=$(7484782c-db10-48dd-bf15-189af8a2443a.OutputPathUri)" />
+    <Alias n="92" Id="(@91)" />
+    <Alias n="93" Uri="Assembly=$(bf9f69e2-41e7-4d5e-ba10-59665a54b680.OutputPathUri)" />
+    <Alias n="94" Id="(@93)" />
+    <Alias n="95" Uri="Assembly=$(428243cb-28cd-4d81-8099-74d1448b5e1d.OutputPathUri)" />
+    <Alias n="96" Id="(@95)" />
+    <Alias n="97" Uri="Assembly=$(86ac380f-16e0-4e8f-af84-555e13ea456e.OutputPathUri)" />
+    <Alias n="98" Id="(@97)" />
+    <Alias n="99" Uri="Assembly=$(5d1def77-9bef-4912-a93b-0633186c69d2.OutputPathUri)" />
+    <Alias n="100" Id="(@99)" />
+    <Alias n="101" Uri="Assembly=$(e2787342-b9bc-4831-b219-c6a09c2e20d6.OutputPathUri)" />
+    <Alias n="102" Uri="Assembly=$(26edbab2-4078-490f-835e-3cd19c468f41.OutputPathUri)" />
+    <Alias n="103" Id="(@102)" />
+    <Alias n="104" Uri="Assembly=$(88ab4d29-203f-47ca-9f95-de1adacda528.OutputPathUri)" />
+    <Alias n="105" Id="(@104)" />
+    <Alias n="106" Uri="Assembly=$(878f92a0-34dc-48cf-8977-a8d1bae96f7b.OutputPathUri)" />
+    <Alias n="107" Id="(@106)" />
+    <Alias n="108" Uri="Assembly=$(a1a17311-6b8f-4670-95ec-4e87a9e71353.OutputPathUri)" />
+    <Alias n="109" Id="(@108)" />
+    <Alias n="110" Uri="Assembly=$(7171a106-152a-41ec-bad4-49d9c084b629.OutputPathUri)" />
+    <Alias n="111" Uri="Assembly=$(cef9b366-35ed-4ad0-ad99-fca2a885cd68.OutputPathUri)" />
+    <Alias n="112" Uri="Assembly=$(1c199e07-408a-4705-a276-d989e032bec9.OutputPathUri)" />
+    <Alias n="113" Uri="Assembly=$(679008cc-574e-46a6-ba1d-707ba8ee5cf4.OutputPathUri)" />
+    <Alias n="114" Id="(@113)" />
+    <Alias n="115" Uri="Assembly=$(59560597-39be-48bb-ad93-35c57c74e482.OutputPathUri)" />
+    <Alias n="116" Id="(@115)" />
+    <Alias n="117" Uri="Assembly=$(ca4acde1-2ee9-4882-a406-1191ace2aa94.OutputPathUri)" />
+    <Alias n="118" Uri="Assembly=$(8d15efa2-ec97-462d-813f-11cedb939f25.OutputPathUri)" />
+    <Alias n="119" Id="(@118)" />
+    <Alias n="120" Uri="Assembly=$(d1efb82a-de0c-43d2-8dc7-ad808b32c2a2.OutputPathUri)" />
+    <Alias n="121" Id="(@120)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Results" ValueLabel="True">
+      <Condition Expression="HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFBCFFBE" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Assembly" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#FF094167" />
+      <Setter Property="Stroke" Value="#FF094167" />
+      <Setter Property="Icon" Value="CodeSchema_Assembly" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Namespace" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#FF0E619A" />
+      <Setter Property="Stroke" Value="#FF0E619A" />
+      <Setter Property="Icon" Value="CodeSchema_Namespace" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Interface" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Interface')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Interface" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Struct" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Struct')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Struct" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enumeration" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Enum')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Enum" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Delegate" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Delegate')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Delegate" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Class" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Class" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Property')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Property" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Method" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Method') Or HasCategory('CodeSchema_CallStackUnresolvedMethod')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Method" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Event" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Event')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Event" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Field" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Out Parameter" ValueLabel="Has category">
+      <Condition Expression="CodeSchemaProperty_IsOut = 'True'" />
+      <Setter Property="Icon" Value="CodeSchema_OutParameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Parameter" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Parameter')" />
+      <Setter Property="Icon" Value="CodeSchema_Parameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Local Variable" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_LocalExpression')" />
+      <Setter Property="Icon" Value="CodeSchema_LocalExpression" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Externals" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FF424242" />
+      <Setter Property="Stroke" Value="#FF424242" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="Has category">
+      <Condition Expression="HasCategory('InheritsFrom')" />
+      <Setter Property="Stroke" Value="#FF00A600" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Implements')" />
+      <Setter Property="Stroke" Value="#8000A600" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Calls" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Calls')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Function Pointer" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_FunctionPointer')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Reference" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_FieldReference')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('InheritsFrom') And Target.HasCategory('CodeSchema_Class')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('Implements') And Target.HasCategory('CodeSchema_Interface')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Read" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Target.HasCategory('CodeSchema_Field') And HasCategory('CodeSchema_FieldRead')" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Comment Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Source.HasCategory('Comment')" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Cursor Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCursorLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Disabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="DisabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="EnabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Instruction Pointer Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsInstructionPointerLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Callstack Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCurrentCallstackFrame" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="04b0d336-1332-4930-93bb-9fcdb876f713.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\Mail\lm.Comol.Core.Msmq.Services.Mail.WinSrvHost\bin\Debug\lm.Comol.Core.Msmq.Services.Mail.WinSrvHost.exe" />
+    <Path Id="04b0d336-1332-4930-93bb-9fcdb876f713.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/Mail/lm.Comol.Core.Msmq.Services.Mail.WinSrvHost/bin/Debug/lm.Comol.Core.Msmq.Services.Mail.WinSrvHost.exe" />
+    <Path Id="06e36482-0d3f-44ac-acce-9867bf72ca91.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\TransferTools\FileTransfer.ExternalLibraries\bin\Debug\FileTransfer.ExternalLibraries.dll" />
+    <Path Id="06e36482-0d3f-44ac-acce-9867bf72ca91.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/TransferTools/FileTransfer.ExternalLibraries/bin/Debug/FileTransfer.ExternalLibraries.dll" />
+    <Path Id="0890f82d-3130-489d-92b2-8b2a1e3dc5fe.OutputPath" Value="E:\AdevicoMerge\3-Business\7-Data\lm.Comol.Core.Data\bin\Debug\lm.Comol.Core.Data.dll" />
+    <Path Id="0890f82d-3130-489d-92b2-8b2a1e3dc5fe.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/7-Data/lm.Comol.Core.Data/bin/Debug/lm.Comol.Core.Data.dll" />
+    <Path Id="10eeacdf-85f8-4aa9-a965-ee1b2fd233d4.OutputPath" Value="E:\AdevicoMerge\3-Business\1-OldProject\COL_Questionario\bin\Debug\COL_Questionario.dll" />
+    <Path Id="10eeacdf-85f8-4aa9-a965-ee1b2fd233d4.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/1-OldProject/COL_Questionario/bin/Debug/COL_Questionario.dll" />
+    <Path Id="1ace12a8-3795-4d3e-a054-a81a54b259b0.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\TransferTools\FileTransfer.DomainModel\bin\Debug\FileTransfer.DomainModel.dll" />
+    <Path Id="1ace12a8-3795-4d3e-a054-a81a54b259b0.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/TransferTools/FileTransfer.DomainModel/bin/Debug/FileTransfer.DomainModel.dll" />
+    <Path Id="1c199e07-408a-4705-a276-d989e032bec9.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\Ticket\lm.Comol.Core.Msmq.Services.Ticket.DataContract\bin\Debug\lm.Comol.Core.Msmq.Services.Ticket.DataContract.dll" />
+    <Path Id="1c199e07-408a-4705-a276-d989e032bec9.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/Ticket/lm.Comol.Core.Msmq.Services.Ticket.DataContract/bin/Debug/lm.Comol.Core.Msmq.Services.Ticket.DataContract.dll" />
+    <Path Id="1c770659-b39a-42be-bbdd-dbdd1d3b0ff4.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\TransferTools\FileTransfer.WinTest\bin\Debug\FileTransfer.WinTest.exe" />
+    <Path Id="1c770659-b39a-42be-bbdd-dbdd1d3b0ff4.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/TransferTools/FileTransfer.WinTest/bin/Debug/FileTransfer.WinTest.exe" />
+    <Path Id="20e55bac-e91e-48c9-aebe-3586990611dd.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\Notification\lm.Comol.Core.Msmq.Services.Notifications.WinSrvHost\bin\Debug\lm.Comol.Core.Msmq.Services.Notifications.WinSrvHost.exe" />
+    <Path Id="20e55bac-e91e-48c9-aebe-3586990611dd.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/Notification/lm.Comol.Core.Msmq.Services.Notifications.WinSrvHost/bin/Debug/lm.Comol.Core.Msmq.Services.Notifications.WinSrvHost.exe" />
+    <Path Id="233383d0-fe66-4640-bf9e-fcc4073d9f75.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\Actions\lm.Comol.Modules.ActionsConsoleHost\bin\Debug\lm.ActionsConsoleHost.exe" />
+    <Path Id="233383d0-fe66-4640-bf9e-fcc4073d9f75.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/Actions/lm.Comol.Modules.ActionsConsoleHost/bin/Debug/lm.ActionsConsoleHost.exe" />
+    <Path Id="26edbab2-4078-490f-835e-3cd19c468f41.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\WebService\WS_Chat\bin\WS_Chat.dll" />
+    <Path Id="26edbab2-4078-490f-835e-3cd19c468f41.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/WebService/WS_Chat/bin/WS_Chat.dll" />
+    <Path Id="38986ff7-e8e7-48a4-ad3b-11213b43467b.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\TransferTools\FileTransfer.Data\bin\Debug\FileTransfer.Data.dll" />
+    <Path Id="38986ff7-e8e7-48a4-ad3b-11213b43467b.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/TransferTools/FileTransfer.Data/bin/Debug/FileTransfer.Data.dll" />
+    <Path Id="3cb7809a-efab-4785-a18b-c6e1a6685134.OutputPath" Value="E:\AdevicoMerge\3-Business\1-OldProject\COL_Wiki\bin\Debug\COL_Wiki.dll" />
+    <Path Id="3cb7809a-efab-4785-a18b-c6e1a6685134.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/1-OldProject/COL_Wiki/bin/Debug/COL_Wiki.dll" />
+    <Path Id="3d1de719-d489-43dd-93d9-00b9b650fb63.OutputPath" Value="E:\AdevicoMerge\3-Business\2-Core\lm.Comol.UI.Presentation\bin\Debug\lm.Comol.UI.Presentation.dll" />
+    <Path Id="3d1de719-d489-43dd-93d9-00b9b650fb63.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/2-Core/lm.Comol.UI.Presentation/bin/Debug/lm.Comol.UI.Presentation.dll" />
+    <Path Id="410c78c7-612a-41e8-82cc-c0d7ab045228.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\WebService\WS_Notifications\bin\WS_Notifications.dll" />
+    <Path Id="410c78c7-612a-41e8-82cc-c0d7ab045228.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/WebService/WS_Notifications/bin/WS_Notifications.dll" />
+    <Path Id="418ef089-1aef-4338-94a3-d138a5aaa5ba.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\MigrationTools\lm.Comol.Scorm.AnalyzeUserPlay\bin\Debug\lm.Comol.Scorm.AnalyzeUserPlay.exe" />
+    <Path Id="418ef089-1aef-4338-94a3-d138a5aaa5ba.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/MigrationTools/lm.Comol.Scorm.AnalyzeUserPlay/bin/Debug/lm.Comol.Scorm.AnalyzeUserPlay.exe" />
+    <Path Id="428243cb-28cd-4d81-8099-74d1448b5e1d.OutputPath" Value="E:\AdevicoMerge\3-Business\2-Core\lm.Comol.Core.MailCommons\bin\Debug\lm.Comol.Core.MailCommons.dll" />
+    <Path Id="428243cb-28cd-4d81-8099-74d1448b5e1d.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/2-Core/lm.Comol.Core.MailCommons/bin/Debug/lm.Comol.Core.MailCommons.dll" />
+    <Path Id="4ae60db3-9bab-44cc-be7d-2348b66ba7cd.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\Ticket\lm.Comol.Core.Msmq.Services.Ticket.Service\bin\Debug\lm.Comol.Core.Msmq.Services.Ticket.Service.dll" />
+    <Path Id="4ae60db3-9bab-44cc-be7d-2348b66ba7cd.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/Ticket/lm.Comol.Core.Msmq.Services.Ticket.Service/bin/Debug/lm.Comol.Core.Msmq.Services.Ticket.Service.dll" />
+    <Path Id="4af9bb8f-e521-4842-96aa-88a68963592d.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\CommunityNews\Service\lm.Notification.Core\bin\Debug\lm.Notification.Core.dll" />
+    <Path Id="4af9bb8f-e521-4842-96aa-88a68963592d.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/CommunityNews/Service/lm.Notification.Core/bin/Debug/lm.Notification.Core.dll" />
+    <Path Id="4b3b3ba0-3835-4955-8b8f-e6e947526ad9.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\WebService\WCF_CoreServices\bin\WCF_CoreServices.dll" />
+    <Path Id="4b3b3ba0-3835-4955-8b8f-e6e947526ad9.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/WebService/WCF_CoreServices/bin/WCF_CoreServices.dll" />
+    <Path Id="4d9e819f-663e-4c08-af48-5004dbc25b09.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\CommunityNews\Service\lm.Comol.Core.Msmq.Service.CommunityNews\bin\Debug\lm.Comol.Core.Msmq.Service.CommunityNews.exe" />
+    <Path Id="4d9e819f-663e-4c08-af48-5004dbc25b09.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/CommunityNews/Service/lm.Comol.Core.Msmq.Service.CommunityNews/bin/Debug/lm.Comol.Core.Msmq.Service.CommunityNews.exe" />
+    <Path Id="51f57fb8-1245-4ea5-bf34-d6412c283afb.OutputPath" Value="E:\AdevicoMerge\3-Business\1-OldProject\COL_BusinessLogic\bin\Debug\COL_BusinessLogic_v2.0.dll" />
+    <Path Id="51f57fb8-1245-4ea5-bf34-d6412c283afb.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/1-OldProject/COL_BusinessLogic/bin/Debug/COL_BusinessLogic_v2.0.dll" />
+    <Path Id="59560597-39be-48bb-ad93-35c57c74e482.OutputPath" Value="E:\AdevicoMerge\3-Business\3-Modules\lm.Comol.Modules.TaskList\bin\Debug\lm.Comol.Modules.TaskList.dll" />
+    <Path Id="59560597-39be-48bb-ad93-35c57c74e482.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/3-Modules/lm.Comol.Modules.TaskList/bin/Debug/lm.Comol.Modules.TaskList.dll" />
+    <Path Id="5d1def77-9bef-4912-a93b-0633186c69d2.OutputPath" Value="E:\AdevicoMerge\3-Business\3-Modules\lm.Comol.Core.Dss\bin\Debug\lm.Comol.Core.Dss.dll" />
+    <Path Id="5d1def77-9bef-4912-a93b-0633186c69d2.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/3-Modules/lm.Comol.Core.Dss/bin/Debug/lm.Comol.Core.Dss.dll" />
+    <Path Id="6399991c-f600-4c48-92d1-059dadef1600.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\TransferTools\FileTransfer.FileUnzip\bin\Debug\FileTransfer.FileUnzip.dll" />
+    <Path Id="6399991c-f600-4c48-92d1-059dadef1600.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/TransferTools/FileTransfer.FileUnzip/bin/Debug/FileTransfer.FileUnzip.dll" />
+    <Path Id="679008cc-574e-46a6-ba1d-707ba8ee5cf4.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\Actions\lm.Comol.Modules.ActionDataContract\bin\Debug\lm.ActionDataContract.dll" />
+    <Path Id="679008cc-574e-46a6-ba1d-707ba8ee5cf4.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/Actions/lm.Comol.Modules.ActionDataContract/bin/Debug/lm.ActionDataContract.dll" />
+    <Path Id="70c04bc3-3bab-4f89-8a5b-9b2f6d569623.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\WebService\WCF_StandardModules\bin\WCF_StandardModules.dll" />
+    <Path Id="70c04bc3-3bab-4f89-8a5b-9b2f6d569623.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/WebService/WCF_StandardModules/bin/WCF_StandardModules.dll" />
+    <Path Id="7171a106-152a-41ec-bad4-49d9c084b629.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\ErrorNotifications\lm.ErrorsNotification.DataContract\bin\Debug\lm.ErrorsNotification.DataContract.dll" />
+    <Path Id="7171a106-152a-41ec-bad4-49d9c084b629.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/ErrorNotifications/lm.ErrorsNotification.DataContract/bin/Debug/lm.ErrorsNotification.DataContract.dll" />
+    <Path Id="72bc03af-85e6-4d60-b529-5b0d303d6632.OutputPath" Value="E:\AdevicoMerge\3-Business\3-Modules\lm.Comol.Modules.EduPath\bin\Debug\lm.Comol.Modules.EduPath.dll" />
+    <Path Id="72bc03af-85e6-4d60-b529-5b0d303d6632.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/3-Modules/lm.Comol.Modules.EduPath/bin/Debug/lm.Comol.Modules.EduPath.dll" />
+    <Path Id="7484782c-db10-48dd-bf15-189af8a2443a.OutputPath" Value="E:\AdevicoMerge\3-Business\3-Modules\lm.Comol.Modules.UserActions\bin\Debug\lm.Comol.Modules.UserActions.dll" />
+    <Path Id="7484782c-db10-48dd-bf15-189af8a2443a.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/3-Modules/lm.Comol.Modules.UserActions/bin/Debug/lm.Comol.Modules.UserActions.dll" />
+    <Path Id="784726b6-c4d8-4bab-a4ea-e6a4511fe4ff.OutputPath" Value="E:\AdevicoMerge\Library\lm.Comol.Core.CommonLib\bin\Debug\lm.Comol.Core.CommonLib.dll" />
+    <Path Id="784726b6-c4d8-4bab-a4ea-e6a4511fe4ff.OutputPathUri" Value="file:///E:/AdevicoMerge/Library/lm.Comol.Core.CommonLib/bin/Debug/lm.Comol.Core.CommonLib.dll" />
+    <Path Id="7eb220b9-ede7-4656-bb1a-d93b3882221b.OutputPath" Value="E:\AdevicoMerge\3-Business\7-Data\COL_DataLayer\bin\COL_DataLayer.dll" />
+    <Path Id="7eb220b9-ede7-4656-bb1a-d93b3882221b.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/7-Data/COL_DataLayer/bin/COL_DataLayer.dll" />
+    <Path Id="7f38a696-661e-4bdf-9fad-38e51b3e7e96.OutputPath" Value="E:\AdevicoMerge\3-Business\3-Modules\lm.Comol.Modules.Base\bin\Debug\lm.Comol.Modules.Base.dll" />
+    <Path Id="7f38a696-661e-4bdf-9fad-38e51b3e7e96.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/3-Modules/lm.Comol.Modules.Base/bin/Debug/lm.Comol.Modules.Base.dll" />
+    <Path Id="7fae537e-6acf-4c65-9d68-e22aec839eea.OutputPath" Value="E:\AdevicoMerge\3-Business\3-Modules\lm.Comol.Core.BaseModules\bin\Debug\lm.Comol.Core.BaseModules.dll" />
+    <Path Id="7fae537e-6acf-4c65-9d68-e22aec839eea.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/3-Modules/lm.Comol.Core.BaseModules/bin/Debug/lm.Comol.Core.BaseModules.dll" />
+    <Path Id="814a55a0-fb05-4eff-ae30-8583d3c4cdea.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\ErrorNotifications\lm.ErrorsNotification.WinSrvHost\bin\Debug\lm.ErrorsNotification.WinSrvHost.exe" />
+    <Path Id="814a55a0-fb05-4eff-ae30-8583d3c4cdea.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/ErrorNotifications/lm.ErrorsNotification.WinSrvHost/bin/Debug/lm.ErrorsNotification.WinSrvHost.exe" />
+    <Path Id="8281658f-1fce-40fd-b601-1f0cfd67c3e8.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\MigrationTools\lm.Comol.Scorm.CalculatePackageEvaluation\bin\Debug\lm.Comol.Scorm.CalculatePackageEvaluation.exe" />
+    <Path Id="8281658f-1fce-40fd-b601-1f0cfd67c3e8.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/MigrationTools/lm.Comol.Scorm.CalculatePackageEvaluation/bin/Debug/lm.Comol.Scorm.CalculatePackageEvaluation.exe" />
+    <Path Id="83a1d11f-c87f-4261-beb0-5a1561ce4539.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\TransferTools\FileTransfer.WCFUpload\bin\Debug\FileTransfer.WCFUpload.dll" />
+    <Path Id="83a1d11f-c87f-4261-beb0-5a1561ce4539.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/TransferTools/FileTransfer.WCFUpload/bin/Debug/FileTransfer.WCFUpload.dll" />
+    <Path Id="8406424e-99f8-4bb1-90ff-af9640bf238a.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\WebService\WS_CoreServices\bin\WS_CoreServices.dll" />
+    <Path Id="8406424e-99f8-4bb1-90ff-af9640bf238a.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/WebService/WS_CoreServices/bin/WS_CoreServices.dll" />
+    <Path Id="86ac380f-16e0-4e8f-af84-555e13ea456e.OutputPath" Value="E:\AdevicoMerge\3-Business\3-Modules\lm.Comol.Modules.CallForPapers\bin\Debug\lm.Comol.Modules.CallForPapers.dll" />
+    <Path Id="86ac380f-16e0-4e8f-af84-555e13ea456e.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/3-Modules/lm.Comol.Modules.CallForPapers/bin/Debug/lm.Comol.Modules.CallForPapers.dll" />
+    <Path Id="878f92a0-34dc-48cf-8977-a8d1bae96f7b.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\Mail\lm.Comol.Core.Msmq.Services.Mail.DataContract\bin\Debug\lm.Comol.Core.Msmq.Services.Mail.DataContract.dll" />
+    <Path Id="878f92a0-34dc-48cf-8977-a8d1bae96f7b.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/Mail/lm.Comol.Core.Msmq.Services.Mail.DataContract/bin/Debug/lm.Comol.Core.Msmq.Services.Mail.DataContract.dll" />
+    <Path Id="88ab4d29-203f-47ca-9f95-de1adacda528.OutputPath" Value="E:\AdevicoMerge\3-Business\3-Modules\lm.Comol.Modules.ScormStat\bin\Debug\lm.Comol.Modules.ScormStat.dll" />
+    <Path Id="88ab4d29-203f-47ca-9f95-de1adacda528.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/3-Modules/lm.Comol.Modules.ScormStat/bin/Debug/lm.Comol.Modules.ScormStat.dll" />
+    <Path Id="8d15efa2-ec97-462d-813f-11cedb939f25.OutputPath" Value="E:\AdevicoMerge\3-Business\1-OldProject\COL_Utility\bin\Debug\COL_Utility.dll" />
+    <Path Id="8d15efa2-ec97-462d-813f-11cedb939f25.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/1-OldProject/COL_Utility/bin/Debug/COL_Utility.dll" />
+    <Path Id="8d2ab67d-8dd2-4b6c-a66f-a216d35996d7.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\Notification\lm.Comol.Core.Msmq.Services.Notifications.ConsoleHost\bin\Debug\lm.Comol.Core.Msmq.Services.Notifications.ConsoleHost.exe" />
+    <Path Id="8d2ab67d-8dd2-4b6c-a66f-a216d35996d7.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/Notification/lm.Comol.Core.Msmq.Services.Notifications.ConsoleHost/bin/Debug/lm.Comol.Core.Msmq.Services.Notifications.ConsoleHost.exe" />
+    <Path Id="94abad75-1e0c-454c-a091-7f9de9b79d1a.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\TransferTools\FileTransfer.WinService\bin\Debug\FileTransfer.WinService.exe" />
+    <Path Id="94abad75-1e0c-454c-a091-7f9de9b79d1a.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/TransferTools/FileTransfer.WinService/bin/Debug/FileTransfer.WinService.exe" />
+    <Path Id="9b7da676-5030-47cd-8b2b-a30a09c8d0b5.OutputPath" Value="E:\AdevicoMerge\3-Business\2-Core\lm.Comol.Core.DomainModel\bin\Debug\lm.Comol.Core.DomainModel.dll" />
+    <Path Id="9b7da676-5030-47cd-8b2b-a30a09c8d0b5.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/2-Core/lm.Comol.Core.DomainModel/bin/Debug/lm.Comol.Core.DomainModel.dll" />
+    <Path Id="9cac28da-2c37-43fa-bb17-8c6c40588603.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\Mail\lm.Comol.Core.Msmq.Services.Mail.ConsoleHost\bin\Debug\lm.Comol.Core.Msmq.Services.Mail.ConsoleHost.exe" />
+    <Path Id="9cac28da-2c37-43fa-bb17-8c6c40588603.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/Mail/lm.Comol.Core.Msmq.Services.Mail.ConsoleHost/bin/Debug/lm.Comol.Core.Msmq.Services.Mail.ConsoleHost.exe" />
+    <Path Id="9f903081-2663-4d2c-92b4-b54034c4e68a.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\CommunityNews\Service\lm.Notification.ConsoleHost\bin\Debug\lm.Notification.ConsoleHost.exe" />
+    <Path Id="9f903081-2663-4d2c-92b4-b54034c4e68a.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/CommunityNews/Service/lm.Notification.ConsoleHost/bin/Debug/lm.Notification.ConsoleHost.exe" />
+    <Path Id="a1a17311-6b8f-4670-95ec-4e87a9e71353.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\CommunityNews\Service\lm.Notification.DataContract\bin\Debug\lm.Notification.DataContract.dll" />
+    <Path Id="a1a17311-6b8f-4670-95ec-4e87a9e71353.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/CommunityNews/Service/lm.Notification.DataContract/bin/Debug/lm.Notification.DataContract.dll" />
+    <Path Id="ae3bda4a-0265-469d-a7ba-e1bbc97062d7.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\ErrorNotifications\lm.ErrorsNotification.Service\bin\Debug\lm.ErrorsNotification.Service.dll" />
+    <Path Id="ae3bda4a-0265-469d-a7ba-e1bbc97062d7.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/ErrorNotifications/lm.ErrorsNotification.Service/bin/Debug/lm.ErrorsNotification.Service.dll" />
+    <Path Id="aeb96f04-ed2b-4ce9-b8b9-3d89e3d98b02.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\TransferTools\FileTransfer.Core\bin\Debug\FileTransfer.Core.dll" />
+    <Path Id="aeb96f04-ed2b-4ce9-b8b9-3d89e3d98b02.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/TransferTools/FileTransfer.Core/bin/Debug/FileTransfer.Core.dll" />
+    <Path Id="b001a912-8d98-476c-8fe0-c1f6360352ea.OutputPath" Value="E:\AdevicoMerge\3-Business\2-Core\lm.Comol.Core.Cache\bin\Debug\lm.Comol.Core.Cache.dll" />
+    <Path Id="b001a912-8d98-476c-8fe0-c1f6360352ea.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/2-Core/lm.Comol.Core.Cache/bin/Debug/lm.Comol.Core.Cache.dll" />
+    <Path Id="b445c81a-db35-48d2-9fcf-e9cf7227a59a.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\MigrationTools\RepositoryMigrationTool\bin\Debug\RepositoryMigrationTool.exe" />
+    <Path Id="b445c81a-db35-48d2-9fcf-e9cf7227a59a.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/MigrationTools/RepositoryMigrationTool/bin/Debug/RepositoryMigrationTool.exe" />
+    <Path Id="b4ce0eb2-4ce9-44ae-816f-d9bb50951117.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\ErrorNotifications\lm.ErrorsNotification.ConsoleHost\bin\Debug\lm.ErrorsNotification.ConsoleHost.exe" />
+    <Path Id="b4ce0eb2-4ce9-44ae-816f-d9bb50951117.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/ErrorNotifications/lm.ErrorsNotification.ConsoleHost/bin/Debug/lm.ErrorsNotification.ConsoleHost.exe" />
+    <Path Id="bf9492b9-a9ff-4637-a932-4d5c7710da2f.OutputPath" Value="E:\AdevicoMerge\3-Business\2-Core\lm.Comol.Core.Statistiche\bin\Debug\lm.Comol.Core.Statistiche.dll" />
+    <Path Id="bf9492b9-a9ff-4637-a932-4d5c7710da2f.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/2-Core/lm.Comol.Core.Statistiche/bin/Debug/lm.Comol.Core.Statistiche.dll" />
+    <Path Id="bf9f69e2-41e7-4d5e-ba10-59665a54b680.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\WebService\WS_Comol_UserActions\bin\WS_Comol_UserActions.dll" />
+    <Path Id="bf9f69e2-41e7-4d5e-ba10-59665a54b680.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/WebService/WS_Comol_UserActions/bin/WS_Comol_UserActions.dll" />
+    <Path Id="c124d1c3-d3f5-4196-a927-0601e92b5d77.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\TransferTools\FileTransfer.UnzipService\bin\Debug\FileTransfer.UnzipService.exe" />
+    <Path Id="c124d1c3-d3f5-4196-a927-0601e92b5d77.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/TransferTools/FileTransfer.UnzipService/bin/Debug/FileTransfer.UnzipService.exe" />
+    <Path Id="c5b30153-0523-4808-9b3b-ca585f9f3f13.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\CommunityNews\Service\lm.Notification.Service\bin\Debug\lm.Notification.Service.dll" />
+    <Path Id="c5b30153-0523-4808-9b3b-ca585f9f3f13.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/CommunityNews/Service/lm.Notification.Service/bin/Debug/lm.Notification.Service.dll" />
+    <Path Id="c699ba4c-78b8-4f81-a655-bc6c366f9e9e.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\TransferTools\FileTransfer.MediaAnalyzer\bin\Debug\FileTransfer.MediaAnalyzer.dll" />
+    <Path Id="c699ba4c-78b8-4f81-a655-bc6c366f9e9e.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/TransferTools/FileTransfer.MediaAnalyzer/bin/Debug/FileTransfer.MediaAnalyzer.dll" />
+    <Path Id="ca4acde1-2ee9-4882-a406-1191ace2aa94.OutputPath" Value="E:\AdevicoMerge\3-Business\1-OldProject\2_DynamicLibrary\bin\Debug\2_DynamicLibrary.dll" />
+    <Path Id="ca4acde1-2ee9-4882-a406-1191ace2aa94.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/1-OldProject/2_DynamicLibrary/bin/Debug/2_DynamicLibrary.dll" />
+    <Path Id="cef9b366-35ed-4ad0-ad99-fca2a885cd68.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\Notification\lm.Comol.Core.Msmq.Services.Notifications.DataContract\bin\Debug\lm.Comol.Core.Msmq.Services.Notifications.DataContract.dll" />
+    <Path Id="cef9b366-35ed-4ad0-ad99-fca2a885cd68.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/Notification/lm.Comol.Core.Msmq.Services.Notifications.DataContract/bin/Debug/lm.Comol.Core.Msmq.Services.Notifications.DataContract.dll" />
+    <Path Id="d1efb82a-de0c-43d2-8dc7-ad808b32c2a2.OutputPath" Value="E:\AdevicoMerge\3-Business\1-OldProject\COL_Entity\bin\Debug\COMOL_Entity.dll" />
+    <Path Id="d1efb82a-de0c-43d2-8dc7-ad808b32c2a2.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/1-OldProject/COL_Entity/bin/Debug/COMOL_Entity.dll" />
+    <Path Id="d253bf62-a7f2-48d5-ad05-12ac8ea66279.OutputPath" Value="E:\AdevicoMerge\3-Business\3-Modules\lm.Comol.Modules.Standard\bin\Debug\lm.Comol.Modules.Standard.dll" />
+    <Path Id="d253bf62-a7f2-48d5-ad05-12ac8ea66279.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/3-Modules/lm.Comol.Modules.Standard/bin/Debug/lm.Comol.Modules.Standard.dll" />
+    <Path Id="d7a372d0-279a-4c49-9c50-ceadbc71aa31.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\WebService\WS_ActionsStatistics\bin\WS_ActionsStatistics.dll" />
+    <Path Id="d7a372d0-279a-4c49-9c50-ceadbc71aa31.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/WebService/WS_ActionsStatistics/bin/WS_ActionsStatistics.dll" />
+    <Path Id="de1e3a9b-7c87-4e9e-8b4e-23a61b770249.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\WebService\WCF_ActionStatistics\bin\WCF_ActionStatistics.dll" />
+    <Path Id="de1e3a9b-7c87-4e9e-8b4e-23a61b770249.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/WebService/WCF_ActionStatistics/bin/WCF_ActionStatistics.dll" />
+    <Path Id="de89a79f-4408-490e-8da5-d09a1edccaa3.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\Mail\lm.Comol.Core.Msmq.Services.Mail.Service\bin\Debug\lm.Comol.Core.Msmq.Services.Mail.Service.dll" />
+    <Path Id="de89a79f-4408-490e-8da5-d09a1edccaa3.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/Mail/lm.Comol.Core.Msmq.Services.Mail.Service/bin/Debug/lm.Comol.Core.Msmq.Services.Mail.Service.dll" />
+    <Path Id="e2787342-b9bc-4831-b219-c6a09c2e20d6.OutputPath" Value="E:\AdevicoMerge\3-Business\3-Modules\lm.Comol.Modules.Chat\bin\Debug\lm.Comol.Modules.Chat.dll" />
+    <Path Id="e2787342-b9bc-4831-b219-c6a09c2e20d6.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/3-Modules/lm.Comol.Modules.Chat/bin/Debug/lm.Comol.Modules.Chat.dll" />
+    <Path Id="e2e213f2-4734-4590-8990-15177bf8a936.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\Actions\lm.Comol.Modules.ActionPersistence\bin\Debug\lm.ActionPersistence.dll" />
+    <Path Id="e2e213f2-4734-4590-8990-15177bf8a936.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/Actions/lm.Comol.Modules.ActionPersistence/bin/Debug/lm.ActionPersistence.dll" />
+    <Path Id="ebf92b2a-08cb-4efa-9102-3606acae99f2.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\TransferTools\FileTransfer.ScormAnalyzer\bin\Debug\FileTransfer.ScormAnalyzer.dll" />
+    <Path Id="ebf92b2a-08cb-4efa-9102-3606acae99f2.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/TransferTools/FileTransfer.ScormAnalyzer/bin/Debug/FileTransfer.ScormAnalyzer.dll" />
+    <Path Id="f0ff9247-93d9-4d75-be40-ea2d37d66d82.OutputPath" Value="E:\AdevicoMerge\3-Business\7-Data\lm.Comol.Core.DataLayer\bin\Debug\lm.Comol.Core.DataLayer.dll" />
+    <Path Id="f0ff9247-93d9-4d75-be40-ea2d37d66d82.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/7-Data/lm.Comol.Core.DataLayer/bin/Debug/lm.Comol.Core.DataLayer.dll" />
+    <Path Id="f12b4c8d-95b3-4171-a433-9bbf05c5afd2.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\TransferTools\FileTransfer.WCFService\bin\Debug\FileTransfer.WCFService.exe" />
+    <Path Id="f12b4c8d-95b3-4171-a433-9bbf05c5afd2.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/TransferTools/FileTransfer.WCFService/bin/Debug/FileTransfer.WCFService.exe" />
+    <Path Id="f54eb697-a6f8-4e15-b98a-f8df5575e88e.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\Notification\lm.Comol.Core.Msmq.Services.Notifications.Service\bin\Debug\lm.Comol.Core.Msmq.Services.Notifications.Service.dll" />
+    <Path Id="f54eb697-a6f8-4e15-b98a-f8df5575e88e.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/Notification/lm.Comol.Core.Msmq.Services.Notifications.Service/bin/Debug/lm.Comol.Core.Msmq.Services.Notifications.Service.dll" />
+    <Path Id="fae40127-0e71-45a4-9d45-2a2c8c71501f.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\Actions\lm.Comol.Core.Msmq.Service.Actions\bin\Debug\lm.Comol.Core.Msmq.Service.Actions.exe" />
+    <Path Id="fae40127-0e71-45a4-9d45-2a2c8c71501f.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/Actions/lm.Comol.Core.Msmq.Service.Actions/bin/Debug/lm.Comol.Core.Msmq.Service.Actions.exe" />
+    <Path Id="fd38df95-3bf6-4f06-8ca3-2e93862e1f00.OutputPath" Value="E:\AdevicoMerge\3-Business\4-Services\CommunityNews\Module\lm.Modules.NotificationSystem\bin\Debug\lm.Modules.NotificationSystem.dll" />
+    <Path Id="fd38df95-3bf6-4f06-8ca3-2e93862e1f00.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/4-Services/CommunityNews/Module/lm.Modules.NotificationSystem/bin/Debug/lm.Modules.NotificationSystem.dll" />
+    <Path Id="ffa417b0-a44b-441a-921b-feb57c5fd7da.OutputPath" Value="E:\AdevicoMerge\3-Business\2-Core\lm.Comol.Core.File\bin\Debug\lm.Comol.Core.File.dll" />
+    <Path Id="ffa417b0-a44b-441a-921b-feb57c5fd7da.OutputPathUri" Value="file:///E:/AdevicoMerge/3-Business/2-Core/lm.Comol.Core.File/bin/Debug/lm.Comol.Core.File.dll" />
+  </Paths>
+</DirectedGraph>

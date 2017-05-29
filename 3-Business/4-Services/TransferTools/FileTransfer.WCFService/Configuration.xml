@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Extension>.stored</Extension>
+  <Impersonate>
+    <Domain>Domain</Domain>
+    <Enabled>false</Enabled>
+    <Password>Password</Password>
+    <Username>Username</Username>
+  </Impersonate>
+  <Platforms>
+    <Platform Name="Sviluppo">
+      <ActiveTransferProtocol>WCF</ActiveTransferProtocol>
+      <ConnectionString>Data Source=#IP_SCORM_SERVER#;Initial Catalog=test;User ID=legge6;Password=lmadm1</ConnectionString>
+      <ScormConnectionString>Data Source=#IP_SCORM_SERVER#;Initial Catalog=#NAME_SCORM_SERVER#;User ID=legge6;Password=lmadm1;</ScormConnectionString>
+      <MultimediaAnalysis>
+        <DirectoryCandidates>
+          <string>{package-name}</string>
+          <string>1</string>
+        </DirectoryCandidates>
+        <DocumentCandidates>
+          <string>index.htm*</string>
+          <string>default.htm*</string>
+          <string>start.htm*</string>
+          <string>home.htm*</string>
+          <string>{package-name}.htm*</string>
+          <string>index_lms.htm*</string>
+          <string>index*.htm*</string>
+          <string>home*.htm*</string>
+          <string>*.htm*</string>
+          <string>*.html</string>
+        </DocumentCandidates>
+        <RulePriorityFrequencyRatio>0.55</RulePriorityFrequencyRatio>
+      </MultimediaAnalysis>
+      <MultimediaFilePath>E:\MediaPlayer\File\mediaSviluppo</MultimediaFilePath>
+      <RemoteFilePath>E:\Uploader\unzip\</RemoteFilePath>
+      <ScormFilePath>E:\ICODEON\Repository</ScormFilePath>
+      <WCF Name="WCF">
+        <Active>true</Active>
+        <PhysicalPath>E:\Uploader\</PhysicalPath>
+      </WCF>
+    </Platform>
+  </Platforms>
+</Config>

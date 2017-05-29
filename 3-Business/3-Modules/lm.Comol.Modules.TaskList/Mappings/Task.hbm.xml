@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="lm.Comol.Modules.TaskList" namespace="lm.Comol.Modules.TaskList.Domain">
+  <class name="lm.Comol.Modules.TaskList.Domain.Task" table="TASK" select-before-update="true">
+    <id name="ID" column="TSK_id" type="long">
+      <generator class="native"/>
+    </id>
+    <property name="Name" type="String" length="1000" column="TSK_name" />
+    <property name="TaskWBSindex" type="Int32"  column="TSK_WBSindex" />
+    <property name="TaskWBSstring" type="String" length="100" column="TSK_WBSstring" />
+    <property name="Description" type="String" length="4000" column="TSK_description" />
+    <property name="Notes" type="String" length="4000" column="TSK_notes" />
+    <property name="StartDate" type="System.DateTime" column="TSK_startDate" />
+    <property name="Deadline" type="System.DateTime" column="TSK_deadline" />
+    <property name="EndDate" type="System.DateTime" column="TSK_endDate" />
+    <property name="isArchived" type="boolean" column="TSK_isArchived" />
+    <property name="isPersonal" type="boolean" column="TSK_isPersonal" />
+    <property name="isPortal" type="boolean" column="TSK_isPortal" />
+    <property name="Status" type="lm.Comol.Modules.TaskList.Domain.TaskStatus, lm.Comol.Modules.TaskList" column="TSK_status" />
+    <property name="Priority" type="lm.Comol.Modules.TaskList.Domain.TaskPriority, lm.Comol.Modules.TaskList" column="TSK_priority" />
+    <property name="Completeness" type="Int32" column="TSK_completeness" />
+    <property name="Level" type="Int32" column="TSK_level" />
+    <!--Mapping della TaskPriority-->
+    <!--<many-to-one name="Priority" class="lm.Modules.TaskList.DomainModel.TaskPriority, lm.Modules.TaskList.DomainModel" column="TSK_TKR_priority" foreign-key="TSK_TKR_priority"/>-->
+    <!--Mapping della TaskCategory-->
+    <many-to-one name="Category" class="lm.Comol.Modules.TaskList.Domain.TaskCategory, lm.Comol.Modules.TaskList" column="TSK_category_id" foreign-key="TSK_category_id"/>
+    <!--Mapping del MetaData-->
+    <many-to-one name="MetaInfo" class="lm.Comol.Core.DomainModel.MetaData, lm.Comol.Core.DomainModel" column="TSK_MTDT_ID" foreign-key="TSK_MTDT_ID" cascade="all-delete-orphan"/>
+    <!--Mapping della Comunità-->
+    <many-to-one name="Community" class="lm.Comol.Core.DomainModel.Community" column="TSK_CMNT_id" foreign-key="TSK_CMNT_id" cascade="none" not-null="false" />
+    <!--Mapping dei figli-->
+    <bag name="TaskChildren" inverse="true" lazy="true" >
+      <key column="TSK_idTaskParent"/>
+      <one-to-many class="lm.Comol.Modules.TaskList.Domain.Task"/>
+    </bag>
+	<bag name="TaskFiles" table="TASK_DERIVABLE" lazy="true" fetch="subselect" cascade="all-delete-orphan" inverse="true" >
+		<key column="IdTask" />			
+		<one-to-many class="lm.Comol.Modules.TaskList.Domain.TaskListFile"/>		
+	</bag>
+	 
+	  <!--<bag name="Files" table="EV_EventItemFile" lazy="true" fetch="subselect" cascade="all-delete-orphan" inverse="true" >
+		  <key column="IdEventItem" foreign-key="ORRI_id"/>
+		  <one-to-many class="lm.Comol.Core.DomainModel.EventFile, lm.Comol.Core.DomainModel"/>
+	  </bag>-->
+	  
+    <!--Mapping del padre-->    
+    <many-to-one name="TaskParent" class="lm.Comol.Modules.TaskList.Domain.Task" column="TSK_idTaskParent" foreign-key="TSK_Id" cascade="none" not-null="false" />
+    <!--Mapping del project-->
+    <many-to-one name="Project" class="lm.Comol.Modules.TaskList.Domain.Task" column="TSK_idProject" foreign-key="TSK_Id" cascade="none" not-null="false" />
+  </class>
+</hibernate-mapping>
+   

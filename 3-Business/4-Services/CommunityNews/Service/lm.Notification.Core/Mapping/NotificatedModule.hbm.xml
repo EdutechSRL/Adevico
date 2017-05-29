@@ -1,0 +1,13 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="lm.Notification.Core" namespace="lm.Notification.Core.Domain">
+  <class name="NotificatedModule" table="SERVIZIO" lazy="false">
+    <id name="ID" column="SRVZ_id" type="Int32">
+		<generator class="native"/>
+    </id>
+	<property name="Code" type="String" column="SRVZ_codice" />
+    <property name="Name" type="String" column="SRVZ_nome" />
+    <bag name="Actions" table="ACTION_TYPE" fetch="subselect" cascade="none" lazy="false">
+      <key column="ACTP_ModuleID" foreign-key="SRVZ_id"/>
+      <one-to-many class="lm.Notification.Core.Domain.ModuleAction, lm.Notification.Core"/>
+    </bag>
+  </class>
+</hibernate-mapping>

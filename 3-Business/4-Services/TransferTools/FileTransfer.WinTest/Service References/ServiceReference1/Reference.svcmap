@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="41c07b0d-657f-401b-8697-018c77dd120a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:8081/Design_Time_Addresses/FileTransfer.Core/FileMQService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="ccab95d8-23dd-4603-88da-34613eae605b" SourceId="1" SourceUrl="net.tcp://localhost:8081/Design_Time_Addresses/FileTransfer.Core/FileMQService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="d551e95b-1843-44e4-8e0f-2be48531f651" SourceId="1" SourceUrl="net.tcp://localhost:8081/Design_Time_Addresses/FileTransfer.Core/FileMQService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="66db6473-9de0-4393-a158-45a151280fa4" SourceId="1" SourceUrl="net.tcp://localhost:8081/Design_Time_Addresses/FileTransfer.Core/FileMQService/mex" />
+    <MetadataFile FileName="lm.Comol.Core.FileRepository.Domain.xsd" MetadataType="Schema" ID="9d65bf2a-ac76-4cf6-a596-3e5d66696bcc" SourceId="1" SourceUrl="net.tcp://localhost:8081/Design_Time_Addresses/FileTransfer.Core/FileMQService/mex" />
+    <MetadataFile FileName="lm.Comol.Core.DomainModel.xsd" MetadataType="Schema" ID="c503f86b-2001-4974-bfac-8424997cbebd" SourceId="1" SourceUrl="net.tcp://localhost:8081/Design_Time_Addresses/FileTransfer.Core/FileMQService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="278362d0-f2f7-4ec8-8208-8912d4e449fe" SourceId="1" SourceUrl="net.tcp://localhost:8081/Design_Time_Addresses/FileTransfer.Core/FileMQService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

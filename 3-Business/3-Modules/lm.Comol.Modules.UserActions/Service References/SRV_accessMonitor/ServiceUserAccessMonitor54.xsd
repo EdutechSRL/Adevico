@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://fenice.maieutiche.local/WS_ActionsStatistics/ServiceUserAccessMonitor.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" />
+  <xs:import schemaLocation="http://fenice.maieutiche.local/WS_ActionsStatistics/ServiceUserAccessMonitor.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/lm.WS.UserAccessMonitor.DataContracts" />
+  <xs:import schemaLocation="http://fenice.maieutiche.local/WS_ActionsStatistics/ServiceUserAccessMonitor.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="GetCommunityAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="FromDate" nillable="true" type="q1:dtoDate" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="ToDate" nillable="true" type="q2:dtoDate" />
+        <xs:element minOccurs="0" name="PersonID" type="xs:int" />
+        <xs:element minOccurs="0" name="CommunityID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommunityAccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/lm.WS.UserAccessMonitor.DataContracts" minOccurs="0" name="GetCommunityAccessResult" nillable="true" type="q3:ArrayOfAccessResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPortalAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="FromDate" nillable="true" type="q4:dtoDate" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="ToDate" nillable="true" type="q5:dtoDate" />
+        <xs:element minOccurs="0" name="PersonID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPortalAccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/lm.WS.UserAccessMonitor.DataContracts" minOccurs="0" name="GetPortalAccessResult" nillable="true" type="q6:ArrayOfAccessResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommunityUserAccessResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="FromDate" nillable="true" type="q7:dtoDate" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="ToDate" nillable="true" type="q8:dtoDate" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PersonsID" nillable="true" type="q9:ArrayOfint" />
+        <xs:element minOccurs="0" name="CommunityID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommunityUserAccessResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/lm.WS.UserAccessMonitor.DataContracts" minOccurs="0" name="GetCommunityUserAccessResultResult" nillable="true" type="q10:ArrayOfUserWithResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPortalUserAccessResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="FromDate" nillable="true" type="q11:dtoDate" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="ToDate" nillable="true" type="q12:dtoDate" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PersonsID" nillable="true" type="q13:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPortalUserAccessResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/lm.WS.UserAccessMonitor.DataContracts" minOccurs="0" name="GetPortalUserAccessResultResult" nillable="true" type="q14:ArrayOfUserWithResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindCommunitiesWithAccessResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PersonD" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindCommunitiesWithAccessResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/lm.WS.UserAccessMonitor.DataContracts" minOccurs="0" name="FindCommunitiesWithAccessResultResult" nillable="true" type="q15:ArrayOfUserWithResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPortalUsersWithAccessResult">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPortalUsersWithAccessResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/lm.WS.UserAccessMonitor.DataContracts" minOccurs="0" name="FindPortalUsersWithAccessResultResult" nillable="true" type="q16:ArrayOfUserWithResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindUsersWithAccessResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CommunityID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindUsersWithAccessResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/lm.WS.UserAccessMonitor.DataContracts" minOccurs="0" name="FindUsersWithAccessResultResult" nillable="true" type="q17:ArrayOfUserWithResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommunityUsersAccessResultBetweenDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="FromDate" nillable="true" type="q18:dtoDate" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="ToDate" nillable="true" type="q19:dtoDate" />
+        <xs:element minOccurs="0" name="CommunityID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommunityUsersAccessResultBetweenDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/lm.WS.UserAccessMonitor.DataContracts" minOccurs="0" name="GetCommunityUsersAccessResultBetweenDateResult" nillable="true" type="q20:ArrayOfAccessResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPortalUsersAccessResultBetweenDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="FromDate" nillable="true" type="q21:dtoDate" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="ToDate" nillable="true" type="q22:dtoDate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPortalUsersAccessResultBetweenDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/lm.WS.UserAccessMonitor.DataContracts" minOccurs="0" name="GetPortalUsersAccessResultBetweenDateResult" nillable="true" type="q23:ArrayOfAccessResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommunityAccessResultBetweenDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PersonIDList" nillable="true" type="q24:ArrayOfint" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="FromDate" nillable="true" type="q25:dtoDate" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="ToDate" nillable="true" type="q26:dtoDate" />
+        <xs:element minOccurs="0" name="CommunityID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommunityAccessResultBetweenDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/lm.WS.UserAccessMonitor.DataContracts" minOccurs="0" name="GetCommunityAccessResultBetweenDateResult" nillable="true" type="q27:ArrayOfAccessResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPortalAccessResultBetweenDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PersonIDList" nillable="true" type="q28:ArrayOfint" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="FromDate" nillable="true" type="q29:dtoDate" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/lm.WS.ActionStatistics.Domain" minOccurs="0" name="ToDate" nillable="true" type="q30:dtoDate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPortalAccessResultBetweenDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/lm.WS.UserAccessMonitor.DataContracts" minOccurs="0" name="GetPortalAccessResultBetweenDateResult" nillable="true" type="q31:ArrayOfAccessResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

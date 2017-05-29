@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="lm.Comol.Modules.TaskList" namespace="lm.Comol.Modules.TaskList.Domain">
+  <class name="lm.Comol.Modules.TaskList.Domain.TaskCategory" table="TASK_CATEGORY" >
+    <id name="ID" column="TKCT_id" type="Int32">
+      <generator class="native"/>
+    </id>
+    <property name="Name" type="System.String" column="TKCT_name" />
+    <property name="isDeleted" type="System.Boolean" column="TKCT_isDeleted" />
+
+    <!--Mapping dei Tasks associati ad una Categoria.Se dovessero servire son pronti-->
+    <!--name="CategoryTasks" inverse="true" lazy="true">
+      <key column="TKCT_id"/>
+      <one-to-many class="lm.Modules.TaskList.DomainModel.Task"/>
+    </set>-->
+    
+      </class>
+</hibernate-mapping>
+ 
+

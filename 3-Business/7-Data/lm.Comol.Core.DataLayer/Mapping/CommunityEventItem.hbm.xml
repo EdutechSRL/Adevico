@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="lm.Comol.Core.DomainModel" namespace="lm.Comol.Core.DomainModel">
+	<class name="CommunityEventItem" table="ORARIO" lazy="true">
+		<id name="Id" column="ORRI_id" type="Int64">
+			<generator class="native"/>
+		</id>
+    <many-to-one name="EventOwner" class="lm.Comol.Core.DomainModel.CommunityEvent, lm.Comol.Core.DomainModel" column="EVNT_idPadre"
+         foreign-key="ORRI_EVNT_id" cascade="none"/>
+    <property name="StartDate" type="DateTime" column="ORRI_inizio" />
+    <property name="EndDate" type="DateTime" column="ORRI_fine" />
+    <property name="Place" type="String" column="ORRI_aula" />
+    <property name="IsVisible" type="Boolean" column="ORRI_visibile" />
+    <many-to-one name="Owner" class="lm.Comol.Core.DomainModel.Person, lm.Comol.Core.DomainModel" column="ORRI_PRSN_ID" foreign-key="ORRI_PRSN_ID" cascade="none" lazy="false"/>
+    <property name="ModifiedOn" type="DateTime" column="ORRI_dataModifica" />
+    <property name="Link" type="String" column="ORRI_Link" />
+    <many-to-one name="CloneOf" class="lm.Comol.Core.DomainModel.CommunityEventItem, lm.Comol.Core.DomainModel" column="EVNT_CloneID"
+             foreign-key="ORRI_CloneID" cascade="none"/>
+    <property name="Note" type="String" column="ORRI_Note" />
+    <property name="ExternalPlannerID" type="String" column="ORRI_ExternalPlannerID" />
+    <property name="Title" type="String" column="ORRI_Title" />
+    <property name="ShowDateInfo" type="Boolean" column="ShowDateInfo" />
+    <bag name="Files" table="ORARIO" lazy="true" fetch="subselect" cascade="all-delete-orphan">
+      <key column="IdEventItem" foreign-key="ORRI_id"/>
+      <one-to-many class="lm.Comol.Core.DomainModel.CommunityEventFile, lm.Comol.Core.DomainModel"/>
+    </bag>
+    <many-to-one name="CommunityOwner" class="lm.Comol.Core.DomainModel.Community, lm.Comol.Core.DomainModel" column="EVNT_CMNT_id"
+           foreign-key="IdCommunity" cascade="none"/>
+	</class>
+</hibernate-mapping>

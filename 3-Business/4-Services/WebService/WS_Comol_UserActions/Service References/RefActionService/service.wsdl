@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ActionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetMsmqBinding_iActionService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/lm.ActionDataContract" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="iActionService_InsertLoginAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertLoginAction" />
+  </wsdl:message>
+  <wsdl:message name="iActionService_UpdateLoginAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLoginAction" />
+  </wsdl:message>
+  <wsdl:message name="iActionService_InsertUserAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserAction" />
+  </wsdl:message>
+  <wsdl:message name="iActionService_InsertBrowserInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBrowserInfo" />
+  </wsdl:message>
+  <wsdl:message name="iActionService_UpdateModuleUsageTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateModuleUsageTime" />
+  </wsdl:message>
+  <wsdl:message name="iActionService_InsertCommunityAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCommunityAction" />
+  </wsdl:message>
+  <wsdl:message name="iActionService_UpdateCommunityAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCommunityAction" />
+  </wsdl:message>
+  <wsdl:message name="iActionService_InsertModuleAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertModuleAction" />
+  </wsdl:message>
+  <wsdl:message name="iActionService_UpdateModuleAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateModuleAction" />
+  </wsdl:message>
+  <wsdl:portType name="iActionService">
+    <wsdl:operation name="InsertLoginAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/iActionService/InsertLoginAction" message="tns:iActionService_InsertLoginAction_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoginAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/iActionService/UpdateLoginAction" message="tns:iActionService_UpdateLoginAction_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUserAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/iActionService/InsertUserAction" message="tns:iActionService_InsertUserAction_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertBrowserInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/iActionService/InsertBrowserInfo" message="tns:iActionService_InsertBrowserInfo_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModuleUsageTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/iActionService/UpdateModuleUsageTime" message="tns:iActionService_UpdateModuleUsageTime_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCommunityAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/iActionService/InsertCommunityAction" message="tns:iActionService_InsertCommunityAction_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCommunityAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/iActionService/UpdateCommunityAction" message="tns:iActionService_UpdateCommunityAction_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertModuleAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/iActionService/InsertModuleAction" message="tns:iActionService_InsertModuleAction_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModuleAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/iActionService/UpdateModuleAction" message="tns:iActionService_UpdateModuleAction_InputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetMsmqBinding_iActionService" type="tns:iActionService">
+    <wsp:PolicyReference URI="#NetMsmqBinding_iActionService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/msmq" />
+    <wsdl:operation name="InsertLoginAction">
+      <soap12:operation soapAction="http://tempuri.org/iActionService/InsertLoginAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoginAction">
+      <soap12:operation soapAction="http://tempuri.org/iActionService/UpdateLoginAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUserAction">
+      <soap12:operation soapAction="http://tempuri.org/iActionService/InsertUserAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="InsertBrowserInfo">
+      <soap12:operation soapAction="http://tempuri.org/iActionService/InsertBrowserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModuleUsageTime">
+      <soap12:operation soapAction="http://tempuri.org/iActionService/UpdateModuleUsageTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCommunityAction">
+      <soap12:operation soapAction="http://tempuri.org/iActionService/InsertCommunityAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCommunityAction">
+      <soap12:operation soapAction="http://tempuri.org/iActionService/UpdateCommunityAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="InsertModuleAction">
+      <soap12:operation soapAction="http://tempuri.org/iActionService/InsertModuleAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModuleAction">
+      <soap12:operation soapAction="http://tempuri.org/iActionService/UpdateModuleAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ActionService">
+    <wsdl:port name="NetMsmqBinding_iActionService" binding="tns:NetMsmqBinding_iActionService">
+      <soap12:address location="net.msmq://localhost/private/lm_Actions" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.msmq://localhost/private/lm_Actions</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

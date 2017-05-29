@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7484782C-DB10-48DD-BF15-189AF8A2443A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>lm.Comol.Modules.UserActions</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>lm.Comol.Modules.UserActions.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>lm.Comol.Modules.UserActions.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2">
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lm.Comol.Core.CommonLib\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lm.Comol.Core.CommonLib\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq, Version=1.0.0.4000, Culture=neutral, PublicKeyToken=444cf6a87fdab271, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\lm.Comol.Core.CommonLib\NHibernate_21\NHibernate.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\DALuserResults.vb" />
+    <Compile Include="Business\DALuserActions.vb" />
+    <Compile Include="Business\Result\CachePolicy.vb" />
+    <Compile Include="Business\Result\CacheTime.vb" />
+    <Compile Include="Business\Result\ManagerUsageResults.vb" />
+    <Compile Include="Business\Statistics\ManagerOnLineUsers.vb" />
+    <Compile Include="Business\Common\BaseStatisticsService.vb" />
+    <Compile Include="Business\Statistics\ManagerUsageDetails.vb" />
+    <Compile Include="Business\Statistics\ManagerUsageStatistic.vb" />
+    <Compile Include="Domain\AccessResults\dtoUserResult.vb" />
+    <Compile Include="Domain\AccessResults\dtoCommunityResult.vb" />
+    <Compile Include="Domain\AccessResults\viewType.vb" />
+    <Compile Include="Domain\AccessResults\ResultsOrder.vb" />
+    <Compile Include="Domain\AccessResults\ResultContextBase.vb" />
+    <Compile Include="Domain\ContextBase.vb" />
+    <Compile Include="Domain\Statistics\dtoYearItem.vb" />
+    <Compile Include="Domain\Result\dtoUserResult.vb" />
+    <Compile Include="Domain\Result\dtoCommunityWithResult.vb" />
+    <Compile Include="Domain\Result\ViewDetailPage.vb" />
+    <Compile Include="Domain\Result\dtoUserWithResult.vb" />
+    <Compile Include="Domain\Result\dtoAccessResult.vb" />
+    <Compile Include="Domain\Result\ModuleUsageResult.vb" />
+    <Compile Include="Domain\Result\ResultsOrder.vb" />
+    <Compile Include="Domain\Result\UsageResultContext.vb" />
+    <Compile Include="Domain\Result\ViewPage.vb" />
+    <Compile Include="Domain\RootObject.vb" />
+    <Compile Include="Domain\Statistics\dtoDetailUsageStatistic.vb" />
+    <Compile Include="Domain\Statistics\dtoOnLineUser.vb" />
+    <Compile Include="Domain\Statistics\dtoTranslatedContext.vb" />
+    <Compile Include="Domain\Statistics\ModuleOnLineUser.vb" />
+    <Compile Include="Domain\Statistics\OnLineContext.vb" />
+    <Compile Include="Domain\Statistics\dtoSummary.vb" />
+    <Compile Include="Domain\Statistics\OnLineUsersContext.vb" />
+    <Compile Include="Domain\Statistics\ViewPage.vb" />
+    <Compile Include="Domain\Statistics\dtoDetailsStatistic.vb" />
+    <Compile Include="Domain\Statistics\dtoDetailsTime.vb" />
+    <Compile Include="Domain\Statistics\dtoStatistic.vb" />
+    <Compile Include="Domain\Statistics\dtoBaseStatistic.vb" />
+    <Compile Include="Domain\Statistics\StatisticOrder.vb" />
+    <Compile Include="Domain\Statistics\ModuleStatistics.vb" />
+    <Compile Include="Domain\Statistics\StatisticType.vb" />
+    <Compile Include="Domain\Statistics\UsageContext.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Presentation\AccessResults\Print\IviewPrintResults.vb" />
+    <Compile Include="Presentation\AccessResults\iViewUserAccessResult.vb" />
+    <Compile Include="Presentation\AccessResults\UserAccessResultPresenter.vb" />
+    <Compile Include="Presentation\AccessResults\UsersListPresenter.vb" />
+    <Compile Include="Presentation\AccessResults\iViewUsersList.vb" />
+    <Compile Include="Presentation\AccessResults\ResultsBasePresenter.vb" />
+    <Compile Include="Presentation\AccessResults\iViewBaseAccessResult.vb" />
+    <Compile Include="Presentation\AccessResults\TabAccessResult.Presenter.vb" />
+    <Compile Include="Presentation\AccessResults\IviewTabAccessResult.vb" />
+    <Compile Include="Presentation\AccessResults\ContentPagePresenter.vb" />
+    <Compile Include="Presentation\AccessResults\IviewContentPageAccessResults.vb" />
+    <Compile Include="Presentation\AccessResults\UserAccessCommunityListPresenter.vb" />
+    <Compile Include="Presentation\AccessResults\IviewAccessResults.vb" />
+    <Compile Include="Presentation\AccessResults\iViewCommunityList.vb" />
+    <Compile Include="Presentation\AccessResults\iViewMyPortalAccess.vb" />
+    <Compile Include="Presentation\AccessResults\AccessResultsBasePresenter.vb" />
+    <Compile Include="Presentation\AccessResults\MyPortalAccessPresenter.vb" />
+    <Compile Include="Presentation\Statistics\Enum.vb" />
+    <Compile Include="Presentation\Statistics\Presenter\CommunitySystemStatisticsPresenter.vb" />
+    <Compile Include="Presentation\Statistics\Presenter\CommunityStatisticsPresenter.vb" />
+    <Compile Include="Presentation\Statistics\Presenter\UserCommunityStatisticsPresenter.vb" />
+    <Compile Include="Presentation\Statistics\Presenter\UsersCommunityStatisticsPresenter.vb" />
+    <Compile Include="Presentation\Statistics\Presenter\MyCommunityStatisticsPresenter.vb" />
+    <Compile Include="Presentation\Statistics\Presenter\StatisticDetailsPresenter.vb" />
+    <Compile Include="Presentation\Statistics\Presenter\UserSystemCommunityStatisticsPresenter.vb" />
+    <Compile Include="Presentation\Statistics\Presenter\UserSystemStatisticsPresenter.vb" />
+    <Compile Include="Presentation\Statistics\Presenter\UsersSystemStatisticsPresenter.vb" />
+    <Compile Include="Presentation\Statistics\Presenter\MySystemStatisticsPresenter.vb" />
+    <Compile Include="Presentation\Statistics\View\IViewBasePageStatistics.vb" />
+    <Compile Include="Presentation\Statistics\View\IViewUserCommunityStatistics.vb" />
+    <Compile Include="Presentation\Statistics\View\IViewUsersCommunityStatistics.vb" />
+    <Compile Include="Presentation\Statistics\View\IViewCommunityStatistics.vb" />
+    <Compile Include="Presentation\Statistics\View\IViewMyCommunityStatistics.vb" />
+    <Compile Include="Presentation\Statistics\View\IViewStatisticDetails.vb" />
+    <Compile Include="Presentation\Statistics\View\IViewUserSystemCommunityStatistics.vb" />
+    <Compile Include="Presentation\Statistics\View\IViewUserSystemStatistics.vb" />
+    <Compile Include="Presentation\Statistics\View\IViewCommunitySystemStatistics.vb" />
+    <Compile Include="Presentation\Statistics\View\IViewUsersSystemStatistics.vb" />
+    <Compile Include="Presentation\Statistics\View\IViewBaseStatistics.vb" />
+    <Compile Include="Presentation\Statistics\View\IViewMySystemStatistics.vb" />
+    <Compile Include="Presentation\Statistics\IViewModuleUsage.vb" />
+    <Compile Include="Presentation\Statistics\IviewOnLineUsers.vb" />
+    <Compile Include="Presentation\Statistics\OnLineUsersPresenter.vb" />
+    <Compile Include="Presentation\Statistics\IViewUsageDetails.vb" />
+    <Compile Include="Presentation\Statistics\UsageDetailsPresenter.vb" />
+    <Compile Include="Presentation\Statistics\UsageGlobalPresenter.vb" />
+    <Compile Include="Presentation\Statistics\IviewUsageStatistic.vb" />
+    <Compile Include="Presentation\AccessResults\Print\PrintResultsPresenter.vb" />
+    <Compile Include="Presentation\UsageResults\IviewUsageResults.vb" />
+    <Compile Include="Presentation\UsageResults\UsageResultPresenter.vb" />
+    <Compile Include="Service References\SRV_accessMonitor\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WSstatistics\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WS_OnLine\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\WSstatistics\ServiceStatistics.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\1-OldProject\COL_BusinessLogic\COL_BusinessLogic_v2.0.vbproj">
+      <Project>{51F57FB8-1245-4EA5-BF34-D6412C283AFB}</Project>
+      <Name>COL_BusinessLogic_v2.0</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\1-OldProject\COL_Entity\0_COL_Entity.vbproj">
+      <Project>{D1EFB82A-DE0C-43D2-8DC7-AD808B32C2A2}</Project>
+      <Name>0_COL_Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\2-Core\lm.Comol.Core.DomainModel\lm.Comol.Core.DomainModel.csproj">
+      <Project>{9B7DA676-5030-47CD-8B2B-A30A09C8D0B5}</Project>
+      <Name>lm.Comol.Core.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\7-Data\lm.Comol.Core.Data\lm.Comol.Core.Data.vbproj">
+      <Project>{0890F82D-3130-489D-92B2-8B2A1E3DC5FE}</Project>
+      <Name>lm.Comol.Core.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SRV_accessMonitor\" />
+    <WCFMetadataStorage Include="Service References\WSstatistics\" />
+    <WCFMetadataStorage Include="Service References\WS_OnLine\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSstatistics\ServiceStatistics.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSstatistics\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSstatistics\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSstatistics\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\WSstatistics\WSstatistics.BaseStatAction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSstatistics\WSstatistics.BaseStatAction_List.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSstatistics\WSstatistics.dtoDate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSstatistics\WSstatistics.SummaryAction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WS_OnLine\UserOnline.disco" />
+    <None Include="Service References\WS_OnLine\UserOnline.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WS_OnLine\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WS_OnLine\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRV_accessMonitor\ServiceUserAccessMonitor.wsdl" />
+    <None Include="Service References\SRV_accessMonitor\ServiceUserAccessMonitor.xsd" />
+    <None Include="Service References\WS_OnLine\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\WS_OnLine\WS_OnLine.ArrayOfDtoAccess.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WS_OnLine\WS_OnLine.UserAction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRV_accessMonitor\ServiceUserAccessMonitor.disco" />
+    <None Include="Service References\SRV_accessMonitor\ServiceUserAccessMonitor1.xsd" />
+    <None Include="Service References\SRV_accessMonitor\ServiceUserAccessMonitor2.xsd" />
+    <None Include="Service References\SRV_accessMonitor\ServiceUserAccessMonitor3.xsd" />
+    <None Include="Service References\SRV_accessMonitor\ServiceUserAccessMonitor4.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRV_accessMonitor\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRV_accessMonitor\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRV_accessMonitor\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\SRV_accessMonitor\ServiceUserAccessMonitor5.xsd" />
+    <None Include="Service References\SRV_accessMonitor\ServiceUserAccessMonitor51.xsd" />
+    <None Include="Service References\SRV_accessMonitor\ServiceUserAccessMonitor52.xsd" />
+    <None Include="Service References\SRV_accessMonitor\ServiceUserAccessMonitor53.xsd" />
+    <None Include="Service References\SRV_accessMonitor\ServiceUserAccessMonitor54.xsd" />
+    <None Include="Service References\SRV_accessMonitor\SRV_accessMonitor.AccessResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SRV_accessMonitor\SRV_accessMonitor.UserWithResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRV_accessMonitor\ServiceUserAccessMonitor1.disco" />
+    <None Include="Service References\SRV_accessMonitor\ServiceUserAccessMonitor1.wsdl" />
+    <None Include="Service References\WS_OnLine\WS_OnLine.OnLineUserAction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Business\AccessResults\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
