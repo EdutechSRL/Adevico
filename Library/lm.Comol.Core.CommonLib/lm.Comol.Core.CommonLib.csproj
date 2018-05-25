@@ -94,7 +94,6 @@
     <Content Include="_TEMPORARY\Microsoft.AspNet.Membership.OpenAuth.dll" />
     <Content Include="_TEMPORARY\Microsoft.AspNet.Membership.OpenAuth.xml" />
     <Content Include="_TEMPORARY\NLog.dll" />
-    <Content Include="_TEMPORARY\Telerik.Web.Device.Detection.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NHibernate_21\nhibernate-configuration.xsd">

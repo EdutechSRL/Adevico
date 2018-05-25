@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Business", "3-Business", "{7F9B891B-0B69-4957-ADEF-BCF89695892A}"
 EndProject
@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{75EF58D7-7430-45ED-BC37-25C48AC138AC}"
 	ProjectSection(SolutionItems) = preProject
 		InfoDss.txt = InfoDss.txt
+		Projects.txt = Projects.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lm.Comol.Core.CommonLib", "..\Library\lm.Comol.Core.CommonLib\lm.Comol.Core.CommonLib.csproj", "{784726B6-C4D8-4BAB-A4EA-E6A4511FE4FF}"
@@ -606,5 +607,8 @@ Global
 		{BAE14539-67D2-4007-9E9E-9D20C2A9E69B} = {12AA291A-43D5-446F-9147-C70D78E0B555}
 		{AB001D0E-4EA0-486F-8D69-4DB55D22BF95} = {2C254DB2-9D3A-4063-A87A-5068E8BB8607}
 		{8200A697-10D2-4BDE-8C63-085A9FBE2586} = {8D298A22-BA96-4089-B090-D0362459EBC3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD60DE23-8BC5-488C-A384-6E680B492B18}
 	EndGlobalSection
 EndGlobal
