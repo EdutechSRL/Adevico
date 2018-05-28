@@ -48,7 +48,24 @@
     <Compile Include="Faq\Business\FAQService.cs" />
     <Compile Include="Faq\Presentation\FaqListPresenter.cs" />
     <Compile Include="Faq\Presentation\IVIewFaqList.cs" />
+    <Compile Include="Mooc\Domain\dtoMoocInfoResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Domain\dtoFileDownloadsResponse.cs" />
+    <Compile Include="Repository\Domain\FileRepoDownloads.cs" />
+    <Compile Include="Repository\Domain\FileRepository.cs" />
+    <Compile Include="Repository\Domain\FileVersion.cs" />
+    <Compile Include="Repository\Domain\dtoFileInfoResponse.cs" />
+    <Compile Include="Repository\Service\FileInfoService.cs" />
+    <Compile Include="ScormStat\Domain\dtoActivityPlayDetails.cs" />
+    <Compile Include="ScormStat\Domain\dtoFile.cs" />
+    <Compile Include="ScormStat\Domain\dtoScormDetail.cs" />
+    <Compile Include="ScormStat\Domain\dtoScormFileListResponse.cs" />
+    <Compile Include="ScormStat\Domain\dtoScormPlayResponse.cs" />
+    <Compile Include="ScormStat\Domain\dtoScormStatPlay.cs" />
+    <Compile Include="ScormStat\Domain\ScormStatFilterSettings.cs" />
+    <Compile Include="ScormStat\Domain\dtoPerson.cs" />
+    <Compile Include="ScormStat\Domain\ScormStatPlay.cs" />
+    <Compile Include="ScormStat\Business\ScormStatService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Faq\Domain\" />
@@ -83,6 +100,31 @@
       <Project>{d253bf62-a7f2-48d5-ad05-12ac8ea66279}</Project>
       <Name>lm.Comol.Modules.Standard</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adevico.Core\Adevico.Core.csproj">
+      <Project>{411e98a4-088d-49b9-8047-dd698cff32a3}</Project>
+      <Name>Adevico.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ScormStat\Mapping\ScromStatPlay.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ScormStat\Mapping\ScormStatFilterSettings.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Repository\Mapping\FileRepository.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Repository\Mapping\FileVersion.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Repository\Mapping\FileRepoDownloads.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

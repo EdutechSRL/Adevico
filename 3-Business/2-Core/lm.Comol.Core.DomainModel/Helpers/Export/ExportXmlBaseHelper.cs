@@ -60,7 +60,8 @@ namespace lm.Comol.Core.DomainModel.Helpers.Export
                     webResponse.Clear();
                 if (cookie!=null)
                     webResponse.AppendCookie(cookie);
-                webResponse.AddHeader("Content-Disposition", "attachment; filename=" + fileName + "." + ExportFileType.rtf.ToString());
+                webResponse.AddHeader("Content-Disposition", "attachment; filename=" + fileName + ".rtf");
+                // + ExportFileType.rtf.ToString());
                 webResponse.ContentType = "application/rtf";
 
                 content = ExportTo(true);

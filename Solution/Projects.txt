@@ -1,5 +1,10 @@
+Elenco progetti e compilazione:
+Ok				compila
+-dipendenze-	contiene dipendenze a progetti che necessitano di librerie esterne o necessita di librerie esterne
+
 1-WebApplication
 	AdevicoWeb						-dipendenze-
+	LMSAPI							-dipendenze-
 
 3-Business
 	1-OldProject

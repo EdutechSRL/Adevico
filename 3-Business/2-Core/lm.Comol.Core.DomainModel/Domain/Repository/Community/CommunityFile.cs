@@ -153,7 +153,7 @@ namespace lm.Comol.Core.DomainModel
 		//        _isVisibile = value
 		//    End Set
 		//End Person
-        public virtual int Level { get; set; }
+		public virtual int Level { get; set; }
 		//Public Overridable Person CloneID() As Long
 		//    Get
 		//        Return _CloneID
@@ -250,7 +250,7 @@ namespace lm.Comol.Core.DomainModel
 		//        _IsDownloadable = value
 		//    End Set
 		//End Person
-        public virtual int DisplayOrder { get; set; }
+		public virtual int DisplayOrder { get; set; }
 
 		//Public Overridable Person DisplayName() As String
 		//    Get

@@ -75,6 +75,7 @@ namespace lm.Comol.Core.DomainModel.Helpers.Export
             System.Text.RegularExpressions.RegexOptions Option = System.Text.RegularExpressions.RegexOptions.IgnoreCase;
             Html = System.Text.RegularExpressions.Regex.Replace(Html, "<br[^>]*>", "\r\n", Option);
             Html = System.Text.RegularExpressions.Regex.Replace(Html, "<[^>]*>", String.Empty, Option);
+            Html = Html.Replace("&euro", "€");
             return System.Web.HttpUtility.HtmlDecode(Html);
         }
     }

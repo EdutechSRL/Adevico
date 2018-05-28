@@ -1,0 +1,47 @@
+﻿ /* css temp per iframe*/
+html body{
+    background:none !important;
+    padding:0;
+    margin:0;
+}
+html body #aspnetForm{
+	min-width: 0;
+}
+html body .AdvSpacer{
+    height:0 !important;
+}
+html body #container {
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: #fff;
+    border: none;
+    margin-bottom: 0;
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-topright: 0px;
+    -moz-border-radius-bottomright: 0;
+    -moz-border-radius-bottomleft: 0;
+    -webkit-border-radius: 0px 0px 0 0;
+    border-radius: 0px 0px 0 0;
+    box-shadow: none;
+}
+html body .page-width {
+    margin: auto auto;
+    max-width: 100%;
+    min-width: 0;
+    width: auto;
+}
+html body #serviceinfo,
+html body #header,
+html body #cFooter{
+    display:none !important;
+}
+html body #content {
+    margin: 0 0;
+    min-height: 300px;
+    padding: 0;
+    text-align: left;
+    position: relative;
+}
+html body #page-box, #aspnetForm.mainForm{
+	padding-bottom: 0 !important;
+}

@@ -549,6 +549,9 @@ Public Class ViewActivity
                 InitButton()
                 InitNavigationButton()
             End If
+
+
+
         Else
             Me.ShowError(EpError.Generic)
         End If
@@ -619,6 +622,8 @@ Public Class ViewActivity
         End If
 
         Me.Master.ServiceTitle = dtoActivity.Name
+
+        CurrentActivityType = dtoActivity.Type
 
         If dtoActivity.Description <> "" Then
             Me.LBdescription.Text = SmartTagsAvailable.TagAll(dtoActivity.Description)
@@ -766,6 +771,27 @@ Public Class ViewActivity
                         DirectCast(e.Item.FindControl("LITmove"), Literal).Text = "<span class='ui-icon ui-icon-arrowthick-2-n-s'>Move</span>"
                     End If
 
+
+                    'MultiLang
+
+                    Dim DDL As DropDownList = e.Item.FindControl("DDLlang")
+                    Dim isMultiLang As Boolean = If(Me.CurrentActivityType = ActivityType.multilingua, True, False)
+
+                    Dim SPN As HtmlControl = e.Item.FindControl("SPNlang")
+
+                    If Not IsNothing(SPN) Then
+                        If isMultiLang Then
+                            SPN.Visible = True
+                            If Not IsNothing(DDL) Then
+                                InitializeDDLlang(DDL, dtoItem.LangCode, dtoItem.Id)
+                            End If
+                        Else
+                            SPN.Attributes.Add("class", "hide")
+                            SPN.Visible = False
+                        End If
+                    End If
+
+
                     If dtoItem.PermissionEP.Update Then
                         If isManageable Then
                             Dim oTlkTxt As Telerik.Web.UI.RadNumericTextBox
@@ -810,6 +836,34 @@ Public Class ViewActivity
                                 If ServiceEP.isSubActityInternalModule(dtoItem.ContentType) Then
                                     oHyp = e.Item.FindControl("HYPeditSubAct")
                                     oHyp.Visible = isManageable
+
+
+                                    'MultiLang
+                                    DDL.Enabled = True
+                                    DDL.AutoPostBack = True
+                                    'Dim isMultiLang As Boolean = If(Me.CurrentActivityType = ActivityType.multilingua, True, False)
+
+                                    'Dim SPN As HtmlControl = e.Item.FindControl("SPNlang")
+
+                                    'If Not IsNothing(SPN) Then
+                                    '    If isManageable AndAlso isMultiLang Then
+                                    '        SPN.Visible = True
+
+                                    '        Dim DDL As DropDownList = e.Item.FindControl("DDLlang")
+                                    '        If Not IsNothing(DDL) Then
+                                    '            InitializeDDLlang(DDL, dtoItem.LangCode, dtoItem.Id)
+                                    '        End If
+
+
+                                    '    Else
+                                    '        SPN.Attributes.Add("class", "hide")
+                                    '        SPN.Visible = False
+                                    '    End If
+                                    'End If
+
+
+
+
                                     Select Case dtoItem.ContentType
                                         Case SubActivityType.Text
                                             oHyp.NavigateUrl = Me.BaseUrl & RootObject.UpdateSubActText(dtoItem.Id, Me.CurrentActivityID, Me.CurrentCommunityID, IsMoocPath, PreloadIsFromReadOnly)
@@ -972,6 +1026,33 @@ Public Class ViewActivity
                             Else
                                 oLb.Text = dtoItem.Weight & Resource.getValue("Points")
                             End If
+
+
+
+                            'MultiLang
+                            DDL.Enabled = False
+                            DDL.AutoPostBack = False
+                            'Dim isMultiLang As Boolean = If(Me.CurrentActivityType = ActivityType.multilingua, True, False)
+
+                            'Dim SPN As HtmlControl = e.Item.FindControl("SPNlang")
+
+                            'If Not IsNothing(SPN) Then
+                            '    If isMultiLang Then
+                            '        SPN.Visible = True
+
+                            '        Dim DDL As DropDownList = e.Item.FindControl("DDLlang")
+                            '        If Not IsNothing(DDL) Then
+                            '            InitializeDDLlang(DDL, dtoItem.LangCode, dtoItem.Id)
+                            '            DDL.Enabled = isManageable
+                            '        End If
+                            '    Else
+                            '        SPN.Attributes.Add("class", "hide")
+                            '        SPN.Visible = False
+                            '    End If
+                            'End If
+
+
+
                         End If
                         oDlkb = e.Item.FindControl("LKBvisibSubAct")
                         Me.Resource.setLinkButton(oDlkb, False, True)
@@ -1465,4 +1546,60 @@ Public Class ViewActivity
                 CTRLversionMessage.InitializeControl(Resource.getValue("VersionErrors." & result.ToString), Helpers.MessageType.error)
         End Select
     End Sub
+
+    Protected Sub DDLlang_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Dim val As String = ""
+        Dim SubActId As Long = 0
+        Try
+            Dim ddl As DropDownList = DirectCast(sender, DropDownList)
+
+            Dim selection As String() = ddl.SelectedValue.Split("|")
+
+            val = selection(0)
+            SubActId = System.Convert.ToInt64(selection(1))
+            Dim Success As Boolean = ServiceEP.SubActivityUpdateLanguage(SubActId, val)
+
+        Catch ex As Exception
+
+        End Try
+
+        BindDati()
+    End Sub
+
+    Private Sub InitializeDDLlang(ByRef DDlLang As DropDownList, ByVal Selected As String, ByVal SubActId As String)
+
+        DDlLang.AutoPostBack = True
+        DDlLang.Items.Clear()
+
+        Dim item As ListItem
+
+        If String.IsNullOrWhiteSpace(Selected) Then
+            Selected = "Multi"
+        End If
+
+        For Each val As String In LangValues.Split(";")
+            item = New ListItem(val, String.Format("{0}|{1}", val, SubActId))
+            If Selected = val Then
+                item.Selected = True
+            End If
+            DDlLang.Items.Add(item)
+        Next
+
+
+
+    End Sub
+
+    Private Const LangValues As String = "Multi;it-IT;en-US;de-DE"
+
+    Private Property CurrentActivityType As ActivityType
+        Get
+            Return ViewStateOrDefault(Of ActivityType)("CurrentActivityType", ActivityType.standard)
+        End Get
+        Set(value As ActivityType)
+            ViewState("CurrentActivityType") = value
+        End Set
+    End Property
+
+
+
 End Class

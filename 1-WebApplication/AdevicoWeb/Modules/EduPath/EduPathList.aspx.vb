@@ -471,6 +471,7 @@ Public Class EPList
                     End If
 
                     oHypStatistic = e.Item.FindControl("HYPstatistic")
+
                     Me.Resource.setHyperLink(oHypStatistic, False, True)
                     'oHypStatistic.ImageUrl = RootObject.ImgStat(Me.BaseUrl)
                     oHypStatistic.Text = ""
@@ -674,7 +675,7 @@ Public Class EPList
                         oHypStatistic = e.Item.FindControl("HYPstatistic")
                         Me.Resource.setHyperLink(oHypStatistic, False, True)
                         oHypStatistic.Text = ""
-                        oHypStatistic.Visible = True
+                        oHypStatistic.Visible = dtoItem.PermissionEP.ViewOwnStat
                         oHypStatistic.NavigateUrl = Me.BaseUrl & RootObject.UserStatisticsView(dtoItem.Id, CurrentCommunityID, DateTime.Now, False, dtoItem.isMooc)
                     End If
             End Select
@@ -795,9 +796,23 @@ Public Class EPList
                             RedirectToUrl(RootObject.EduPathList(Me.CurrentCommunityID, EpViewModeType.Manage, IsMoocPath))
                         Else
                             Me.LTidPath.Text = idPath
-                            CBLusers.DataSource = ServiceEP.GetUsersByPermission(CurrentCommunityID, Services_EduPath.Base2Permission.AdminService)
+
+                            Dim users As IList(Of dtoUser) = ServiceEP.GetUsersByPermission(CurrentCommunityID, Services_EduPath.Base2Permission.AdminService)
+
+                            If IsNothing(users) Then
+                                users = New List(Of dtoUser)()
+                            End If
+
+                            Dim unsubUser As New dtoUser
+                            unsubUser.Name = "Non iscritti"
+                            unsubUser.Id = -1
+
+                            users.Add(unsubUser)
+
+                            CBLusers.DataSource = users
                             CBLusers.DataTextField = "Displayname"
                             CBLusers.DataValueField = "Id"
+
                             CBLusers.DataBind()
 
                             For Each item As ListItem In CBLusers.Items

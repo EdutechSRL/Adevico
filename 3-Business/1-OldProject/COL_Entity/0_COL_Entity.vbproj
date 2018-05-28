@@ -122,6 +122,7 @@
     <Compile Include="Configuration\Components\URLelement.vb" />
     <Compile Include="Configuration\Components\UrlProvider.vb" />
     <Compile Include="Configuration\DocTemplateSettings.vb" />
+    <Compile Include="Configuration\FeaturesSettings.vb" />
     <Compile Include="Configuration\NotificationErrorServiceSettings.vb" />
     <Compile Include="Configuration\QuestionnaireSettings.vb" />
     <Compile Include="Configuration\SkinSettings.vb" />
@@ -131,6 +132,7 @@
     <Compile Include="Configuration\Components\MailLocalized.vb" />
     <Compile Include="Configuration\ComolSettings.vb" />
     <Compile Include="Configuration\DBconnectionSettings.vb" />
+    <Compile Include="Configuration\IcodeonSettings.vb" />
     <Compile Include="Configuration\MailSettings.vb" />
     <Compile Include="Configuration\BulkInsertSettings.vb" />
     <Compile Include="Configuration\Components\IconElement.vb" />
@@ -144,6 +146,8 @@
     <Compile Include="Configuration\TagSettings.vb" />
     <Compile Include="Configuration\PresenterSettings.vb" />
     <Compile Include="Configuration\TopBarSetting.vb" />
+    <Compile Include="Configuration\Validity\DelaySubscriptionConfig.vb" />
+    <Compile Include="Configuration\Validity\dsValidity.vb" />
     <Compile Include="Configuration\WebConferencingSettings.vb" />
     <Compile Include="Events\CachePolicyEvent.vb" />
     <Compile Include="Events\EventTypeStandard.vb" />

@@ -1,0 +1,21 @@
+﻿Gli XML con le traduzioni vanno in:
+\Risorse_XML\-LANG-\Modules\APIWrapper\
+
+Il nome dell'XML che viene caricato è indicato in LTlocalizationService.
+
+Ad esempio, se contiene "APItest", verrà caricato, per l'italiano:
+
+\Risorse_XML\it-IT\Modules\APIWrapper\pg_APItest.xml
+
+
+Le chiavi sono KEY SENSITIVE!
+
+Il literal:
+LTlocalizationValue
+Contiene l'elenco delle chiavi da caricare, separate da virgola,
+che verrà sostituito con il Json corrispondente.
+
+
+
+ <%=GetLocalization("Title.text")%>
+ Questo invece ti restituisce direttamente il valore

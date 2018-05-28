@@ -197,20 +197,47 @@ Namespace Business
             export += BuilderXmlDocument.AddWorkSheet("--", header & content)
             Return BuilderXmlDocument.AddMain(export, BuilderXmlStyle.GetDefaulSettings())
         End Function
-        Public Function QuestionnaireAnswers(ByVal userRequiringExport As lm.Comol.Core.DomainModel.Person, ByVal allowFullExport As Boolean, ByVal idLanguage As Integer, qAnswers As List(Of dtoFullUserAnswerItem), answers As Dictionary(Of Long, QuestionnaireAnswer), ByVal anonymousUser As String, ByVal displayNames As Dictionary(Of String, dtoDisplayName), Optional onlyUserAnswer As Boolean = False, Optional userInfo As dtoDisplayName = Nothing) As String
+        Public Function QuestionnaireAnswers(
+                                            ByVal userRequiringExport As lm.Comol.Core.DomainModel.Person,
+                                            ByVal allowFullExport As Boolean,
+                                            ByVal idLanguage As Integer,
+                                            qAnswers As List(Of dtoFullUserAnswerItem),
+                                            answers As Dictionary(Of Long, QuestionnaireAnswer),
+                                            ByVal anonymousUser As String,
+                                            ByVal displayNames As Dictionary(Of String, dtoDisplayName),
+                                            ByVal oQuest As Questionario,
+                                            Optional onlyUserAnswer As Boolean = False,
+                                            Optional userInfo As dtoDisplayName = Nothing
+                                        ) As String
+
             Dim dto As New dtoExportQuestionnaire
 
-            '      Dim questions As List(Of Domanda) = DALDomande.GetQuestionsForStatistics(answers.Values.SelectMany(Function(a) a.Answers).ToList(), idLanguage)
-            _Helper.QuestionsRender(userRequiringExport, False, allowFullExport, dto, displayNames, anonymousUser, qAnswers, answers)
-            Dim export As String = ""
-            Dim content As String = ""
 
             Dim addTaxCode As Boolean = False
             Select Case userRequiringExport.TypeID
-                Case CInt(UserTypeStandard.SysAdmin), CInt(UserTypeStandard.Administrator), CInt(UserTypeStandard.Administrative)
+                Case CInt(UserTypeStandard.SysAdmin),
+                     CInt(UserTypeStandard.Administrator),
+                     CInt(UserTypeStandard.Administrative)
 
                     addTaxCode = True
             End Select
+
+            '      Dim questions As List(Of Domanda) = DALDomande.GetQuestionsForStatistics(answers.Values.SelectMany(Function(a) a.Answers).ToList(), idLanguage)
+            _Helper.QuestionsRender(
+                userRequiringExport,
+                addTaxCode,
+                allowFullExport,
+                dto,
+                displayNames,
+                anonymousUser,
+                oQuest,
+                qAnswers,
+                answers)
+
+            Dim export As String = ""
+            Dim content As String = ""
+
+
 
             '   Dim header As String = QuestionnaireAnswersHeader(questionnaire)
             content += QuestionnaireAnswersTableHeader(dto)

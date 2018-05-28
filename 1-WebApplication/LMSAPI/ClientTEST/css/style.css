@@ -1,0 +1,92 @@
+body{
+	background-image:url("../img/sfondo.jpg");
+	background-position: top center;	
+    background-repeat: no-repeat;
+    font-size: 14px;    
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    word-wrap: break-word;
+    background-color: #f0f0f0;
+}
+
+#divContainer{
+    position: relative;
+    width: 920px;
+    margin: auto;
+    background-color: green;
+    min-height: 56px;
+    margin-top: 270px;
+}
+
+#container {
+    padding-top: 12px;
+    padding-bottom: 35px;
+    background-color: #fff;
+    border: none;
+    border: 1px solid #dcdcdc;
+    z-index: 1;
+    margin-bottom: 0;
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-topright: 0px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 0px 5px 5px;
+    -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.250);
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.250);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.250);
+}
+
+.page-width{
+    margin: 0 auto;
+    max-width: 1400px;
+    min-width: 640px;
+    width: 960px;
+}
+
+div#serviceinfo.RigaTitolo.serviceinfo {
+    color: #555 !important;
+    font-family: "Helvetica Neue", Helvetica, Arial,sans-serif;
+    border-bottom: none;
+    font-size: 1.6em;
+    font-weight: 400;
+    padding: 18px 12px 12px 12px;
+    font-variant: normal;
+    text-transform: uppercase;
+}
+
+.RigaTitolo {
+    font-weight: bold;
+    font-size: 14px;
+    color: #666;
+    border-bottom: 1px solid #000;
+    text-indent: 10px;
+    position: static;
+    height: 22px;
+    text-align: left;
+    font-variant: small-caps;
+}
+
+/**/
+#content {
+    margin: 0 20px;
+    min-height: 300px;
+    padding: 0;
+    text-align: left;
+    position: relative;
+}
+#content {
+    min-height: 300px;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-size: 1em;
+}
+#content {
+    color: #333;
+    min-height: 300px;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+#content div.DIV_MP_Content {
+    padding-top: 6px !important;
+    border-top: 1px solid #ccc !important;
+    width: inherit;
+}

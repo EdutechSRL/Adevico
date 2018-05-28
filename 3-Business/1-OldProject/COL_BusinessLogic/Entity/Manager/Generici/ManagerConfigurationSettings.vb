@@ -64,7 +64,8 @@ Namespace Comol.Manager
 
             Dim oFileconfigurazione As New XmlDocument
             Try
-                Dim oNode As XmlElement
+                Dim oElement As XmlElement
+                Dim oNode As XmlNode
                 oFileconfigurazione.Load(reader)
 
                 Try
@@ -107,13 +108,20 @@ Namespace Comol.Manager
                 End Try
 
                 Try
+                    oNode = oFileconfigurazione.GetElementsByTagName("Icodeon")(0)
+                    oSettings.Icodeon = Me.GetIcodeonSettings(oNode.ChildNodes)
+                Catch ex As Exception
+                    'oSettings.Icodeon = New Lingua(1, "it-IT")
+                End Try
+
+                Try
                     oNode = oFileconfigurazione.GetElementsByTagName("ConfigLogin")(0)
                     oSettings.Login = Me.GetLoginSettings(oNode.ChildNodes)
                 Catch ex As Exception
                     oSettings.Login = New LoginSettings
                 End Try
 
-             
+
 
                 Try
                     oNode = oFileconfigurazione.GetElementsByTagName("ChatService")(0)
@@ -140,7 +148,7 @@ Namespace Comol.Manager
                     oNode = oFileconfigurazione.GetElementsByTagName("DBcodice")(0)
                     If Not IsNothing(oNode) Then
                         Try
-                            oSettings.CodiceDB = oNode.InnerText
+                            oSettings.CodiceDB = CInt(oNode.InnerText)
                         Catch ex As Exception
                             oSettings.CodiceDB = 0
                         End Try
@@ -177,8 +185,8 @@ Namespace Comol.Manager
 
 
                 Try
-                    oNode = oFileconfigurazione.GetElementsByTagName("Latex")(0)
-                    oSettings.Latex = Me.GetLatexSettings(oNode)
+                    oElement = CType(oFileconfigurazione.GetElementsByTagName("Latex")(0), XmlElement)
+                    oSettings.Latex = Me.GetLatexSettings(oElement)
                 Catch ex As Exception
                     oSettings.Latex = New LatexSettings
                 End Try
@@ -222,6 +230,24 @@ Namespace Comol.Manager
                 Catch ex As Exception
 
                 End Try
+
+                Try
+                    oNode = oFileconfigurazione.GetElementsByTagName("FederationSettings")(0)
+                    oSettings.FederationSettings = oNode.InnerText
+
+                Catch ex As Exception
+                    oSettings.FederationSettings = ""
+                End Try
+
+
+                Try
+                    oNode = oFileconfigurazione.GetElementsByTagName("FeaturesSettings")(0)
+                    oSettings.Features = Me.GetFeaturesSettings(oNode.ChildNodes)
+                Catch ex As Exception
+
+                End Try
+
+
 
             Catch ex As Exception
 
@@ -347,7 +373,7 @@ Namespace Comol.Manager
                             End Try
                         Case "EnabledPortalHomeModal"
                             Try
-                                oPresenterSettings.EnabledPortalHomeModal = oNode.InnerText
+                                oPresenterSettings.EnabledPortalHomeModal = CBool(oNode.InnerText)
                             Catch ex As Exception
 
                             End Try
@@ -407,13 +433,13 @@ Namespace Comol.Manager
                             End Try
                         Case "DefaultTaxCodeRequired"
                             Try
-                                oPresenterSettings.DefaultTaxCodeRequired = oNode.InnerText
+                                oPresenterSettings.DefaultTaxCodeRequired = CBool(oNode.InnerText)
                             Catch ex As Exception
 
                             End Try
                         Case "DefaultHighSchool"
                             Try
-                                oPresenterSettings.DefaultHighSchoolTypeID = oNode.InnerText
+                                oPresenterSettings.DefaultHighSchoolTypeID = CInt(oNode.InnerText)
                             Catch ex As Exception
 
                             End Try
@@ -422,7 +448,7 @@ Namespace Comol.Manager
                             Try
                                 If Not String.IsNullOrEmpty(oNode.InnerText) Then
                                     If oNode.InnerText.Contains(",") Then
-                                        oPresenterSettings.DefaultProfileTypesToActivate.AddRange((From o In oNode.InnerText.Split(",") Select CInt(o)).ToList)
+                                        oPresenterSettings.DefaultProfileTypesToActivate.AddRange((From o In oNode.InnerText.Split(","c) Select CInt(o)).ToList)
                                     Else
                                         oPresenterSettings.DefaultProfileTypesToActivate.Add(CInt(oNode.InnerText))
                                     End If
@@ -436,7 +462,7 @@ Namespace Comol.Manager
                             Try
                                 If Not String.IsNullOrEmpty(oNode.InnerText) Then
                                     If IsNumeric(oNode.InnerText) Then
-                                        oPresenterSettings.DefaultSplitMailRecipients = oNode.InnerText
+                                        oPresenterSettings.DefaultSplitMailRecipients = CInt(oNode.InnerText)
                                     Else
                                         oPresenterSettings.DefaultSplitMailRecipients = 100
                                     End If
@@ -557,17 +583,17 @@ Namespace Comol.Manager
                 Select Case node.Name
                     Case "AvailableItemType"
                         Try
-                            config.AvailableItemType = (From i In node.InnerText.Split(",") Select CInt(i)).ToList
+                            config.AvailableItemType = (From i In node.InnerText.Split(","c) Select CInt(i)).ToList
                         Catch ex As Exception
                         End Try
                     Case "AllowDownload"
                         Try
-                            config.AllowDownload = (From i In node.InnerText.Split(",") Select CInt(i)).ToList
+                            config.AllowDownload = (From i In node.InnerText.Split(","c) Select CInt(i)).ToList
                         Catch ex As Exception
                         End Try
                     Case "DefaultDownload"
                         Try
-                            config.DefaultDownload = (From i In node.InnerText.Split(",") Select CInt(i)).ToList
+                            config.DefaultDownload = (From i In node.InnerText.Split(","c) Select CInt(i)).ToList
                         Catch ex As Exception
                         End Try
                     Case "UrlConfigurations"
@@ -587,7 +613,7 @@ Namespace Comol.Manager
                     Case "Name"
                         For Each oLocName As XmlNode In node.ChildNodes(0)
                             Try
-                                Dim Key As Integer = oLocName.Attributes("LanguageId").Value
+                                Dim Key As Integer = CInt(oLocName.Attributes("LanguageId").Value)
                                 Dim Value As String = oLocName.InnerText
 
                                 If Not config.Name.LocalNames.ContainsKey(Key) Then
@@ -604,7 +630,7 @@ Namespace Comol.Manager
                     Case "Home"
                         For Each oLocName As XmlNode In node.ChildNodes(0)
                             Try
-                                Dim Key As Integer = oLocName.Attributes("LanguageId").Value
+                                Dim Key As Integer = CInt(oLocName.Attributes("LanguageId").Value)
                                 Dim Value As String = oLocName.InnerText
 
                                 If Not config.Home.LocalNames.ContainsKey(Key) Then
@@ -619,7 +645,7 @@ Namespace Comol.Manager
                     Case "IstanceName"
                         For Each oLocName As XmlNode In node.ChildNodes(0)
                             Try
-                                Dim Key As Integer = oLocName.Attributes("LanguageId").Value
+                                Dim Key As Integer = CInt(oLocName.Attributes("LanguageId").Value)
                                 Dim Value As String = oLocName.InnerText
 
                                 If Not config.IstanceName.LocalNames.ContainsKey(Key) Then
@@ -712,7 +738,7 @@ Namespace Comol.Manager
             Try
                 Dim oFileTag As New XmlDocument
                 oFileTag.Load(FileName)
-                Dim oNode As XmlElement = oFileTag.GetElementsByTagName("Config")(0)
+                Dim oNode As XmlNode = oFileTag.GetElementsByTagName("Config")(0)
                 oTagSettings = Me.LoadTagSettings(oNode.ChildNodes)
                 Return oTagSettings
             Catch ex As Exception
@@ -732,8 +758,8 @@ Namespace Comol.Manager
                             Case "TagQuestionario"
                                 Dim oLista As New List(Of TemplateTag)
                                 For Each oNodeTag As XmlNode In oNode.ChildNodes
-                                    Dim oTemplateTag As New TemplateTag(Helpers.GetXMLattribute(oNodeTag, "name"), _
-                                    Helpers.GetXMLattribute(oNodeTag, "value"), Helpers.GetXMLattribute(oNodeTag, "proprieta"), _
+                                    Dim oTemplateTag As New TemplateTag(Helpers.GetXMLattribute(oNodeTag, "name"),
+                                    Helpers.GetXMLattribute(oNodeTag, "value"), Helpers.GetXMLattribute(oNodeTag, "proprieta"),
                                     GenericValidator.ValBool(Helpers.GetXMLattribute(oNodeTag, "isObligatory"), True), GenericValidator.ValInteger(Helpers.GetXMLattribute(oNodeTag, "fase"), 0))
 
                                     oLista.Add(oTemplateTag)
@@ -757,7 +783,7 @@ Namespace Comol.Manager
             Try
                 Dim oFile As New XmlDocument
                 oFile.Load(Me._ConfigurationPath & FileName)
-                Dim oNode As XmlElement = oFile.GetElementsByTagName("Config")(0)
+                Dim oNode As XmlNode = oFile.GetElementsByTagName("Config")(0)
                 oCSVsettings = Me.LoadCSVsettings(oNode.ChildNodes)
                 Return oCSVsettings
             Catch ex As Exception
@@ -780,7 +806,7 @@ Namespace Comol.Manager
                             oFileCSV.ColumnDelimeter = Helpers.GetXMLattribute(oNode, "columnDelimeter")
 
                             For Each oNodeCSVfield As XmlNode In oNode.ChildNodes
-                                Dim oField As New FileCsvField(Helpers.GetXMLattribute(oNodeCSVfield, "name"), _
+                                Dim oField As New FileCsvField(Helpers.GetXMLattribute(oNodeCSVfield, "name"),
                                 Helpers.GetXMLattribute(oNodeCSVfield, "DBfield"), Helpers.GetXMLattribute(oNodeCSVfield, "property"))
                                 oFileCSV.Fields.Add(oField)
 
@@ -814,7 +840,7 @@ Namespace Comol.Manager
                             End Try
                         Case "aggiornamentoXML"
                             Try
-                                oLoginSettings.DaysToUpdateProfile = oNode.InnerText
+                                oLoginSettings.DaysToUpdateProfile = CInt(oNode.InnerText)
                             Catch ex As Exception
                                 oLoginSettings.DaysToUpdateProfile = 4
                             End Try
@@ -866,7 +892,7 @@ Namespace Comol.Manager
                     For Each oNodeChild As XmlElement In oNode.ChildNodes
                         If oNodeChild.Name = "ServersRender" Then
                             For Each oNodeServer As XmlElement In oNodeChild.ChildNodes
-                                oLatexSettings.Servers.Add(New ForeignRenderServer(oNodeServer.GetAttribute("Name"), oNodeServer.GetAttribute("RemoteUrl"), oNodeServer.GetAttribute("isDefault"), oNodeServer.GetAttribute("isDefault")))
+                                oLatexSettings.Servers.Add(New ForeignRenderServer(oNodeServer.GetAttribute("Name"), oNodeServer.GetAttribute("RemoteUrl"), CBool(oNodeServer.GetAttribute("isDefault")), CBool(oNodeServer.GetAttribute("isDefault"))))
                             Next
                         End If
                     Next
@@ -1004,7 +1030,7 @@ Namespace Comol.Manager
                     Select Case oNode.Name
                         Case "Enabled"
                             Try
-                                oSettings.Enabled = oNode.InnerText
+                                oSettings.Enabled = CBool(oNode.InnerText)
                             Catch ex As Exception
 
                             End Try
@@ -1038,7 +1064,7 @@ Namespace Comol.Manager
                     Select Case oNode.Name
                         Case "Enabled"
                             Try
-                                oSettings.Enabled = oNode.InnerText
+                                oSettings.Enabled = CBool(oNode.InnerText)
                             Catch ex As Exception
 
                             End Try
@@ -1059,7 +1085,7 @@ Namespace Comol.Manager
                     Dim oService As New ServiceToNotify
                     Try
                         oService.Name = oNode.Attributes("Name").Value
-                        oService.Enabled = oNode.Attributes("Enabled").Value
+                        oService.Enabled = CBool(oNode.Attributes("Enabled").Value)
                         oService.Code = oNode.Attributes("Code").Value
                         oList.Add(oService)
                     Catch ex As Exception
@@ -1079,7 +1105,7 @@ Namespace Comol.Manager
                     Select Case oNode.Name
                         Case "Enabled"
                             Try
-                                oSettings.Enabled = oNode.InnerText
+                                oSettings.Enabled = CBool(oNode.InnerText)
                             Catch ex As Exception
 
                             End Try
@@ -1090,7 +1116,19 @@ Namespace Comol.Manager
 
                             End Try
                         Case "ErrorsType"
-                            oSettings.ErrorsType.AddRange((From o As XmlNode In oNode.ChildNodes Select New dtoErrorType(o.Attributes("Enabled").Value, o.Attributes("ErrorType").Value, o.Attributes("PersistTo").Value)).ToList)
+                            For Each o As XmlNode In oNode.ChildNodes
+                                oSettings.ErrorsType.Add(
+                                    New dtoErrorType(o.Attributes("Enabled").Value,
+                                    o.Attributes("ErrorType").Value,
+                                    o.Attributes("PersistTo").Value))
+                            Next
+
+                            'oSettings.ErrorsType.AddRange((
+                            '                              From o As XmlNode In oNode.ChildNodes
+                            '                              Select New dtoErrorType(
+                            '                                  o.Attributes("Enabled").Value,
+                            '                                  o.Attributes("ErrorType").Value,
+                            '                                  o.Attributes("PersistTo").Value)).ToList)
                     End Select
                 Next
 
@@ -1251,7 +1289,60 @@ Namespace Comol.Manager
             Return oBulkInsertSettings
         End Function
 
+        Private Function GetIcodeonSettings(ByVal oNodes As XmlNodeList) As IcodeonSettings
+            Dim oIcodeonSettings As New IcodeonSettings
 
+            If IsNothing(oNodes) AndAlso oNodes.Count = 0 Then
+            Else
+                For Each oNode As XmlNode In oNodes
+                    Select Case oNode.Name
+                        Case "PlayerUrl"
+                            oIcodeonSettings.PlayerBaseUrl = oNode.InnerText
+                        Case "Database"
+                            oIcodeonSettings.DBname = oNode.InnerText
+                        Case "SiteDownloadScorm"
+                            oIcodeonSettings.SiteDownloadScorm = CBool(oNode.InnerText)
+                        Case "MappingPath" ' Aggiunta - Mirco - 06/07/2010 - testato
+                            oIcodeonSettings.MappingPath = oNode.InnerText
+
+                        Case "OverrideSSLsettings"
+                            oIcodeonSettings.OverrideSSLsettings = CBool(oNode.InnerText)
+                        Case "StatisticsRules"
+                            If oNode.HasChildNodes Then
+                                Try
+                                    For Each node As XmlNode In oNode.ChildNodes
+                                        Dim dto As New IcodeonSettings.IcodeonStatistics
+                                        dto.Restricted = CBool(node.Attributes("restricted").Value)
+                                        dto.RestrictedRoles = GetIcodeonRestrictedRoles(node.FirstChild.ChildNodes)
+                                        oIcodeonSettings.StatisticsRules.Add(CInt(node.Attributes("id").Value), dto)
+                                    Next
+                                Catch ex As Exception
+
+                                End Try
+
+                            End If
+                        Case "AutoEvaluate"
+                            oIcodeonSettings.AutoEvaluate = CBool(oNode.InnerText)
+                    End Select
+                Next
+            End If
+            Return oIcodeonSettings
+        End Function
+        Private Function GetIcodeonRestrictedRoles(ByVal oNodes As XmlNodeList) As List(Of Integer)
+            Dim roles As New List(Of Integer)
+            If IsNothing(oNodes) AndAlso oNodes.Count = 0 Then
+                Return roles
+            Else
+                For Each r As XmlNode In oNodes
+                    If IsNumeric(r.InnerText) Then
+                        roles.Add(CInt(r.InnerText))
+                    End If
+                Next
+
+                'roles = (From r As XmlNode In oNodes Where IsNumeric(r.InnerText) Select CInt(r.InnerText)).ToList
+            End If
+            Return roles
+        End Function
 
 #Region "Extension Common"
         Private Function GetConfigurationPath(ByVal oNodes As XmlNodeList) As ConfigurationPath
@@ -1300,13 +1391,13 @@ Namespace Comol.Manager
                             End Try
                         Case "MaxSize"
                             Try
-                                oConfigurationPath.MaxSize = oNode.InnerText
+                                oConfigurationPath.MaxSize = CInt(oNode.InnerText)
                             Catch ex As Exception
                                 oConfigurationPath.MaxSize = -1
                             End Try
                         Case "MaxUploadSize"
                             Try
-                                oConfigurationPath.MaxUploadSize = oNode.InnerText
+                                oConfigurationPath.MaxUploadSize = CInt(oNode.InnerText)
                             Catch ex As Exception
                                 oConfigurationPath.MaxUploadSize = -1
                             End Try
@@ -1664,7 +1755,7 @@ Namespace Comol.Manager
             Try
                 Dim oFile As New XmlDocument
                 oFile.Load(Me._ConfigurationSmartTags)
-                Dim oNode As XmlElement = oFile.GetElementsByTagName("SmartTags")(0)
+                Dim oNode As XmlNode = oFile.GetElementsByTagName("SmartTags")(0)
                 oSmartTags = Me.GetSmartTagsFromFile(UrlBase, oNode.ChildNodes)
                 Return oSmartTags
             Catch ex As Exception
@@ -1682,8 +1773,8 @@ Namespace Comol.Manager
                     Select Case oNode.GetAttribute("Class")
                         Case "LatexSmartTag"
                             Try
-                                If CBool(IIf(oNode.GetAttribute("Enabled") = True, True, False)) Then
-                                    Dim Details() As String = oNode.GetAttribute("Details").Split("|")
+                                If CBool(IIf(CBool(oNode.GetAttribute("Enabled")) = True, True, False)) Then
+                                    Dim Details() As String = oNode.GetAttribute("Details").Split("|"c)
                                     Dim oDpi As Integer = 160
                                     Dim oAddress As String = "", oAddressPopup As String = ""
                                     For Each oDetail As String In Details
@@ -1699,7 +1790,7 @@ Namespace Comol.Manager
                                             End If
                                         ElseIf oDetail.Contains("DPI=") Then
                                             Try
-                                                oDpi = oDetail.Replace("DPI=", "")
+                                                oDpi = CInt(oDetail.Replace("DPI=", ""))
                                             Catch ex As Exception
                                                 oDpi = 160
                                             End Try
@@ -1727,20 +1818,20 @@ Namespace Comol.Manager
                             End Try
                         Case "YoutubeSmartTag"
                             Try
-                                If CBool(IIf(oNode.GetAttribute("Enabled") = True, True, False)) Then
-                                    Dim oList As IList = New ArrayList
+                                If CBool(IIf(CBool(oNode.GetAttribute("Enabled")) = True, True, False)) Then
+                                    Dim oList As ArrayList = New ArrayList
 
                                     If oNode.HasChildNodes Then
                                         For Each oNodeChild As XmlElement In oNode.ChildNodes(0).ChildNodes
                                             'isRegEx
-                                            oList.Add(New ReplaceIt(oNodeChild.GetAttribute("Original"), oNodeChild.GetAttribute("Replaced"), oNodeChild.GetAttribute("isRegEx")))
+                                            oList.Add(New ReplaceIt(oNodeChild.GetAttribute("Original"), oNodeChild.GetAttribute("Replaced"), CBool(oNodeChild.GetAttribute("isRegEx"))))
                                         Next
                                     End If
                                     Dim iImage As String = oNode.GetAttribute("Image")
                                     If iImage.Contains("#PortalBaseUrl#") Then
                                         iImage = Replace(iImage, "#PortalBaseUrl#", UrlBase)
                                     End If
-                                    Dim oYouTubeSmart As New YoutubeSmartTag(oNode.GetAttribute("Name"), oNode.GetAttribute("Tag"), oNode.GetAttribute("Width"), oNode.GetAttribute("Height"), oList, iImage)
+                                    Dim oYouTubeSmart As New YoutubeSmartTag(oNode.GetAttribute("Name"), oNode.GetAttribute("Tag"), CInt(oNode.GetAttribute("Width")), CInt(oNode.GetAttribute("Height")), oList, iImage)
                                     oYouTubeSmart.DisplayWidth = oNode.GetAttribute("DisplayWidth")
                                     If oYouTubeSmart.DisplayWidth = "" Then
                                         oYouTubeSmart.DisplayWidth = "700"
@@ -1757,20 +1848,20 @@ Namespace Comol.Manager
                             End Try
                         Case "SlideShareSmartTag"
                             Try
-                                If CBool(IIf(oNode.GetAttribute("Enabled") = True, True, False)) Then
-                                    Dim oList As IList = New ArrayList
+                                If CBool(IIf(CBool(oNode.GetAttribute("Enabled")) = True, True, False)) Then
+                                    Dim oList As ArrayList = New ArrayList
 
                                     If oNode.HasChildNodes Then
                                         For Each oNodeChild As XmlElement In oNode.ChildNodes(0).ChildNodes
                                             'isRegEx
-                                            oList.Add(New ReplaceIt(oNodeChild.GetAttribute("Original"), oNodeChild.GetAttribute("Replaced"), oNodeChild.GetAttribute("isRegEx")))
+                                            oList.Add(New ReplaceIt(oNodeChild.GetAttribute("Original"), oNodeChild.GetAttribute("Replaced"), CBool(oNodeChild.GetAttribute("isRegEx"))))
                                         Next
                                     End If
                                     Dim iImage As String = oNode.GetAttribute("Image")
                                     If iImage.Contains("#PortalBaseUrl#") Then
                                         iImage = Replace(iImage, "#PortalBaseUrl#", UrlBase)
                                     End If
-                                    Dim oSlideShareTag As New SlideShareSmartTag(oNode.GetAttribute("Name"), oNode.GetAttribute("Tag"), oNode.GetAttribute("Width"), oNode.GetAttribute("Height"), oList, iImage)
+                                    Dim oSlideShareTag As New SlideShareSmartTag(oNode.GetAttribute("Name"), oNode.GetAttribute("Tag"), CInt(oNode.GetAttribute("Width")), CInt(oNode.GetAttribute("Height")), oList, iImage)
                                     oSlideShareTag.DisplayWidth = oNode.GetAttribute("DisplayWidth")
                                     If oSlideShareTag.DisplayWidth = "" Then
                                         oSlideShareTag.DisplayWidth = "700"
@@ -1787,12 +1878,12 @@ Namespace Comol.Manager
                             End Try
                         Case "DocStocSmartTag"
                             Try
-                                If CBool(IIf(oNode.GetAttribute("Enabled") = True, True, False)) Then
+                                If CBool(IIf(CBool(oNode.GetAttribute("Enabled")) = True, True, False)) Then
                                     Dim iImage As String = oNode.GetAttribute("Image")
                                     If iImage.Contains("#PortalBaseUrl#") Then
                                         iImage = Replace(iImage, "#PortalBaseUrl#", UrlBase)
                                     End If
-                                    Dim oDocStocTag As New DocStocSmartTag(oNode.GetAttribute("Name"), oNode.GetAttribute("Tag"), oNode.GetAttribute("Width"), oNode.GetAttribute("Height"), iImage)
+                                    Dim oDocStocTag As New DocStocSmartTag(oNode.GetAttribute("Name"), oNode.GetAttribute("Tag"), CInt(oNode.GetAttribute("Width")), CInt(oNode.GetAttribute("Height")), iImage)
                                     oDocStocTag.DisplayWidth = oNode.GetAttribute("DisplayWidth")
                                     If oDocStocTag.DisplayWidth = "" Then
                                         oDocStocTag.DisplayWidth = "700"
@@ -1821,7 +1912,7 @@ Namespace Comol.Manager
             Try
                 Dim oFileQuiz As New XmlDocument
                 oFileQuiz.Load(FileName)
-                Dim oNode As XmlElement = oFileQuiz.GetElementsByTagName("Config")(0)
+                Dim oNode As XmlNode = oFileQuiz.GetElementsByTagName("Config")(0)
                 oSettings = Me.LoadQuizSettings(oNode.ChildNodes)
                 Return oSettings
             Catch ex As Exception
@@ -1847,27 +1938,27 @@ Namespace Comol.Manager
                                 For Each oNodeCostant As XmlNode In oNode.ChildNodes
                                     Select Case Helpers.GetXMLattribute(oNodeCostant, "Name")
                                         Case "vitaSessione_max"
-                                            oSettings.SessionTimeout = Helpers.GetXMLattribute(oNodeCostant, "Value")
+                                            oSettings.SessionTimeout = CInt(Helpers.GetXMLattribute(oNodeCostant, "Value"))
                                         Case "DefaultScalaValutazione"
-                                            oSettings.DefaultScalaValutazione = Helpers.GetXMLattribute(oNodeCostant, "Value")
+                                            oSettings.DefaultScalaValutazione = CInt(Helpers.GetXMLattribute(oNodeCostant, "Value"))
                                         Case "nQuestionsPerPage_Default"
-                                            oSettings.QuestionForPage = Helpers.GetXMLattribute(oNodeCostant, "Value")
+                                            oSettings.QuestionForPage = CInt(Helpers.GetXMLattribute(oNodeCostant, "Value"))
                                         Case "tickMassimo"
-                                            oSettings.MaxSessionAliveTick = Helpers.GetXMLattribute(oNodeCostant, "Value")
+                                            oSettings.MaxSessionAliveTick = CInt(Helpers.GetXMLattribute(oNodeCostant, "Value"))
                                         Case "autoSaveTimer"
-                                            oSettings.AutoSave = Helpers.GetXMLattribute(oNodeCostant, "Value")
+                                            oSettings.AutoSave = CInt(Helpers.GetXMLattribute(oNodeCostant, "Value"))
                                         Case "maxOvertimeSalvataggio"
-                                            oSettings.OvertimeSave = Helpers.GetXMLattribute(oNodeCostant, "Value")
+                                            oSettings.OvertimeSave = CInt(Helpers.GetXMLattribute(oNodeCostant, "Value"))
                                         Case "lunghezzaOpzioniDropDown"
-                                            oSettings.ItemForDropDown = Helpers.GetXMLattribute(oNodeCostant, "Value")
+                                            oSettings.ItemForDropDown = CInt(Helpers.GetXMLattribute(oNodeCostant, "Value"))
                                         Case "popUpHeight"
                                             oSettings.PopUpHeight = Helpers.GetXMLattribute(oNodeCostant, "Value")
                                         Case "popUpWidth"
                                             oSettings.PopUpWidth = Helpers.GetXMLattribute(oNodeCostant, "Value")
                                         Case "nRighePaginaGridView"
-                                            oSettings.RowItemsForPage = Helpers.GetXMLattribute(oNodeCostant, "Value")
+                                            oSettings.RowItemsForPage = CLng(Helpers.GetXMLattribute(oNodeCostant, "Value"))
                                         Case "ValidatorMaxDouble"
-                                            oSettings.MaxDoubleSize = Helpers.GetXMLattribute(oNodeCostant, "Value")
+                                            oSettings.MaxDoubleSize = CDbl(Helpers.GetXMLattribute(oNodeCostant, "Value"))
                                         Case "DefaultGroupName"
                                             oSettings.DefaultGroupName = Helpers.GetXMLattribute(oNodeCostant, "Value")
                                     End Select
@@ -1982,8 +2073,8 @@ Namespace Comol.Manager
                     Case "Code"
                         oTool.Code = oServiceParameter.InnerText
                     Case "AutenticationIds"
-                        Dim i As Integer
-                        Dim StrArr() As String = oServiceParameter.InnerText.Split(",")
+                        Dim i As Decimal
+                        Dim StrArr() As String = oServiceParameter.InnerText.Split(","c)
 
                         ' Check if string can be converted to decimal equivalent
                         If StrArr.All(Function(number) Decimal.TryParse(number, i)) Then
@@ -1991,8 +2082,8 @@ Namespace Comol.Manager
                                 (StrArr, New Converter(Of String, Integer)(AddressOf Convert.ToInt16)).ToList
                         End If
                     Case "PersonTypeIds"
-                        Dim i As Integer
-                        Dim StrArr() As String = oServiceParameter.InnerText.Split(",")
+                        Dim i As Decimal
+                        Dim StrArr() As String = oServiceParameter.InnerText.Split(","c)
 
                         If StrArr.All(Function(number) Decimal.TryParse(number, i)) Then
                             oTool.PersonTypeIds = Array.ConvertAll(Of String, Integer) _
@@ -2004,7 +2095,7 @@ Namespace Comol.Manager
                     Case "LocalNames"
                         For Each oLocName As XmlNode In oServiceParameter.ChildNodes
                             Try
-                                Dim Key As Integer = oLocName.Attributes("LanguageId").Value
+                                Dim Key As Integer = CInt(oLocName.Attributes("LanguageId").Value)
                                 Dim Value As String = oLocName.InnerText
 
                                 oTool.LocalNames.Add(Key, Value)
@@ -2040,8 +2131,8 @@ Namespace Comol.Manager
 
             Dim idItems As New List(Of Integer)
             If Not IsNothing(oServiceParameter.Attributes("DisabledTypeIds")) AndAlso Not String.IsNullOrEmpty(oServiceParameter.Attributes("DisabledTypeIds").Value) Then
-                idItems = (From i As String In oServiceParameter.Attributes("DisabledTypeIds").Value.Split(",") _
-                                                   Where Not String.IsNullOrEmpty(i) AndAlso IsNumeric(i) Select CInt(i)).ToList
+                idItems = (From i As String In oServiceParameter.Attributes("DisabledTypeIds").Value.Split(","c)
+                           Where Not String.IsNullOrEmpty(i) AndAlso IsNumeric(i) Select CInt(i)).ToList
             End If
             item.DisabledTypeIds = idItems.ToArray()
             Return item
@@ -2051,12 +2142,12 @@ Namespace Comol.Manager
 #Region "SkinSettings"
         Private Function GetSkinSettings(ByVal oNodes As XmlNodeList) As SkinSettings
             Dim oSkinSet As New SkinSettings()
-            Dim i As Integer
+            Dim i As Decimal
             For Each oNode As XmlNode In oNodes
                 Select Case oNode.Name
                     Case "PersonsTypeIds"
                         Try
-                            Dim StrArr() As String = oNode.InnerText.Split(",")
+                            Dim StrArr() As String = oNode.InnerText.Split(","c)
 
                             ' Check if string can be converted to decimal equivalent
                             If StrArr.All(Function(number) Decimal.TryParse(number, i)) Then
@@ -2068,7 +2159,7 @@ Namespace Comol.Manager
                         End Try
                     Case "PersonsIds"
                         Try
-                            Dim StrArr() As String = oNode.InnerText.Split(",")
+                            Dim StrArr() As String = oNode.InnerText.Split(","c)
 
                             ' Check if string can be converted to decimal equivalent
                             If StrArr.All(Function(number) Decimal.TryParse(number, i)) Then
@@ -2396,7 +2487,7 @@ Namespace Comol.Manager
                 Return QS
             End If
 
-            Dim i As Integer
+            Dim i As Decimal
 
             For Each oNode As XmlNode In oNodes
                 Select Case oNode.Name
@@ -2419,7 +2510,7 @@ Namespace Comol.Manager
                                         Exit For
                                     Case "UserTypeId"
                                         Try
-                                            Dim StrArr() As String = oNode.InnerText.Split(",")
+                                            Dim StrArr() As String = oNode.InnerText.Split(","c)
 
                                             ' Check if string can be converted to decimal equivalent
                                             If StrArr.All(Function(number) Decimal.TryParse(number, i)) Then
@@ -2433,7 +2524,7 @@ Namespace Comol.Manager
 
                                     Case "UsersId"
                                         Try
-                                            Dim StrArr() As String = oNode.InnerText.Split(",")
+                                            Dim StrArr() As String = oNode.InnerText.Split(","c)
 
                                             ' Check if string can be converted to decimal equivalent
                                             If StrArr.All(Function(number) Decimal.TryParse(number, i)) Then
@@ -2448,8 +2539,8 @@ Namespace Comol.Manager
                                     Case "Community"
                                         'oService.Name = oNode.Attributes("Name").Value
                                         Try
-                                            Dim ComArr() As String = oCN.Attributes("id").Value.Split(",")
-                                            Dim RolesArr() As String = oCN.Attributes("roles").Value.Split(",")
+                                            Dim ComArr() As String = oCN.Attributes("id").Value.Split(","c)
+                                            Dim RolesArr() As String = oCN.Attributes("roles").Value.Split(","c)
 
                                             If Not IsNothing(ComArr) AndAlso Not IsNothing(RolesArr) Then
                                                 Dim ComIds As List(Of Integer) = Array.ConvertAll(Of String, Integer) _
@@ -2471,8 +2562,8 @@ Namespace Comol.Manager
                                     Case "CommunityType"
                                         'oService.Name = oNode.Attributes("Name").Value
                                         Try
-                                            Dim ComTArr() As String = oCN.Attributes("id").Value.Split(",")
-                                            Dim RolesArr() As String = oCN.Attributes("roles").Value.Split(",")
+                                            Dim ComTArr() As String = oCN.Attributes("id").Value.Split(","c)
+                                            Dim RolesArr() As String = oCN.Attributes("roles").Value.Split(","c)
 
                                             If Not IsNothing(ComTArr) AndAlso Not IsNothing(RolesArr) Then
                                                 Dim ComTIds As List(Of Integer) = Array.ConvertAll(Of String, Integer) _
@@ -2500,5 +2591,130 @@ Namespace Comol.Manager
             Return QS
         End Function
 #End Region
+
+
+        Private Function GetFeaturesSettings(ByVal oNodes As XmlNodeList) As FeaturesSettings
+            Dim Features As New FeaturesSettings()
+
+            If IsNothing(oNodes) OrElse oNodes.Count() <= 0 Then
+                Return Features
+            End If
+
+            Dim i As Integer
+
+            For Each oNode As XmlNode In oNodes
+                Select Case oNode.Name
+                    Case "Call"
+                        If Not IsNothing(oNode.ChildNodes) AndAlso oNode.ChildNodes.Count > 0 Then
+                            For Each oChild As XmlNode In oNode.ChildNodes
+                                Select Case oChild.Name
+                                    Case "AdvanceEvaluation"
+                                        If oChild.InnerText = "True" Then
+                                            Features.CallAdvanceEvaluation = True
+                                        End If
+                                End Select
+                            Next
+                        End If
+                    Case "Edupath"
+                        If Not IsNothing(oNode.ChildNodes) AndAlso oNode.ChildNodes.Count > 0 Then
+                            For Each oChild As XmlNode In oNode.ChildNodes
+                                Select Case oChild.Name
+                                    Case "Multilanguage"
+                                        If oChild.InnerText = "True" Then
+                                            Features.EdupathMultilanguage = True
+                                        End If
+                                    Case "ShowCode"
+                                        If oChild.InnerText = "True" Then
+                                            Features.EdupathShowCode = True
+                                        End If
+                                End Select
+                            Next
+
+                        End If
+                    Case "Users"
+                        If Not IsNothing(oNode.ChildNodes) AndAlso oNode.ChildNodes.Count > 0 Then
+                            For Each oChild As XmlNode In oNode.ChildNodes
+                                Select Case oChild.Name
+                                    Case "ShowMansion"
+                                        If oChild.InnerText = "True" Then
+                                            Features.UsersShowMansion = True
+                                        End If
+                                End Select
+                            Next
+                        End If
+                    Case "DelaySubscription"
+                        If Not IsNothing(oNode.ChildNodes) AndAlso oNode.ChildNodes.Count > 0 Then
+
+                            Features.DelaySubconf.Validity = New List(Of dsValidity)()
+
+                            For Each oChild As XmlNode In oNode.ChildNodes
+                                Select Case oChild.Name
+                                    Case "AdminTypeId"
+                                        Try
+
+                                            Features.DelaySubconf.AdminTypeIds = New List(Of Integer)
+
+                                            For Each value As String In (oChild.InnerText).Split(",")
+                                                If IsNumeric(value) Then
+                                                    Features.DelaySubconf.AdminTypeIds.Add(CInt(value))
+                                                End If
+                                            Next
+
+                                        Catch ex As Exception
+
+                                        End Try
+
+                                    Case "Validities"
+
+                                        For Each oChildPeriod As XmlNode In oChild.ChildNodes
+                                            Select Case oChildPeriod.Name
+                                                Case "Period"
+                                                    Dim Validity As New dsValidity()
+
+                                                    For Each oChildper As XmlNode In oChildPeriod.ChildNodes
+                                                        Select Case oChildper.Name
+                                                            Case "Names"
+                                                                For Each oChildNems As XmlNode In oChildper.ChildNodes
+                                                                    Dim LangCode As String = ""
+                                                                    If Not IsNothing(oChildNems.Attributes("lang")) Then
+                                                                        LangCode = oChildNems.Attributes("lang").Value
+                                                                    End If
+
+                                                                    Dim Name As String = oChildNems.InnerText
+
+                                                                    If Not String.IsNullOrWhiteSpace(LangCode) AndAlso Not String.IsNullOrWhiteSpace(Name) Then
+                                                                        If String.IsNullOrWhiteSpace(Validity.DefaultName) Then
+                                                                            Validity.DefaultName = Name
+                                                                        End If
+
+                                                                        If Not Validity.Names.ContainsKey(LangCode) Then
+                                                                            Validity.Names.Add(LangCode, Name)
+                                                                        End If
+                                                                    End If
+                                                                Next
+
+                                                            Case "value"
+                                                                Dim duration As Integer = -1
+                                                                Try
+                                                                    duration = System.Convert.ToInt32(oChildper.InnerText)
+                                                                Catch ex As Exception
+
+                                                                End Try
+                                                                Validity.Value = duration
+                                                        End Select
+
+                                                        Features.DelaySubconf.Validity.Add(Validity)
+                                                    Next
+                                            End Select
+                                        Next
+                                End Select
+                            Next
+                        End If
+                End Select
+            Next
+
+            Return Features
+        End Function
+
     End Class
 End Namespace

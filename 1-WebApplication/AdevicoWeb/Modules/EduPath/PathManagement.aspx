@@ -123,7 +123,7 @@
                                         Display="Static" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
-                            <div class="DetailItem">
+                            <div class="DetailItem" id="DVcode" runat="server">
                                 <div class="DetailLeftItem">
                                     <asp:Label ID="LBcodeTitle" runat="server" CssClass="Titolo_campoSmall">Code:</asp:Label>
                                 </div>
@@ -132,8 +132,17 @@
                                     
                                 </div>
                             </div>
-                            
-
+                            <div id="DIVtype" class="DetailItem hide">
+                                <div class="DetailLeftItem">
+                                    <asp:Label ID="LBtype_t" runat="server" CssClass="Titolo_campoSmall">Type:*</asp:Label>
+                                </div>
+                                <div class="DetailRightItem">
+                                    <asp:RadioButtonList ID="RBLtype" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal">
+                                        <asp:ListItem runat="server" Value="0" Selected="true">e-learning</asp:ListItem>
+                                        <asp:ListItem runat="server" Value="1">webinar</asp:ListItem>
+                                    </asp:RadioButtonList>
+                                </div>
+                            </div>
                             <div id="DIVdescriptionEdit" class="DetailItem">
                                 <div class="DetailLeftItem">
                                     <asp:Label ID="LBdescriptionTitle" runat="server" CssClass="Titolo_campoSmall">Description:**</asp:Label>

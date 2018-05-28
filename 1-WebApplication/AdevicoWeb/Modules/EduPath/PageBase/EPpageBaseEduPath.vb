@@ -452,6 +452,20 @@ Public MustInherit Class EPpageBaseEduPath
             Return _ServiceRepository
         End Get
     End Property
+
+    Private _ServiceWebinar As WebinarIntegration.WebExService
+
+    Protected ReadOnly Property ServiceWebinar As WebinarIntegration.WebExService
+        Get
+            If IsNothing(_ServiceWebinar) Then
+
+                _ServiceWebinar = New WebinarIntegration.WebExService(PageUtility.CurrentContext)
+
+            End If
+            Return _ServiceWebinar
+        End Get
+    End Property
+
 #End Region
 
 #Region "Preload"

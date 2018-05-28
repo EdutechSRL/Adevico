@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Adevico.Modules" namespace="Adevico.Modules.Repository.Domain">
+  <class name="FileVersion" table="FR_Version" schema="dbo">
+    <id name="Id" type="Int64">
+      <column name="Id" not-null="true" precision="19" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <property name="IdPerson" type="Int64">
+      <column name="IdPerson" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="IdItem" type="Int64">
+      <column name="IdItem" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="IdCommunity" type="Int64">
+      <column name="IdCommunity" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="Name" type="String">
+      <column name="Name" not-null="false" length="4000" sql-type="NVARCHAR(4000)" />
+    </property>
+    <property name="Url" type="String">
+      <column name="Url" not-null="false" length="4000" sql-type="NVARCHAR(4000)" />
+    </property>
+    <property name="Extension" type="String">
+      <column name="Extension" not-null="false" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="ItemType" type="Int16">
+      <column name="ItemType" not-null="false" precision="5" sql-type="SMALLINT" />
+    </property>
+    <property name="Description" type="String">
+      <column name="Description" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="ContentType" type="String">
+      <column name="ContentType" not-null="false" length="4000" sql-type="NVARCHAR(4000)" />
+    </property>
+    <property name="Size" type="Int64">
+      <column name="Size" not-null="true" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="Number" type="Int64">
+      <column name="Number" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="Downloaded" type="Int64">
+      <column name="Downloaded" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="IsActive" type="Boolean">
+      <column name="IsActive" default="0" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="Status" type="Int16">
+      <column name="Status" default="1" not-null="false" precision="5" sql-type="SMALLINT" />
+    </property>
+    <property name="Deleted" type="Int16">
+      <column name="`_Deleted`" default="0" not-null="false" precision="5" sql-type="SMALLINT" />
+    </property>
+    <property name="CreatedOn" type="DateTime">
+      <column name="`_CreatedOn`" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="ModifiedOn" type="DateTime">
+      <column name="`_ModifiedOn`" not-null="false" sql-type="DATETIME" />
+    </property>
+    <many-to-one name="File" class="FileRepository">
+      <column name="IdItem" not-null="true" precision="19" sql-type="BIGINT" />
+    </many-to-one>
+  </class>
+</hibernate-mapping>

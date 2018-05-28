@@ -110,7 +110,7 @@ namespace lm.Comol.Core.FileRepository.Domain.ScormSettings
                         }
                         if (dto.CheckScore)
                         {
-                            item.MinScore = dto.MinTime;
+                            item.MinScore = dto.MinScore;
                             item.UseScoreScaled = dto.UseScoreScaled;
                         }
                     }

@@ -196,6 +196,24 @@
                                     ErrorMessage="*"></asp:CompareValidator>--%>
                             </div>
                         </div>
+
+                        <%--Multilingua--%>
+                        <div class="DetailItem" id="DVmultiLang" runat="server">
+                            <div class="floatLeft inline">
+                                <asp:Label ID="LBLmultiLang_t" runat="server" CssClass="Titolo_campoSmall">Tipo attività:</asp:Label>
+                            </div>
+                            <div class="floatLeft inline">
+                                <asp:RadioButtonList ID="RBLtype" runat="server" CssClass="rbltype" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                                    <asp:ListItem Text="Normale" Value="0" Selected="True"></asp:ListItem>
+                                    <asp:ListItem Text="Multilingua" Value="2"></asp:ListItem>
+                                </asp:RadioButtonList>
+                            </div>
+                            <div class="floatLeft" >
+                                <span class="typeMan openHelp inline img_link ico_help_s" ></span>
+                            </div>
+                        </div>
+
+
                         <div class="btnAdvanced DetailItem">
                             <asp:Label ID="LBadvanced" runat="server" CssClass="show_hide Link_Menu" Text="*advanced"/>
                         </div>
@@ -498,6 +516,12 @@
     <div id="helpDialog1" class="dialog">     
         <asp:Label ID="LbMincompletionHelp" runat="server" Text="*A" CssClass="minCompletion hideMe hidden"></asp:Label>
         <asp:Label ID="LbWeightManHelp" runat="server" Text="*c" CssClass="weightMan hideMe hidden"></asp:Label>
+        <asp:Label ID="LbtypeMan" runat="server" CssClass="typeMan hideMe hidden">
+            <br />
+            <b>Normale</b>: (default) tutte le sotto-attività dovranno essere completate per completare l'attività.<br /><br />
+            <b>Multilingua</b>: tutte le sotto-attività della stessa lingua dovranno essere completate per completare l'attività.<br />
+            Le attività <b>Multi</b> avranno validità per tutte le lingue.
+        </asp:Label>
        <asp:Label ID="LBpermissionHelpAct" runat="server" Text="*c" CssClass="permission hideMe hidden"></asp:Label>
         <asp:Label ID="LBselectPermHelpAct" runat="server" Text="*c" CssClass="selectPermission hideMe hidden"></asp:Label>
         <asp:Label ID="LBmarkHelpAct" runat="server" CssClass="helpMark hideMe hidden" />

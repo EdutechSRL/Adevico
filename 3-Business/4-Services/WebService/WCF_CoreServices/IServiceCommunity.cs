@@ -13,5 +13,7 @@ namespace WCF_CoreServices
     {
         [OperationContract]
         void DoWork();
+
+
     }
 }

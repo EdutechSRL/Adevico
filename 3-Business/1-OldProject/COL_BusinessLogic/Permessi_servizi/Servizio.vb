@@ -1684,73 +1684,73 @@ Namespace CL_permessi
 			End If
 			Return oLista
 		End Function
-		Private Shared Function RetrieveRuoliServizioFromDB(ByVal ComunitaID As Integer, ByVal ServizioID As Integer, ByVal LinguaID As Integer, ByVal DefaultValue As Boolean) As List(Of RuoloServizio)
-			Dim oLista As New List(Of RuoloServizio)
-			Dim oRequest As New COL_Request
-			Dim oParam As New COL_Request.Parameter
-			Dim objAccesso As New COL_DataAccess
-			Dim oDatareader As IDataReader
+        Public Shared Function RetrieveRuoliServizioFromDB(ByVal ComunitaID As Integer, ByVal ServizioID As Integer, ByVal LinguaID As Integer, ByVal DefaultValue As Boolean) As List(Of RuoloServizio)
+            Dim oLista As New List(Of RuoloServizio)
+            Dim oRequest As New COL_Request
+            Dim oParam As New COL_Request.Parameter
+            Dim objAccesso As New COL_DataAccess
+            Dim oDatareader As IDataReader
 
-			With oRequest
-				.Command = "sp_Servizio_RetrieveRuoliServizioFromDB"
-				.CommandType = CommandType.StoredProcedure
+            With oRequest
+                .Command = "sp_Servizio_RetrieveRuoliServizioFromDB"
+                .CommandType = CommandType.StoredProcedure
 
-				oParam = objAccesso.GetAdvancedParameter("@ComunitaID", ComunitaID, ParameterDirection.Input, SqlDbType.Int)
-				.Parameters.Add(oParam)
+                oParam = objAccesso.GetAdvancedParameter("@ComunitaID", ComunitaID, ParameterDirection.Input, SqlDbType.Int)
+                .Parameters.Add(oParam)
 
-				oParam = objAccesso.GetAdvancedParameter("@ServizioID", ServizioID, ParameterDirection.Input, SqlDbType.Int)
-				.Parameters.Add(oParam)
+                oParam = objAccesso.GetAdvancedParameter("@ServizioID", ServizioID, ParameterDirection.Input, SqlDbType.Int)
+                .Parameters.Add(oParam)
 
-				oParam = objAccesso.GetAdvancedParameter("@LinguaID", LinguaID, ParameterDirection.Input, SqlDbType.Int)
-				.Parameters.Add(oParam)
+                oParam = objAccesso.GetAdvancedParameter("@LinguaID", LinguaID, ParameterDirection.Input, SqlDbType.Int)
+                .Parameters.Add(oParam)
 
-				oParam = objAccesso.GetAdvancedParameter("@DefaultValue", DefaultValue, ParameterDirection.Input, SqlDbType.Bit)
-				.Parameters.Add(oParam)
+                oParam = objAccesso.GetAdvancedParameter("@DefaultValue", DefaultValue, ParameterDirection.Input, SqlDbType.Bit)
+                .Parameters.Add(oParam)
 
-				.Role = COL_Request.UserRole.Admin
-				.transactional = False
-			End With
+                .Role = COL_Request.UserRole.Admin
+                .transactional = False
+            End With
 
-			Try
+            Try
 
-				Dim oListaPermessi As New List(Of Permessi)
-				oListaPermessi = COL_Servizio.ListPermessiServizio(ServizioID, LinguaID, "Nome")
-				oDatareader = objAccesso.GetdataReader(oRequest)
-				While oDatareader.Read
-					Try
-						Dim oRuoloServizio As New RuoloServizio
-						Dim oRuolo As New COL_TipoRuolo
-						Dim PermDefiniti, PermDefault, PermProfilo As String
-						Dim isAssociato, isFromProfilo, isDefault As Boolean
+                Dim oListaPermessi As New List(Of Permessi)
+                oListaPermessi = COL_Servizio.ListPermessiServizio(ServizioID, LinguaID, "Nome")
+                oDatareader = objAccesso.GetdataReader(oRequest)
+                While oDatareader.Read
+                    Try
+                        Dim oRuoloServizio As New RuoloServizio
+                        Dim oRuolo As New COL_TipoRuolo
+                        Dim PermDefiniti, PermDefault, PermProfilo As String
+                        Dim isAssociato, isFromProfilo, isDefault As Boolean
 
-						oRuolo.Id = oDatareader("TPRL_id")
-						oRuolo.Nome = GenericValidator.ValString(oDatareader("TPRL_nome"), "")
-						oRuolo.Descrizione = GenericValidator.ValString(oDatareader("TPRL_descrizione"), "")
-						oRuolo.Gerarchia = oDatareader("TPRL_gerarchia")
+                        oRuolo.Id = oDatareader("TPRL_id")
+                        oRuolo.Nome = GenericValidator.ValString(oDatareader("TPRL_nome"), "")
+                        oRuolo.Descrizione = GenericValidator.ValString(oDatareader("TPRL_descrizione"), "")
+                        oRuolo.Gerarchia = oDatareader("TPRL_gerarchia")
 
-						PermDefiniti = GenericValidator.ValString(oDatareader("Permessi_Definiti"), "")
-						PermDefault = GenericValidator.ValString(oDatareader("Permessi_Default"), "")
-						PermProfilo = GenericValidator.ValString(oDatareader("Permessi_Profilo"), "")
-						isAssociato = GenericValidator.ValBool(oDatareader("Associato"), False)
-						isFromProfilo = GenericValidator.ValBool(oDatareader("isFromProfilo"), False)
-						isDefault = GenericValidator.ValBool(oDatareader("isDefault"), False)
+                        PermDefiniti = GenericValidator.ValString(oDatareader("Permessi_Definiti"), "")
+                        PermDefault = GenericValidator.ValString(oDatareader("Permessi_Default"), "")
+                        PermProfilo = GenericValidator.ValString(oDatareader("Permessi_Profilo"), "")
+                        isAssociato = GenericValidator.ValBool(oDatareader("Associato"), False)
+                        isFromProfilo = GenericValidator.ValBool(oDatareader("isFromProfilo"), False)
+                        isDefault = GenericValidator.ValBool(oDatareader("isDefault"), False)
 
-						oLista.Add(New RuoloServizio(oRuolo, oListaPermessi, PermDefiniti, PermDefault, PermProfilo, isAssociato, isDefault, isFromProfilo))
-					Catch ex As Exception
+                        oLista.Add(New RuoloServizio(oRuolo, oListaPermessi, PermDefiniti, PermDefault, PermProfilo, isAssociato, isDefault, isFromProfilo))
+                    Catch ex As Exception
 
-					End Try
-				End While
-				oDatareader.Close()
-			Catch ex As Exception
-			Finally
-				If Not IsNothing(oDatareader) Then
-					If oDatareader.IsClosed = False Then
-						oDatareader.Close()
-					End If
-				End If
-			End Try
-			Return oLista
-		End Function
+                    End Try
+                End While
+                oDatareader.Close()
+            Catch ex As Exception
+            Finally
+                If Not IsNothing(oDatareader) Then
+                    If oDatareader.IsClosed = False Then
+                        oDatareader.Close()
+                    End If
+                End If
+            End Try
+            Return oLista
+        End Function
 
 
 		Public Shared Function ListPermessiServizio(ByVal ServizioID As Integer, ByVal LinguaID As Integer, Optional ByVal sortExpression As String = "", Optional ByVal sortDirection As String = "") As List(Of Permessi)

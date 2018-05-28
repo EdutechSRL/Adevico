@@ -7,9 +7,12 @@ using System.Text;
 using lm.Comol.Core.DomainModel;
 using lm.Comol.Modules.EduPath;
 using COL_BusinessLogic_v2.UCServices;
+using lm.Comol.Core.BaseModules.Federation;
 using NHibernate;
 using NHibernate.Linq;
 using lm.Comol.Core.Data;
+using NHibernate.Loader.Entity;
+
 namespace WCF_CoreServices
 {
     public class ServicePermission : IServicePermission
@@ -34,30 +37,31 @@ namespace WCF_CoreServices
             {
                 DataContext dc = new DataContext(session);
                 int idRole = GetIdRole(session, idUser, source.CommunityID);
-                iLinkedService service = null;
-                switch (source.ServiceCode)
-                {
-                    case Services_EduPath.Codex:
-                        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
-                        break;
-                    case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
-                        service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
-                        break;
-                    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
-                        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
-                        break;
-                    case lm.Comol.Modules.CallForPapers.Domain.ModuleCallForPaper.UniqueCode:
-                        service = new lm.Comol.Modules.CallForPapers.Business.ServiceCallOfPapers(dc);
-                        break;
-                    case lm.Comol.Modules.CallForPapers.Domain.ModuleRequestForMembership.UniqueCode:
-                        service = new lm.Comol.Modules.CallForPapers.Business.ServiceRequestForMembership(dc);
-                        break;
-                    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
-                        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
-                        break;
-                    default:
-                        break;
-                }
+                //iLinkedService service = null;
+                //switch (source.ServiceCode)
+                //{
+                //    case Services_EduPath.Codex:
+                //        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
+                //        break;
+                //    case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
+                //        service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
+                //        break;
+                //    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
+                //        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
+                //        break;
+                //    case lm.Comol.Modules.CallForPapers.Domain.ModuleCallForPaper.UniqueCode:
+                //        service = new lm.Comol.Modules.CallForPapers.Business.ServiceCallOfPapers(dc);
+                //        break;
+                //    case lm.Comol.Modules.CallForPapers.Domain.ModuleRequestForMembership.UniqueCode:
+                //        service = new lm.Comol.Modules.CallForPapers.Business.ServiceRequestForMembership(dc);
+                //        break;
+                //    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
+                //        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
+                //        break;
+                //    default:
+                //        break;
+                //}
+                iLinkedService service = ServiceGet(source.ServiceCode, dc);
                 if (service != null)
                     actions = service.GetAllowedStandardAction(source, destination, idUser, idRole, source.CommunityID, moduleUserLong, moduleUserString);
             }
@@ -74,33 +78,34 @@ namespace WCF_CoreServices
             {
                 DataContext dc = new DataContext(session);
                 int idRole = GetIdRole(session, idUser, source.CommunityID);
-                iLinkedService service = null;
-                switch (source.ServiceCode)
-                {
-                    case Services_EduPath.Codex:
-                        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
-                        break;
-                    case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
-                        service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
-                        break;
-                    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
-                        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
-                        break;
-                    case lm.Comol.Modules.CallForPapers.Domain.ModuleCallForPaper.UniqueCode:
-                        service = new lm.Comol.Modules.CallForPapers.Business.ServiceCallOfPapers(dc);
-                        break;
-                    case lm.Comol.Modules.CallForPapers.Domain.ModuleRequestForMembership.UniqueCode:
-                        service = new lm.Comol.Modules.CallForPapers.Business.ServiceRequestForMembership(dc);
-                        break;
-                    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
-                        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
-                        break;
-                    case COL_Questionario.ModuleQuestionnaire.UniqueID:
-                        service = new COL_Questionario.Business.ServiceQuestionnaire(dc);
-                        break;
-                    default:
-                        break;
-                }
+                //iLinkedService service = null;
+                //switch (source.ServiceCode)
+                //{
+                //    case Services_EduPath.Codex:
+                //        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
+                //        break;
+                //    case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
+                //        service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
+                //        break;
+                //    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
+                //        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
+                //        break;
+                //    case lm.Comol.Modules.CallForPapers.Domain.ModuleCallForPaper.UniqueCode:
+                //        service = new lm.Comol.Modules.CallForPapers.Business.ServiceCallOfPapers(dc);
+                //        break;
+                //    case lm.Comol.Modules.CallForPapers.Domain.ModuleRequestForMembership.UniqueCode:
+                //        service = new lm.Comol.Modules.CallForPapers.Business.ServiceRequestForMembership(dc);
+                //        break;
+                //    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
+                //        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
+                //        break;
+                //    case COL_Questionario.ModuleQuestionnaire.UniqueID:
+                //        service = new COL_Questionario.Business.ServiceQuestionnaire(dc);
+                //        break;
+                //    default:
+                //        break;
+                //}
+                iLinkedService service = ServiceGet(source.ServiceCode, dc);
                 if (service != null)
                 {
                     allow = service.AllowStandardAction(actionType, source, destination, idUser, idRole, moduleUserLong, moduleUserString);
@@ -108,7 +113,7 @@ namespace WCF_CoreServices
             }
             return allow;
         }
-
+        
         public Boolean AllowActionExecution(long idLink, Int32 idAction, ModuleObject destination, Int32 idUser)
         {
             return AllowActionExecutionForExternal(idLink, idAction, destination, idUser, null, null);
@@ -126,30 +131,32 @@ namespace WCF_CoreServices
                 {
                     int idSourceCommunity = link.SourceItem.CommunityID;
                     int idRole = GetIdRole(session, idUser, idSourceCommunity);
-                    iLinkedService service = null;
-                    switch (link.SourceItem.ServiceCode)
-                    {
-                        case Services_EduPath.Codex:
-                            service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
-                            break;
-                        case lm.Comol.Modules.CallForPapers.Domain.ModuleCallForPaper.UniqueCode:
-                            service = new lm.Comol.Modules.CallForPapers.Business.ServiceCallOfPapers(dc);
-                            break;
-                        case lm.Comol.Modules.CallForPapers.Domain.ModuleRequestForMembership.UniqueCode:
-                            service = new lm.Comol.Modules.CallForPapers.Business.ServiceRequestForMembership(dc);
-                            break;
-                        case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
-                            service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
-                            break;
-                        case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
-                            service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
-                            break;
-                        case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
-                            service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
-                            break;
-                        default:
-                            break;
-                    }
+                    //iLinkedService service = null;
+                    //switch (link.SourceItem.ServiceCode)
+                    //{
+                    //    case Services_EduPath.Codex:
+                    //        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
+                    //        break;
+                    //    case lm.Comol.Modules.CallForPapers.Domain.ModuleCallForPaper.UniqueCode:
+                    //        service = new lm.Comol.Modules.CallForPapers.Business.ServiceCallOfPapers(dc);
+                    //        break;
+                    //    case lm.Comol.Modules.CallForPapers.Domain.ModuleRequestForMembership.UniqueCode:
+                    //        service = new lm.Comol.Modules.CallForPapers.Business.ServiceRequestForMembership(dc);
+                    //        break;
+                    //    case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
+                    //        service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
+                    //        break;
+                    //    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
+                    //        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
+                    //        break;
+                    //    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
+                    //        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
+                    //        break;
+                    //    default:
+                    //        break;
+                    //}
+                    //iLinkedService service = ServiceGet(serviceCode, dc);
+                    iLinkedService service = ServiceGet(link.SourceItem.ServiceCode, dc);
                     if (service != null)
                         allow = service.AllowActionExecution(link, idUser, idSourceCommunity, idRole, moduleUserLong, moduleUserString);
                 }
@@ -170,27 +177,33 @@ namespace WCF_CoreServices
                 ModuleLink link = dc.GetById<ModuleLink>(idLink);
                 if (link != null)
                 {
-                    iLinkedService service = null;
-                    switch (link.SourceItem.ServiceCode)
-                    {
-                        case Services_EduPath.Codex:
-                            service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
-                            break;
-                        case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
-                            service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
-                            break;
-                        case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
-                            service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
-                            break;
-                        case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
-                            service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
-                            break;
-                        default:
-                            break;
-                    }
+                    //iLinkedService service = null;
+                    //switch (link.SourceItem.ServiceCode)
+                    //{
+                    //    case Services_EduPath.Codex:
+                    //        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
+                    //        break;
+                    //    case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
+                    //        service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
+                    //        break;
+                    //    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
+                    //        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
+                    //        break;
+                    //    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
+                    //        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
+                    //        break;
+                    //    default:
+                    //        break;
+                    //}
+                    //
+
+                    //ToDo: alreadyuCompleted!!!
+                    bool alreadycompleted = false;
+
+                    iLinkedService service = ServiceGet(link.SourceItem.ServiceCode, dc);
                     if (service != null)
                     {
-                        service.SaveActionExecution(link, isStarted, isPassed, completion, isCompleted, mark, idUser, moduleUserLong, moduleUserString);
+                        service.SaveActionExecution(link, isStarted, isPassed, completion, isCompleted, mark, idUser, alreadycompleted, moduleUserLong, moduleUserString);
                     }
                 }
             }
@@ -235,27 +248,28 @@ namespace WCF_CoreServices
 
             if (link != null)
             {
-                iLinkedService service = null;
-                switch (link.DestinationItem.ServiceCode)
-                {
-                    case Services_EduPath.Codex:
-                        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
-                        break;
-                    case lm.Comol.Core.FileRepository.Domain.ModuleRepository.UniqueCode:
-                        service = null; //new lm.Comol.Core.BaseModules.FileRepository.Business.ServiceRepositoryScorm(dc, ic);
-                        break;
-                    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
-                        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
-                        break;
-                    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
-                        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
-                        break;
-                    case COL_Questionario.Business.ServiceQuestionnaire.UniqueID:
-                        service = new COL_Questionario.Business.ServiceQuestionnaire(dc);
-                        break;
-                    default:
-                        break;
-                }
+                //iLinkedService service = null;
+                //switch (link.DestinationItem.ServiceCode)
+                //{
+                //    case Services_EduPath.Codex:
+                //        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
+                //        break;
+                //    case lm.Comol.Core.FileRepository.Domain.ModuleRepository.UniqueCode:
+                //        service = new lm.Comol.Core.BaseModules.FileRepository.Business.ServiceRepositoryScorm(dc, ic);
+                //        break;
+                //    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
+                //        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
+                //        break;
+                //    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
+                //        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
+                //        break;
+                //    case COL_Questionario.Business.ServiceQuestionnaire.UniqueID:
+                //        service = new COL_Questionario.Business.ServiceQuestionnaire(dc);
+                //        break;
+                //    default:
+                //        break;
+                //}
+                iLinkedService service = ServiceGet(link.DestinationItem.ServiceCode, dc);
                 if (service != null)
                 {
                     evaluation = service.EvaluateModuleLink(link, idUser, moduleUserLong, moduleUserString);
@@ -303,24 +317,25 @@ namespace WCF_CoreServices
         {
             if (links != null && links.Count > 0)
             {
-                iLinkedService service = null;
-                switch (ServiceCode)
-                {
-                    case Services_EduPath.Codex:
-                        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
-                        break;
-                    case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
-                        service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
-                        break;
-                    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
-                        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
-                        break;
-                    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
-                        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
-                        break;
-                    default:
-                        break;
-                }
+                //iLinkedService service = null;
+                //switch (ServiceCode)
+                //{
+                //    case Services_EduPath.Codex:
+                //        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
+                //        break;
+                //    case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
+                //        service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
+                //        break;
+                //    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
+                //        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
+                //        break;
+                //    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
+                //        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
+                //        break;
+                //    default:
+                //        break;
+                //}
+                iLinkedService service = ServiceGet(ServiceCode, dc);
                 if (service != null)
                 {
                     service.SaveActionsExecution(links, idUser, moduleUserLong, moduleUserString);
@@ -349,11 +364,18 @@ namespace WCF_CoreServices
             }
             return evaluations;
         }
-        private List<dtoItemEvaluation<long>> EvaluateModuleLinks(ISession session, List<long> idLinks, int idUser, Dictionary<String, long> moduleUserLong, Dictionary<String, String> moduleUserString)
+        private List<dtoItemEvaluation<long>> EvaluateModuleLinks(
+            ISession session, 
+            List<long> idLinks, 
+            int idUser, 
+            Dictionary<String, long> moduleUserLong, 
+            Dictionary<String, String> moduleUserString)
         {
             List<dtoItemEvaluation<long>> evaluations = new List<dtoItemEvaluation<long>>();
             DataContext dc = new DataContext(session);
-            List<ModuleLink> links = (from l in session.Linq<ModuleLink>() where idLinks.Contains(l.Id) select l).ToList();
+            List<ModuleLink> links = (from l in session.Linq<ModuleLink>()
+                                      where idLinks.Contains(l.Id) select l)
+                                      .ToList();
 
             var query = from l in links
                         group l by l.DestinationItem.ServiceCode into linksGroup
@@ -365,10 +387,16 @@ namespace WCF_CoreServices
                 DataContext ic = new DataContext(icodeon);
                 foreach (var groupOfLinks in query)
                 {
-                    evaluations.AddRange(EvaluateModuleLinks(dc, ic, groupOfLinks.Key, groupOfLinks.ToList(), idUser, moduleUserLong, moduleUserString));
+                    evaluations.AddRange(
+                        EvaluateModuleLinks(dc, ic, 
+                            groupOfLinks.Key, 
+                            groupOfLinks.ToList(), 
+                            idUser, 
+                            moduleUserLong, 
+                            moduleUserString)
+                        );
                 }
             }
-
 
             return evaluations;
         }
@@ -378,27 +406,28 @@ namespace WCF_CoreServices
 
             if (links != null && links.Count > 0)
             {
-                iLinkedService service = null;
-                switch (ServiceCode)
-                {
-                    case Services_EduPath.Codex:
-                        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
-                        break;
-                    case lm.Comol.Core.FileRepository.Domain.ModuleRepository.UniqueCode:
-                        service = null;//new lm.Comol.Core.BaseModules.FileRepository.Business.ServiceRepositoryScorm(dc, ic);
-                        break;
-                    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
-                        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
-                        break;
-                    case COL_Questionario.Business.ServiceQuestionnaire.UniqueID:
-                        service = new COL_Questionario.Business.ServiceQuestionnaire(dc);
-                        break;
-                    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
-                        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
-                        break;
-                    default:
-                        break;
-                }
+                //iLinkedService service = null;
+                //switch (ServiceCode)
+                //{
+                //    case Services_EduPath.Codex:
+                //        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
+                //        break;
+                //    case lm.Comol.Core.FileRepository.Domain.ModuleRepository.UniqueCode:
+                //        service = new lm.Comol.Core.BaseModules.FileRepository.Business.ServiceRepositoryScorm(dc, ic);
+                //        break;
+                //    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
+                //        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
+                //        break;
+                //    case COL_Questionario.Business.ServiceQuestionnaire.UniqueID:
+                //        service = new COL_Questionario.Business.ServiceQuestionnaire(dc);
+                //        break;
+                //    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
+                //        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
+                //        break;
+                //    default:
+                //        break;
+                //}
+                iLinkedService service = ServiceGet(ServiceCode, dc, ic);
                 if (service != null)
                     evaluations = service.EvaluateModuleLinks(links, idUser, moduleUserLong, moduleUserString);
             }
@@ -412,12 +441,16 @@ namespace WCF_CoreServices
         public List<dtoItemEvaluation<long>> GetPendingEvaluationsForExternal(List<long> idLinks, int idUser, Dictionary<String, long> moduleUserLong, Dictionary<String, String> moduleUserString)
         {
             List<dtoItemEvaluation<long>> results = new List<dtoItemEvaluation<long>>();
-            List<lm.Comol.Core.FileRepository.Domain.ScormPackageWithVersionToEvaluate> pendingLinks = new List<lm.Comol.Core.FileRepository.Domain.ScormPackageWithVersionToEvaluate>();
+
+            List<lm.Comol.Core.FileRepository.Domain.ScormPackageWithVersionToEvaluate> pendingLinks = 
+                new List<lm.Comol.Core.FileRepository.Domain.ScormPackageWithVersionToEvaluate>();
+
             using (ISession session = NHSessionHelper.GetComolSession())
             {
                 pendingLinks = (from l in session.Linq<lm.Comol.Core.FileRepository.Domain.ScormPackageWithVersionToEvaluate>()
                                 where l.ToUpdate && idLinks.Contains(l.IdLink) && l.IdPerson == idUser
                                 select l).ToList();
+
                 if (pendingLinks.Count > 0)
                 {
                     try
@@ -523,30 +556,32 @@ namespace WCF_CoreServices
                 DataContext dc = new DataContext(session);
                 int idRole = GetIdRole(session, idUser, idCommunity);
 
-                iLinkedService service = null;
-                switch (serviceCode)
-                {
-                    case Services_EduPath.Codex:
-                        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
-                        break;
-                    case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
-                        service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
-                        break;
-                    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
-                        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
-                        break;
-                    case lm.Comol.Modules.CallForPapers.Domain.ModuleCallForPaper.UniqueCode:
-                        service = new lm.Comol.Modules.CallForPapers.Business.ServiceCallOfPapers(dc);
-                        break;
-                    case lm.Comol.Modules.CallForPapers.Domain.ModuleRequestForMembership.UniqueCode:
-                        service = new lm.Comol.Modules.CallForPapers.Business.ServiceRequestForMembership(dc);
-                        break;
-                    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
-                        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
-                        break;
-                    default:
-                        break;
-                }
+                //iLinkedService service = null;
+                //switch (serviceCode)
+                //{
+                //    case Services_EduPath.Codex:
+                //        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
+                //        break;
+                //    case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
+                //        service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
+                //        break;
+                //    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
+                //        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
+                //        break;
+                //    case lm.Comol.Modules.CallForPapers.Domain.ModuleCallForPaper.UniqueCode:
+                //        service = new lm.Comol.Modules.CallForPapers.Business.ServiceCallOfPapers(dc);
+                //        break;
+                //    case lm.Comol.Modules.CallForPapers.Domain.ModuleRequestForMembership.UniqueCode:
+                //        service = new lm.Comol.Modules.CallForPapers.Business.ServiceRequestForMembership(dc);
+                //        break;
+                //    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
+                //        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
+                //        break;
+                //    default:
+                //        break;
+                //}
+                iLinkedService service = ServiceGet(serviceCode, dc);
+
                 if (service != null)
                     service.PhisicalDeleteCommunity(idCommunity, idUser, System.Configuration.ConfigurationManager.AppSettings["DefaultBaseFileRepository"], System.Configuration.ConfigurationManager.AppSettings["DefaultThumbnailPath"]);
             }
@@ -569,33 +604,247 @@ namespace WCF_CoreServices
                 DataContext dc = new DataContext(session);
                 // int idRole = GetIdRole(session,idUser,idCommunity);
 
-                iLinkedService service = null;
-                switch (serviceCode)
-                {
-                    case Services_EduPath.Codex:
-                        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
-                        break;
-                    case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
-                        service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
-                        break;
-                    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
-                        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
-                        break;
-                    case lm.Comol.Modules.CallForPapers.Domain.ModuleCallForPaper.UniqueCode:
-                        service = new lm.Comol.Modules.CallForPapers.Business.ServiceCallOfPapers(dc);
-                        break;
-                    case lm.Comol.Modules.CallForPapers.Domain.ModuleRequestForMembership.UniqueCode:
-                        service = new lm.Comol.Modules.CallForPapers.Business.ServiceRequestForMembership(dc);
-                        break;
-                    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
-                        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
-                        break;
-                    default:
-                        break;
-                }
+                //iLinkedService service = null;
+                //switch (serviceCode)
+                //{
+                //    case Services_EduPath.Codex:
+                //        service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
+                //        break;
+                //    case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
+                //        service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
+                //        break;
+                //    case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
+                //        service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
+                //        break;
+                //    case lm.Comol.Modules.CallForPapers.Domain.ModuleCallForPaper.UniqueCode:
+                //        service = new lm.Comol.Modules.CallForPapers.Business.ServiceCallOfPapers(dc);
+                //        break;
+                //    case lm.Comol.Modules.CallForPapers.Domain.ModuleRequestForMembership.UniqueCode:
+                //        service = new lm.Comol.Modules.CallForPapers.Business.ServiceRequestForMembership(dc);
+                //        break;
+                //    case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
+                //        service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
+                //        break;
+                //    default:
+                //        break;
+                //}
+                iLinkedService service = ServiceGet(serviceCode, dc);
+
                 if (service != null)
                     service.PhisicalDeleteRepositoryItem(idFileItem, idCommunity, idUser, moduleUserLong, moduleUserString);
             }
         }
+
+
+        /// <summary>
+        /// Recupera il service dato il service Code,
+        /// evitando 50 switch in tutte le funzioni a cui poi tocca "correre dietro" in caso di aggiunta di un servizio!!!
+        /// </summary>
+        /// <param name="serviceCode"></param>
+        /// <param name="dc"></param>
+        /// <returns></returns>
+        private iLinkedService ServiceGet(string serviceCode, iDataContext dc, iDataContext ic = null)
+        {
+            iLinkedService service = null;
+            switch (serviceCode)
+            {
+                //Percorso formativo
+                case Services_EduPath.Codex:
+                    service = new lm.Comol.Modules.EduPath.BusinessLogic.Service(dc);
+                    break;
+
+                //Community Diary
+                case lm.Comol.Core.BaseModules.CommunityDiary.Domain.ModuleCommunityDiary.UniqueID:
+                    service = new lm.Comol.Core.BaseModules.CommunityDiary.Business.ServiceCommunityDiary(dc);
+                    break;
+
+                //Project Management
+                case lm.Comol.Modules.Standard.ProjectManagement.Domain.ModuleProjectManagement.UniqueCode:
+                    service = new lm.Comol.Modules.Standard.ProjectManagement.Business.ServiceProjectManagement(dc);
+                    break;
+
+                //Bandi
+                case lm.Comol.Modules.CallForPapers.Domain.ModuleCallForPaper.UniqueCode:
+                    service = new lm.Comol.Modules.CallForPapers.Business.ServiceCallOfPapers(dc);
+                    break;
+
+                //Richieste adesione
+                case lm.Comol.Modules.CallForPapers.Domain.ModuleRequestForMembership.UniqueCode:
+                    service = new lm.Comol.Modules.CallForPapers.Business.ServiceRequestForMembership(dc);
+                    break;
+
+                //Ticket
+                case lm.Comol.Core.BaseModules.Tickets.ModuleTicket.UniqueCode:
+                    service = new lm.Comol.Core.BaseModules.Tickets.TicketService(dc);
+                    break;
+
+                ////Webinar (WebEx)
+                //case "Webinar":     //ToDo: usare UniqueCode
+                //    iApplicationContext ac = new ApplicationContext();
+                //    ac.DataContext = dc;
+                //    service = new WebExService(ac);
+                //    break;
+
+                //Questionari
+                case COL_Questionario.ModuleQuestionnaire.UniqueID:
+                    service = new COL_Questionario.Business.ServiceQuestionnaire(dc);
+                    break;
+
+                //Repository - SCORM
+                case lm.Comol.Core.FileRepository.Domain.ModuleRepository.UniqueCode:
+                    service = new lm.Comol.Core.BaseModules.FileRepository.Business.ServiceRepositoryScorm(dc, ic);
+                    break;
+
+
+                default:
+                    break;
+
+
+            }
+
+            return service;
+        }
+
+        #region "federation"
+        private Enums.FederationResult FederationInternalUserCheck(
+           int userId,
+           string settings)
+        {
+            try
+            {
+
+                using (ISession session = NHSessionHelper.GetComolSession())
+                {
+                    DataContext dc = new DataContext(session);
+
+                    lm.Comol.Core.BaseModules.Federation.Business.FederationService service =
+                    new lm.Comol.Core.BaseModules.Federation.Business.FederationService(dc);
+
+                    return FederationCheck(service.UserGet(userId), settings);
+                }
+            } catch
+            {
+
+            }
+
+            return Enums.FederationResult.Unknow;
+        }
+
+
+
+            /// <summary>
+            /// Metodo creato per Trentino Sviluppo che chiama i loro servizi per controllare se è un utente Federato
+            /// </summary>
+            /// <param name="communityId"></param>
+            /// <param name="userId"></param>
+            /// <param name="externlUrl">ToDo: diventerà OBJECT con i parametri necesari.</param>
+            /// <returns></returns>
+            /// <remarks>
+            /// externlUrl: l'oggetto che lo sostiuirà avrà una classe base con un set minimo di informazioni (es: URL) ed eventuali sottoclassi che lo estendono con ulteriori informazioni specifiche.
+            /// </remarks>
+            public Enums.FederationResult FederationUserCheck(
+            int communityId, 
+            int userId, 
+            string settings)
+        {
+            if (String.IsNullOrEmpty(settings))
+                return Enums.FederationResult.CommunityNotFederated;
+
+
+            if (communityId <= 0)
+                return FederationInternalUserCheck(userId, settings);
+
+
+            //lm.Comol.Core.BaseModules.Federation.Enums.FederationType communityFederation = Enums.FederationType.None;
+
+            litePerson person = null;
+            liteCommunity community = null;
+
+            Enums.FederationType fedType = Enums.FederationType.None;
+
+            try
+            {
+
+                using (ISession session = NHSessionHelper.GetComolSession())
+                {
+                    DataContext dc = new DataContext(session);
+
+                    lm.Comol.Core.BaseModules.Federation.Business.FederationService service = 
+                    new lm.Comol.Core.BaseModules.Federation.Business.FederationService(dc);
+
+                    fedType = service.CommunityFederation(communityId);
+
+                    switch (fedType)
+                    {
+                        case Enums.FederationType.TrentinoSviluppo:
+                            person = service.UserGet(userId);
+                            break;
+                        case Enums.FederationType.None:
+                            return Enums.FederationResult.CommunityNotFederated;
+                    }
+                    
+                }
+
+                switch (fedType)
+                {
+                    case Enums.FederationType.TrentinoSviluppo:
+                        if (person == null || person.Id <= 0)
+                        {
+                            return Enums.FederationResult.UserNotFound; //o throw new Exception("Persona non trovata");
+                        }
+                        return FederationCheck(person, settings);
+
+                    caseelse:
+                        break;
+                }
+
+            }
+            catch (Exception)
+            {
+            }
+
+            return Enums.FederationResult.Unknow;
+        }
+
+        public Enums.FederationType FederationCommunityCheck(
+            int communityId)
+        {
+            Enums.FederationType fedType = Enums.FederationType.None;
+
+            try
+            {
+                using (ISession session = NHSessionHelper.GetComolSession())
+                {
+                    DataContext dc = new DataContext(session);
+
+                    lm.Comol.Core.BaseModules.Federation.Business.FederationService service =
+                    new lm.Comol.Core.BaseModules.Federation.Business.FederationService(dc);
+
+                    fedType = service.CommunityFederation(communityId);
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+            
+
+            return fedType;
+        }
+
+        /// <summary>
+        /// Controllo esterno
+        /// </summary>
+        /// <param name="person"></param>
+        /// <param name="settings"></param>
+        /// <returns></returns>
+        private Enums.FederationResult FederationCheck(litePerson person, string settings)
+        {
+            //ToDo: External call!
+
+            return Enums.FederationResult.Federated;
+        }
+
+    #endregion
     }
 }

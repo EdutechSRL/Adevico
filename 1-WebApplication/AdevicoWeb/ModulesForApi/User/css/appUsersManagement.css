@@ -1,0 +1,56 @@
+﻿*[hidden]{
+    display:none !important;
+}
+*[ng-click]{
+    cursor:pointer;
+}
+body label{
+    font-weight:normal;
+}
+i.mediumIcon {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+body .tab-box {
+    padding: 24px 0 0 0 !important;
+}
+i.icon {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 2px;
+    background-size: 90%;
+    font-weight: bold;
+    font-size: 17px;
+}
+.iconXlsx {
+    background-image: url(../../Resources/images/excel-grey.png);
+}
+.iconXlsx.selected {
+    background-image: url('../../Resources/images/statScorm/icoScorm-w.png');
+    background-color: #888;
+}
+.btn.btn-exportCSV {
+    padding: 0px;
+    border: none;
+    position: relative;
+    border-radius: 30px;
+}
+.btn.btn-exportCSV .glyphicon-arrow-down {
+    position: absolute;
+    bottom: 0px;
+    top: auto;
+    left: auto;
+    right: 5px;
+    font-size: 10px;
+    color: #777;
+}
+i.mediumIcon {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}

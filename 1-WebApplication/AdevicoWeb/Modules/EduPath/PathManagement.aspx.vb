@@ -169,11 +169,15 @@ Public Class PathManagement
         End If
     End Sub
 
+    Private Sub CheckFeatures()
+        Me.DVcode.Visible = SystemSettings.Features.EdupathShowCode
+    End Sub
+
 #Region " Base"
 
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        CheckFeatures()
     End Sub
 
     Public Overrides ReadOnly Property AlwaysBind As Boolean
@@ -518,6 +522,13 @@ Public Class PathManagement
         Me.InitWizardButton()
 
         Me.TXBname.Text = Me.currentPath.Name
+
+        Try
+            Me.RBLtype.SelectedValue = Me.currentPath.Type
+        Catch ex As Exception
+            Me.RBLtype.SelectedValue = 0
+        End Try
+
         Me.TXBcode.Text = Me.currentPath.PathCode
         Me.CTRLeditorDescription.InitializeControl(lm.Comol.Modules.EduPath.Domain.ModuleEduPath.UniqueCode)
         Me.CTRLeditorDescription.HTML = Me.currentPath.Description
@@ -623,6 +634,8 @@ Public Class PathManagement
     End Sub
     Private Function UpdateDetail() As Boolean
         currentPath.Name = Me.TXBname.Text
+        currentPath.Type = Me.RBLtype.SelectedValue
+
         currentPath.PathCode = Me.TXBcode.Text
         currentPath.Description = removeBRfromStringEnd(Me.CTRLeditorDescription.HTML)
         currentPath.setLocked()

@@ -8,7 +8,9 @@
 <%@ Register Assembly="RadChart.Net2" Namespace="Telerik.WebControls" TagPrefix="radC" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="Server">
    <link media="screen" href="stile.css?v=201604071200lm" type="text/css" rel="StyleSheet" />
-     <script type="text/javascript">
+   <link media="screen" href="stileResponseCompile.css?v=201604071200lm" type="text/css" rel="StyleSheet" />
+   <link media="screen" href="./../Graphics/Modules/Editor/ContentArea/EditorContent_LV.css?v=20180413Adv" type="text/css" rel="StyleSheet" />
+<%--     <script type="text/javascript">
          $(function () {
              $('.dialog.dlgconfirmsubmit').dialog({
                  appendTo: "form",
@@ -20,13 +22,9 @@
                  width: 600,
                  height: 280,
                  minHeight: 200,
-                 //                minWidth: 700,
                  zIndex: 1000,
                  open: function (type, data) {
-                     //                $(this).dialog('option', 'width', 700);
-                     //                $(this).dialog('option', 'height', 600);
-                     //$(this).parent().appendTo("form");
-                     $(".ui-dialog-titlebar-close", this.parentNode).hide();
+                      $(".ui-dialog-titlebar-close", this.parentNode).hide();
                  }
 
              });
@@ -50,12 +48,8 @@
                  width: 600,
                  height: 280,
                  minHeight: 200,
-                 //                minWidth: 700,
                  zIndex: 1000,
                  open: function (type, data) {
-                     //                $(this).dialog('option', 'width', 700);
-                     //                $(this).dialog('option', 'height', 600);
-                     //$(this).parent().appendTo("form");
                      $(".ui-dialog-titlebar-close", this.parentNode).hide();
                  }
 
@@ -80,12 +74,8 @@
                  width: 600,
                  height: 280,
                  minHeight: 200,
-                 //                minWidth: 700,
                  zIndex: 1000,
                  open: function (type, data) {
-                     //                $(this).dialog('option', 'width', 700);
-                     //                $(this).dialog('option', 'height', 600);
-                     //$(this).parent().appendTo("form");
                      $(".ui-dialog-titlebar-close", this.parentNode).hide();
                  }
 
@@ -100,20 +90,10 @@
                  return false;
              });
          });
-    </script>     
-    <style type="text/css">
-        body .answer.renderedtext {
-            font-size: 13px;
-        }
-        body .CellaDomanda {
-            font-size: 13px;
-        }
-        body .question {
-            font-size: 13px;
-        }
-    </style> 
+    </script>--%>    
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="CPHservice" runat="Server">
+<div id="QuestionariCompile">
     <%--<script src="/Elle3/Jscript/jquery-1.4.1.min.js"></script>--%>
     <style>
         .paneltimer
@@ -137,6 +117,7 @@
         }
     </style>
 
+  
     <script type="text/javascript">
 
 
@@ -298,8 +279,7 @@
             <div>
                 <div id="DIVpanelTimer" class="paneltimer" runat="server">
                     <div id="DIVpanelTempo" class="paneltempo" runat="server" style="display:none;">
-                        <asp:Label ID="LBTempoRimanente" Visible="false" runat="server" Font-Size="Medium"
-                            Font-Bold="true" />
+                        <asp:Label ID="LBTempoRimanente" Visible="false" runat="server" CssClass="remainingTime" />
                     </div>
                     <asp:UpdatePanel ID="UPTempo" runat="server">
                         <ContentTemplate>
@@ -322,153 +302,131 @@
                     <asp:MultiView runat="server" ID="MLVquestionari">
                         <%--attenzione!! non spostare VIWdati, oppure correggere tutti i riferimenti a MLVquestionari.activeViewIndex nel vb--%>
                         <asp:View ID="VIWdati" runat="server">
-                            <asp:Panel ID="PNLmenu" runat="server" Width="99%" HorizontalAlign="right" Visible="true">
-                                <asp:LinkButton ID="LNBdescrizione" runat="server" CssClass="Link_Menu" Visible="false"
-                                    Style="margin-right: auto;"> </asp:LinkButton>
-                                <asp:LinkButton ID="LNBannulla" Visible="true" runat="server" CssClass="Link_Menu"
-                                    Style="margin-right: auto;"> </asp:LinkButton>
-                                <asp:LinkButton ID="LNBTornaHome" Visible="true" runat="server" CssClass="Link_Menu"
-                                    Style="margin-right: auto;"> </asp:LinkButton>
-                                <asp:LinkButton ID="LNBFinito" Visible="false" runat="server" CssClass="Link_Menu"
-                                    Style="margin-right: auto;"> </asp:LinkButton>
-                                <asp:LinkButton ID="LNBsalvaEsci" Visible="false" runat="server" CssClass="Link_Menu"
-                                    Style="margin-right: auto;"> </asp:LinkButton>
-                                <asp:LinkButton ID="LNBsalvaContinua" runat="server" CssClass="Link_Menu" Visible="false"
-                                    Style="margin-right: auto;"> </asp:LinkButton>
+                            <asp:Panel ID="PNLmenu" runat="server" CssClass="panelMenu" Visible="true">
+                                <asp:LinkButton ID="LNBdescrizione" runat="server" CssClass="Link_Menu" Visible="false"> </asp:LinkButton>
+                                <asp:LinkButton ID="LNBannulla" Visible="true" runat="server" CssClass="Link_Menu"> </asp:LinkButton>
+                                <asp:LinkButton ID="LNBTornaHome" Visible="true" runat="server" CssClass="Link_Menu"> </asp:LinkButton>
+                                <asp:LinkButton ID="LNBFinito" Visible="false" runat="server" CssClass="Link_Menu"> </asp:LinkButton>
+                                <asp:LinkButton ID="LNBsalvaEsci" Visible="false" runat="server" CssClass="Link_Menu"> </asp:LinkButton>
+                                <asp:LinkButton ID="LNBsalvaContinua" runat="server" CssClass="Link_Menu" Visible="false"> </asp:LinkButton>
                             </asp:Panel>
-                            <div style="width: 100%; margin-top: 20px; margin-bottom: 20px; text-align: left;">
-                                <h2><asp:Label ID="LBname" runat="server"></asp:Label></h2>
-                            </div>
+                            <br />
+                           <asp:Label ID="LBname" runat="server" CssClass="RigaTitolo"></asp:Label>
+                            <br /><br /><br />
                             <asp:label ID="LBisMandatoryInfoTop" runat="server"></asp:label>
                             <asp:Label ID="LBTroppeRispostePagina" Visible="false" runat="server" CssClass="Errore"> </asp:Label>
                             <asp:Label runat="server" ID="LBnoRisposta" CssClass="Errore" Visible="false"></asp:Label>
                             <asp:PlaceHolder runat="server" ID="PHucValutazione"></asp:PlaceHolder>
-                            <asp:Panel ID="PNLElenco" runat="server" CssClass="elenco" Width="99%">
-                                <br />
-                                <asp:DataList ID="DLPagine" ShowFooter="true" runat="server" DataKeyField="id" CellPadding="4"
-                                    ForeColor="#333333" BorderWidth="1" Width="100%">
+                            <asp:Panel ID="PNLElenco" runat="server" CssClass="elenco">
+                                <asp:DataList ID="DLPagine" CssClass="datalistPagine" ShowFooter="true" runat="server" DataKeyField="id" RepeatLayout="Flow" >
                                     <ItemTemplate>
                                         <div class="NomePagina" id="DVpageName" runat="server">
                                             <h3>
                                                 <%#Eval("nomePagina")%>
                                             </h3>
-                                            <br />
                                         </div>
                                         <div class="TestoDomanda" id="DVpageDescription" runat="server">
-                                            <i>
-                                                <%#Eval("descrizione")%>
-                                            </i>
+                                            <%#Eval("descrizione")%>
                                         </div>
                                         
-                                        <asp:DataList ID="DLDomande" runat="server" DataKeyField="id" OnItemDataBound="loadDomandeOpzioni"
-                                            Width="100%">
+                                        <asp:DataList ID="DLDomande" runat="server" DataKeyField="id" 
+                                            OnItemDataBound="loadDomandeOpzioni" CssClass="datalistDomande"
+                                            RepeatLayout="Flow">
                                             <ItemTemplate>
-                                                <a name='<%#Eval("numero")%>'></a>
                                                 <div class="ContenitoreDomanda0" runat="server" id="DIVDomanda">
+                                                    <a name='<%#Eval("numero")%>'></a>
                                                     <div class="TestoDomanda">
                                                         
-                                                        <div style='<%# me.displayDifficulty %>' runat="server" id="DIVCode">
+                                                        <div class="<%-- Me.displayDifficulty--%>hide difficultyInfo"> <%--runat="server" id="DIVCode">--%><!--hide = nascosta, show = visibile-->
                                                             (Cod.<%#Eval("id")%>
                                                             <asp:Label runat="server" ID="LBDifficoltaTesto" Text='<%#Eval("difficoltaTesto")%>'></asp:Label>)
                                                         </div>
-                                                        <br />
-                                                        <span class="question" title="<%#MandatoryToolTip(Container.Dataitem)%>">
-                                                            <asp:Label runat="server" Text='<%#Eval("numero")%>' Visible='<%# me.showDifficulty %>'></asp:Label>
+                                                        <div class="question-number" title="<%#MandatoryToolTip(Container.Dataitem)%>">
+                                                            <asp:Label runat="server" Text='<%#Eval("numero") & "."%>' ></asp:Label><%--Visible='<%# me.showDifficulty %>'--%>
                                                              <%#MandatoryDisplay(Container.Dataitem)%>
-                                                            <span class="name"><%#me.SmartTagsAvailable.TagAll(Eval("testo"))%></span>
-                                                        </span>
+                                                        </div>
+                                                        <div class="question-name"><%#Me.SmartTagsAvailable.TagAll(Eval("testo"))%></div>                                                        
+                                                    </div>
+                                               
+                                                    <div class="Risposte">
+                                                        <asp:PlaceHolder ID="PHOpzioni" runat="server" Visible="true"></asp:PlaceHolder>
+                                                    </div>
+                                                    <div class="suggestion">
+                                                        <asp:Label runat="server" ID="LBsuggerimentoOpzione" Visible="false" CssClass="option"></asp:Label>
+                                                        <asp:Label runat="server" ID="LBSuggerimento" Text='<%#Eval("suggerimento")%>' Visible="false" CssClass="global"></asp:Label>
                                                     </div>
                                                 </div>
-                                                <div class="Risposte">
-                                                    <asp:PlaceHolder ID="PHOpzioni" runat="server" Visible="true"></asp:PlaceHolder>
-                                                </div>
-                                                <asp:Label runat="server" ID="LBsuggerimentoOpzione" Font-Italic="true" Visible="false"></asp:Label>
-                                                <asp:Label runat="server" ID="LBSuggerimento" Text='<%#Eval("suggerimento")%>' Visible="false"></asp:Label>
                                             </ItemTemplate>
-                                            <FooterStyle BackColor="WHITE" Font-Bold="True" ForeColor="White" />
-                                            <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                                            <AlternatingItemStyle BackColor="#EFF3FB" />
-                                            <ItemStyle BackColor="WHITE" />
-                                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                            <FooterStyle CssClass="footer"/>
+                                            <SelectedItemStyle CssClass="item-question Selected"/>
+                                            <AlternatingItemStyle CssClass="item-question Alternate"/>
+                                            <ItemStyle CssClass="item-question"/>
+                                            <HeaderStyle CssClass="header"/>
                                         </asp:DataList>
                                         <br />
                                         <div class="NomePaginaFooter" runat="server" id="DIVNomePaginaFooter">
-                                            <br />
                                             <%#Eval("nomePagina")%>
                                         </div>
                                     </ItemTemplate>
-                                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                    <SelectedItemStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                                    <AlternatingItemStyle BackColor="#507CD1" />
-                                    <ItemStyle BackColor="#EFF3FB" />
-                                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                    <FooterStyle CssClass="footer"/>
+                                    <SelectedItemStyle CssClass="item-page Selected"/>
+                                    <AlternatingItemStyle CssClass="item-page alternate" />
+                                    <ItemStyle CssClass="item-page"/>
+                                    <HeaderStyle CssClass="header"/>
                                 </asp:DataList>
                             </asp:Panel>
                             <br />
-                            <div style="width: 100%; margin-top: 10px; margin-bottom: 20px;" runat="server" id="DIVNumeriPagina">
+                            <div id="DIVNumeriPagina" runat="server" class="numeriPagina">
                                 <asp:Label ID="LBpagina" runat="server"></asp:Label>
-                                <asp:ImageButton ID="IMBprima" ImageUrl="img/indietro.gif" runat="server" Visible="False">
-                                </asp:ImageButton>
-                                &nbsp; &nbsp;
+                                <asp:LinkButton ID="LkbBack" runat="server" CssClass="button prev" Visible="false"></asp:LinkButton>
+                                <%--<asp:ImageButton ID="IMBprima" CssClass="button back" ImageUrl="img/indietro.gif" runat="server" Visible="False">
+                                </asp:ImageButton>--%>
                                 <asp:PlaceHolder ID="PHnumeroPagina" runat="server"></asp:PlaceHolder>
-                                &nbsp; &nbsp;
-                                <asp:ImageButton ID="IMBdopo" runat="server" ImageUrl="img/avanti.gif" Visible="False">
-                                </asp:ImageButton>
+                                <asp:LinkButton ID="LkbNext" runat="server" CssClass="button next" Visible="false"></asp:LinkButton>
+                                <%--<asp:ImageButton ID="IMBdopo" runat="server" CssClass="button next" ImageUrl="img/avanti.gif" Visible="False">
+                                </asp:ImageButton>--%>
                                 <asp:Button runat="server" ID="BTNDopo" EnableViewState="False" Visible="false" />
+
                                 <br />
                             </div>
                             <asp:label ID="LBisMandatoryInfoBottom" runat="server"></asp:label>
                             <div runat="server" id="DIVSalvaQuestionario">
-                                <br />
-                                <asp:Label runat="server" ID="LBAvvisoSalva" Visible="true"></asp:Label>
-                                <asp:Literal ID="LTsaveAndExit" runat="server"><br /></asp:Literal>
-                                <asp:Button runat="server" ID="BTNSalvaEEsci"  Visible="false" />
-                                <asp:Button runat="server" ID="BTNSalvaContinua" />
-                                <br />
+                                <span class="footerInfo">
+                                    <asp:Label runat="server" ID="LBAvvisoSalva" Visible="true"></asp:Label>
+                                    <asp:Literal ID="LTsaveAndExit" runat="server"><br /></asp:Literal>
+                                    <asp:Button runat="server" ID="BTNSalvaEEsci"  Visible="false" />
+                                    <asp:Button runat="server" ID="BTNSalvaContinua" />
+                                </span>
                             </div>
                             <asp:Label runat="server" ID="LBAvvisoFine" Visible="true"></asp:Label>
-                            <br />
-                            <br />
                             <asp:Button runat="server" ID="BTNFine" Visible="true" />
                         </asp:View>
                         <asp:View ID="VIWdescrizione" runat="server">
-                            <asp:Panel ID="PNLIndietro" runat="server" Width="100%" HorizontalAlign="right" Visible="false">
-                                <asp:LinkButton ID="LNBindietro" Visible="true" runat="server" CssClass="Link_Menu"> </asp:LinkButton>&nbsp;</asp:Panel>
-                            <br />
-                            <br />
-                            <asp:Label ID="LBnomeVIWDescrizione" runat="server" Text='<%#Eval("nome")%>'></asp:Label>
-                            <br />
-                            <br />
-                            <asp:Label ID="LBdescrizioneVIWDescrizione" runat="server"> </asp:Label>
-                            <br />
-                            <br />
-                            <br />
+                            <asp:Panel ID="PNLIndietro" runat="server" class="divBack" Visible="false">
+                            <asp:LinkButton ID="LNBindietro" Visible="true" runat="server" CssClass="Link_Menu"> </asp:LinkButton>&nbsp;</asp:Panel>
+                            <asp:Label ID="LBnomeVIWDescrizione" runat="server" Text='<%#Eval("nome")%>' CssClass="lbNome"></asp:Label>
+                            <asp:Label ID="LBdescrizioneVIWDescrizione" runat="server" CssClass="lbdescrizione"> </asp:Label>
                             <asp:Label ID="LBTempoRimanenteVIWDescrizione" runat="server" Visible="false"></asp:Label>
                             <asp:Label ID="LBdurata" runat="server" Visible="false"></asp:Label>
-                            <br />
-                            <br />
-                            <p align="center">
-                                <asp:Button ID="BTNinizia" runat="server" Text="" ForeColor="Black"></asp:Button>
-                                <asp:Button ID="BTNIniziaFacile" Visible="false" runat="server" Text="" ForeColor="Black">
+                            <p class="buttonContainer">
+                                <asp:Button ID="BTNinizia" runat="server" Text="" CssClass="button start"></asp:Button>
+                                <asp:Button ID="BTNIniziaFacile" Visible="false" runat="server" Text="" CssClass="button start">
                                 </asp:Button>
-                                <asp:Button ID="BTNIniziaMedio" Visible="false" runat="server" Text="" ForeColor="Black">
+                                <asp:Button ID="BTNIniziaMedio" Visible="false" runat="server" Text="" CssClass="button start">
                                 </asp:Button>
-                                <asp:Button ID="BTNIniziaDifficile" Visible="false" runat="server" Text="" ForeColor="Black">
+                                <asp:Button ID="BTNIniziaDifficile" Visible="false" runat="server" Text="" CssClass="button start">
                                 </asp:Button>
-                                <asp:Button ID="BTNIniziaMisto" Visible="false" runat="server" Text="" ForeColor="Black">
+                                <asp:Button ID="BTNIniziaMisto" Visible="false" runat="server" Text="" CssClass="button start">
                                 </asp:Button>
                             </p>
                         </asp:View>
                         <asp:View runat="server" ID="VIWmessaggi">
-                            <asp:Panel ID="PNLTornaLista" runat="server" Width="100%" HorizontalAlign="right">
+                            <asp:Panel ID="PNLTornaLista" runat="server" class="panelBack">
                                 <asp:LinkButton ID="LNBTornaLista" runat="server" CssClass="Link_Menu"> </asp:LinkButton>
                                 <asp:HyperLink id="HYPnewAttempt" runat="server" CssClass="Link_Menu" Visible="false"></asp:HyperLink>
                             </asp:Panel>
-                            <br />
                             <CTRL:Messages runat="server" ID="CTRLerrorMessages" Visible="false" />
-                            <br /><br /><br />
                             <asp:Label ID="LBConferma" runat="server" Visible="false"></asp:Label>
-                            <br />
                             <asp:Button ID="BTNRestartAutoEval" runat="server" Visible="false" />
                             <asp:Button runat="server" ID="BTNSalvaAutovalutazione" Visible="false" />
                         </asp:View>
@@ -535,5 +493,8 @@
             </div>
         </div>
     </div> 
-    <asp:Literal ID="LTopenUndoDialogCssClass" runat="server" Visible="false">opendlgundo</asp:Literal><asp:Literal ID="LTcloseDialogCssClass" runat="server" Visible="false">closedlgconfirmsubmit</asp:Literal><asp:Literal ID="LTdlgconfirmsubmit" runat="server" Visible="false">dlgconfirmsubmit</asp:Literal><asp:Literal ID="LTconfirmDialogCssClass" runat="server" Visible="false">opendlgconfirmsubmit</asp:Literal><asp:Literal ID="LTconfirmExitDialogCssClass" Visible="false" runat="server">opendlgconfirmexit</asp:Literal>
+    <asp:HiddenField ID="hidUsr" runat="server" />
+    <%-- literal con le classi per attivare i pop-up di conferma: --%>
+    <asp:Literal ID="LTopenUndoDialogCssClass" runat="server" Visible="false">_opendlgundo_</asp:Literal><asp:Literal ID="LTcloseDialogCssClass" runat="server" Visible="false">_closedlgconfirmsubmit_</asp:Literal><asp:Literal ID="LTdlgconfirmsubmit" runat="server" Visible="false">_dlgconfirmsubmit_</asp:Literal><asp:Literal ID="LTconfirmDialogCssClass" runat="server" Visible="false">_opendlgconfirmsubmit_</asp:Literal><asp:Literal ID="LTconfirmExitDialogCssClass" Visible="false" runat="server">_opendlgconfirmexit_</asp:Literal>
+</div>
 </asp:Content>

@@ -22,6 +22,7 @@ Namespace Configuration
         Private _DBconnectionSettings As DBconnectionSettings
         Private _SmartTags As SmartTags
         Private _QuizSettings As QuizSettings
+        Private _IcodeonSettings As IcodeonSettings
         Private _BaseFileRepositoryPath As ConfigurationPath
         Private _ActionsSettings As ActionsSettings
         Private _NotificationService As NotificationSettings
@@ -37,6 +38,10 @@ Namespace Configuration
         Private _WebConferencingSettings As WebConferencingSettings
 
         Private _QuestionnaireSettings As QuestionnaireSettings
+
+        Private _FederationSettings As String
+
+        Private _Features As New FeaturesSettings
 #End Region
 
 #Region "Public properties"
@@ -74,7 +79,7 @@ Namespace Configuration
                 _ChatService = value
             End Set
         End Property
-      
+
         Public Property DefaultLanguage() As Lingua
             Get
                 Return _DefaultLanguage
@@ -187,6 +192,14 @@ Namespace Configuration
                 _QuizSettings = value
             End Set
         End Property
+        Public Property Icodeon() As IcodeonSettings
+            Get
+                Return Me._IcodeonSettings
+            End Get
+            Set(ByVal value As IcodeonSettings)
+                _IcodeonSettings = value
+            End Set
+        End Property
         Public Property BaseFileRepositoryPath() As ConfigurationPath
             Get
                 Return Me._BaseFileRepositoryPath
@@ -269,9 +282,27 @@ Namespace Configuration
                 _QuestionnaireSettings = value
             End Set
         End Property
-#End Region
-		Public Sub New()
 
-		End Sub
-	End Class
+        Public Property FederationSettings() As String
+            Get
+                Return _FederationSettings
+            End Get
+            Set(value As String)
+                _FederationSettings = value
+            End Set
+        End Property
+
+        Public Property Features As FeaturesSettings
+            Get
+                Return _Features
+            End Get
+            Set(value As FeaturesSettings)
+                _Features = value
+            End Set
+        End Property
+#End Region
+        Public Sub New()
+
+        End Sub
+    End Class
 End Namespace

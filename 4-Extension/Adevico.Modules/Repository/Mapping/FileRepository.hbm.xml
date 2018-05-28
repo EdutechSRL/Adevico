@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping assembly="Adevico.Modules" namespace="Adevico.Modules.Repository.Domain" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="FileRepository" table="FR_Item" schema="dbo">
+    <id name="Id" type="Int64">
+      <column name="Id" not-null="true" precision="19" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <property name="IdFolder" type="Int64">
+      <column name="IdFolder" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="IdPerson" type="Int64">
+      <column name="IdPerson" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="IdCommunity" type="Int64">
+      <column name="IdCommunity" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="Name" type="String">
+      <column name="Name" not-null="false" length="4000" sql-type="NVARCHAR(4000)" />
+    </property>
+    <property name="Url" type="String">
+      <column name="Url" not-null="false" length="4000" sql-type="NVARCHAR(4000)" />
+    </property>
+    <property name="Extension" type="String">
+      <column name="Extension" not-null="false" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="Description" type="String">
+      <column name="Description" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="ContentType" type="String">
+      <column name="ContentType" not-null="false" length="4000" sql-type="NVARCHAR(4000)" />
+    </property>
+    <property name="ModuleCode" type="String">
+      <column name="ModuleCode" not-null="false" length="4000" sql-type="NVARCHAR(4000)" />
+    </property>
+    <property name="Size" type="Int64">
+      <column name="Size" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="Downloaded" type="Int64">
+      <column name="Downloaded" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="IsFile" type="Boolean">
+      <column name="IsFile" default="0" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="ItemType" type="Int16">
+      <column name="ItemType" not-null="false" precision="5" sql-type="SMALLINT" />
+    </property>
+    <property name="IdVersion" type="Int64">
+      <column name="IdVersion" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="Availability" type="Int16">
+      <column name="Availability" not-null="false" precision="5" sql-type="SMALLINT" />
+    </property>
+    <property name="Status" type="Int16">
+      <column name="Status" default="1" not-null="false" precision="5" sql-type="SMALLINT" />
+    </property>
+    <property name="DisplayMode" type="Int16">
+      <column name="DisplayMode" default="0" not-null="false" precision="5" sql-type="SMALLINT" />
+    </property>
+    <property name="Tags" type="String">
+      <column name="Tags" not-null="false" sql-type="NVARCHAR(MAX)" />
+    </property>
+    <property name="HasVersions" type="Boolean">
+      <column name="HasVersions" default="0" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="IsVisible" type="Boolean">
+      <column name="IsVisible" default="1" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="IsDownloadable" type="Boolean">
+      <column name="IsDownloadable" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="IsInternal" type="Boolean">
+      <column name="IsInternal" default="0" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="IsVirtual" type="Boolean">
+      <column name="IsVirtual" default="0" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="IsPersonal" type="Boolean">
+      <column name="IsPersonal" default="0" not-null="false" sql-type="BIT" />
+    </property>
+    <property name="Directories" type="Int64">
+      <column name="Directories" default="0" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="Deleted" type="Int16">
+      <column name="`_Deleted`" default="0" not-null="false" precision="5" sql-type="SMALLINT" />
+    </property>
+    <bag name="FileVersions" inverse="true" generic="true">
+      <key>
+        <column name="IdItem" />
+      </key>
+      <one-to-many class="FileVersion" />
+    </bag>
+  </class>
+</hibernate-mapping>

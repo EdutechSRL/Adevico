@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Adevico.Modules" namespace="Adevico.Modules.Repository.Domain">
+  <class name="FileRepoDownloads" table="FR_ItemDownload" schema="dbo">
+    <id name="Id" type="Int64">
+      <column name="Id" not-null="true" precision="19" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <property name="IdCommunity" type="Int64">
+      <column name="IdCommunity" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="IdPerson" type="Int64">
+      <column name="IdPerson" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="IdItem" type="Int64">
+      <column name="IdItem" not-null="false" precision="19"  sql-type="BIGINT" />
+    </property>
+    <property name="IdVersion" type="Int64">
+      <column name="IdVersion" not-null="false" precision="19" sql-type="BIGINT" />
+    </property>
+    <property name="ItemType" type="Int16">
+      <column name="ItemType" not-null="false" precision="5" sql-type="SMALLINT" />
+    </property>
+    <property name="CreatedOn" type="DateTime">
+      <column name="CreatedOn" not-null="false" sql-type="DATETIME" />
+    </property>
+  </class>
+</hibernate-mapping>

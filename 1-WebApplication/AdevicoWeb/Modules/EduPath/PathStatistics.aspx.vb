@@ -735,6 +735,40 @@ Public Class PathStatistics
 
                         ohypStat.NavigateUrl = Me.BaseUrl & RootObject.PathSubActivityCertifications(PathID, dtoItem.SubActivity.Id, Me.CurrentCommunityID, TimeStat, IsMoocPath)
                         ohypStat.Visible = False 'TEMP HIDDEN
+                    Case SubActivityType.Webinar
+
+                        Dim oDisplayAction As lm.Comol.Modules.EduPath.Presentation.IViewModuleTextAction = e.Item.FindControl("CTRLtextAction")
+                        e.Item.FindControl("CTRLtextAction").Visible = True
+                        oDisplayAction.RefreshContainer = True
+                        Dim WebinarId As Int64 = dtoItem.SubActivity.IdObject
+                        Dim WebinarName As String = ""
+
+                        Try
+                            WebinarName = MyBase.ServiceWebinar.SessionGetdB(WebinarId).Name
+                        Catch ex As Exception
+
+                        End Try
+
+                        If Not String.IsNullOrWhiteSpace(WebinarName) Then
+                            dtoItem.SubActivity.Name = WebinarName
+                        End If
+
+
+                        ' DIMENSIONI IMMAGINI
+                        oDisplayAction.IconSize = Helpers.IconSize.Small
+                        oDisplayAction.EnableAnchor = False
+
+                        If dtoItem.isSingle Then
+                            If Not IsNothing(initializer.PlaceHolders) Then
+
+                                Dim ph As lm.Comol.Core.ModuleLinks.dtoPlaceHolder = initializer.PlaceHolders.FirstOrDefault
+                                ph.Text = String.Format("{0} {1}", WebinarName, ph.Text)
+
+                            End If
+                        End If
+
+
+                        oDisplayAction.InitializeControl(initializer)
                 End Select
 
                 'Dim oDisplayAction As lm.Comol.Modules.EduPath.Presentation.IViewModuleTextAction = e.Item.FindControl("CTRLtextAction")
@@ -874,27 +908,35 @@ Public Class PathStatistics
                         'oDisplayAction.InitializeControl(initializer, StandardActionType.Play Or StandardActionType.DownloadItem Or StandardActionType.EditMetadata Or StandardActionType.ViewAdvancedStatistics Or StandardActionType.ViewUserStatistics Or StandardActionType.Edit Or StandardActionType.ViewPersonalStatistics)
                         renderQuizItem.Visible = True
                 End Select
-              
-                Dim actStat = actions.Where(Function(x) x.ControlType = StandardActionType.ViewAdvancedStatistics).FirstOrDefault()
 
-                If (Not actStat Is Nothing) Then
+                'Primo controllo!
+                Dim actStat As dtoModuleActionControl
+
+                If Not IsNothing(actions) Then
+                    actStat = actions.Where(Function(x) x.ControlType = StandardActionType.ViewAdvancedStatistics).FirstOrDefault()
+                End If
+
+                'Secondo controllo
+                If (Not actStat Is Nothing AndAlso Not IsNothing(actions)) Then
                     Dim ohypStat As HyperLink = e.Item.FindControl("HYPstats")
                     Me.Resource.setHyperLink(ohypStat, False, True)
                     ohypStat.Visible = True
-                    ohypStat.NavigateUrl = actStat.LinkUrl
+                    ohypStat.NavigateUrl = actStat.LinkUrl & "&ComId=" & CurrentCommunityID
                 End If
 
+                If Not IsNothing(actions) Then
 
-                Dim actHYPeditMetadata = actions.Where(Function(x) x.ControlType = StandardActionType.EditMetadata).FirstOrDefault()
+                    Dim actHYPeditMetadata = actions.Where(Function(x) x.ControlType = StandardActionType.EditMetadata).FirstOrDefault()
 
-                If (Not actHYPeditMetadata Is Nothing) Then
-                    Dim ohypHYPeditMetadata As HyperLink = e.Item.FindControl("HYPeditMetadata")
-                    Me.Resource.setHyperLink(ohypHYPeditMetadata, False, True)
-                    ohypHYPeditMetadata.Visible = True
-                    ohypHYPeditMetadata.NavigateUrl = actHYPeditMetadata.LinkUrl
+                    If (Not actHYPeditMetadata Is Nothing) Then
+                        Dim ohypHYPeditMetadata As HyperLink = e.Item.FindControl("HYPeditMetadata")
+                        Me.Resource.setHyperLink(ohypHYPeditMetadata, False, True)
+                        ohypHYPeditMetadata.Visible = True
+                        ohypHYPeditMetadata.NavigateUrl = actHYPeditMetadata.LinkUrl
+                    End If
                 End If
 
-                If dtoItem.ContentType = SubActivityType.Quiz Then
+                If dtoItem.ContentType = SubActivityType.Quiz AndAlso Not IsNothing(actions) Then
                     Dim actQuizStat = actions.Where(Function(x) x.ControlType = StandardActionType.ViewAdministrationCharts).FirstOrDefault()
 
                     If (Not actQuizStat Is Nothing) Then
@@ -1141,9 +1183,11 @@ Public Class PathStatistics
                 oTemplate.Settings = lm.Comol.Core.DomainModel.Helpers.Export.ExportBaseHelper.GetDefaultPageSettings()
                 oTemplate.Settings.Size = DocTemplateVers.PageSize.A4_L
 
-                'ToDo: export
-                ShowError(EpError.Generic)
+                Dim doc As iTextSharp5.text.Document = ServiceEP.ServiceStat.ExportGlobalEpStats_ToPdf(PageUtility.CurrentContext, Me.PathID, Me.CurrentCommunityID, Me.CurrentUserId, Me.CurrentCommRoleID, Me.CHBshowall.Checked, translations, roleTranslations, quizAction, repAction, textAction, certAction, oTemplate, False, clientFileName, Response, New HttpCookie(CookieName, HDNdownloadTokenValue.Value), TimeStat)
 
+                If IsNothing(doc) Then
+                    ShowError(EpError.Generic)
+                End If
             Else
                 Response.AppendCookie(cookie)
                 Response.AddHeader("Content-Disposition", "attachment; filename=" & clientFileName)

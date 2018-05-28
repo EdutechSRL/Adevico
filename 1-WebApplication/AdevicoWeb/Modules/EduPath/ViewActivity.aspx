@@ -79,12 +79,33 @@
             text-align: center;
             padding-top: 3.5em;
         }
-        
-        ul.Columns li.center
-        {
+        ul.Columns li.center {
             width: 77%;
+            position:relative;
         }
-        
+        .box-moveOrder{
+            position: absolute;
+            right: -14px;
+            top: 18px;
+            background-color: #cccccc;
+            padding: 2px 6px;
+            border-top-right-radius: 6px;
+            border-top-left-radius: 6px;
+            border: solid 1px #333;
+        }
+        a.bntOrderUp {
+            display:inline-block !important;
+            margin-left:6px;
+        }
+        a.bntOrderDown {
+            display:inline-block !important;
+            margin-left:6px;
+        }
+        span.ui-icon-arrowthick-2-n-s
+        {
+            display:inline-block !important;
+            margin-left:6px;
+        }
         ul.Columns li.right
         {
             width: 10%;
@@ -92,11 +113,6 @@
             padding-top: 3.5em;
         }
         
-        span.ui-icon-arrowthick-2-n-s
-        {
-            float: right;
-            cursor: move;
-        }
         
         .pathTitle
         {
@@ -388,6 +404,8 @@
     </asp:Literal>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CPHservice" runat="server">
+
+
     <asp:MultiView ID="MLVviewActivity" runat="server" ActiveViewIndex="0">
         <asp:View ID="VIWactivity" runat="server">
             <div class="divBlock">
@@ -453,10 +471,23 @@
                                             <asp:LinkButton ID="LKBeditSubAct" runat="server" Text="**up sub" CssClass="icon edit" Visible="false" CommandName="SetPermission"></asp:LinkButton>
                                             <asp:HyperLink ID="HYPeditSubAct" runat="server" Text="**up sub" CssClass="icon edit" Visible="false" />
                                         </span>
+                                        <span class="language" id="SPNlang" runat="server">
+                                            <asp:DropDownList ID="DDLlang" runat="server" AutoPostBack="true" 
+                                                OnSelectedIndexChanged="DDLlang_SelectedIndexChanged">
+                                                <asp:ListItem Text="Multi" Selected="True" Value="MULTI"></asp:ListItem>
+                                                <asp:ListItem Text="it-IT" Value="it-IT"></asp:ListItem>
+                                                <asp:ListItem Text="en-US" Value="en-US"></asp:ListItem>
+                                                <asp:ListItem Text="de-DE" Value="de-DE"></asp:ListItem>
+                                            </asp:DropDownList>
+                                        </span>
                                     </li>
                                     <li class="center">
-                                        <asp:Literal runat="server" ID="LITmove"></asp:Literal>
-                                        <span class="pathTitle">
+                                        <span class="pathTitle clearfix">
+                                            <div class="box-moveOrder" style="float:right;">
+                                                    <asp:LinkButton ID="LKBup" runat="server" Visible="false" CommandName="moveUp" CssClass="bntOrderUp"></asp:LinkButton>
+                                                    <asp:LinkButton ID="LKBdown" runat="server" Visible="false" CommandName="moveDown" CssClass="bntOrderDown"></asp:LinkButton>
+                                                    <asp:Literal runat="server" ID="LITmove"></asp:Literal>
+                                            </div>
                                             <asp:Image ID="IMGvisibility" runat="server" Visible="false" />
                                             <asp:LinkButton runat="server" ID="LKBvisibSubAct" Text="Visible**" Visible="false"
                                                 CommandName="visibility"></asp:LinkButton>
@@ -466,9 +497,6 @@
                                                 <asp:TextBox ID="TXBweight" runat="server" Width="40px"></asp:TextBox>
                                                 <asp:Label ID="LBpoints" runat="server" CssClass="Titolo_campo" Text="**points"></asp:Label>
                                             </div>
-                                            <asp:LinkButton ID="LKBup" runat="server" Visible="false" CommandName="moveUp" CssClass="bntOrderUp"></asp:LinkButton>
-                                            <asp:LinkButton ID="LKBdown" runat="server" Visible="false" CommandName="moveDown"
-                                                CssClass="bntOrderDown"></asp:LinkButton>
                                         </span>
                                         <asp:Label ID="LBdetail" runat="server" CssClass="detailsTitle" Text="detail***"></asp:Label>
                                          <a name="subact-<%# Container.Dataitem.Id %>"></a>

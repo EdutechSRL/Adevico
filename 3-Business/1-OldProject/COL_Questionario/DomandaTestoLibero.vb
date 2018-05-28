@@ -10,6 +10,7 @@ Imports Microsoft.VisualBasic
     Private _numeroRisposte As Integer
     Private _numero As String
     Private _peso As Integer = 100
+    Private _isSingleLine As Boolean = True
 
     Public Property id() As Integer
         Get
@@ -73,6 +74,15 @@ Imports Microsoft.VisualBasic
         End Get
         Set(ByVal value As Integer)
             _peso = value
+        End Set
+    End Property
+
+    Public Property isSingleLine As Boolean
+        Get
+            Return _isSingleLine
+        End Get
+        Set(ByVal value As Boolean)
+            _isSingleLine = value
         End Set
     End Property
 End Class

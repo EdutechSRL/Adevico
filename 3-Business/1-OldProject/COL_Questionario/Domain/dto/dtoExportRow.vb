@@ -20,6 +20,31 @@ Public Class dtoExportRow
         Return result
     End Function
 
+    Public Function Copy() As dtoExportRow
+        Dim NewRow As New dtoExportRow()
+
+        With NewRow
+            .CharDelimiter = Me.CharDelimiter
+            .DisplayInfo = Me.DisplayInfo
+            .EndCharFieldItem = Me.EndCharFieldItem
+            .EndFieldItem = Me.EndFieldItem
+            .EndRowItem = Me.EndRowItem
+            .IdAnswer = Me.IdAnswer
+            .Index = Me.Index
+
+            .Items = New List(Of String)
+            For Each itm As String In Me.Items
+                .Items.Add(itm)
+            Next
+
+            .StringDelimiter = Me.StringDelimiter
+        End With
+
+
+        Return NewRow
+    End Function
+
+
 End Class
 
 <Serializable()>

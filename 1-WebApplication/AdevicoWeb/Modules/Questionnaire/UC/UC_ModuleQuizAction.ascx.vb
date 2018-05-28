@@ -6,6 +6,13 @@ Public Class UC_ModuleQuizAction
     Inherits BaseControl
     Implements IViewModuleQuizAction
 
+    Public Started As Boolean = False
+    Public Completed As Boolean = False
+    Public QuestId As Integer = 0
+    Public QuestAnswId As Integer = 0
+    'Public QuestRandomId As Integer = 0
+    Public QuestType As COL_Questionario.QuestionnaireType = QuestionnaireType.Standard
+
 #Region "Context"
     Private _BaseUrl As String
     Private _CurrentContext As lm.Comol.Core.DomainModel.iApplicationContext
@@ -300,6 +307,12 @@ Public Class UC_ModuleQuizAction
         Score = quest.Score
         ItemStatus = quest.Status
 
+        QuestId = quest.Id
+        QuestAnswId = quest.IdLastAttempt
+        'QuestRandomId = quest.
+        QuestType = quest.Type
+
+
         Dim baseKey As String = GetQuestionnaireTranslationKey(quest)
         Dim tooltip As String = Resource.getValue(baseKey)
         Dim warningCode As String = "<span class=""invisibleitem"">Warning code: " & baseKey & "</span>"
@@ -322,6 +335,35 @@ Public Class UC_ModuleQuizAction
             name = name.Replace("#name#", String.Format(LTtemplateUrl.Text, url, tooltip, quest.Name)) & warningCode
         End If
         LBname.Text = name
+
+
+
+        'quest.
+
+        'Select Case quest.Status
+        '    Case QuizStatus.Compiled
+        '        Started = True
+        '    Case QuizStatus.CompiledWithAttempts
+        '        Started = True
+        '    Case QuizStatus.Deleted
+        '        Started = True
+        '    Case QuizStatus.MaxAttempts
+        '        Started = True
+        '    Case QuizStatus.NewAttempt
+        '        Started = True
+        '    Case QuizStatus.None
+        '    Case QuizStatus.NotCreated
+        '    Case QuizStatus.RetrieveErrors
+        '    Case QuizStatus.ToCompile
+        '    Case QuizStatus.ToCompileWithAttempts
+        '    Case QuizStatus.Unknown
+        '    Case QuizStatus.ViewAttemptCompiled
+        '        Started = True
+        '    Case QuizStatus.ViewCompiled
+        '        Started = True
+        'End Select
+
+
         'If ShortDescription Then
         '    If ItemStatus = QuizStatus.Compiled OrElse ItemStatus.ViewCompiled Then
         '        LBname.Text = String.Format("<a href=""{0}"" title=""{1}"">{2}</a>", url, toolTip, quest.Name)
@@ -339,6 +381,10 @@ Public Class UC_ModuleQuizAction
     End Sub
 
     Private Function GetQuestionnaireTranslationKey(quest As dtoUserQuest, Optional prefix As String = "ToolTip") As String
+
+        Started = False
+        Completed = False
+
         Dim key As String = prefix
         If Not String.IsNullOrEmpty(key) AndAlso Not key.EndsWith(".") Then
             key &= "."
@@ -368,13 +414,13 @@ Public Class UC_ModuleQuizAction
                     Case QuestionnaireType.RandomMultipleAttempts, QuestionnaireType.AutoEvaluation, QuestionnaireType.Random, QuestionnaireType.Standard
                         key &= ".DisplayScoreToUser." & quest.DisplayScoreToUser & ".DisplayResultsStatus." & quest.DisplayResultsStatus
                 End Select
-
+                Started = True
             Case QuizStatus.CompiledWithAttempts
                 key &= ".DisplayScoreToUser." & quest.DisplayScoreToUser & ".DisplayResultsStatus." & quest.DisplayResultsStatus & ".DisplayCurrentAttempts." & quest.DisplayCurrentAttempts
                 If quest.DisplayCurrentAttempts AndAlso quest.Attempts > 0 Then
                     key &= GetStringNumber(quest.Attempts)
                 End If
-
+                Started = True
             Case QuizStatus.ToCompileWithAttempts
                 key &= ".DisplayAvailableAttempts." & quest.DisplayAvailableAttempts.ToString()
 
@@ -385,7 +431,7 @@ Public Class UC_ModuleQuizAction
                 If quest.DisplayCurrentAttempts AndAlso quest.Attempts > 0 Then
                     key &= GetStringNumber(quest.Attempts)
                 End If
-
+                Started = True
             Case QuizStatus.MaxAttempts
                 key &= ".DisplayResultsStatus." & quest.DisplayResultsStatus.ToString() & ".DisplayScoreToUser." & quest.DisplayScoreToUser.ToString()
 
@@ -406,7 +452,7 @@ Public Class UC_ModuleQuizAction
                     End If
                 End If
 
-
+                Started = True
             Case QuizStatus.ViewAttemptCompiled
                 key &= ".DisplayResultsStatus." & quest.DisplayResultsStatus.ToString() & ".DisplayScoreToUser." & quest.DisplayScoreToUser.ToString()
                 key &= ".DisplayAvailableAttempts." & quest.DisplayAvailableAttempts.ToString()
@@ -432,7 +478,7 @@ Public Class UC_ModuleQuizAction
 
                 'End If
 
-
+                Started = True
             Case QuizStatus.NewAttempt
                 key &= ".DisplayResultsStatus." & quest.DisplayResultsStatus.ToString()
                 If quest.DisplayResultsStatus Then
@@ -472,6 +518,11 @@ Public Class UC_ModuleQuizAction
                     End If
                 End If
         End Select
+
+        If key.Contains("Compiled") Then
+            Completed = True
+        End If
+
         Return key
     End Function
     Private Function GetStringNumber(number As Integer, Optional ByVal zeroString As String = "") As String
@@ -497,6 +548,7 @@ Public Class UC_ModuleQuizAction
     Public Sub DisplayAttemptItem(quest As COL_Questionario.dtoUserQuest, url As String) Implements COL_Questionario.IViewModuleQuizAction.DisplayAttemptItem
         MLVcontrol.SetActiveView(VIWdata)
         LBscore.Visible = False
+
         ItemStatus = quest.Status
         LBname.Text = quest.Name
 

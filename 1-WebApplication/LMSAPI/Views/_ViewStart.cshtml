@@ -1,0 +1,10 @@
+﻿@{
+
+    if (Request.Cookies["Token"] + "" != "" || Request.Url.AbsoluteUri.Contains("://localhost"))
+    {
+		Layout = "~/Views/Shared/_Layout.cshtml";
+	} else {
+        Layout = "~/Views/Shared/_LayoutNoPermessi.cshtml";
+	}
+	
+}

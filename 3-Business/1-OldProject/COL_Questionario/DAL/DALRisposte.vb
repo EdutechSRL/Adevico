@@ -143,7 +143,15 @@ Public Class DALRisposte
         Next
         Return RetVal
     End Function
-    Public Shared Function RispostaQuestionario_Update(ByRef oRis As RispostaQuestionario, Optional ByRef updateRispDomanda As Boolean = True) As String
+    Public Shared Function RispostaQuestionario_Update(ByVal CloseAnswer As Boolean,
+                                                      ByRef oRis As RispostaQuestionario,
+                                                      Optional ByRef updateRispDomanda As Boolean = True) As String
+
+        If CloseAnswer Then
+            oRis.dataFine = DateTime.Now()
+        End If
+
+
         Dim db As Database = DatabaseFactory.CreateDatabase()
         Dim RetVal As String = ""
         Dim sqlCommand As String = "sp_Questionario_RispostaQuestionario_Update"
@@ -164,8 +172,6 @@ Public Class DALRisposte
         db.AddInParameter(dbCommand, "punteggioRelativo", DbType.Decimal, setNullDecimal(oRis.oStatistica.punteggioRelativo))
         db.AddInParameter(dbCommand, "punteggio", DbType.Decimal, setNullDecimal(oRis.oStatistica.punteggio))
         db.AddInParameter(dbCommand, "coeffDifficolta", DbType.Decimal, setNullDecimal(oRis.oStatistica.coeffDifficolta))
-
-
 
         RetVal = db.ExecuteNonQuery(dbCommand)
         If updateRispDomanda Then
@@ -195,6 +201,26 @@ Public Class DALRisposte
         End If
 
         Return RetVal
+    End Function
+
+    Public Shared Function RispostaQuestionario_CheckUpdateUpdate(ByRef oRisId As Integer, ByRef oUsrId As Integer) As Boolean
+
+        Dim db As Database = DatabaseFactory.CreateDatabase()
+        Dim sqlCommand As String = "sp_Questionario_RispostaQuestionario_CheckUpdate"
+        Dim dbCommand As DbCommand = db.GetStoredProcCommand(sqlCommand)
+
+        db.AddInParameter(dbCommand, "idRispostaQuestionario", DbType.Int32, oRisId)
+        db.AddInParameter(dbCommand, "idPersona", DbType.Int32, oUsrId)
+
+        Dim retval As Int32
+        retval = db.ExecuteScalar(dbCommand)
+
+        If (retval > 0) Then
+            Return True
+        End If
+
+        Return False
+
     End Function
     Public Shared Function ValutazioneRispostaTestoLibero_Update(ByVal idRispostaTestLibero As Int32, ByVal valutazione As String)
         Dim db As Database = DatabaseFactory.CreateDatabase()

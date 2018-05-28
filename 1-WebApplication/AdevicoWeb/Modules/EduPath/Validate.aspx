@@ -5,6 +5,11 @@
 <%@ MasterType VirtualPath="~/AjaxPortal.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="../../Graphics/Modules/Edupath/css/<%=GetCssFileByType()%>pfstyle.css?v=201605041410lm" rel="Stylesheet" />
+   <style>
+	.startHide{
+		display:none !important;
+	}
+   </style>
     <script type="text/javascript">
         var hash = new Array();
         var code = "ep-pathview";
@@ -68,9 +73,6 @@
             WriteOpenCloseStatus(itemParentId, currentClosed);
 
         }
-
-        
-        $(document).ready(function () {
 
             function Change(el) {
                 el.prevAll("input[type=radio]").attr("checked", true);
@@ -140,6 +142,17 @@
         function closeDialogSender(id, sender) {
             $('#' + id).dialog("close");
         }
+
+
+        $(document).ready(function () {
+			$("body").click(function(e){
+				var el = $(e.target);
+				if(el.hasClass("button") && el.hasClass("switch")){
+					el.toggleClass("collapsed");
+					el.parents(".unit").find(".title:first .renderedtext").toggleClass("startHide");
+				}
+			});
+		});
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CPHservice" runat="server">
@@ -171,7 +184,7 @@
                         </HeaderTemplate>
                         <ItemTemplate>
                             <li id="UNIT-<%# DataBinder.Eval(Container.DataItem,"Id")%>" class="unit"><span class="buttons">
-                                <span class="button switch">S</span><asp:Literal runat="server" ID="LITmoveUnit"></asp:Literal>
+                                <span class="button switch collapsed">S</span><asp:Literal runat="server" ID="LITmoveUnit"></asp:Literal>
                                 <asp:Image ID="IMGmandatory" runat="server" Visible="true" />
                                 <asp:LinkButton ID="LKBmandatory" runat="server" Visible="true" CommandName="mandatory"></asp:LinkButton>
                             </span>
@@ -201,7 +214,7 @@
                                         <asp:CompareValidator ID="COVcompletion" runat="server" ErrorMessage="*" Text=""
                                             ControlToValidate="TXBCompletion" Type="Integer" Operator="DataTypeCheck"></asp:CompareValidator>
                                     </span>
-                                    <div id="DIVunitDescription" class="renderedtext" runat="server" visible="true">
+                                    <div id="DIVunitDescription" class="renderedtext startHide" runat="server" visible="true">
                                         <asp:Label ID="LBunitDesc" runat="server"></asp:Label>
                                     </div>
                                 </div>

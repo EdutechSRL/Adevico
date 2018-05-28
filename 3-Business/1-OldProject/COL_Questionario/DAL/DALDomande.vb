@@ -365,6 +365,7 @@ Public Class DALDomande
                 oDomanda.id = isNullInt(sqlReader.Item("DMTL_Id"))
                 oDomanda.idDomanda = isNullInt(sqlReader.Item("DMTL_DMML_Id"))
                 oDomanda.etichetta = isNullString(sqlReader.Item("DMTL_Etichetta"))
+                oDomanda.isSingleLine = isNullBoolean(sqlReader.Item("DMTL_IsSingleLine"))
                 oDomanda.numeroRighe = isNullInt(sqlReader.Item("DMTL_NumeroRighe"))
                 oDomanda.numeroColonne = isNullInt(sqlReader.Item("DMTL_NumeroColonne"))
                 oDomanda.numero = isNullInt(sqlReader.Item("DMTL_Numero"))
@@ -507,6 +508,9 @@ Public Class DALDomande
                 Else
                     Return False
                 End If
+            Case Domanda.TipoDomanda.RatingStars
+                DomandaRating_Update(oDomanda, isMinorUpdate)
+
             Case Domanda.TipoDomanda.TestoLibero
                 If isMinorUpdate Then ' faccio l'update solo dei campi minori
                     DomandaTestoLibero_Update(oDomanda, isMinorUpdate)
@@ -1274,13 +1278,14 @@ Public Class DALDomande
         End If
 
         For Each oDomTL As DomandaTestoLibero In dom.opzioniTestoLibero
-            Dim sqlCommand2 As String = "sp_Questionario_DomandaTestoLibero_Insert"
+            Dim sqlCommand2 As String = "sp_Questionario_DomandaTestoLibero_Insert_V2"
             Dim dbCommand2 As DbCommand = db.GetStoredProcCommand(sqlCommand2)
 
             db.AddInParameter(dbCommand2, "idDomanda", DbType.Int32, dom.idDomandaMultilingua)
             db.AddInParameter(dbCommand2, "numeroRighe", DbType.Int32, oDomTL.numeroRighe)
             db.AddInParameter(dbCommand2, "numeroColonne", DbType.Int32, oDomTL.numeroColonne)
             db.AddInParameter(dbCommand2, "etichetta", DbType.String, oDomTL.etichetta)
+            db.AddInParameter(dbCommand2, "isSingleLine", DbType.Boolean, oDomTL.isSingleLine)
             db.AddInParameter(dbCommand2, "numero", DbType.String, oDomTL.numero)
             db.AddInParameter(dbCommand2, "peso", DbType.Decimal, oDomTL.peso)
 
@@ -1302,13 +1307,14 @@ Public Class DALDomande
 
 
         For Each oDomTL As DomandaTestoLibero In dom.opzioniTestoLibero
-            Dim sqlCommand2 As String = "sp_Questionario_DomandaTestoLiberoOpzioni_Update"
+            Dim sqlCommand2 As String = "sp_Questionario_DomandaTestoLiberoOpzioni_Update_V2"
             Dim dbCommand2 As DbCommand = db.GetStoredProcCommand(sqlCommand2)
 
             db.AddInParameter(dbCommand2, "idDomanda", DbType.Int32, dom.idDomandaMultilingua)
             db.AddInParameter(dbCommand2, "numeroRighe", DbType.Int32, oDomTL.numeroRighe)
             db.AddInParameter(dbCommand2, "numeroColonne", DbType.Int32, oDomTL.numeroColonne)
             db.AddInParameter(dbCommand2, "etichetta", DbType.String, oDomTL.etichetta)
+            db.AddInParameter(dbCommand2, "isSingleLine", DbType.Boolean, oDomTL.etichetta)
             db.AddInParameter(dbCommand2, "numero", DbType.String, oDomTL.numero)
             db.AddInParameter(dbCommand2, "idOpzioneTestoLibero", DbType.String, oDomTL.id)
             db.AddInParameter(dbCommand2, "peso", DbType.Decimal, oDomTL.peso)

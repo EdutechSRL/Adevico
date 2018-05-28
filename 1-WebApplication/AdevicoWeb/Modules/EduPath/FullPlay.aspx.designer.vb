@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class FullPlay
-
+    
     '''<summary>
     '''CTRLmodalHeader control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLmodalHeader As Global.Comunita_OnLine.UC_ModalPlayerHeader
-
+    
     '''<summary>
     '''MLVeduPathView control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents MLVeduPathView As Global.System.Web.UI.WebControls.MultiView
-
+    
     '''<summary>
     '''VIWplay control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents VIWplay As Global.System.Web.UI.WebControls.View
-
+    
     '''<summary>
     '''HYPlistEduPath control.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents HYPlistEduPath As Global.System.Web.UI.WebControls.HyperLink
-
+    
     '''<summary>
     '''HYPstat control.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents HYPstat As Global.System.Web.UI.WebControls.HyperLink
-
+    
     '''<summary>
     '''CTRLmoduleStatusMessage control.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLmoduleStatusMessage As Global.Comunita_OnLine.UC_ActionMessages
-
+    
     '''<summary>
     '''divProgressBar control.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents divProgressBar As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''CTRLprogressBar control.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLprogressBar As Global.Comunita_OnLine.UC_ProgressBar
-
+    
     '''<summary>
     '''DIVLastActivity control.
     '''</summary>
@@ -93,7 +93,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DIVLastActivity As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''LBplayerTitle control.
     '''</summary>
@@ -102,7 +102,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBplayerTitle As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''ImgStatus control.
     '''</summary>
@@ -111,7 +111,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ImgStatus As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''LTRLastLink control.
     '''</summary>
@@ -120,7 +120,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LTRLastLink As Global.System.Web.UI.WebControls.Literal
-
+    
     '''<summary>
     '''CTRLmessages control.
     '''</summary>
@@ -129,7 +129,34 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLmessages As Global.Comunita_OnLine.UC_ActionMessages
-
+    
+    '''<summary>
+    '''PHlangSelector control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents PHlangSelector As Global.System.Web.UI.WebControls.PlaceHolder
+    
+    '''<summary>
+    '''LITlangAll control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LITlangAll As Global.System.Web.UI.WebControls.Literal
+    
+    '''<summary>
+    '''HYD_selected_language control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents HYD_selected_language As Global.System.Web.UI.WebControls.HiddenField
+    
     '''<summary>
     '''RPTunits control.
     '''</summary>
@@ -138,7 +165,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RPTunits As Global.System.Web.UI.WebControls.Repeater
-
+    
     '''<summary>
     '''VIWerror control.
     '''</summary>
@@ -147,7 +174,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents VIWerror As Global.System.Web.UI.WebControls.View
-
+    
     '''<summary>
     '''HYPerror control.
     '''</summary>
@@ -156,7 +183,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents HYPerror As Global.System.Web.UI.WebControls.HyperLink
-
+    
     '''<summary>
     '''LBerror control.
     '''</summary>
@@ -165,7 +192,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBerror As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''VIWmessages control.
     '''</summary>
@@ -174,7 +201,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents VIWmessages As Global.System.Web.UI.WebControls.View
-
+    
     '''<summary>
     '''CTRLgenericMessages control.
     '''</summary>
@@ -183,7 +210,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLgenericMessages As Global.Comunita_OnLine.UC_ActionMessages
-
+    
     '''<summary>
     '''CTRLhelpStatus control.
     '''</summary>
@@ -192,7 +219,7 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLhelpStatus As Global.Comunita_OnLine.UC_HelpStatus
-
+    
     '''<summary>
     '''HDNdownloadTokenValue control.
     '''</summary>
@@ -201,7 +228,16 @@ Partial Public Class FullPlay
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents HDNdownloadTokenValue As Global.System.Web.UI.WebControls.HiddenField
-
+    
+    '''<summary>
+    '''LTtest_Item control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LTtest_Item As Global.System.Web.UI.WebControls.Literal
+    
     '''<summary>
     '''Master property.
     '''</summary>
@@ -210,7 +246,7 @@ Partial Public Class FullPlay
     '''</remarks>
     Public Shadows ReadOnly Property Master() As Comunita_OnLine.AjaxPortal
         Get
-            Return CType(MyBase.Master, Comunita_OnLine.AjaxPortal)
+            Return CType(MyBase.Master,Comunita_OnLine.AjaxPortal)
         End Get
     End Property
 End Class

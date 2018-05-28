@@ -94,7 +94,22 @@ Namespace Business
         End Sub
 
 #Region "Export Questionnaire"
-        Public Function QuestionnaireAnswers(ByVal userRequiringExport As Person, ByVal displayTaxCode As Boolean, ByVal allowFullExport As Boolean, ByVal questionnaire As Questionario, answers As Dictionary(Of Long, QuestionnaireAnswer), libraries As List(Of Questionario), ByVal anonymousUser As String, ByVal displayNames As Dictionary(Of String, dtoDisplayName), Optional ByVal oneColumnForEachQuestion As Boolean = True, Optional onlyUserAnswer As Boolean = False, Optional userInfo As dtoDisplayName = Nothing) As String
+        Public Function QuestionnaireAnswers(
+                                            ByVal userRequiringExport As Person,
+                                            ByVal displayTaxCode As Boolean,
+                                            ByVal allowFullExport As Boolean,
+                                            ByVal questionnaire As Questionario,
+                                            answers As Dictionary(Of Long, QuestionnaireAnswer),
+                                            libraries As List(Of Questionario),
+                                            ByVal anonymousUser As String,
+                                            ByVal displayNames As Dictionary(Of String, dtoDisplayName),
+                                            Optional ByVal oneColumnForEachQuestion As Boolean = True,
+                                            Optional onlyUserAnswer As Boolean = False,
+                                            Optional userInfo As dtoDisplayName = Nothing) As String
+
+
+            displayTaxCode = True   'Sì, by design. Se non sono tra gli utenti privilegiati, lo mette a false da solo.
+
             Dim exportText As String = String.Empty
             Dim nResponse As Integer = (questionnaire.domande.Count - 1)
             Dim dto As New dtoExportQuestionnaire
@@ -138,7 +153,7 @@ Namespace Business
                             otherInfo = ""
                         End If
                     End If
-                    
+
                     If questionnaire.risultatiAnonimi Then
                         dto.Rows.Add(New dtoExportRow() With {.Index = index, .IdAnswer = answer.id, .DisplayInfo = New dtoDisplayName(anonymousUser) With {.OtherInfos = otherInfo}})
                     Else
@@ -177,18 +192,49 @@ Namespace Business
             Return exportText
         End Function
 
-        Public Function QuestionnaireAnswers(ByVal userRequiringExport As Person, ByVal displayTaxCode As Boolean, ByVal allowFullExport As Boolean, ByVal idLanguage As Integer, qAnswers As List(Of dtoFullUserAnswerItem), answers As Dictionary(Of Long, QuestionnaireAnswer), ByVal anonymousUser As String, ByVal displayNames As Dictionary(Of String, dtoDisplayName), Optional onlyUserAnswer As Boolean = False, Optional userName As String = "") As String
+        Public Function QuestionnaireAnswers(
+                                            ByVal userRequiringExport As Person,
+                                            ByVal allowFullExport As Boolean,
+                                            ByVal idLanguage As Integer,
+                                            qAnswers As List(Of dtoFullUserAnswerItem),
+                                            answers As Dictionary(Of Long, QuestionnaireAnswer),
+                                            ByVal anonymousUser As String,
+                                            ByVal displayNames As Dictionary(Of String, dtoDisplayName),
+                                            ByVal oQuest As Questionario,
+                                            Optional onlyUserAnswer As Boolean = False,
+                                            Optional userName As String = ""
+                                        ) As String
+
             Dim exportText As String = String.Empty
             Dim dto As New dtoExportQuestionnaire
 
+            Dim addTaxCode As Boolean = False
+            Select Case userRequiringExport.TypeID
+                Case CInt(UserTypeStandard.SysAdmin),
+                     CInt(UserTypeStandard.Administrator),
+                     CInt(UserTypeStandard.Administrative)
+
+                    addTaxCode = True
+            End Select
+
             '      Dim questions As List(Of Domanda) = DALDomande.GetQuestionsForStatistics(answers.Values.SelectMany(Function(a) a.Answers).ToList(), idLanguage)
-            _Helper.QuestionsRender(userRequiringExport, displayTaxCode, allowFullExport, dto, displayNames, anonymousUser, qAnswers, answers)
+            _Helper.QuestionsRender(
+                userRequiringExport,
+                addTaxCode,
+                allowFullExport,
+                dto,
+                displayNames,
+                anonymousUser,
+                oQuest,
+                qAnswers,
+                answers)
+
             If dto.Cells.Count > 0 Then
                 dto.Cells.ForEach(Sub(c) exportText &= AppendItem(c))
                 exportText &= vbCrLf
             End If
             If dto.Rows.Count > 0 Then
-                dto.Rows.ForEach(Sub(c) exportText &= c.Export(allowFullExport, displayTaxCode) & EndRowItem)
+                dto.Rows.ForEach(Sub(c) exportText &= c.Export(allowFullExport, addTaxCode) & EndRowItem)
                 exportText &= vbCrLf
             End If
             Return exportText
@@ -609,7 +655,7 @@ Namespace Business
         '    End If
         'End Function
 #End Region
-      
+
 #Region "Attempts Statistics"
         Public Function QuestionnaireAttempts(minScore As Integer, maxScore As Integer, answers As List(Of dtoUserAnswerItem), multipleAttempts As Boolean) As String
             Dim export As String = ""

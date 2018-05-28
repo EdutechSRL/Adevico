@@ -148,12 +148,17 @@ Namespace UCServices
             SelfSubscription = 79010
             SelfWaitingSubscription = 79011
             SelfUnSubscription = 79012
+            ExpirationManage = 79013
+            ExpirationUpdate = 79013
+
         End Enum
 
         Public Enum ObjectType
             None = 0
             Person = 1
             Role = 2
+            Community = 3
+            CommunityType = 4
         End Enum
 
         <Flags()> Public Enum Base2Permission

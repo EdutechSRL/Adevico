@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using iTS = iTextSharp5.text;
 
 
 namespace lm.Comol.Core.DomainModel.DocTemplateVers.Helpers
 {
     /// <summary>
-    /// Measure converter, (72px/inch)
+    /// Measure converter, based on iTextSharp (72px/inch)
     /// </summary>
     [Serializable]
     public static class Measure
@@ -136,9 +137,207 @@ namespace lm.Comol.Core.DomainModel.DocTemplateVers.Helpers
             PageSizeValue OutSize = new PageSizeValue();
             OutSize.Width = 0;
             OutSize.Height = 0;
-            
-            //ToDo...
 
+            iTS.Rectangle Rect = null;
+
+            switch (Size)
+            {
+                case PageSize._11X17:
+                    Rect = iTS.PageSize._11X17;
+                    break;
+                case PageSize._11X17_L:
+                    Rect = iTS.PageSize._11X17.Rotate();
+                    break;
+                case PageSize.A0:
+                    Rect = iTS.PageSize.A0;
+                    break;
+                case PageSize.A0_L:
+                    Rect = iTS.PageSize.A0.Rotate();
+                    break;
+                case PageSize.A1:
+                    Rect = iTS.PageSize.A1;
+                    break;
+                case PageSize.A1_L:
+                    Rect = iTS.PageSize.A1.Rotate();
+                    break;
+                case PageSize.A2:
+                    Rect = iTS.PageSize.A2;
+                    break;
+                case PageSize.A2_L:
+                    Rect = iTS.PageSize.A2.Rotate();
+                    break;
+                case PageSize.A3:
+                    Rect = iTS.PageSize.A3;
+                    break;
+                case PageSize.A3_L:
+                    Rect = iTS.PageSize.A3.Rotate();
+                    break;
+                case PageSize.A4:
+                    Rect = iTS.PageSize.A4;
+                    break;
+                case PageSize.A4_L:
+                    Rect = iTS.PageSize.A4.Rotate();
+                    break;
+                case PageSize.A5:
+                    Rect = iTS.PageSize.A5;
+                    break;
+                case PageSize.A5_L:
+                    Rect = iTS.PageSize.A5.Rotate();
+                    break;
+                case PageSize.A6:
+                    Rect = iTS.PageSize.A6;
+                    break;
+                case PageSize.A6_L:
+                    Rect = iTS.PageSize.A6.Rotate();
+                    break;
+                case PageSize.A7:
+                    Rect = iTS.PageSize.A7;
+                    break;
+                case PageSize.A7_L:
+                    Rect = iTS.PageSize.A7.Rotate();
+                    break;
+                case PageSize.A8:
+                    Rect = iTS.PageSize.A8;
+                    break;
+                case PageSize.A8_L:
+                    Rect = iTS.PageSize.A8.Rotate();
+                    break;
+                case PageSize.A9:
+                    Rect = iTS.PageSize.A9;
+                    break;
+                case PageSize.A9_L:
+                    Rect = iTS.PageSize.A9.Rotate();
+                    break;
+                case PageSize.A10:
+                    Rect = iTS.PageSize.A10;
+                    break;
+                case PageSize.A10_L:
+                    Rect = iTS.PageSize.A10.Rotate();
+                    break;
+                case PageSize.B0:
+                    Rect = iTS.PageSize.B0;
+                    break;
+                case PageSize.B0_L:
+                    Rect = iTS.PageSize.B0.Rotate();
+                    break;
+                case PageSize.B1:
+                    Rect = iTS.PageSize.B1;
+                    break;
+                case PageSize.B1_L:
+                    Rect = iTS.PageSize.B1.Rotate();
+                    break;
+                case PageSize.B2:
+                    Rect = iTS.PageSize.B2;
+                    break;
+                case PageSize.B2_L:
+                    Rect = iTS.PageSize.B2.Rotate();
+                    break;
+                case PageSize.B3:
+                    Rect = iTS.PageSize.B3;
+                    break;
+                case PageSize.B3_L:
+                    Rect = iTS.PageSize.B3.Rotate();
+                    break;
+                case PageSize.B4:
+                    Rect = iTS.PageSize.B4;
+                    break;
+                case PageSize.B4_L:
+                    Rect = iTS.PageSize.B4.Rotate();
+                    break;
+                case PageSize.B5:
+                    Rect = iTS.PageSize.B5;
+                    break;
+                case PageSize.B5_L:
+                    Rect = iTS.PageSize.B5.Rotate();
+                    break;
+                case PageSize.B6:
+                    Rect = iTS.PageSize.B6;
+                    break;
+                case PageSize.B6_L:
+                    Rect = iTS.PageSize.B6.Rotate();
+                    break;
+                case PageSize.B7:
+                    Rect = iTS.PageSize.B7;
+                    break;
+                case PageSize.B7_L:
+                    Rect = iTS.PageSize.B7.Rotate();
+                    break;
+                case PageSize.B8:
+                    Rect = iTS.PageSize.B8;
+                    break;
+                case PageSize.B8_L:
+                    Rect = iTS.PageSize.B8.Rotate();
+                    break;
+                case PageSize.B9:
+                    Rect = iTS.PageSize.B9;
+                    break;
+                case PageSize.B9_L:
+                    Rect = iTS.PageSize.B9.Rotate();
+                    break;
+                case PageSize.B10:
+                    Rect = iTS.PageSize.B10;
+                    break;
+                case PageSize.B10_L:
+                    Rect = iTS.PageSize.B10.Rotate();
+                    break;
+                case PageSize.HALFLETTER:
+                    Rect = iTS.PageSize.HALFLETTER;
+                    break;
+                case PageSize.HALFLETTER_L:
+                    Rect = iTS.PageSize.HALFLETTER.Rotate();
+                    break;
+                case PageSize.LEGAL:
+                    Rect = iTS.PageSize.LEGAL;
+                    break;
+                case PageSize.LEGAL_L:
+                    Rect = iTS.PageSize.LEGAL.Rotate();
+                    break;
+                case PageSize.LETTER:
+                    Rect = iTS.PageSize.LETTER;
+                    break;
+                case PageSize.LETTER_L:
+                    Rect = iTS.PageSize.LETTER.Rotate();
+                    break;
+                case PageSize.NOTE:
+                    Rect = iTS.PageSize.NOTE;
+                    break;
+                case PageSize.NOTE_L:
+                    Rect = iTS.PageSize.NOTE.Rotate();
+                    break;
+                case PageSize.POSTCARD:
+                    Rect = iTS.PageSize.POSTCARD;
+                    break;
+                case PageSize.POSTCARD_L:
+                    Rect = iTS.PageSize.POSTCARD.Rotate();
+                    break;
+                case PageSize.TABLOID:
+                    Rect = iTS.PageSize.TABLOID;
+                    break;
+                case PageSize.TABLOID_L:
+                    Rect = iTS.PageSize.TABLOID.Rotate();
+                    break;
+            }
+            
+            switch (Measure.ToLower())
+            {
+                case "mm":
+                    OutSize.Height = Px_To_mm(Rect.Height);
+                    OutSize.Width = Px_To_mm(Rect.Width);
+                    break;
+                case "cm":
+                    OutSize.Height = Px_To_cm(Rect.Height);
+                    OutSize.Width = Px_To_cm(Rect.Width);
+                    break;
+                case "inch":
+                    OutSize.Height = Px_To_Inch(Rect.Height);
+                    OutSize.Width = Px_To_Inch(Rect.Width);
+                    break;
+                default:
+                    OutSize.Height = (float) System.Math.Round(Rect.Height, 0);
+                    OutSize.Width = (float)System.Math.Round(Rect.Width, 0);
+                    break;
+            }
+            
             return OutSize;
         }
     }

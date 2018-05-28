@@ -210,7 +210,24 @@ Public Class ActivityManagement
             Me.InitSelectPermission()
 
         End If
+
+        CheckFeatures()
     End Sub
+
+    Private Sub CheckFeatures()
+        If Not SystemSettings.Features.EdupathMultilanguage Then
+            DVmultiLang.Visible = False
+            RBLtype.SelectedValue = "0"
+            RBLtype.Visible = False
+            RBLtype.Enabled = False
+        Else
+            DVmultiLang.Visible = True
+            RBLtype.Visible = True
+            RBLtype.Enabled = True
+        End If
+
+    End Sub
+
     Public Overrides ReadOnly Property AlwaysBind As Boolean
         Get
             Return False
@@ -524,6 +541,8 @@ Public Class ActivityManagement
             LBpersonSummary.Visible = False
         End If
 
+        RBLtype.SelectedValue = currentActivity.Type
+
     End Sub
 
     Private Function GetDraftActivityDetail() As Activity
@@ -629,6 +648,14 @@ Public Class ActivityManagement
         currentActivity.MinMark = IIf(IsNumeric(TXBminMark.Text), TXBminMark.Text, 0)
         currentActivity.Weight = GetWeight()
         currentActivity.isQuiz = Me.DDLtype.SelectedValue
+
+        Select Case RBLtype.SelectedValue
+            Case "2"
+                currentActivity.Type = ActivityType.multilingua
+            Case Else
+                currentActivity.Type = ActivityType.standard
+        End Select
+
         Return ValidateDateConstraint()
 
     End Function

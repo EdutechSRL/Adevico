@@ -143,7 +143,16 @@ Namespace Business
         Public Function CalculateComplation(idQuestionnaire As Integer, idUser As Integer, idResponse As Integer) As dtoItemEvaluation(Of Long)
             Dim result As dtoItemEvaluation(Of Long) = Nothing
             Dim quest As LazyQuestionnaire = GetItem(Of LazyQuestionnaire)(idQuestionnaire)
-            Dim qResponse As LazyUserResponse = GetRefreshItem(Of LazyUserResponse)(idResponse)
+
+
+            Dim qResponse As LazyUserResponse
+            'If Not isAttempt Then
+            qResponse = GetRefreshItem(Of LazyUserResponse)(idResponse)
+            'Else
+            '    qResponse = Manager.GetAll(Of LazyUserResponse)(Function(qr) qr.IdRandomQuestionnaire = idResponse).FirstOrDefault()
+            '    Manager.Refresh(Of LazyUserResponse)(qResponse)
+            'End If
+
             If Not IsNothing(quest) AndAlso Not IsNothing(qResponse) Then
                 Select Case quest.IdType
                     Case QuestionnaireType.RandomMultipleAttempts
@@ -154,7 +163,7 @@ Namespace Business
                                 result.isPassed = True
                                 If result.isCompleted Then
                                     If qResponse.RelativeScore < quest.MinScore Then
-                                        result.isCompleted = False
+                                        result.isPassed = False
                                     End If
                                 End If
                             End If
@@ -188,8 +197,8 @@ Namespace Business
                         End If
                     End If
                 Case Else
-                    Dim userResponse As LazyUserResponse = (From r In Manager.Linq(Of LazyUserResponse)() _
-                                              Where r.IdPerson.Equals(idUser) AndAlso r.IdQuestionnnaire.Equals(quest.Id) Select r).Skip(0).Take(1).ToList().FirstOrDefault()
+                    Dim userResponse As LazyUserResponse = (From r In Manager.Linq(Of LazyUserResponse)()
+                                                            Where r.IdPerson.Equals(idUser) AndAlso r.IdQuestionnnaire.Equals(quest.Id) Select r).Skip(0).Take(1).ToList().FirstOrDefault()
                     response = CalculateComplation(userResponse)
 
                     If Not IsNothing(response) Then
@@ -209,8 +218,8 @@ Namespace Business
                 If userResponse.QuestionsCount.HasValue Then
                     questionNumber = userResponse.QuestionsCount.Value
                 Else
-                    questionNumber = (From q In Manager.Linq(Of LazyAssociatedQuestion)() _
-                                                 Where q.IdQuestionnnaire.Equals(userResponse.IdQuestionnnaire) AndAlso (userResponse.IdRandomQuestionnaire.Equals(0) OrElse q.IdRandomQuestionnnaire.Equals(userResponse.IdRandomQuestionnaire)) Select q.IdQuestion).Count()
+                    questionNumber = (From q In Manager.Linq(Of LazyAssociatedQuestion)()
+                                      Where q.IdQuestionnnaire.Equals(userResponse.IdQuestionnnaire) AndAlso (userResponse.IdRandomQuestionnaire.Equals(0) OrElse q.IdRandomQuestionnnaire.Equals(userResponse.IdRandomQuestionnaire)) Select q.IdQuestion).Count()
                 End If
                 If userResponse.WrongAnswers.HasValue Then
                     answersNumber += userResponse.WrongAnswers.Value
@@ -241,6 +250,7 @@ Namespace Business
                     respose.isCompleted = False ' (respose.Completion = 100)
                 End If
             End If
+
             Return respose
         End Function
 #End Region
@@ -255,7 +265,7 @@ Namespace Business
         Public Sub PhisicalDeleteRepositoryItem(idFileItem As Long, idCommunity As Integer, idUser As Integer, Optional moduleUserLong As Dictionary(Of String, Long) = Nothing, Optional moduleUserString As Dictionary(Of String, String) = Nothing) Implements iLinkedService.PhisicalDeleteRepositoryItem
 
         End Sub
-        Public Sub SaveActionExecution(link As ModuleLink, isStarted As Boolean, isPassed As Boolean, Completion As Short, isCompleted As Boolean, mark As Short, idUser As Integer, Optional moduleUserLong As Dictionary(Of String, Long) = Nothing, Optional moduleUserString As Dictionary(Of String, String) = Nothing) Implements iLinkedService.SaveActionExecution
+        Public Sub SaveActionExecution(link As ModuleLink, isStarted As Boolean, isPassed As Boolean, Completion As Short, isCompleted As Boolean, mark As Short, idUser As Integer, AlreadyCompleted As Boolean, Optional moduleUserLong As Dictionary(Of String, Long) = Nothing, Optional moduleUserString As Dictionary(Of String, String) = Nothing) Implements iLinkedService.SaveActionExecution
 
         End Sub
         Public Sub SaveActionsExecution(evaluatedLinks As List(Of dtoItemEvaluation(Of ModuleLink)), idUser As Integer, Optional moduleUserLong As Dictionary(Of String, Long) = Nothing, Optional moduleUserString As Dictionary(Of String, String) = Nothing) Implements iLinkedService.SaveActionsExecution
@@ -1266,8 +1276,60 @@ Namespace Business
                     isValid = IsValidAttempts(idQuestionnaire, idUser, idInvitedUser, idCurrentAnswer)
                 End If
                 If isValid AndAlso Not qFather.EditAnswer Then
-                    Dim answers As List(Of LazyUserResponse) = (From r In Manager.GetIQ(Of LazyUserResponse)() Where r.IdPerson.Equals(idUser) AndAlso r.IdQuestionnnaire.Equals(idQuestionnaire) _
-                        AndAlso (idInvitedUser.Equals(0) OrElse (r.IdInvitedUser.HasValue AndAlso r.IdInvitedUser.Value.Equals(idInvitedUser))) Select r).ToList().OrderByDescending(Function(r) r.Id).ToList()
+                    'Dim answers As List(Of LazyUserResponse) = (
+                    '    From r In Manager.GetIQ(Of LazyUserResponse)()
+                    '    Where r.IdPerson.Equals(idUser) _
+                    '        AndAlso r.IdQuestionnnaire.Equals(idQuestionnaire) _
+                    '        AndAlso (idInvitedUser.Equals(0) _
+                    '        OrElse (r.IdInvitedUser.HasValue AndAlso r.IdInvitedUser.Value.Equals(idInvitedUser))
+                    '        )
+                    '    Select r).ToList().OrderByDescending(Function(r) r.Id).ToList()
+
+
+                    'Dim answers As List(Of LazyUserResponse) = (
+                    '    From r In Manager.GetIQ(Of LazyUserResponse)()
+                    '    Where r.IdPerson.Equals(idUser) _
+                    '        AndAlso r.IdQuestionnnaire.Equals(idQuestionnaire) _
+                    '        AndAlso (r.IdInvitedUser.HasValue AndAlso r.IdInvitedUser = 0) _
+                    '        OrElse (r.IdInvitedUser.HasValue AndAlso r.IdInvitedUser = idInvitedUser)
+                    '    Select r).ToList().OrderByDescending(Function(r) r.Id).ToList()
+
+                    Dim zero As Integer = 0
+
+                    Dim answers As List(Of LazyUserResponse) = (
+                        From r In Manager.GetIQ(Of LazyUserResponse)()
+                        Where r.IdPerson.Equals(idUser) _
+                            AndAlso r.IdQuestionnnaire.Equals(idQuestionnaire)
+                        Select r).ToList()
+
+                    'Try
+                    '    answers = answers.Where(Function(a) a.IdInvitedUser = 0 OrElse a.IdInvitedUser = idInvitedUser).ToList()
+                    'Catch ex As Exception
+
+                    'End Try
+
+                    If (idInvitedUser > 0) Then
+                        Try
+                            answers = answers.Where(Function(a) a.IdInvitedUser.Equals(idInvitedUser)).ToList()
+                        Catch ex As Exception
+
+                        End Try
+                    Else
+                        Try
+                            answers = answers.Where(Function(a) Not a.IdInvitedUser.HasValue OrElse a.IdInvitedUser.Equals(zero)).ToList()
+                        Catch ex As Exception
+
+                        End Try
+                    End If
+
+
+                    'AndAlso ()
+
+                    If Not IsNothing(answers) Then
+                        answers = answers.OrderByDescending(Function(r) r.Id).ToList()
+                    End If
+
+
                     Dim answer As LazyUserResponse = Nothing
                     If idCurrentAnswer = 0 Then
                         idCurrentAnswer = answers.Select(Function(a) a.Id).FirstOrDefault()

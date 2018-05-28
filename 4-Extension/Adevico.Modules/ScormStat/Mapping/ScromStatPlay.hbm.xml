@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+                   assembly="Adevico.Modules" 
+                   namespace="Adevico.Modules.ScormStat.Domain">
+    <class name="Adevico.Modules.ScormStat.Domain.ScormStatPlay" table="FR_ScormUserPackageEvaluation" >
+
+        <id name="Id" column="Id" type="Int64">
+            <generator class="native"/>
+        </id>
+
+        <property name="PersonId" type="Int32" column="IdPerson" />
+        <property name="FileId" column="IdItem" type="Int64" />
+        <property name="VersionId" column="IdVersion" type="Int64" />
+
+        <property name="AlreadyCompleted" type="Boolean" column="AlreadyCompleted" />
+
+        <property name="IsCompleted" type="Boolean" column="PackageIsCompleted" />
+        <property name="IsCalculated" type="Boolean" column="IsCalculated" />
+        
+        <property name="Status" type="lm.Comol.Core.FileRepository.Domain.PackageStatus,lm.Comol.Core.DomainModel" column="PackageStatus" />
+        <property name="PercCompletion" type="Int32" column="PackageCompletion" />
+
+        <property name="EndPlayOn" type="DateTime" column="EndPlayOn" not-null="false" />
+
+        <property name="PlayScore" column="PackageUserScore" />
+
+        <property name="PlayTime" column="PackageUserTime" />
+
+        <property name="ActivitiesDone" column="PackageActivitiesDone" />
+
+        <many-to-one name="Settings" class="Adevico.Modules.ScormStat.Domain.ScormStatFilterSettings,Adevico.Modules" column="PackageIdSettings" foreign-key="PackageIdSettings"/>
+
+        <property name="LessonStatus" type="lm.Comol.Core.FileRepository.Domain.ScormStatus,lm.Comol.Core.DomainModel" column="PackageScormStatus" />
+    </class>
+</hibernate-mapping>

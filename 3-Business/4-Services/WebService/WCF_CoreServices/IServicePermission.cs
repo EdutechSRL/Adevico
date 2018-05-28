@@ -116,6 +116,8 @@ namespace WCF_CoreServices
         [OperationContract]
         List<dtoItemEvaluation<long>> GetPendingEvaluationsForExternal(List<long> linksId, int idUser, Dictionary<String, long> moduleUserLong, Dictionary<String, String> moduleUserString);
 
+        //[OperationContract]
+        //bool IsFederationPerson(int idCommunity, int idUser);
         [OperationContract]
         void PhisicalDeleteCommunity(String serviceCode,int idCommunity, int idUser);
 
@@ -127,5 +129,28 @@ namespace WCF_CoreServices
         //Boolean RemoveInternalObject();
         //[OperationContract]
         //dtoEvaluation EvaluateAction(ModuleObject source, ModuleObject destination, int UserID);
+
+
+        /// <summary>
+        /// Check Community Federation
+        /// </summary>
+        /// <param name="communityId"></param>
+        /// <returns></returns>
+        [OperationContract]
+        lm.Comol.Core.BaseModules.Federation.Enums.FederationType FederationCommunityCheck(
+            int communityId);
+
+        /// <summary>
+        /// Check if User is Federated
+        /// </summary>
+        /// <param name="communityId"></param>
+        /// <param name="userId"></param>
+        /// <param name="externlUrl"></param>
+        /// <returns></returns>
+        [OperationContract]
+        lm.Comol.Core.BaseModules.Federation.Enums.FederationResult FederationUserCheck(
+            int communityId, 
+            int userId,
+            string externlUrl);
     }
 }

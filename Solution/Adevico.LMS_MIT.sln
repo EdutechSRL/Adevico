@@ -215,6 +215,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AdevicoWeb", "..\1-WebAppli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lm.Comol.Modules.Faq", "..\3-Business\3-Modules\lm.Comol.Modules.Faq\lm.Comol.Modules.Faq.csproj", "{8200A697-10D2-4BDE-8C63-085A9FBE2586}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMSAPI", "..\1-WebApplication\LMSAPI\LMSAPI.csproj", "{3A92B038-3FE8-42E5-9A2F-AF3EB5F60042}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -513,6 +515,10 @@ Global
 		{8200A697-10D2-4BDE-8C63-085A9FBE2586}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8200A697-10D2-4BDE-8C63-085A9FBE2586}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8200A697-10D2-4BDE-8C63-085A9FBE2586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A92B038-3FE8-42E5-9A2F-AF3EB5F60042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A92B038-3FE8-42E5-9A2F-AF3EB5F60042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A92B038-3FE8-42E5-9A2F-AF3EB5F60042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A92B038-3FE8-42E5-9A2F-AF3EB5F60042}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -607,6 +613,7 @@ Global
 		{BAE14539-67D2-4007-9E9E-9D20C2A9E69B} = {12AA291A-43D5-446F-9147-C70D78E0B555}
 		{AB001D0E-4EA0-486F-8D69-4DB55D22BF95} = {2C254DB2-9D3A-4063-A87A-5068E8BB8607}
 		{8200A697-10D2-4BDE-8C63-085A9FBE2586} = {8D298A22-BA96-4089-B090-D0362459EBC3}
+		{3A92B038-3FE8-42E5-9A2F-AF3EB5F60042} = {2C254DB2-9D3A-4063-A87A-5068E8BB8607}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BD60DE23-8BC5-488C-A384-6E680B492B18}

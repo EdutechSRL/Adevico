@@ -49,6 +49,62 @@ Public Class DALQuestionario
             Return s.CalculateComplation(idQuestionnaire, idUser, idResponse)
         End If
     End Function
+
+    Public Shared Function CalculateComplationRandomId(appContext As iApplicationContext, idQuestionnaire As Integer, idUser As Integer, idAttempt As Integer) As dtoItemEvaluation(Of Long)
+        Dim s As ServiceQuestionnaire = GetService(appContext)
+        If IsNothing(s) Then
+            Return Nothing
+        Else
+
+            Dim lurId As Integer = TestRandom(idQuestionnaire, idUser, idAttempt)
+
+            Return s.CalculateComplation(idQuestionnaire, idUser, lurId)
+        End If
+    End Function
+
+    Private Shared Function TestRandom(idQuest As Integer, idUser As Integer, idRandom As Integer) As Integer
+        Dim db As Database = DatabaseFactory.CreateDatabase()
+        Dim connection As DbConnection = db.CreateConnection()
+        Dim lurId As Integer = 0
+
+        Try
+            Using connection
+                connection.Open()
+                Dim sqlCommand As String = "sp_Questionario_LazyUserResponseGET"
+                Dim dbCommand As DbCommand = db.GetStoredProcCommand(sqlCommand)
+                dbCommand.CommandTimeout = 1200
+                dbCommand.Connection = connection
+
+                db.AddInParameter(dbCommand, "idQuest", DbType.Int32, idQuest)
+                db.AddInParameter(dbCommand, "idUser", DbType.Int32, idUser)
+                db.AddInParameter(dbCommand, "idRandom", DbType.Int32, idRandom)
+
+                Using sqlReader As IDataReader = db.ExecuteReader(dbCommand)
+                    While sqlReader.Read()
+
+                        lurId = isNullInt(sqlReader.Item("QSTN_Id"))
+                    End While
+                    sqlReader.Close()
+                End Using
+                connection.Close()
+            End Using
+        Catch ex As Exception
+
+        End Try
+
+        Return lurId
+    End Function
+
+    'Public Shared Function CalculateComplationAttempt(appContext As iApplicationContext, idQuestionnaire As Integer, idUser As Integer, idAttempt As Integer) As dtoItemEvaluation(Of Long)
+    '    Dim s As ServiceQuestionnaire = GetService(appContext)
+    '    If IsNothing(s) Then
+    '        Return Nothing
+    '    Else
+    '        Return s.CalculateComplation(idQuestionnaire, idUser, idAttempt, True)
+    '    End If
+    'End Function
+
+
     Private Shared Function SaveRepeatSettings(appContext As iApplicationContext, ByVal idQuestionnaire As Integer, minScore As Integer, maxAttempts As Integer, displayScoreToUser As Boolean, displayAttemptScoreToUser As Boolean, displayAvailableAttempts As Boolean, displayResultsStatus As Boolean, displayCurrentAttempts As Boolean) As Boolean
         Dim s As ServiceQuestionnaire = GetService(appContext)
         If IsNothing(s) Then

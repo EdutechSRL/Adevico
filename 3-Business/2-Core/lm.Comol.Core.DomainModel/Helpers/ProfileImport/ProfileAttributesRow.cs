@@ -55,8 +55,11 @@ namespace lm.Comol.Core.DomainModel.Helpers
             AllowImport = true;
         }
 
-        public Boolean isValid() {
-            return Cells.Where(c => c.isValid).Count() == Cells.Count();
+        public Boolean isValid()
+        {
+            int validItems = Cells.Where(c => c.isValid).Count();
+
+            return validItems == Cells.Count();
         }
 
         public ProfileAttributeCell GetCell(ProfileAttributeColumn column)
@@ -82,5 +85,9 @@ namespace lm.Comol.Core.DomainModel.Helpers
             else
                 return new KeyValuePair<long, String>(cell.InternallLongValue,cell.DisplayValue);
         }
+
+        public virtual int UserID { get; set; }
+        public virtual bool IsUserIdMulpleInRow { get; set; }
+        public virtual bool IsUserDuplicatedImport { get; set; }
     }
 }

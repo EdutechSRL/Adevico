@@ -145,6 +145,8 @@ Public Class UC_AddAction
             .setButton(BTNselectActionBottom, True)
             .setButton(BTNcreateActionBottom, True)
             .setLiteral(LTcurrentAction)
+
+            .setLabel(LBsubActWebinar)
         End With
     End Sub
 #End Region
@@ -436,4 +438,53 @@ Public Class UC_AddAction
             End If
         End If
     End Sub
+
+#Region "Webinar"
+
+
+    Private Sub BTNaddWebinarAction_Click(sender As Object, e As EventArgs) Handles BTNaddWebinarAction.Click
+        '
+
+        Me.MLVaddSubActivity.SetActiveView(Me.VIWwebinarAction)
+        Me.LTcurrentAction.Text = Resource.getValue("Selected.WebinarAction")
+
+        BTNselectActionTop.Visible = True
+        BTNselectActionBottom.Visible = True
+
+        Me.BTNcreateActionBottom.Visible = False
+        Me.BTNcreateActionTop.Visible = False
+
+        BTNcloseAddActionWindowTop.Visible = True
+        BTNcloseAddActionWindowBottom.Visible = True
+
+        Me.CTRLwebinarAction.InitUc()
+
+    End Sub
+
+    Private Sub CTRLwebinarAction_LinkedModuleObjects(ByVal link As lm.Comol.Core.DomainModel.ModuleLink) Handles CTRLwebinarAction.LinkedModuleObjects
+        Try
+
+            Dim oSubActivity As New SubActivity
+
+            oSubActivity.CreatedOn = Now
+            oSubActivity.IdObjectLong = link.DestinationItem.ObjectLongID
+            oSubActivity.IdModuleAction = link.Action
+            oSubActivity.Description = link.Description
+            oSubActivity.Link = link.Link
+            oSubActivity.ContentPermission = link.Permission
+            oSubActivity.Name = ""
+            oSubActivity.IdModule = link.DestinationItem.ServiceID
+            oSubActivity.CodeModule = link.DestinationItem.ServiceCode
+            oSubActivity.ContentType = SubActivityType.Webinar
+            Dim ModuleID As Long = PageUtility.GetModuleID(COL_BusinessLogic_v2.UCServices.Services_EduPath.Codex)
+
+            'ToDo: prima controllo che tutto sia ok...
+            Dim Inserted As SubActivity = ServiceEP.SaveOrUpdateSubActivity(oSubActivity, link, ModuleID, COL_BusinessLogic_v2.UCServices.Services_EduPath.Codex, IdActionActivity, IdActionCommunity, PageUtility.CurrentContext.UserContext.CurrentUserID, OLDpageUtility.ProxyIPadress, OLDpageUtility.ClientIPadress)
+        Catch ex As Exception
+
+        End Try
+        'PageUtility.RedirectToUrl(RootObject.ViewActivity(IdActionActivity, IdActionUnit, IdActionPath, IdActionCommunity, EpViewModeType.Manage))
+        PageUtility.RedirectToUrl(RootObject.ViewActivity(IdActionActivity, IdActionUnit, IdActionPath, IdActionCommunity, EpViewModeType.Manage, IsMoocPath, IsFromReadonly))
+    End Sub
+#End Region
 End Class

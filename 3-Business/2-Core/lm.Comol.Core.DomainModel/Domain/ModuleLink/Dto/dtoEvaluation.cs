@@ -18,6 +18,8 @@ namespace lm.Comol.Core.DomainModel
         public virtual Boolean isPassed { get; set; }
         [DataMember]
         public virtual Int16 Mark { get; set; }
+        [DataMember]
+        public virtual bool AlreadyCompleted { get; set; }
         public dtoEvaluation()
         {
             isStarted = false;
@@ -25,6 +27,7 @@ namespace lm.Comol.Core.DomainModel
             isCompleted = false;
             Completion = 0;
             Mark = 0;
+            AlreadyCompleted = false;
         }
     }
 }

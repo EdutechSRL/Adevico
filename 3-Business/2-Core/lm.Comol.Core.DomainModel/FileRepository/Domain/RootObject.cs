@@ -160,14 +160,15 @@ namespace lm.Comol.Core.FileRepository.Domain
             private static String DownloadUrl(String baseUrl, long idItem, long idVersion, String name, String workingSessionId = "", String newsGuid = "", long idModule = -1, long idLink = -1)
             {
                 String url = baseUrl + idItem.ToString() + "/" + idVersion.ToString()
-                  + "/" + SanitizeFileName(name) + ".download" + GetDownloadQuery(workingSessionId, newsGuid, idModule, idLink);
+                  + "/file.download" + GetDownloadQuery(workingSessionId, newsGuid, idModule, idLink); /*" + SanitizeFileName(name) + "*/
 
                 return url;
                 //return baseUrl + idItem.ToString() + "/" + idVersion.ToString() + "/" + (String.IsNullOrEmpty(newsGuid) ? "0" : newsGuid)
                 //    + "/" + idModule.ToString() + "/" + idLink.ToString()
                 //    +"/" + System.Web.HttpUtility.UrlPathEncode(name) + "/Download/";
             }
-
+            
+            /*
             private static string SanitizeFileName(string name)
             {
                 name = name.Replace("&", "-");
@@ -178,7 +179,7 @@ namespace lm.Comol.Core.FileRepository.Domain
                 name = name.Replace(":", "-");
                 name = name.Replace("\\", "-");
                 return System.Web.HttpUtility.UrlPathEncode(name);
-            }
+            }*/
 
             public static string DownloadFromModule(String baseUrl, long idItem, long idVersion, String name, DisplayMode mode,String workingSessionId, long idModule, long idLink, Boolean notSaveStat, Boolean? setPrevious = null, String backUrl = "")
             {

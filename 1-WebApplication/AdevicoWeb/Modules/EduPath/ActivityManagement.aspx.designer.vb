@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class ActivityManagement
-
+    
     '''<summary>
     '''MLVactivityCreate control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents MLVactivityCreate As Global.System.Web.UI.WebControls.MultiView
-
+    
     '''<summary>
     '''VIWcreateActivity control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents VIWcreateActivity As Global.System.Web.UI.WebControls.View
-
+    
     '''<summary>
     '''CTRLmoduleStatusMessage control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLmoduleStatusMessage As Global.Comunita_OnLine.UC_ActionMessages
-
+    
     '''<summary>
     '''WZRactivityCreate control.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents WZRactivityCreate As Global.System.Web.UI.WebControls.Wizard
-
+    
     '''<summary>
     '''WSTdata control.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents WSTdata As Global.System.Web.UI.WebControls.WizardStep
-
+    
     '''<summary>
     '''LBdetailTitle control.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBdetailTitle As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''LBnameTitle control.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBnameTitle As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''TXBname control.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TXBname As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RFVname control.
     '''</summary>
@@ -93,7 +93,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RFVname As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''LBdescriptionTitle control.
     '''</summary>
@@ -102,7 +102,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBdescriptionTitle As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''CTRLeditorDescription control.
     '''</summary>
@@ -111,7 +111,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLeditorDescription As Global.Comunita_OnLine.UC_Editor
-
+    
     '''<summary>
     '''DIVtype control.
     '''</summary>
@@ -120,7 +120,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DIVtype As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''LBtypeTitle control.
     '''</summary>
@@ -129,7 +129,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBtypeTitle As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''DDLtype control.
     '''</summary>
@@ -138,7 +138,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DDLtype As Global.System.Web.UI.WebControls.DropDownList
-
+    
     '''<summary>
     '''DIVcompletion control.
     '''</summary>
@@ -147,7 +147,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DIVcompletion As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''LBminCompletionTitle control.
     '''</summary>
@@ -156,7 +156,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBminCompletionTitle As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''TXBminCompletion control.
     '''</summary>
@@ -165,7 +165,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TXBminCompletion As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RNVminCompletion control.
     '''</summary>
@@ -174,7 +174,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RNVminCompletion As Global.System.Web.UI.WebControls.RangeValidator
-
+    
     '''<summary>
     '''COVminCompletion control.
     '''</summary>
@@ -183,7 +183,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents COVminCompletion As Global.System.Web.UI.WebControls.CompareValidator
-
+    
     '''<summary>
     '''RFVminCompl control.
     '''</summary>
@@ -192,7 +192,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RFVminCompl As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''LBminMark control.
     '''</summary>
@@ -201,7 +201,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBminMark As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''TXBminMark control.
     '''</summary>
@@ -210,7 +210,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TXBminMark As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RNVminMark control.
     '''</summary>
@@ -219,7 +219,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RNVminMark As Global.System.Web.UI.WebControls.RangeValidator
-
+    
     '''<summary>
     '''COVminMark control.
     '''</summary>
@@ -228,7 +228,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents COVminMark As Global.System.Web.UI.WebControls.CompareValidator
-
+    
     '''<summary>
     '''RFVminMark control.
     '''</summary>
@@ -237,7 +237,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RFVminMark As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''LBweight control.
     '''</summary>
@@ -246,7 +246,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBweight As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''TXBweight control.
     '''</summary>
@@ -255,7 +255,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TXBweight As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''LBpoints control.
     '''</summary>
@@ -264,7 +264,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBpoints As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''RNVweight control.
     '''</summary>
@@ -273,7 +273,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RNVweight As Global.System.Web.UI.WebControls.RangeValidator
-
+    
     '''<summary>
     '''COVweight control.
     '''</summary>
@@ -282,7 +282,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents COVweight As Global.System.Web.UI.WebControls.CompareValidator
-
+    
     '''<summary>
     '''RFVweight control.
     '''</summary>
@@ -291,7 +291,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RFVweight As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''DIVtime control.
     '''</summary>
@@ -300,7 +300,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DIVtime As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''LBhours control.
     '''</summary>
@@ -309,7 +309,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBhours As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''AjaxPanel1 control.
     '''</summary>
@@ -318,7 +318,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents AjaxPanel1 As Global.Telerik.Web.UI.RadAjaxPanel
-
+    
     '''<summary>
     '''TXBhours control.
     '''</summary>
@@ -327,7 +327,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TXBhours As Global.Telerik.Web.UI.RadNumericTextBox
-
+    
     '''<summary>
     '''TXBmins control.
     '''</summary>
@@ -336,7 +336,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TXBmins As Global.Telerik.Web.UI.RadNumericTextBox
-
+    
     '''<summary>
     '''RadAjaxManager1 control.
     '''</summary>
@@ -345,7 +345,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RadAjaxManager1 As Global.Telerik.Web.UI.RadAjaxManager
-
+    
     '''<summary>
     '''CKBvisibilityAct control.
     '''</summary>
@@ -354,7 +354,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CKBvisibilityAct As Global.System.Web.UI.WebControls.CheckBox
-
+    
     '''<summary>
     '''CKBmandatoryAct control.
     '''</summary>
@@ -363,7 +363,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CKBmandatoryAct As Global.System.Web.UI.WebControls.CheckBox
-
+    
     '''<summary>
     '''CKBstartDate control.
     '''</summary>
@@ -372,7 +372,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CKBstartDate As Global.System.Web.UI.WebControls.CheckBox
-
+    
     '''<summary>
     '''RDPstartDate control.
     '''</summary>
@@ -381,7 +381,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RDPstartDate As Global.Telerik.Web.UI.RadDatePicker
-
+    
     '''<summary>
     '''CompareValidator1 control.
     '''</summary>
@@ -390,7 +390,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CompareValidator1 As Global.System.Web.UI.WebControls.CompareValidator
-
+    
     '''<summary>
     '''LBerroStartDate control.
     '''</summary>
@@ -399,7 +399,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBerroStartDate As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''CKBendDate control.
     '''</summary>
@@ -408,7 +408,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CKBendDate As Global.System.Web.UI.WebControls.CheckBox
-
+    
     '''<summary>
     '''RDPendDate control.
     '''</summary>
@@ -417,7 +417,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RDPendDate As Global.Telerik.Web.UI.RadDatePicker
-
+    
     '''<summary>
     '''LBerrorEndDate control.
     '''</summary>
@@ -426,7 +426,34 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBerrorEndDate As Global.System.Web.UI.WebControls.Label
-
+    
+    '''<summary>
+    '''DVmultiLang control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DVmultiLang As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''LBLmultiLang_t control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LBLmultiLang_t As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''RBLtype control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RBLtype As Global.System.Web.UI.WebControls.RadioButtonList
+    
     '''<summary>
     '''LBadvanced control.
     '''</summary>
@@ -435,7 +462,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBadvanced As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''LBcroleSummary control.
     '''</summary>
@@ -444,7 +471,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBcroleSummary As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''RPcroleSummary control.
     '''</summary>
@@ -453,7 +480,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RPcroleSummary As Global.System.Web.UI.WebControls.Repeater
-
+    
     '''<summary>
     '''LBpersonSummary control.
     '''</summary>
@@ -462,7 +489,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBpersonSummary As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''RPpersonSummary control.
     '''</summary>
@@ -471,7 +498,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RPpersonSummary As Global.System.Web.UI.WebControls.Repeater
-
+    
     '''<summary>
     '''WSTselectPermission control.
     '''</summary>
@@ -480,7 +507,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents WSTselectPermission As Global.System.Web.UI.WebControls.WizardStep
-
+    
     '''<summary>
     '''LBpermissionTitle control.
     '''</summary>
@@ -489,7 +516,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBpermissionTitle As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''BTNselectPerson control.
     '''</summary>
@@ -498,7 +525,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents BTNselectPerson As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''DIVcrolePermission control.
     '''</summary>
@@ -507,7 +534,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DIVcrolePermission As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''LBcrolePermission control.
     '''</summary>
@@ -516,7 +543,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBcrolePermission As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''LBcrolePermissionNoAss control.
     '''</summary>
@@ -525,7 +552,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBcrolePermissionNoAss As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''RPcrolePermission control.
     '''</summary>
@@ -534,7 +561,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RPcrolePermission As Global.System.Web.UI.WebControls.Repeater
-
+    
     '''<summary>
     '''DIVpersonPermission control.
     '''</summary>
@@ -543,7 +570,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DIVpersonPermission As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''LBpersonPermission control.
     '''</summary>
@@ -552,7 +579,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBpersonPermission As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''LBpersonPermissionNoAss control.
     '''</summary>
@@ -561,7 +588,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBpersonPermissionNoAss As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''RPuserPermission control.
     '''</summary>
@@ -570,7 +597,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RPuserPermission As Global.System.Web.UI.WebControls.Repeater
-
+    
     '''<summary>
     '''WSTselectUser control.
     '''</summary>
@@ -579,7 +606,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents WSTselectUser As Global.System.Web.UI.WebControls.WizardStep
-
+    
     '''<summary>
     '''LBuserTitle control.
     '''</summary>
@@ -588,7 +615,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBuserTitle As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''CTRLselectUser control.
     '''</summary>
@@ -597,7 +624,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLselectUser As Global.Comunita_OnLine.UC_SearchUserByCommunities
-
+    
     '''<summary>
     '''VIWerror control.
     '''</summary>
@@ -606,7 +633,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents VIWerror As Global.System.Web.UI.WebControls.View
-
+    
     '''<summary>
     '''BTNerror control.
     '''</summary>
@@ -615,7 +642,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents BTNerror As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''CTRLerrorMessage control.
     '''</summary>
@@ -624,7 +651,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLerrorMessage As Global.Comunita_OnLine.UC_ActionMessages
-
+    
     '''<summary>
     '''VIWmessages control.
     '''</summary>
@@ -633,7 +660,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents VIWmessages As Global.System.Web.UI.WebControls.View
-
+    
     '''<summary>
     '''CTRLmessages control.
     '''</summary>
@@ -642,7 +669,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLmessages As Global.Comunita_OnLine.UC_ActionMessages
-
+    
     '''<summary>
     '''CTRLhelpRole control.
     '''</summary>
@@ -651,7 +678,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLhelpRole As Global.Comunita_OnLine.UC_HelpEpRole
-
+    
     '''<summary>
     '''CTRLhelpVisibility control.
     '''</summary>
@@ -660,7 +687,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLhelpVisibility As Global.Comunita_OnLine.UC_HelpVisibility
-
+    
     '''<summary>
     '''LbMincompletionHelp control.
     '''</summary>
@@ -669,7 +696,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LbMincompletionHelp As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''LbWeightManHelp control.
     '''</summary>
@@ -678,7 +705,16 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LbWeightManHelp As Global.System.Web.UI.WebControls.Label
-
+    
+    '''<summary>
+    '''LbtypeMan control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LbtypeMan As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
     '''LBpermissionHelpAct control.
     '''</summary>
@@ -687,7 +723,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBpermissionHelpAct As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''LBselectPermHelpAct control.
     '''</summary>
@@ -696,7 +732,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBselectPermHelpAct As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''LBmarkHelpAct control.
     '''</summary>
@@ -705,7 +741,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBmarkHelpAct As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''LBweightHelpAct control.
     '''</summary>
@@ -714,7 +750,7 @@ Partial Public Class ActivityManagement
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBweightHelpAct As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''Master property.
     '''</summary>
@@ -723,7 +759,7 @@ Partial Public Class ActivityManagement
     '''</remarks>
     Public Shadows ReadOnly Property Master() As Comunita_OnLine.AjaxPortal
         Get
-            Return CType(MyBase.Master, Comunita_OnLine.AjaxPortal)
+            Return CType(MyBase.Master,Comunita_OnLine.AjaxPortal)
         End Get
     End Property
 End Class

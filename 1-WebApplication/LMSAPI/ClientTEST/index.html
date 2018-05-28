@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Test Web API</title>
+		<link rel="stylesheet" href="css/style.css" />
+
+        <script src="Resources/frontendFrameworks/js/jquery.min.js"></script>
+        <link href="Resources/frontendFrameworks/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="Resources/frontendFrameworks/js/bootstrap.min.js"></script>
+
+        <script src="Resources/frontendFrameworks/js/angular.min.js"></script>
+        <script src="scripts/statScorm/Utils.js"></script>
+        <script src="scripts/webApiTest/appWebApiTest.js"></script>
+	</head>
+	<body>
+		<div style="height:185px;"></div>
+		<div id="container" class="page-width">
+			<div id="serviceinfo" class="RigaTitolo serviceinfo" style="height:auto;">
+				<span id="LBtitolo">Test Web API</span>
+			</div>
+			<div id="content" ng-app="appWebApiTest" ng-controller="MasterCtrl">
+			    <div class="DIV_MP_Content">
+			        <div>
+			            <a href="./../Help" target="_blank">Web API Help</a>
+			        </div>
+			        <div id="divMatsterStatScrom" class="clearfix" style="background-color: white;">
+			            <div class="col-md-6 form-group">
+			                <label>Token</label><input class="form-control" type="text" ng-model="Token"/>
+			            </div>
+			            <div class="col-md-6 form-group">
+			                <label>Device Id</label><input class="form-control" type="text" ng-model="DeviceId"/>
+			            </div>
+			            <div class="col-md-6 form-group">
+			                <label>Comunity Id</label><input class="form-control" type="text" ng-model="CommunityId"/>
+			            </div>
+			            <div class="col-md-6 form-group">
+			                <label>Data</label><input class="form-control" type="text" ng-model="Data"/>
+			            </div>
+			            <div class="col-md-6 form-group">
+			                <label>URL</label>
+			                <select ng-model="RootPathWebApiTemp" class="form-control" ng-change="changeRootUrl()">
+			                    <option value="">Custom</option>
+			                    <option ng-repeat="url in ListaUrlWebApi" value="{{url}}">{{url}}</option>
+			                </select><br/>
+			                <input ng-show="RootPathWebApiTemp == ''" class="form-control" type="text" ng-model="RootPathWebApi"/>
+			            </div>
+			            <div class="col-md-6 form-group">
+			                <label>Web API name</label>
+			                <select ng-model="WebApiNameTemp" class="form-control" ng-change="changeApiName()">
+			                    <option value="">Custom</option>
+			                    <option ng-repeat="apiName in ListaWebApiName" value="{{apiName}}">{{apiName}}</option>
+			                </select><br/>
+			                <input ng-show="WebApiNameTemp == ''" class="form-control" type="text" ng-model="WebApiName"/>
+			            </div>
+			            <div class="col-md-6 form-group">
+			                <label>Headers</label><input class="form-control" type="text" ng-model="Headers"/>
+			            </div>
+			            <div class="col-md-6 form-group">
+			                <label>Method</label><input class="form-control" type="text" ng-model="Method"/>
+			            </div>
+			            <div class="col-md-6 form-group">
+			                <label>Params</label><input class="form-control" type="text" ng-model="Params"/>
+			            </div>
+			            <div class="col-md-12 form-group form-inline">
+			                <label>Loading</label>&nbsp;<b class="btn {{loadingEntities ? 'btn-success' : 'btn-danger'}}"></b>
+			            </div>
+			            <div class="col-md-12">
+			                <pre>
+                                {{Response}}
+                            </pre>
+			            </div>
+			            <div class="col-md-12">
+			                <b class="btn btn-primary pull-right" ng-click="CheckEntityUpdates()">GO!</b>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+		</div>
+
+        
+	</body>
+</html>

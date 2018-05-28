@@ -115,20 +115,20 @@ namespace lm.Comol.Core.DomainModel.DocTemplateVers.Business
                         SourceVersion = (from TemplateVersion tvs in SourceTempl.Versions
                                          where !tvs.IsDraft && tvs.IsActive
                                          orderby tvs.ModifiedOn
-                                         select tvs).FirstOrDefault();
+                                         select tvs).LastOrDefault();
                     }
                     else if (SourceTempl.HasDefinitive) //Ultima DEPRECATA
                     {
                         SourceVersion = (from TemplateVersion tvs in SourceTempl.Versions
                                          where !tvs.IsDraft
                                          orderby tvs.ModifiedOn
-                                         select tvs).FirstOrDefault();
+                                         select tvs).LastOrDefault();
                     }
                     else        //Ultima DRAFT
                     {
                         SourceVersion = (from TemplateVersion tvs in SourceTempl.Versions
                                          orderby tvs.ModifiedOn
-                                         select tvs).FirstOrDefault();
+                                         select tvs).LastOrDefault();
                     }
                 }
 

@@ -10,7 +10,15 @@ Public Class UserStatistics
     Inherits EPpageBaseEduPath
 
 #Region "Internal TEmp"
-
+    Private _serviceScorm As lm.Comol.Modules.ScormStat.Business.ScormService
+    Private ReadOnly Property ServiceScorm As lm.Comol.Modules.ScormStat.Business.ScormService
+        Get
+            If IsNothing(_serviceScorm) Then
+                _serviceScorm = New lm.Comol.Modules.ScormStat.Business.ScormService(PageUtility.CurrentContext, SessionHelpers.GetIcodeonSession(SystemSettings.Icodeon.MappingPath))
+            End If
+            Return _serviceScorm
+        End Get
+    End Property
     Private _ServiceQuestionnaire As COL_Questionario.Business.ServiceQuestionnaire
     Private ReadOnly Property ServiceQuestionnaire() As COL_Questionario.Business.ServiceQuestionnaire
         Get
@@ -1150,7 +1158,13 @@ Public Class UserStatistics
                     Else
                         weight = " (" & dtoItem.SubActivity.Weight & "pt)"
                     End If
-                    initializer.PlaceHolders.Add(New lm.Comol.Core.ModuleLinks.dtoPlaceHolder() With {.Text = weight, .Type = lm.Comol.Core.ModuleLinks.PlaceHolderType.three, .CssClass = "duration"})
+
+                    initializer.PlaceHolders.Add(
+                        New lm.Comol.Core.ModuleLinks.dtoPlaceHolder() With {
+                            .Text = weight,
+                            .Type = lm.Comol.Core.ModuleLinks.PlaceHolderType.three,
+                            .CssClass = "duration"}
+                        )
                 End If
 
                 initializer.ContainerCSS = SubActivityCssClass(dtoItem.SubActivity)
@@ -1229,6 +1243,42 @@ Public Class UserStatistics
 
 
                         End If
+                    Case SubActivityType.Webinar
+
+                        Dim oDisplayAction As lm.Comol.Modules.EduPath.Presentation.IViewModuleTextAction = e.Item.FindControl("CTRLtextAction")
+                        e.Item.FindControl("CTRLtextAction").Visible = True
+                        oDisplayAction.RefreshContainer = True
+                        Dim WebinarId As Int64 = dtoItem.SubActivity.IdObject
+                        Dim WebinarName As String = ""
+
+                        Try
+                            WebinarName = MyBase.ServiceWebinar.SessionGetdB(WebinarId).Name
+                        Catch ex As Exception
+
+                        End Try
+
+                        If Not String.IsNullOrWhiteSpace(WebinarName) Then
+                            dtoItem.SubActivity.Name = WebinarName
+                        End If
+
+
+                        ' DIMENSIONI IMMAGINI
+                        oDisplayAction.IconSize = Helpers.IconSize.Small
+                        oDisplayAction.EnableAnchor = False
+
+                        If dtoItem.isSingle Then
+                            If Not IsNothing(initializer.PlaceHolders) Then
+
+                                Dim ph As lm.Comol.Core.ModuleLinks.dtoPlaceHolder = initializer.PlaceHolders.FirstOrDefault
+                                ph.Text = String.Format("{0} {1}", WebinarName, ph.Text)
+
+                            End If
+                        End If
+
+
+                        oDisplayAction.InitializeControl(initializer)
+
+
                 End Select
                 'Dim oDisplayAction As lm.Comol.Modules.EduPath.Presentation.IViewModuleTextAction = e.Item.FindControl("CTRLtextAction")
 
@@ -1302,17 +1352,24 @@ Public Class UserStatistics
 
                         actions = renderQuizItem.InitializeRemoteControl(UserToViewStat, lm.Comol.Core.ModuleLinks.dtoModuleDisplayActionInitializer.Create(initializer, renderQuizItem.Display, renderQuizItem.ContainerCSS, Helpers.IconSize.Small), StandardActionType.EditMetadata Or StandardActionType.ViewAdvancedStatistics)
                         renderQuizItem.Visible = True
+                    Case SubActivityType.Webinar
+                        '<CTRL:DisplayItem ID="CTRLdisplayItem" runat="server" EnableAnchor="true" DisplayExtraInfo="false" DisplayLinkedBy="false" DisplaySize="false"  Visible="false"/>
+
                 End Select
 
 
                 'oDisplayAction.Display = lm.Comol.Core.ModuleLinks.DisplayActionMode.text
                 Dim actStat = Nothing ' actions.Where(Function(x) x.ControlType = StandardActionType.ViewPersonalStatistics).FirstOrDefault()
-                Select Case Me.ViewModeType
-                    Case EpViewModeType.View
-                        actStat = actions.Where(Function(x) x.ControlType = StandardActionType.ViewPersonalStatistics).FirstOrDefault()
-                    Case EpViewModeType.Manage
-                        actStat = actions.Where(Function(x) x.ControlType = StandardActionType.ViewUserStatistics).FirstOrDefault()
-                End Select
+
+                If Not IsNothing(actions) Then
+                    Select Case Me.ViewModeType
+                        Case EpViewModeType.View
+                            actStat = actions.Where(Function(x) x.ControlType = StandardActionType.ViewPersonalStatistics).FirstOrDefault()
+                        Case EpViewModeType.Manage
+                            actStat = actions.Where(Function(x) x.ControlType = StandardActionType.ViewUserStatistics).FirstOrDefault()
+                    End Select
+                End If
+
 
                 Dim atleaststarted As Boolean = dtoItem.StatusStat <> StatusStatistic.None And dtoItem.StatusStat <> StatusStatistic.Browsed
 
@@ -1337,7 +1394,7 @@ Public Class UserStatistics
                     Dim ohypStat As HyperLink = e.Item.FindControl("HYPstats")
                     Me.Resource.setHyperLink(ohypStat, False, True)
                     ohypStat.Visible = True
-                    ohypStat.NavigateUrl = actStat.LinkUrl & "&RUid=" & UserToViewStat.ToString()
+                    ohypStat.NavigateUrl = actStat.LinkUrl & "&RUid=" & UserToViewStat.ToString() & "&ComId=" & CurrentCommunityID
                 End If
 
            
@@ -1439,9 +1496,19 @@ Public Class UserStatistics
                 oTemplate.Settings = lm.Comol.Core.DomainModel.Helpers.Export.ExportBaseHelper.GetDefaultPageSettings()
                 oTemplate.Settings.Size = DocTemplateVers.PageSize.A4
 
-                'ToDo: Export
-                ShowError(EpError.Generic)
+                Dim doc As iTextSharp5.text.Document
+                If Me.Type <> lm.Comol.Modules.EduPath.Domain.ItemType.SubActivity Then
+                    Dim hPdf As New HelperExportToPdf(New lm.Comol.Core.Business.BaseModuleManager(PageUtility.CurrentContext), HelperExportToPdf.ExportContentType.UserPathStatistics, translations, roleTranslations, oTemplate)
 
+                    doc = hPdf.UserPathStatistics(ServiceEP.ServiceStat, Me.PathID, Type, idUser, CurrentUserId, statistics, TimeStat, settings, ExporPathData.Normal, quizAction, repAction, tAction, cAction, False, clientFileName, Response, New HttpCookie(CookieName, HDNdownloadTokenValue.Value))
+                    'Else
+                    '    oTemplate.Settings.Size = DocTemplateVers.PageSize.A4
+                    '    doc = ServiceEP.ServiceStat.ExportUsersSubActivityStatistics_ToPdf(ItemId, Me.CurrentCommunityID, Me.CHBshowall.Checked, translations, gAction, tAction, cAction, oTemplate, False, clientFileName, Response, New HttpCookie(CookieName, HDNdownloadTokenValue.Value), TimeStat)
+
+                End If
+                If IsNothing(doc) Then
+                    ShowError(EpError.Generic)
+                End If
             Else
                 If Not IsNothing(cookie) Then
                     Response.AppendCookie(cookie)

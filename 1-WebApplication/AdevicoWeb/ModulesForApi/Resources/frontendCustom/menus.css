@@ -1,0 +1,149 @@
+body{
+	color:#333;
+}
+#header{
+	position:relative;
+	z-index:90;
+}
+#page-box{
+	position:relative;
+	z-index:60;
+}
+#cFooter{
+	position:relative;
+	z-index:30;
+}
+.Menu_Disable{
+	display:none !important;
+}
+
+#toolbar:after, #toolbar:before,
+#tools:after, #tools:before,
+#nav-main:after, #nav-main:before {
+    display: table;
+    content: " ";
+    clear: both;
+}
+#container .RigaTitolo {
+    font-size: 30px;
+    color: #333;
+    margin: 12px 0 16px 0;
+}
+/* menu principale */
+#nav-main ul {	
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+	background-color:#fff;
+}
+#nav-main ul#top > li {
+	float:left;
+	position:relative;
+	margin-right:14px;
+    padding: 0;
+}
+
+#nav-main ul#top > li:hover  > div.sub{
+	display:block;	
+}
+#nav-main ul#top > li > div.sub{
+	position:absolute;
+	right:auto;
+	display:none;
+    top: 100%;
+    left: 0;
+}
+#nav-main ul#top > li.admin{
+	float:right;
+}
+#nav-main ul#top > li.admin > div.sub{
+	right:0;
+    left: auto;
+}
+#nav-main ul#top li a {
+	color:#333;
+	white-space: nowrap;
+	display:inline-block;
+	padding: 2px 12px;
+}
+#nav-main ul h2{
+	font-size:20px;
+}
+#nav-main ul#top li .sub ul li span.actions a {
+    background: url(/Graphics/Skin/ED-Edutech/Images/action-ico.png) no-repeat top left;
+    background-position: 0 0;
+	display:inline-block;
+    text-indent: -9999px;
+    width: 17px;
+    height: 17px;
+    padding: 0;	
+    vertical-align: middle;
+}
+#nav-main ul#top li .sub ul li span.actions a.stats {
+    background-position: 0 -264px;
+}
+#nav-main ul#top li .sub ul li span.actions a.new {
+    background-position: 0 -132px;
+}
+#nav-main ul#top li .sub ul li {
+	position:relative;
+    line-height: 17px;
+	white-space:nowrap;
+}
+#nav-main ul#top li .sub ul li  a{
+}
+div#nav-main ul#top li.communitydefaultview a {
+    background: transparent url(./../../../images/DefaultCommand/book16.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+	background-color:#aaa;
+}
+div#nav-main ul#top li.communitydefaultview a span {
+	width:26px;
+    display: inline-block;
+	visibility:hidden;
+	position:relative;
+}
+/* menu tools header */
+#tools > ul{
+	float:right;
+}
+#tools ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+	background-color:#fff;
+}
+#toolbar #tools > ul > li{
+	float:left;
+	position:relative;
+	margin-right:14px;
+    padding: 4px 0;
+}
+#toolbar #tools ul li:hover > ul.sub{
+	display:block;
+}
+
+#toolbar #tools ul li a{
+	color:#333;
+    white-space: nowrap;
+	display:inline-block;
+    padding: 2px 12px;
+}
+#toolbar div#tools ul li > ul.sub{
+	position:absolute;
+	right:auto;
+	display:none;
+    top: 100%;
+    left: 0;
+}
+#toolbar div#tools ul li#Top_Help > ul.sub{
+	right:0;
+    left: auto;
+}
+#header div#toolbar {
+    padding: 0 !important;
+}
+#toolbar div#tools ul li a{
+    margin: 0 !important;
+}

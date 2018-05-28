@@ -46,6 +46,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\</OutputPath>
@@ -548,6 +549,13 @@
     <Compile Include="Comunita\ClonaCorsi.aspx.vb">
       <DependentUpon>ClonaCorsi.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ModulesForApi\VoidApi\VoidAPI.aspx.designer.vb">
+      <DependentUpon>VoidAPI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModulesForApi\VoidApi\VoidAPI.aspx.vb">
+      <DependentUpon>VoidAPI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Modules\CallForPapers\Edit\CallReordering.asmx.vb">
       <DependentUpon>CallReordering.asmx</DependentUpon>
@@ -1200,6 +1208,13 @@
     <Compile Include="Modules\EduPath\PageBase\EPpageBaseEduPath.vb">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Modules\EduPath\PathAdvancedManagement.aspx.designer.vb">
+      <DependentUpon>PathAdvancedManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EduPath\PathAdvancedManagement.aspx.vb">
+      <DependentUpon>PathAdvancedManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Modules\EduPath\PathCertifications.aspx.designer.vb">
       <DependentUpon>PathCertifications.aspx</DependentUpon>
     </Compile>
@@ -1210,6 +1225,13 @@
     <Compile Include="Modules\EduPath\PathForMoocs.asmx.vb">
       <DependentUpon>PathForMoocs.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modules\EduPath\StatisticsManager.aspx.designer.vb">
+      <DependentUpon>StatisticsManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EduPath\StatisticsManager.aspx.vb">
+      <DependentUpon>StatisticsManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Modules\EduPath\UC\UC_AddRepositoryAction.ascx.designer.vb">
       <DependentUpon>UC_AddRepositoryAction.ascx</DependentUpon>
@@ -1230,6 +1252,13 @@
     </Compile>
     <Compile Include="Modules\EduPath\UC\UC_EditCertificationAction.ascx.vb">
       <DependentUpon>UC_EditCertificationAction.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\EduPath\UserActivityStatistics.aspx.designer.vb">
+      <DependentUpon>UserActivityStatistics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EduPath\UserActivityStatistics.aspx.vb">
+      <DependentUpon>UserActivityStatistics.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Modules\FAQ\FAQList.aspx.designer.vb">
@@ -1670,6 +1699,13 @@
     </Compile>
     <Compile Include="Modules\Moocs\ViewActivity.aspx.vb">
       <DependentUpon>ViewActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\PlatformVersion\CurrentVersion.aspx.designer.vb">
+      <DependentUpon>CurrentVersion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\PlatformVersion\CurrentVersion.aspx.vb">
+      <DependentUpon>CurrentVersion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Modules\ProfileManagement\UC\UC_ProfileManagementHeader.ascx.designer.vb">
@@ -5844,6 +5880,59 @@
     <Content Include="Jscript\Modules\Ticket\tickets.js" />
     <Content Include="Jscript\Modules\TileTag\ngtag.js" />
     <Content Include="Jscript\Modules\TileTag\tiletag.js" />
+    <Content Include="ModulesForApi\BachecaSocial\BachecaSocial.aspx" />
+    <Content Include="ModulesForApi\BachecaSocial\css\bachecaSocial.css" />
+    <Content Include="ModulesForApi\BachecaSocial\js\BachecaSocial-IE-compatibility.js" />
+    <Content Include="ModulesForApi\BachecaSocial\js\jQueryWidgetBachecaSocial.js" />
+    <Content Include="ModulesForApi\Moocs\css\statMoocsStats.css" />
+    <Content Include="ModulesForApi\Moocs\js\appMoocsStats.js" />
+    <Content Include="ModulesForApi\Moocs\MoocsStats.aspx" />
+    <Content Include="ModulesForApi\Repository\css\statRepository.css" />
+    <Content Include="ModulesForApi\Repository\js\appStatRepository.js" />
+    <Content Include="ModulesForApi\Repository\RepositoryStats.aspx" />
+    <Content Include="ModulesForApi\Resources\frontendCustom\menus.css" />
+    <Content Include="ModulesForApi\Resources\frontendCustom\Utils.js" />
+    <Content Include="ModulesForApi\Resources\frontendFrameworks\css\bootstrap-theme.min.css" />
+    <Content Include="ModulesForApi\Resources\frontendFrameworks\css\bootstrap.min.css" />
+    <Content Include="ModulesForApi\Resources\frontendFrameworks\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="ModulesForApi\Resources\frontendFrameworks\js\angular.min.js" />
+    <Content Include="ModulesForApi\Resources\frontendFrameworks\js\bootstrap.min.js" />
+    <Content Include="ModulesForApi\Resources\Images\bachecaSocial\annulla.png" />
+    <Content Include="ModulesForApi\Resources\Images\bachecaSocial\foto.png" />
+    <Content Include="ModulesForApi\Resources\Images\bachecaSocial\GPS.png" />
+    <Content Include="ModulesForApi\Resources\Images\bachecaSocial\less.png" />
+    <Content Include="ModulesForApi\Resources\Images\bachecaSocial\newMessage.png" />
+    <Content Include="ModulesForApi\Resources\Images\bachecaSocial\plus.png" />
+    <Content Include="ModulesForApi\Resources\Images\bachecaSocial\send.png" />
+    <Content Include="ModulesForApi\Resources\Images\excel-grey.png" />
+    <Content Include="ModulesForApi\Resources\Images\excel-w.png" />
+    <Content Include="ModulesForApi\Resources\Images\pdf-grey.png" />
+    <Content Include="ModulesForApi\Resources\Images\pdf-w.png" />
+    <Content Include="ModulesForApi\Resources\Images\ppoint-grey.png" />
+    <Content Include="ModulesForApi\Resources\Images\ppoint-w.png" />
+    <Content Include="ModulesForApi\Resources\Images\search-icon.png" />
+    <Content Include="ModulesForApi\Resources\Images\search-w.png" />
+    <Content Include="ModulesForApi\Resources\Images\sfondo.jpg" />
+    <Content Include="ModulesForApi\Resources\Images\statScorm\icoScorm-grey.png" />
+    <Content Include="ModulesForApi\Resources\Images\statScorm\icoScorm-w.png" />
+    <Content Include="ModulesForApi\Resources\Images\users.png" />
+    <Content Include="ModulesForApi\Resources\Images\word-grey.png" />
+    <Content Include="ModulesForApi\Resources\Images\word-w.png" />
+    <Content Include="ModulesForApi\Resources\Images\zip-grey.png" />
+    <Content Include="ModulesForApi\Resources\Images\zip-w.png" />
+    <Content Include="ModulesForApi\Resources\Styles\forIframeRemoveBroder.css" />
+    <Content Include="ModulesForApi\SchedulingTool\SchedulingTool.aspx" />
+    <Content Include="ModulesForApi\Scorm\css\statScorm.css" />
+    <Content Include="ModulesForApi\Scorm\js\appStatScorm.js" />
+    <Content Include="ModulesForApi\Scorm\StatisticheScorm.aspx" />
+    <Content Include="ModulesForApi\Scorm\StatisticheScormClean.aspx" />
+    <Content Include="ModulesForApi\User\css\appUsersManagement.css" />
+    <Content Include="ModulesForApi\User\js\AdvApiServices.js" />
+    <Content Include="ModulesForApi\User\js\appUsersManagement.js" />
+    <Content Include="ModulesForApi\User\UsersManagement.aspx" />
+    <Content Include="ModulesForApi\VoidApi\LocalizationInfo.txt" />
+    <Content Include="ModulesForApi\VoidApi\TestAPI.aspx" />
+    <Content Include="ModulesForApi\VoidApi\VoidAPI.aspx" />
     <Content Include="Modules\CallForPapers\Edit\CallReordering.asmx" />
     <Content Include="Modules\CallForPapers\Edit\EditAttachments.aspx" />
     <Content Include="Modules\CallForPapers\Edit\EditCall.aspx" />
@@ -5943,11 +6032,14 @@
     <Content Include="Modules\EduPath\EPUserCertification.aspx" />
     <Content Include="Modules\EduPath\LoadCertification.aspx" />
     <Content Include="Modules\EduPath\LoadCertificationModal.aspx" />
+    <Content Include="Modules\EduPath\PathAdvancedManagement.aspx" />
     <Content Include="Modules\EduPath\PathCertifications.aspx" />
     <Content Include="Modules\EduPath\PathForMoocs.asmx" />
+    <Content Include="Modules\EduPath\StatisticsManager.aspx" />
     <Content Include="Modules\EduPath\UC\UC_AddRepositoryAction.ascx" />
     <Content Include="Modules\EduPath\UC\UC_CertificationAction.ascx" />
     <Content Include="Modules\EduPath\UC\UC_EditCertificationAction.ascx" />
+    <Content Include="Modules\EduPath\UserActivityStatistics.aspx" />
     <Content Include="Modules\FAQ\Css\Adevico-UI.css" />
     <Content Include="Modules\FAQ\FAQList.aspx" />
     <Content Include="Modules\FAQ\Js\JQuery.Adevico-UI.js" />
@@ -6094,6 +6186,7 @@
     <Content Include="Modules\Moocs\UserStatistics.aspx" />
     <Content Include="Modules\Moocs\Validate.aspx" />
     <Content Include="Modules\Moocs\ViewActivity.aspx" />
+    <Content Include="Modules\PlatformVersion\CurrentVersion.aspx" />
     <Content Include="Modules\ProfileManagement\UC\UC_ProfileManagementHeader.ascx" />
     <Content Include="Modules\ProjectManagement\UC\UC_DialogProjectAttachments.ascx" />
     <Content Include="Modules\ProjectManagement\UC\UC_ProjectManagementHeader.ascx" />
@@ -6408,7 +6501,9 @@
     <Content Include="Privacy\PrivacyCookies\yourprivacy.html" />
     <Content Include="Questionari\img\ratingstars.png" />
     <Content Include="Questionari\LibraryViewAll.aspx" />
+    <Content Include="Questionari\stileResponseCompile.css" />
     <Content Include="Questionari\UserControls\ucDomandaRatingStarsEdit.ascx" />
+    <Content Include="Questionari\UserControls\Uc_StarBind.ascx" />
     <Content Include="Questionari\WizardDomandaRatingStars.aspx" />
     <Content Include="Risorse_XML\Config\Config_Sviluppo.config">
       <SubType>Designer</SubType>
@@ -8330,6 +8425,11 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Modules\Repository\AsyncRepositoryHandler.ashx" />
+    <Content Include="ModulesForApi\ModulesForApi.zip" />
+    <Content Include="ModulesForApi\Resources\frontendFrameworks\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="ModulesForApi\Resources\frontendFrameworks\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="ModulesForApi\Resources\frontendFrameworks\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="ModulesForApi\Resources\frontendFrameworks\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="My Project\PublishProfiles\AdevicoWeb.pubxml" />
     <None Include="My Project\PublishProfiles\Local.pubxml" />
     <None Include="My Project\PublishProfiles\LocalDemo.pubxml" />
@@ -12607,6 +12707,13 @@
       <DependentUpon>TestEditor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Questionari\UserControls\Uc_StarBind.ascx.designer.vb">
+      <DependentUpon>Uc_StarBind.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Questionari\UserControls\Uc_StarBind.ascx.vb">
+      <DependentUpon>Uc_StarBind.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Questionari\WizardDomandaRatingStars.aspx.designer.vb">
       <DependentUpon>WizardDomandaRatingStars.aspx</DependentUpon>
     </Compile>
@@ -15644,6 +15751,7 @@
     <Folder Include="Jscript\Header\" />
     <Folder Include="Jscript\Modules\Common\Editor\" />
     <Folder Include="Manuali\" />
+    <Folder Include="ModulesForApi\Resources\Scripts\" />
     <Folder Include="Modules\Chat\UC\" />
     <Folder Include="Modules\Common\Editor\Telerik\Custom\" />
     <Folder Include="Modules\Common\Editor\TinyMce\" />

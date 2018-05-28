@@ -22,6 +22,7 @@ Namespace Localizzazione
         Private _DefaultCultureName As String
         Private _LocalizedValues As Hashtable
         Private _Errori As Errori_Db
+
 #End Region
 
 #Region "Public Property"

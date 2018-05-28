@@ -4,6 +4,7 @@
 <%@ Register TagPrefix="CTRL" TagName="ModuleToQuiz" Src="~/Questionari/UserControls/UC_ModuleToQuiz.ascx" %>
 <%@ Register TagPrefix="CTRL" TagName="TextAction" Src="~/Modules/EduPath/UC/UC_EditTextAction.ascx" %>
 <%@ Register TagPrefix="CTRL" TagName="EditCertificationAction" Src="~/Modules/EduPath/UC/UC_EditCertificationAction.ascx" %>
+<%@ Register tagPrefix="CTRL" TagName="ModuleToWebinar" src="~/Modules/Webinar/UC/UC_ModuleToWebinar.ascx" %>
 <div class="fieldobject commands" id="DVcommandsTop" runat="server">
     <b><asp:Literal ID="LTcurrentAction" runat="server"></asp:Literal></b>
     <hr />
@@ -32,6 +33,14 @@
             <div class="ContainerLeft"><asp:Button ID="BTNaddCertificationAction" Text="*Add certification" runat="server" CssClass="LinkMenu" /></div>
             <div class="ContainerRight"><asp:Label ID="LBsubActCertification" runat="server" CssClass="Details_Campo" /></div>
         </div>
+          <div class="Row hide" id="DVwebinar" runat="server">
+            <div class="ContainerLeft">
+                <asp:Button ID="BTNaddWebinarAction" Text="*Add Webinar" runat="server" CssClass="LinkMenu" />
+            </div>
+            <div class="ContainerRight">
+                <asp:Label ID="LBsubActWebinar" runat="server" CssClass="Details_Campo" />
+            </div>
+        </div>
     </asp:View>
     <asp:View ID="VIWrepository" runat="server">
         <CTRL:Attachments ID="CTRLattachments" runat="server" MaxFileInput="5" />
@@ -46,6 +55,11 @@
     <asp:View ID="VIWtextAction" runat="server">
         <div class="Row"><CTRL:TextAction id="CTRLtextAction" runat="server"></CTRL:TextAction></div>
     </asp:View>
+     <asp:View ID="VIWwebinarAction" runat="server">
+        <div class="Row">
+            <CTRL:ModuleToWebinar ID="CTRLwebinarAction" runat="server" />
+        </div>
+    </asp:view>
 </asp:MultiView>
 <div class="fieldobject commands" id="DVcommandsBottom" runat="server">
     <div class="fieldrow buttons right">

@@ -1,0 +1,147 @@
+﻿
+i.glyphicon-refresh.rotationON {
+    -webkit-animation:spin 2s linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+/* star and coccarda */
+span.star {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('../../../Graphics/Modules/Edupath/img/cokades-and-stars/star-none.png');
+    background-position: center center;
+    background-repeat:no-repeat;
+    background-color:#fff;
+    position:relative;
+    overflow:hidden;
+    text-indent:-1000px;
+}
+.adv-col-md-6{
+	width:50%;
+	padding-top: 15px;
+    padding-bottom: 15px;
+    /*background-color: #eee;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid #ddd;
+    border: 1px solid rgba(86,61,124,.2);*/
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+	float: left;
+}
+span.star.Info{
+    background-image:none !important;
+}
+span.star.None{
+    background-image: url('../../../Graphics/Modules/Edupath/img/cokades-and-stars/star-none.png');
+}
+span.star.Certification.None,
+span.star.Certification{
+    background-image: url('../../../Graphics/Modules/Edupath/img/cokades-and-stars/certificate-not-download.png');
+    width:60px;
+    height:60px;
+
+}
+span.star.Certification.BrowsedStarted,
+span.star.Certification.Browsed,
+span.star.Certification.Started,
+span.star.Certification.Completed,
+span.star.Certification.Passed,
+span.star.Certification.CompletedPassed{
+    background-image: url('../../../Graphics/Modules/Edupath/img/cokades-and-stars/certificate.png');
+
+}
+span.star.Browsed, span.star.Started, span.star.BrowsedStarted {
+    background-image: url('../../../Graphics/Modules/Edupath/img/cokades-and-stars/star-browsed-started.png');
+}
+
+span.star.Completed, span.star.Passed, span.star.CompletedPassed {
+    background-image: url('../../../Graphics/Modules/Edupath/img/cokades-and-stars/star-complated.png');
+}
+span.star.Completed, span.star.Passed, span.star.CompletedPassed.gold {
+    background-image: url('../../../Graphics/Modules/Edupath/img/cokades-and-stars/star-complated-gold.png');
+}
+html h5{
+    text-align:left;
+    font-weight:bold;
+}
+.mookCompletition .completitionBar {
+    display: inline-block;
+    padding: 2px 12px;
+    background-color:#D3D3D3;
+    border-radius: 4px;
+}
+.mookCompletition .completitionBar.None {
+    background-color:#D3D3D3;
+}
+.mookCompletition .completitionBar.BrowsedStarted,
+.mookCompletition .completitionBar.Browsed,
+.mookCompletition .completitionBar.Started {
+    background-color:#FFCD40;
+}
+.mookCompletition .completitionBar.CompletedPassed,
+.mookCompletition .completitionBar.Completed
+.mookCompletition .completitionBar.Passed {
+    background-color:#A8B85A;
+}
+.clearfix .box-adv-info{
+    padding-left: 15px;
+    padding-right: 0;
+}
+.clearfix .box-adv-info:first-child{
+    padding-left: 0;
+    padding-right: 15px;
+}
+.cokadecontainer {
+    /*contenitore coccarda*/  
+    background: #fff;
+}
+
+.cokadecontainer .cokadeItem {
+    /*coccarda generica*/   
+    display: inline-block;
+    width: 41px;
+    height: 60px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    text-indent: -1000px;
+    border: none 0;
+    padding: 4px 6px;
+}
+
+.cokadecontainer .empty {
+    /*coccarda vuota: nessun play*/
+    display:none;
+}
+.cokadecontainer .incomplete {
+    /*coccarda parziale: iniziati ma non completi*/
+    display:none;
+}
+.cokadecontainer .silver {
+    /*coccarda completamento MINIMO*/
+    background-color:#fff;
+    background-image: url('../../../Graphics/Modules/Edupath/img/cokades-and-stars/cockade-silver.png');
+    background-position: center center;
+    background-repeat:no-repeat;
+}
+.cokadecontainer .gold {
+    /*coccarda tutti completati, ma non al 100%*/
+    background-color:#fff;
+    background-image: url('../../../Graphics/Modules/Edupath/img/cokades-and-stars/cockade-gold.png');
+    background-position: center center;
+    background-repeat:no-repeat;
+}
+.cokadecontainer .platinum {
+    /*coccarda tutti completati al 100%*/
+    background-color: #FF55FF;
+}
+/* fine star and coccarda */

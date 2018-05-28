@@ -24,11 +24,12 @@ namespace lm.Comol.Core.DomainModel.Helpers.Export
         none = 0,
         zip = 1,
         pdf = 2,
-        rtf = 3,
         xls = 4,
         xml = 5,
         csv = 6
     }
+    //rtf = 3,
+
     /// <summary>
     /// Formato immagine di sfondo. Eventualmente calcolare il posizionamento...
     /// </summary>

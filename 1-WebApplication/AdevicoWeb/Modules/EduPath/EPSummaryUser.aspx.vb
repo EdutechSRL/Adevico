@@ -1075,7 +1075,8 @@ Public Class EPSummaryUser
                 oTemplate.Settings = lm.Comol.Core.DomainModel.Helpers.Export.ExportBaseHelper.GetDefaultPageSettings()
                 oTemplate.Settings.Size = DocTemplateVers.PageSize.A4_L
 
-                'ToDo: Export
+                Dim helperPDF As New HelperExportToPdf(New lm.Comol.Core.Business.BaseModuleManager(PageUtility.CurrentContext), HelperExportToPdf.ExportContentType.UserAdvancedStatistics, translations, roleTranslations, oTemplate)
+                Dim doc As iTextSharp5.text.Document = helperPDF.UserPathsStatistics(Now, SummaryIdUser, stat.Person, stat, GetQuizInfos(stat.QuizInfos()), settings, export, False, clientFileName, Response, cookie)
 
             Else
                 Response.AppendCookie(cookie)

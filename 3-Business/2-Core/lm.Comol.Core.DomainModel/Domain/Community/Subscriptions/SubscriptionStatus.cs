@@ -10,6 +10,7 @@ namespace lm.Comol.Core.DomainModel
 		responsible = 8,
 		activemember = 16,
 		all = 32,
-		communityblocked = 64
+		communityblocked = 64,
+		notFederated = 128
 	}
 }

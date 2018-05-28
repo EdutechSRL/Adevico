@@ -57,6 +57,10 @@ Public Class UC_HelpEpRole
         oLb = e.Item.FindControl("LBpermission")
         oLb.Text = Me.Resource.getValue("PermissionEP_Enum." & permissionName)
 
+        If (String.IsNullOrWhiteSpace(oLb.Text)) Then
+            oLb.Text = permissionName
+        End If
+
         If CheckPermission(PermissionEP_Enum.Participant, permission) Then
             oImg = e.Item.FindControl("IMGpartecipant")
             oImg.ImageUrl = lm.Comol.Modules.EduPath.BusinessLogic.RootObject.ImgGreen(Me.BaseUrl)

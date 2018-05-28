@@ -472,20 +472,37 @@ namespace lm.Comol.Core.DomainModel.DocTemplateVers.Business
 
             ServiceExport.DTO_sTemplate template = items.Where(t => t.Versions.Count == 0 && t.Id == idTemplate).FirstOrDefault();
             if (template != null) {
-                ServiceExport.DTO_sTemplateVersion ver = (from v in Manager.GetIQ<TemplateVersion>()
-                                                          where (v.Id == idVersion || (v.Deleted == BaseStatusDeleted.None && v.IsActive && !v.IsDraft)) && v.Template.Id == template.Id
-                                             select new ServiceExport.DTO_sTemplateVersion() {
-                                                  Id = v.Id,
-                                                  IsActive = v.IsActive,
-                                                  IsDraft = v.IsDraft,
-                                                  Version = v.Version,
-                                                  IdTemplate = template.Id,
-                                                  Lastmodify = (v.ModifiedOn==null) ? v.CreatedOn: v.ModifiedOn,
-                                                  IsSelected = (v.Id == idVersion && template.Id == idTemplate) 
-                                             }
-                                           ).OrderByDescending(v => v.Version).Skip(0).Take(1).ToList().FirstOrDefault();
-                if (ver != null)
+
+                //ServiceExport.DTO_sTemplateVersion ver = (from v in Manager.GetIQ<TemplateVersion>()
+                //                                          where (v.Id == idVersion || (v.Deleted == BaseStatusDeleted.None && v.IsActive && !v.IsDraft)) && v.Template.Id == template.Id
+                //                             select new ServiceExport.DTO_sTemplateVersion() {
+                //                                  Id = v.Id,
+                //                                  IsActive = v.IsActive,
+                //                                  IsDraft = v.IsDraft,
+                //                                  Version = v.Version,
+                //                                  IdTemplate = template.Id,
+                //                                  Lastmodify = (v.ModifiedOn==null) ? v.CreatedOn: v.ModifiedOn,
+                //                                  IsSelected = (v.Id == idVersion && template.Id == idTemplate) 
+                //                             }
+                //                           ).OrderByDescending(v => v.Version).Skip(0).Take(1).ToList().FirstOrDefault();
+
+                TemplateVersion tVer = Manager.Get<TemplateVersion>(idVersion);
+
+                if(tVer != null && tVer.Deleted == BaseStatusDeleted.None && tVer.IsActive && tVer.IsDraft)
+                {
+                    ServiceExport.DTO_sTemplateVersion ver = new ServiceExport.DTO_sTemplateVersion()
+                    {
+                        Id = tVer.Id,
+                        IsActive = tVer.IsActive,
+                        IsDraft = tVer.IsDraft,
+                        Version = tVer.Version,
+                        IdTemplate = template.Id,
+                        Lastmodify = (tVer.ModifiedOn == null) ? tVer.CreatedOn : tVer.ModifiedOn,
+                        IsSelected = (tVer.Id == idVersion && template.Id == idTemplate)
+                    };
+
                     template.Versions.Add(ver);
+                }
             }
 
             DateTime lastVersion = DateTime.Now;
@@ -523,17 +540,38 @@ namespace lm.Comol.Core.DomainModel.DocTemplateVers.Business
 
                     if (dtoTemplate != null)
                     {
-                        dtoVersion = (from v in Manager.GetIQ<TemplateVersion>()
-                                             where (dtoTemplate.HasDefinitive && v.IsDraft==false && v.IsActive ) || (!dtoTemplate.HasDefinitive && v.IsActive)
-                                             select new ServiceExport.DTO_sTemplateVersion() {
-                                                  Id = v.Id,
-                                                  IsActive = v.IsActive,
-                                                  IsDraft = v.IsDraft,
-                                                  Version = v.Version,
-                                                   IdTemplate = v.Template.Id,
-                                                  Lastmodify = (v.ModifiedOn==null) ? v.CreatedOn: v.ModifiedOn
-                                             }
-                                           ).OrderByDescending(v => v.Version).Skip(0).Take(1).ToList().FirstOrDefault();
+
+                        TemplateVersion tVersion = (from v in Manager.GetIQ<TemplateVersion>()
+                                                  where (dtoTemplate.HasDefinitive && !v.IsDraft)
+                                                  select v)
+                                                  .OrderByDescending(v => v.IsActive)
+                                                  .ThenBy(v => v.Version)
+                                                  .Skip(0).Take(1).ToList().FirstOrDefault();
+
+                        if(tVersion != null)
+                        {
+                            dtoVersion = new ServiceExport.DTO_sTemplateVersion()
+                            {
+                                Id = tVersion.Id,
+                                IsActive = tVersion.IsActive,
+                                IsDraft = tVersion.IsDraft,
+                                Version = tVersion.Version,
+                                IdTemplate = tVersion.Template.Id,
+                                Lastmodify = (tVersion.ModifiedOn == null) ? tVersion.CreatedOn : tVersion.ModifiedOn
+                            };
+                        }
+                        
+                        //dtoVersion = (from v in Manager.GetIQ<TemplateVersion>()
+                        //                     where (dtoTemplate.HasDefinitive && v.IsDraft==false && v.IsActive ) || (!dtoTemplate.HasDefinitive && v.IsActive)
+                        //                     select new ServiceExport.DTO_sTemplateVersion() {
+                        //                          Id = v.Id,
+                        //                          IsActive = v.IsActive,
+                        //                          IsDraft = v.IsDraft,
+                        //                          Version = v.Version,
+                        //                           IdTemplate = v.Template.Id,
+                        //                          Lastmodify = (v.ModifiedOn==null) ? v.CreatedOn: v.ModifiedOn
+                        //                     }
+                        //                   ).OrderByDescending(v => v.Version).Skip(0).Take(1).ToList().FirstOrDefault();
                     }
                 }
                 else
@@ -571,6 +609,11 @@ namespace lm.Comol.Core.DomainModel.DocTemplateVers.Business
 
                 if (dtoTemplate != null && dtoVersion != null)
                 {
+
+                    if (dtoTemplate.Versions == null)
+                        dtoTemplate.Versions = new List<ServiceExport.DTO_sTemplateVersion>();
+
+
                     dtoTemplate.Versions.Add(dtoVersion);
 
 
@@ -585,9 +628,15 @@ namespace lm.Comol.Core.DomainModel.DocTemplateVers.Business
                             IdTemplate = dtoTemplate.Id,
                             IsSelected = (idVersion == 0 && dtoTemplate.Id == idTemplate)
                         });
+                    
+                    items.RemoveAll(t => t.Id == dtoTemplate.Id);
+
                     items.Add(dtoTemplate);
                 }
             }
+
+
+
             items.ForEach(t => t.Services = queryService.Where(s => s.Template.Id == t.Id).Select(s => new ServiceExport.DTO_sServiceContent() { IdModule = s.ModuleId, IsActive = s.IsActive, ModuleCode = s.ModuleCode }).ToList());
             return items;
         }

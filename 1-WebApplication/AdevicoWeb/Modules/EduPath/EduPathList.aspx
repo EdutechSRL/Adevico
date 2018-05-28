@@ -165,6 +165,12 @@
             });
         </script>
     </asp:Literal>
+    <style>
+        .item {
+            min-width: 30%;
+            display: inline-block;
+        }
+    </style>
     <!-- HEADER EDUPATH END-->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CPHservice" runat="server">
@@ -323,11 +329,10 @@
             <ContentTemplate>
                 <asp:Literal ID="LTidPath" runat="server" Visible="false"></asp:Literal>
                 <div style="clear: both;">
-                    <asp:label ID="LBclearStatistics" runat="server">La cancellazione delle statistiche è al momento disponibile solo per utenti che all'interno 
-                    della comunita' svolgono il ruolo di amministratori: sono quindi ESCLUSI tutti gli utenti che nella comunità NON svolgano tale ruolo.<br />
-                    <br />Sostanzialmente NON è possibile cancellare le statistiche ad un utente che svolge il ruolo di partecipante
-                    per ovvi motivi di correttezza verso gli altri partecipanti"</asp:label>
-
+                    <br />
+                    <asp:label ID="LBclearStatistics" runat="server">La cancellazione delle statistiche è possibile solo per utenti che all'interno 
+                    della comunita' svolgono il ruolo di amministratori o che non risultano più iscritti alla comnuità.</asp:label>
+                    <br />
                     <br />
                     <asp:CheckBoxList id="CBLusers" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" CssClass="inputgroup"></asp:CheckBoxList>
                 </div>

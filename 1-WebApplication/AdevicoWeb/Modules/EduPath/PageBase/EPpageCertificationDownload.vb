@@ -239,7 +239,7 @@ Public MustInherit Class EPpageCertificationDownload
                         Response.ContentType = contentType
                         Response.Headers.Remove("Content-Disposition")
                     ElseIf (saveAction) Then
-                        CurrentPresenter.ExecuteAction(idPath, idSubActivity, StatusStatistic.CompletedPassed)
+                        CurrentPresenter.ExecuteAction(idPath, idSubActivity, StatusStatistic.CompletedPassed, False)
                     End If
 
                     Context.ApplicationInstance.CompleteRequest()
@@ -265,16 +265,30 @@ Public MustInherit Class EPpageCertificationDownload
                 End If
                 If allowSave Then
                     If IsNothing(template) Then
-                        template = CurrentPresenter.FillDataIntoTemplate(PreloadIdSubactivity, TemplateBaseUrl, PageUtility.SystemSettings.Presenter.PortalDisplay.LocalizeIstanceName(language.Id), result)
+                        template = CurrentPresenter.FillDataIntoTemplate(
+                            PreloadIdSubactivity,
+                            TemplateBaseUrl,
+                            PageUtility.SystemSettings.Presenter.PortalDisplay.LocalizeIstanceName(language.Id),
+                            result,
+                            GetWebinarInfo(IdPath, idUser))
                     End If
-
+                    Dim xp As New lm.Comol.Core.BaseModules.DocTemplate.Helpers.HelperExportPDF
 
                     If result = lm.Comol.Core.Certifications.CertificationError.None OrElse (allowEmptyPlaceHolders AndAlso (result = lm.Comol.Core.Certifications.CertificationError.EmptyTemplateItem OrElse result = lm.Comol.Core.Certifications.CertificationError.EmptyTemplateItems)) Then
                         Dim idFile As Guid = Guid.NewGuid
+                        If xp.ExportToFile(template, baseFilePath & idFile.ToString & ".cer") Then
+                            filename = baseFilePath & idFile.ToString & ".cer"
+                            Dim uResource As New ResourceManager
+                            uResource.UserLanguages = language.Code
+                            uResource.ResourcesName = "pg_Certification"
+                            uResource.Folder_Level1 = "Modules"
+                            uResource.Folder_Level2 = "EduPath"
+                            uResource.setCulture()
 
-                        ''ToDo: Export
-                        result = lm.Comol.Core.Certifications.CertificationError.SavingFile
-
+                            Me.CurrentPresenter.SaveCertificationFile(crType, (result <> lm.Comol.Core.Certifications.CertificationError.None), IdCommunityContainer, idUser, webFileName, uResource.getValue("Certification.CertificationDescription"), IdPath, PreloadIdSubactivity, idFile, "." & Helpers.Export.ExportFileType.pdf.ToString())
+                        Else
+                            result = lm.Comol.Core.Certifications.CertificationError.SavingFile
+                        End If
                     End If
                 Else
                     result = lm.Comol.Core.Certifications.CertificationError.RepositoryError
@@ -367,5 +381,10 @@ Public MustInherit Class EPpageCertificationDownload
     End Sub
 #End Region
 
-   
+    Private Function GetWebinarInfo(ByVal pathId As Long, ByVal userId As Integer) As List(Of lm.Comol.Modules.EduPath.Domain.DTO.dtoWebinarInfo)
+
+        Dim wbxService As New WebinarIntegration.WebExService(PageUtility.CurrentContext)
+
+        Return wbxService.EpGetWebinarInfos(pathId, userId)
+    End Function
 End Class

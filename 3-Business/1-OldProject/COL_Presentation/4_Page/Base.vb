@@ -517,6 +517,8 @@ Public MustInherit Class Base
         Session("CMNT_ID_forNews") = ""
         Session("TPCM_ID") = -1
 
+        PageUtility.ApiTokenSetCommunity(0)
+
         Me.RedirectToUrl(url)
     End Sub
 

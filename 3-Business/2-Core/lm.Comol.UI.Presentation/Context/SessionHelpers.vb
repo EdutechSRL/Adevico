@@ -60,8 +60,19 @@ Public Class SessionHelpers
             Return New DataContext(currentSession)
 
         End Function
+        Public Shared Function GetIcodeonSession(ByVal configurationPath As String) As NHibernate.ISession
 
-        Private Shared Function GetCurrentUser() As iPerson
+            Dim icodeonSession As NHibernate.ISession = TryCast(HttpContext.Current.Items("nhibernate.IcodeonCurrent_" & configurationPath), NHibernate.ISession)
+
+            If IsNothing(icodeonSession) Then
+
+                icodeonSession = lm.Comol.Core.Data.SessionHelper.GetNewIcodeonSession(configurationPath)
+
+            End If
+            Return icodeonSession
+
+        End Function
+		Private Shared Function GetCurrentUser() As iPerson
 			If Not IsNothing(HttpContext.Current) AndAlso Not IsNothing(HttpContext.Current.Session) Then
 				If TypeOf (HttpContext.Current.Session("objPersona")) Is COL_BusinessLogic_v2.CL_persona.COL_Persona Then
 					Dim oPersona As COL_BusinessLogic_v2.CL_persona.COL_Persona = HttpContext.Current.Session("objPersona")

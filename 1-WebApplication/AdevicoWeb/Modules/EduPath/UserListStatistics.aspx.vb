@@ -1203,34 +1203,42 @@ Public Class UserListStatistics
                 oTemplate.Settings = lm.Comol.Core.DomainModel.Helpers.Export.ExportBaseHelper.GetDefaultPageSettings()
                 oTemplate.Settings.Size = DocTemplateVers.PageSize.A4_L
 
-                'ToDo: Export
+                Dim doc As iTextSharp5.text.Document
+                If Me.ItemType <> lm.Comol.Modules.EduPath.Domain.ItemType.SubActivity Then
 
-                ShowError(EpError.Generic)
+                    doc = ServiceEP.ServiceStat.ExportUsersStatistics_ToPDf(PageUtility.CurrentContext, ItemId, Me.CurrentCommunityID, ItemType, Me.CHBshowall.Checked, translations, roleTranslations, settings, ExporPathData.Normal, oTemplate, False, clientFileName, Response, New HttpCookie(CookieName, HDNdownloadTokenValue.Value), TimeStat)
+                Else
+                    oTemplate.Settings.Size = DocTemplateVers.PageSize.A4
+                    doc = ServiceEP.ServiceStat.ExportUsersSubActivityStatistics_ToPdf(PageUtility.CurrentContext, ItemId, Me.CurrentCommunityID, Me.CHBshowall.Checked, translations, roleTranslations, settings, ExporPathData.Normal, quizAction, repAction, tAction, cAction, oTemplate, False, clientFileName, Response, New HttpCookie(CookieName, HDNdownloadTokenValue.Value), TimeStat)
 
+                End If
+                If IsNothing(doc) Then
+                    ShowError(EpError.Generic)
+                End If
             Else
-            If Not IsNothing(cookie) Then
-                Response.AppendCookie(cookie)
-            End If
+                If Not IsNothing(cookie) Then
+                    Response.AppendCookie(cookie)
+                End If
 
-            Response.AddHeader("Content-Disposition", "attachment; filename=" & clientFileName)
-            Response.Charset = ""
-            Response.ContentEncoding = System.Text.Encoding.Default
-            Select Case exportType
-                Case Helpers.Export.ExportFileType.xml
-                    Response.ContentType = "application/ms-excel"
-                    If ItemType <> lm.Comol.Modules.EduPath.Domain.ItemType.SubActivity Then
-                        Response.Write(ServiceEP.ServiceStat.ExportUsersStatistics_ToXml(PageUtility.CurrentContext, ItemId, Me.CurrentCommunityID, ItemType, CHBshowall.Checked, translations, roleTranslations, settings, ExporPathData.Normal, TimeStat))
-                    Else
-                        Response.Write(ServiceEP.ServiceStat.ExportUsersSubActivityStatistics_ToXml(PageUtility.CurrentContext, ItemId, Me.CurrentCommunityID, CHBshowall.Checked, translations, roleTranslations, settings, ExporPathData.Normal, quizAction, repAction, tAction, cAction, TimeStat))
-                    End If
-                Case Else
-                    Response.ContentType = "text/csv"
-                    If Me.ItemType <> lm.Comol.Modules.EduPath.Domain.ItemType.SubActivity Then
-                        Response.Write(ServiceEP.ServiceStat.ExportUsersStatistics_ToCsv(PageUtility.CurrentContext, ItemId, Me.CurrentCommunityID, ItemType, Me.CHBshowall.Checked, translations, roleTranslations, settings, ExporPathData.Normal, TimeStat))
-                    Else
-                        Response.Write(ServiceEP.ServiceStat.ExportUsersSubActivityStatistics_ToCsv(PageUtility.CurrentContext, ItemId, Me.CurrentCommunityID, Me.CHBshowall.Checked, translations, roleTranslations, settings, ExporPathData.Normal, quizAction, repAction, tAction, cAction, TimeStat))
-                    End If
-            End Select
+                Response.AddHeader("Content-Disposition", "attachment; filename=" & clientFileName)
+                Response.Charset = ""
+                Response.ContentEncoding = System.Text.Encoding.Default
+                Select Case exportType
+                    Case Helpers.Export.ExportFileType.xml
+                        Response.ContentType = "application/ms-excel"
+                        If ItemType <> lm.Comol.Modules.EduPath.Domain.ItemType.SubActivity Then
+                            Response.Write(ServiceEP.ServiceStat.ExportUsersStatistics_ToXml(PageUtility.CurrentContext, ItemId, Me.CurrentCommunityID, ItemType, CHBshowall.Checked, translations, roleTranslations, settings, ExporPathData.Normal, TimeStat))
+                        Else
+                            Response.Write(ServiceEP.ServiceStat.ExportUsersSubActivityStatistics_ToXml(PageUtility.CurrentContext, ItemId, Me.CurrentCommunityID, CHBshowall.Checked, translations, roleTranslations, settings, ExporPathData.Normal, quizAction, repAction, tAction, cAction, TimeStat))
+                        End If
+                    Case Else
+                        Response.ContentType = "text/csv"
+                        If Me.ItemType <> lm.Comol.Modules.EduPath.Domain.ItemType.SubActivity Then
+                            Response.Write(ServiceEP.ServiceStat.ExportUsersStatistics_ToCsv(PageUtility.CurrentContext, ItemId, Me.CurrentCommunityID, ItemType, Me.CHBshowall.Checked, translations, roleTranslations, settings, ExporPathData.Normal, TimeStat))
+                        Else
+                            Response.Write(ServiceEP.ServiceStat.ExportUsersSubActivityStatistics_ToCsv(PageUtility.CurrentContext, ItemId, Me.CurrentCommunityID, Me.CHBshowall.Checked, translations, roleTranslations, settings, ExporPathData.Normal, quizAction, repAction, tAction, cAction, TimeStat))
+                        End If
+                End Select
             End If
         Catch ex As Exception
             Select Case exportType

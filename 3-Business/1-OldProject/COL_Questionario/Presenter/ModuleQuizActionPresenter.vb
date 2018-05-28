@@ -90,6 +90,7 @@ Public Class ModuleQuizActionPresenter
             If dto.Link.DestinationItem.ObjectLongID < Int32.MaxValue Then
                 idQuestionnaire = Convert.ToInt32(dto.Link.DestinationItem.ObjectLongID)
             End If
+            'QuestId = idQuestionnaire
             Dim item As LazyQuestionnaire = CurrentManager.Get(Of LazyQuestionnaire)(idQuestionnaire)
 
             If (IsNothing(item)) Then
@@ -101,6 +102,7 @@ Public Class ModuleQuizActionPresenter
                 actions = AnalyzeModuleLinkItem(dto.Link, item, dto.Display, actionsToDisplay)
             End If
         End If
+
         Return actions
     End Function
     Private Function AnalyzeModuleLinkItem(link As ModuleLink, item As LazyQuestionnaire, display As DisplayActionMode, actionsToDisplay As StandardActionType) As List(Of dtoModuleActionControl)
@@ -231,6 +233,7 @@ Public Class ModuleQuizActionPresenter
         Dim result As New dtoUserQuest() With {.Status = QuizStatus.Unknown, .Score = 0}
 
         Dim quest As Questionario = DALQuestionario.readQuestionarioByPersona(Me.AppContext, False, item.Id, UserContext.Language.Id, UserContext.CurrentUser.Id, 0)
+        result.Id = quest.id  'Add: MB
         result.Name = quest.nome
         result.DisplayScoreToUser = quest.DisplayScoreToUser
         result.DisplayAttemptScoreToUser = quest.DisplayAttemptScoreToUser

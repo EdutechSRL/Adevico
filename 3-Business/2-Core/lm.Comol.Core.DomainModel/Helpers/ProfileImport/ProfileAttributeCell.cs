@@ -65,6 +65,10 @@ namespace lm.Comol.Core.DomainModel.Helpers
             get { return DuplicateOf.Any(); }
         }
         public virtual Boolean isDBduplicate { get; set; }
+
+        public virtual Boolean isPersonDuplicate { get; set;}
+        public virtual int PersonId { get; set; }
+
         public virtual List<Int32> DuplicateOf { get; set; }
         public ProfileAttributeCell() {
             DuplicateOf = new List<Int32>();

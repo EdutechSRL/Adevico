@@ -5,6 +5,9 @@ Imports System.Web
 Imports lm.ActionDataContract
 Imports lm.Notification.DataContract.Domain
 Imports System.Linq
+Imports FederationNS = lm.Comol.Core.BaseModules.Federation
+Imports SubExpire = lm.Comol.Core.BaseModules.CommunityExpiration
+
 Public Class OLDpageUtility
 
 #Region "Private"
@@ -20,6 +23,7 @@ Public Class OLDpageUtility
     Private _ActionService As iRemoteService
     Private _ServiziCorrenti As ServiziCorrenti
     Private _RegisterAction As WS_Actions.WSuserActionsSoapClient
+    Private _TrapSender As WsSnmtp.WsSnmtpSoapClient
     Private _NotificationManager As lm.Modules.NotificationSystem.Business.ManagerCommunitynews
     Private _CommunitiesNews As Dictionary(Of Integer, List(Of lm.Modules.NotificationSystem.Presentation.dtoCommunityNewsCount))
     Private _PermissionService As PermissionService.IServicePermission
@@ -72,6 +76,19 @@ Public Class OLDpageUtility
                 End Try
             End If
             Return _RegisterAction
+        End Get
+    End Property
+
+    Protected ReadOnly Property TrapSender() As WsSnmtp.WsSnmtpSoapClient
+        Get
+            If IsNothing(_TrapSender) Then
+                Try
+                    _TrapSender = New WsSnmtp.WsSnmtpSoapClient
+                Catch ex As Exception
+
+                End Try
+            End If
+            Return _TrapSender
         End Get
     End Property
 
@@ -253,8 +270,17 @@ Public Class OLDpageUtility
             DisposeNotificationSender(Sender)
         End If
     End Sub
-    Public Sub SendNotificationToPermission(ByVal NewsID As System.Guid, ByVal Permissions As Integer, ByVal ActionID As Integer, ByVal CommunityID As Integer, ByVal ModuleCode As String, ByVal Parameters As List(Of String), ByVal Objects As List(Of dtoNotificatedObject))
+    Public Sub SendNotificationToPermission( _
+                                           ByVal NewsID As System.Guid, _
+                                           ByVal Permissions As Integer, _
+                                           ByVal ActionID As Integer, _
+                                           ByVal CommunityID As Integer, _
+                                           ByVal ModuleCode As String, _
+                                           ByVal Parameters As List(Of String), _
+                                           ByVal Objects As List(Of dtoNotificatedObject))
+
         Dim Sender As NotificationService.iNotificationServiceClient = Me.NotificationSender
+
         If IsNothing(Sender) Then
             Exit Sub
         ElseIf Me.SystemSettings.NotificationService.Enabled AndAlso Me.SystemSettings.NotificationService.isServiceEnabled(ModuleCode) Then
@@ -381,8 +407,14 @@ Public Class OLDpageUtility
         End With
         Return oNotification
     End Function
-    Private Function CreateNotificationToPermission(ByVal NewsID As System.Guid, ByVal Permissions As Integer, ByVal Context As dtoNotificationContex) As lm.Notification.DataContract.Domain.NotificationToPermission
+    Private Function CreateNotificationToPermission( _
+                                                   ByVal NewsID As System.Guid, _
+                                                   ByVal Permissions As Integer, _
+                                                   ByVal Context As dtoNotificationContex) _
+                                               As lm.Notification.DataContract.Domain.NotificationToPermission
+
         Dim oNotification As New NotificationToPermission(NewsID)
+
         With oNotification
             .ActionID = Context.ActionID
             .CommunityID = Context.CommunityID
@@ -565,7 +597,63 @@ Public Class OLDpageUtility
 #End Region
 
 #Region "Service Action"
+    Private ReadOnly Property TrapProgressive As Long
+        Get
+
+            Dim progr As Int64 = 0
+
+            Try
+                If TypeOf _Application.Item("TrapProgressive") Is Long Then
+                    progr = _Application.Item("TrapProgressive")
+                End If
+            Catch ex As Exception
+
+            End Try
+
+            progr += 1
+            _Application.Item("TrapProgressive") = progr
+
+            Return progr
+
+        End Get
+    End Property
+
+
     Public Sub AddLoginAction()
+        SendTrapLogin()
+        'If AllowSendTrapActions AndAlso Not IsNothing(TrapSender) Then
+        '    Dim actionvalue As WsSnmtp.dtoActionValues = New WsSnmtp.dtoActionValues()
+        '    With actionvalue
+        '        .Progressive = TrapProgressive
+        '        .User = New WsSnmtp.dtoUserValues()
+        '        .Action = New WsSnmtp.dtoActionData()
+        '    End With
+
+        '    With actionvalue.User
+        '        .id = Me.CurrentUser.ID
+        '        .login = Me.CurrentUser.Login
+        '        .mail = Me.CurrentUser.Mail
+        '        .name = Me.CurrentUser.Nome
+        '        .surname = Me.CurrentUser.Cognome
+        '        .taxCode = Me.CurrentUser.CodFiscale
+        '    End With
+
+        '    With actionvalue.Action
+        '        .ActionCodeId = "login"
+        '        .ActionTypeId = ""
+        '        .CommunityId = Me.WorkingCommunityID
+        '        .CommunityIsFederated = False
+        '        .InteractionType = InteractionType.Generic
+        '        .ModuleCode = ""
+        '        .ModuleId = CurrentModule.ID
+        '        .ObjectId = 0
+        '        .ObjectType = 0
+        '    End With
+
+        '    Dim TrapId As Integer = TrapIdEnums.LoginSuccess
+        '    TrapSender.SendTrapActionValue(TrapId, actionvalue)
+        'End If
+
         If AllowRegisterActions Then
             If IsNothing(Me.RegisterAction) Then
                 Exit Sub
@@ -591,6 +679,8 @@ Public Class OLDpageUtility
         End If
     End Sub
     Public Sub LogoutAction()
+        SendTrapLogout()
+
         If AllowRegisterActions Then
             If IsNothing(Me.RegisterAction) Then
                 Exit Sub
@@ -829,6 +919,26 @@ Public Class OLDpageUtility
                 _AllowRegisterActions = allow
             End If
             Return _AllowRegisterActions.Value
+        End Get
+    End Property
+    Public ReadOnly Property AllowSendTrapActions() As Boolean
+        Get
+
+            Dim allow As Boolean = False
+
+            Try
+                If TypeOf _Application.Item("SendTrapActionsAllowed") Is Boolean Then
+                    Return _Application.Item("SendTrapActionsAllowed")
+                End If
+
+                allow = System.Convert.ToBoolean(System.Configuration.ConfigurationSettings.AppSettings("SendTrapActionsAllowed"))
+            Catch ex As Exception
+
+            End Try
+
+            _Application.Item("SendTrapActionsAllowed") = allow
+
+            Return allow
         End Get
     End Property
     Public ReadOnly Property AccessAvailable() As Boolean
@@ -1306,6 +1416,9 @@ Public Class OLDpageUtility
                     LinguaCode = "it-IT"
                     LinguaID = 1
                 End If
+
+                ApiTokenClean()
+
                 UniqueGuidSession = Guid.NewGuid
                 Dim keys As List(Of String)
                 If Not IsNothing(.Request) Then
@@ -1376,6 +1489,136 @@ Public Class OLDpageUtility
         _Response.Cookies.Add(secured)
         WriteProviderCookie(user, idProvider, url)
     End Sub
+
+
+    Private _TokenService As lm.Comol.Core.BaseModules.ApiToken.Business.TokenService
+
+    Private ReadOnly Property TokenService As lm.Comol.Core.BaseModules.ApiToken.Business.TokenService
+        Get
+            If IsNothing(_TokenService) Then
+                _TokenService = New lm.Comol.Core.BaseModules.ApiToken.Business.TokenService(Me.CurrentContext)
+            End If
+
+            Return _TokenService
+        End Get
+    End Property
+
+    Public Sub ApiTokenClean()
+        ApiTokenWriteCookie("", "", 0, 0, BaseUrl, 0, "")
+    End Sub
+
+    Public Sub ApiTokenRefresh(
+                           userId As Integer,
+                           comId As String,
+                           LangId As Integer,
+                           LangCode As String,
+                           forceUpdate As Boolean
+                            )
+
+        'View.GetWorkingSessionId().ToString();  '  Return Me.PageUtility.UniqueGuidSession
+
+        Dim DeviceId As String = Me.UniqueGuidSession.ToString()
+
+        Dim token As String = TokenService.TokenRefresh(
+            userId,
+            DeviceId,
+            lm.Comol.Core.BaseModules.ApiToken.Domain.TokenType.AdevicoWeb,
+            forceUpdate)
+
+        ApiTokenWriteCookie(
+            token,
+            Me.UniqueGuidSession.ToString,
+            comId,
+            userId,
+            BaseUrl,
+            LangId,
+            LangCode)
+
+    End Sub
+
+    'Da testare!
+    Public Sub ApiTokenWriteCookie(
+                                     token As String,
+                                     workingSessionId As String,
+                                     comId As String,
+                                     usrId As String,
+                                     url As String,
+                                     LanguageId As String,
+                                     Languagecode As String)
+
+
+        'If Not String.IsNullOrEmpty(Request.QueryString("ComId")) AndAlso IsNumeric(Request.QueryString("ComId")) Then
+        '    Dim RequestComId As Integer = 0
+        '    Try
+        '        RequestComId = System.Convert.ToInt32(Request.QueryString("ComId"))
+        '    Catch ex As Exception
+        '    End Try
+        '    If RequestComId > 0 Then
+        '        comId = RequestComId.ToString()
+        '    End If
+        'End If
+
+        SetResponseCookie(CookieHelper.CookieKeyToked, token, url)
+        SetResponseCookie(CookieHelper.CookieKeyDeviceId, workingSessionId, url)
+        SetResponseCookie(CookieHelper.CookieKeyCommunityId, comId, url)
+        SetResponseCookie(CookieHelper.CookieKeyPersonId, usrId, url)
+        SetResponseCookie(CookieHelper.CookieKeyLangId, LanguageId, url)
+        SetResponseCookie(CookieHelper.CookieKeyLangCode, Languagecode, url)
+    End Sub
+
+    Public Sub ApiTokenSetCommunity(comId As String)
+        SetResponseCookie(CookieHelper.CookieKeyCommunityId, comId, BaseUrl)
+    End Sub
+
+
+    Public Function ApiTokenGetCommunity() As Integer
+
+        Dim ComId As Integer = 0
+
+
+        If Me.ComunitaCorrenteID > 0 Then
+            ComId = Me.ComunitaCorrenteID
+        Else
+
+            Try
+                Dim CookieComId As String = _Request.Cookies.Get(CookieHelper.CookieKeyCommunityId).Value
+
+                If IsNumeric(CookieComId) Then
+                    ComId = System.Convert.ToInt32(CookieComId)
+                End If
+
+            Catch ex As Exception
+
+            End Try
+        End If
+
+        Return ComId
+    End Function
+
+
+
+    Private Sub WriteApiWrapperTokenCookieCom(comId As String, url As String)
+        SetResponseCookie(CookieHelper.CookieKeyCommunityId, comId, url)
+    End Sub
+
+
+    'Da testare!
+    Private Sub SetResponseCookie(
+                                 ByVal key As String,
+                                 ByVal value As String,
+                                 ByVal url As String)
+
+        Dim myCookie As HttpCookie = New HttpCookie(key, value)
+        myCookie.Expires = DateTime.Now.AddDays(1)
+        Dim myurl As String = url
+        If myurl.IndexOf("://localhost") > 0 Then
+            myCookie.Domain = ""
+            myCookie.Path = "/"
+        End If
+
+        _Response.Cookies.Add(myCookie)
+    End Sub
+
 
     Private Sub WriteProviderCookie(user As lm.Comol.Core.DomainModel.Person, ByVal idProvider As Long, ByVal url As String)
         Dim cookie As New HttpCookie("Provider")
@@ -1513,7 +1756,7 @@ Public Class OLDpageUtility
                 End If
             End If
         End If
-      
+
         Return result
     End Function
     Public Sub WriteAutoOpenWindowCookie(value As Boolean)
@@ -1704,7 +1947,11 @@ Public Class OLDpageUtility
         End If
     End Sub
     Public Sub RedirectToUrl(ByVal Url As String)
-        Dim Redirect As String = Me.ApplicationUrlBase & Url
+        Dim Redirect As String = Url
+
+        If Not Redirect.StartsWith("http") Then
+            Redirect = String.Format(Me.ApplicationUrlBase & Url)
+        End If
 
         _Response.Redirect(Redirect, True)
     End Sub
@@ -1926,11 +2173,27 @@ Public Class OLDpageUtility
         End Try
         Return comPath
     End Function
-    Public Function AccessToCommunity(ByVal idPerson As Integer, ByVal idCommunity As Integer, ByVal oResourceConfig As ResourceManager, ByVal UpdateAccessDate As Boolean) As lm.Comol.Core.DomainModel.SubscriptionStatus
+
+    Public Function AccessToCommunity(
+                                     ByVal idPerson As Integer,
+                                     ByVal idCommunity As Integer,
+                                     ByVal oResourceConfig As ResourceManager,
+                                     ByVal UpdateAccessDate As Boolean) _
+                                 As lm.Comol.Core.DomainModel.SubscriptionStatus
+
         Dim Path As String = GetCommunityPath(idPerson, idCommunity)
         Return AccessToCommunity(idPerson, idCommunity, Path, oResourceConfig, UpdateAccessDate)
+
     End Function
-    Public Function AccessToCommunity(ByVal idPerson As Integer, ByVal idCommunity As Integer, path As String, ByVal oResourceConfig As ResourceManager, ByVal updateAccessDate As Boolean) As lm.Comol.Core.DomainModel.SubscriptionStatus
+
+    Public Function AccessToCommunity(
+                                     ByVal idPerson As Integer,
+                                     ByVal idCommunity As Integer,
+                                     path As String,
+                                     ByVal oResourceConfig As ResourceManager,
+                                     ByVal updateAccessDate As Boolean) _
+                                 As lm.Comol.Core.DomainModel.SubscriptionStatus
+
         GenericCacheManager.PurgeCacheItems(CachePolicy.PermessiServizioUtente())
         If path = "" Then
             Return lm.Comol.Core.DomainModel.SubscriptionStatus.none
@@ -1938,15 +2201,157 @@ Public Class OLDpageUtility
             Return AccessToCommunity(idPerson, idCommunity, path, oResourceConfig, "", updateAccessDate)
         End If
     End Function
-    Public Function AccessToCommunity(ByVal PersonID As Integer, ByVal CommunityID As Integer, ByVal oResourceConfig As ResourceManager, ByVal LoadUrl As String, ByVal UpdateAccessDate As Boolean) As lm.Comol.Core.DomainModel.SubscriptionStatus
+
+    Public Function AccessToCommunity(
+                                     ByVal PersonID As Integer,
+                                     ByVal CommunityID As Integer,
+                                     ByVal oResourceConfig As ResourceManager,
+                                     ByVal LoadUrl As String,
+                                     ByVal UpdateAccessDate As Boolean) _
+                                 As lm.Comol.Core.DomainModel.SubscriptionStatus
+
         Dim Path As String = GetCommunityPath(PersonID, CommunityID)
         If Path = "" Then
             Return lm.Comol.Core.DomainModel.SubscriptionStatus.none
         Else
             Return AccessToCommunity(PersonID, CommunityID, Path, oResourceConfig, LoadUrl, UpdateAccessDate)
         End If
+
     End Function
-    Public Function AccessToCommunity(ByVal PersonID As Integer, ByVal CommunityID As Integer, ByVal CommunityPath As String, ByVal oResourceConfig As ResourceManager, ByVal LoadUrl As String, ByVal UpdateAccessDate As Boolean) As lm.Comol.Core.DomainModel.SubscriptionStatus
+
+    Public Function Federation(ByVal communityId As Integer) As lm.Comol.Core.BaseModules.Federation.Enums.FederationType
+        Return PermissionService.FederationCommunityCheck(communityId)
+    End Function
+
+
+    Private _expiryService As SubExpire.Business.ComExpirationService
+
+    Private ReadOnly Property ExpiryService As SubExpire.Business.ComExpirationService
+        Get
+            If IsNothing(_expiryService) Then
+                _expiryService = New SubExpire.Business.ComExpirationService(Me.CurrentContext, Me.SystemSettings.Features.DelaySubconf)
+            End If
+
+            Return _expiryService
+        End Get
+
+    End Property
+
+
+    Public Function ExpirationInfoGet(ByVal PersonID As Integer,
+                                     ByVal CommunityID As Integer
+                                     ) As SubExpire.Domain.dtoUserExpiration
+
+        Return ExpiryService.ComUserDurationGet(CommunityID, PersonID)
+
+    End Function
+
+    Public Function StartAccessToCommnuity(ByVal CommunityID As Integer,
+                                            ByVal oResourceConfig As ResourceManager,
+                                            ByVal url As String) _
+                                 As lm.Comol.Core.DomainModel.SubscriptionStatus
+
+        If IsNothing(Me.CurrentUser) Then
+            Return lm.Comol.Core.DomainModel.SubscriptionStatus.none
+        End If
+
+        Dim PersonId As Integer = Me.CurrentUser.ID
+
+        Dim ComPath As String = GetCommunityPath(PersonId, CommunityID)
+
+
+        Try
+            Dim UsersIds As New List(Of Integer)()
+            UsersIds.Add(PersonId)
+            ExpiryService.ComUserStartUpdate(CommunityID, UsersIds, True)
+        Catch ex As Exception
+
+        End Try
+
+        Return AccessToCommunity(PersonId, CommunityID, ComPath, oResourceConfig, url, True)
+
+    End Function
+
+
+
+    Public Function AccessToCommunity(
+                                     ByVal PersonID As Integer,
+                                     ByVal CommunityID As Integer,
+                                     ByVal CommunityPath As String,
+                                     ByVal oResourceConfig As ResourceManager,
+                                     ByVal LoadUrl As String, ByVal UpdateAccessDate As Boolean) _
+                                 As lm.Comol.Core.DomainModel.SubscriptionStatus
+
+        'Federazione
+        Dim fed As lm.Comol.Core.BaseModules.Federation.Enums.FederationType = FederationNS.Enums.FederationType.None
+
+        Try
+            fed = PermissionService.FederationCommunityCheck(CommunityID)
+        Catch ex As Exception
+
+        End Try
+
+
+        If (fed <> lm.Comol.Core.BaseModules.Federation.Enums.FederationType.None) Then
+
+            Dim result As lm.Comol.Core.BaseModules.Federation.Enums.FederationResult = CheckUser(PersonID)
+
+            '    PermissionService.FederationUserCheck(
+            '        CommunityID,
+            '        PersonID,
+            '        SystemSettings.FederationSettings)
+
+            If (result = FederationNS.Enums.FederationResult.CommunityNotFederated) Then
+                Return lm.Comol.Core.DomainModel.SubscriptionStatus.notFederated
+            End If
+
+        End If
+
+        'Scadenza iscrizione
+        Dim Expired As Boolean = False
+        Dim ToStart As Boolean = False
+        'Dim ExpireNeedStart As Boolean = False
+        Try
+            Dim expiration As SubExpire.Domain.dtoUserExpiration = ExpiryService.ComUserDurationGet(CommunityID, PersonID)
+
+            If Not IsNothing(expiration) AndAlso expiration.Duration > 0 Then
+                If Not IsNothing(expiration.StartDateTime) Then
+
+                    Dim EndDateTime As DateTime = CType(expiration.StartDateTime, DateTime).AddDays(expiration.Duration)
+
+                    If DateTime.Now > EndDateTime Then
+                        Expired = True
+                    End If
+
+                    'Else
+                    'ExpireNeedStart = True
+                    'Inizio periodo
+                    'Dim UsersIds As New List(Of Integer)()
+                    'UsersIds.Add(PersonID)
+                    'ExpiryService.ComUserStartUpdate(CommunityID, UsersIds, True)
+                Else
+                    ToStart = True
+                End If
+            End If
+
+            If Expired OrElse ToStart Then
+
+                Dim AccessUrl As String = ""
+
+                If Not String.IsNullOrWhiteSpace(LoadUrl) Then
+                    AccessUrl = String.Format("&url={0}", HttpUtility.UrlEncode(LoadUrl))
+                End If
+                'Vai a pagina 
+                RedirectToUrl(String.Format("/Modules/SubscriptionExpiration/Expiration.aspx?cid={0}{1}", CommunityID, AccessUrl))
+            End If
+
+
+        Catch ex As Exception
+
+        End Try
+
+
+
         Dim iResponse As lm.Comol.Core.DomainModel.SubscriptionStatus = lm.Comol.Core.DomainModel.SubscriptionStatus.none
         Dim oTreeComunita As New COL_TreeComunita
         Dim oPersona As New COL_Persona
@@ -2071,6 +2476,9 @@ Public Class OLDpageUtility
                             ' REGISTRAZIONE EVENTO
                             _Session("TPCM_ID") = oComunita.TipoComunita.ID
 
+
+                            ApiTokenSetCommunity(oComunita.Id)
+
                             If Not String.IsNullOrEmpty(LoadUrl) Then
                                 Me.RedirectToUrl(LoadUrl)
                             ElseIf oComunita.ShowCover(PersonID) Then
@@ -2096,7 +2504,7 @@ Public Class OLDpageUtility
                 oTreeComunita.Delete(CommunityID, CommunityPath)
             End If
         Catch ex As Exception
-
+            Dim err As String = ex.ToString()
         End Try
         Return iResponse
     End Function
@@ -2133,7 +2541,18 @@ Public Class OLDpageUtility
     Public Sub LogonUser(user As lm.Comol.Core.DomainModel.Person, idProvider As Long, providerUrl As String, idUserDefaultIdOrganization As Int32)
         LogonUser(user, 0, idProvider, providerUrl, idUserDefaultIdOrganization)
     End Sub
-    Public Sub LogonUser(user As lm.Comol.Core.DomainModel.Person, idDefaultCommunity As Integer, idProvider As Long, providerUrl As String, idUserDefaultIdOrganization As Int32)
+    Public Sub LogonUser(
+                        user As lm.Comol.Core.DomainModel.Person,
+                        idDefaultCommunity As Integer,
+                        idProvider As Long,
+                        providerUrl As String,
+                        idUserDefaultIdOrganization As Int32)
+
+        ''Federation:
+        CheckUser(user.Id, True)
+
+
+
         Me.isPortalCommunity = True
         Me.isModalitaAmministrazione = False
         Me.AmministrazioneComunitaID = 0
@@ -2156,6 +2575,9 @@ Public Class OLDpageUtility
         _Session("ORGN_id") = idUserDefaultIdOrganization
         _Session("Istituzione") = oPersona.GetIstituzione
 
+        Dim LangCode As String = "it-IT"
+        Dim LangId As Integer = 0
+
         Try
             Dim oLingua As New Lingua
             If Me.NewLinguaID > 0 AndAlso Me.NewLinguaID <> user.LanguageID Then
@@ -2168,6 +2590,8 @@ Public Class OLDpageUtility
             Me.NewLinguaID = 0
             _Session("LinguaID") = oLingua.ID
             _Session("LinguaCode") = oLingua.Codice
+            LangCode = oLingua.Codice
+            LangId = oLingua.ID
             _Session("UserLanguage") = New lm.Comol.Core.DomainModel.Language() With {.Id = oLingua.ID, .Icon = oLingua.Icona, .Code = oLingua.Codice, .isDefault = oLingua.isDefault, .Name = oLingua.Nome}
             Me.SetCookies(_Session("LinguaID"), _Session("LinguaCode"))
         Catch ex As Exception
@@ -2225,7 +2649,12 @@ Public Class OLDpageUtility
                 LinkElenco = "Comunita/EntrataComunita.aspx"
             End Try
         End If
+
+
+
         WriteLoginCookie(user, idProvider, providerUrl)
+
+        ApiTokenRefresh(user.Id, 0, LangId, LangCode, True)
 
         Dim dto As lm.Comol.Core.DomainModel.Helpers.dtoExpiredAccessUrl = ReadLogoutAccessCookie()
         Dim oResult As dtoLogoutAccess = Nothing
@@ -2326,6 +2755,9 @@ Public Class OLDpageUtility
         _Session("ORGN_id") = oPersona.GetOrganizzazioneDefault
         _Session("Istituzione") = oPersona.GetIstituzione
 
+        Dim LangId As Integer = 0
+        Dim LangCode As String = "it-IT"
+
         Try
             Dim oLingua As New Lingua
             If Me.NewLinguaID > 0 AndAlso Me.NewLinguaID <> user.LanguageID Then
@@ -2337,7 +2769,11 @@ Public Class OLDpageUtility
             End If
             Me.NewLinguaID = 0
             _Session("LinguaID") = oLingua.ID
+            LangId = oLingua.ID
+
             _Session("LinguaCode") = oLingua.Codice
+            LangCode = oLingua.Codice
+
             _Session("UserLanguage") = New lm.Comol.Core.DomainModel.Language() With {.Id = oLingua.ID, .Icon = oLingua.Icona, .Code = oLingua.Codice, .isDefault = oLingua.isDefault, .Name = oLingua.Nome}
             Me.SetCookies(_Session("LinguaID"), _Session("LinguaCode"))
         Catch ex As Exception
@@ -2386,6 +2822,8 @@ Public Class OLDpageUtility
         AddLoginAction()
 
         WriteLoginCookie(user, idProvider, providerUrl)
+
+        ApiTokenRefresh(user.Id, 0, LangId, LangCode, True)
     End Sub
 
     Public Sub LogonAsUser(user As COL_Persona)
@@ -2407,6 +2845,9 @@ Public Class OLDpageUtility
         _Session("ORGN_id") = user.GetOrganizzazioneDefault
         _Session("Istituzione") = user.GetIstituzione
 
+        Dim LangId As Integer = 0
+        Dim LangCode As String = "it-IT"
+
         Try
             Dim oLingua As New Lingua
             oLingua = user.Lingua
@@ -2414,7 +2855,11 @@ Public Class OLDpageUtility
 
             Me.NewLinguaID = 0
             _Session("LinguaID") = oLingua.ID
+            LangId = oLingua.ID
+
             _Session("LinguaCode") = oLingua.Codice
+            LangCode = oLingua.Codice
+
             _Session("UserLanguage") = New lm.Comol.Core.DomainModel.Language() With {.Id = oLingua.ID, .Icon = oLingua.Icona, .Code = oLingua.Codice, .isDefault = oLingua.isDefault, .Name = oLingua.Nome}
             Me.SetCookies(_Session("LinguaID"), _Session("LinguaCode"))
         Catch ex As Exception
@@ -2449,6 +2894,10 @@ Public Class OLDpageUtility
         Catch ex As Exception
             _Session("oImpostazioni") = Nothing
         End Try
+
+
+        ApiTokenRefresh(user.ID, 0, LangId, LangCode, True)
+
 
         CurrentModule = Nothing
 
@@ -2511,11 +2960,11 @@ Public Class OLDpageUtility
             Dim DefaultLogoPath As String = _Server.MapPath(Me.BaseUrl & Me.SystemSettings.SkinSettings.HeadLogo.Url)
             'Server.MapPath(Me.BaseUrl & Me.SystemSettings.SkinSettings.HeadLogo.Url)
 
-            path = NewSkinService.GetlogoIstituzioneFullPath( _
-                Community_Id, _
-                Organization_Id, _
-                Me.SystemSettings.SkinSettings.SkinPhisicalPath, _
-                Me.CurrentContext.UserContext.Language.Code, _
+            path = NewSkinService.GetlogoIstituzioneFullPath(
+                Community_Id,
+                Organization_Id,
+                Me.SystemSettings.SkinSettings.SkinPhisicalPath,
+                Me.CurrentContext.UserContext.Language.Code,
                 Me.SystemSettings.DefaultLanguage.Codice, DefaultLogoPath)
 
             'If path = "" Then
@@ -2539,11 +2988,11 @@ Public Class OLDpageUtility
             Dim Organization_Id = GetSkinIdOrganization()
             Dim Community_Id = Me.CurrentContext.UserContext.CurrentCommunityID 'PageUtility.ComunitaCorrente.Id
 
-            path = NewSkinService.GetlogoIstituzioneUrl( _
-                Community_Id, _
-                Organization_Id, _
-                "", _
-                Me.CurrentContext.UserContext.Language.Code, _
+            path = NewSkinService.GetlogoIstituzioneUrl(
+                Community_Id,
+                Organization_Id,
+                "",
+                Me.CurrentContext.UserContext.Language.Code,
                 Me.SystemSettings.DefaultLanguage.Codice, Me.BaseUrl & Me.SystemSettings.SkinSettings.HeadLogo.Url)
 
             'If path = "" Then
@@ -2606,6 +3055,334 @@ Public Class OLDpageUtility
     End Sub
 
 #End Region
+
+
+
+#Region "Federation"
+
+    Private Const FederationAppKey As String = "FederatedUsers"
+    Public MaxLifeTime As TimeSpan = New TimeSpan(1, 0, 0)
+
+    Public Function CheckUser(UserId As Integer, Optional ByVal update As Boolean = False) As FederationNS.Enums.FederationResult
+
+        Dim result As FederationNS.Enums.FederationResult = FederationNS.Enums.FederationResult.Unknow
+
+        Dim FederationData As FederationNS.Domain.dtoUserfederationData
+
+        'If Not IsNothing(_Application.Item(FederationAppKey)) Then
+
+        'End If
+
+        Dim Federated As Dictionary(Of Integer, FederationNS.Domain.dtoUserfederationData)
+
+        Try
+            Federated = _Application.Item(FederationAppKey)
+        Catch ex As Exception
+
+        End Try
+
+        If IsNothing(Federated) Then
+            Federated = New Dictionary(Of Integer, FederationNS.Domain.dtoUserfederationData)
+        End If
+
+        If (Federated.ContainsKey(UserId)) Then
+            FederationData = Federated(UserId)
+        End If
+
+        If IsNothing(FederationData) OrElse FederationData.LifeTime >= MaxLifeTime OrElse update Then
+            FederationData = New FederationNS.Domain.dtoUserfederationData()
+            FederationData.UserId = UserId
+            'FederationData.Creation = DateTime.Now()
+            FederationData.CommunityId = 0
+            FederationData.Result = PermissionService.FederationUserCheck(0, UserId, SystemSettings.FederationSettings)
+        End If
+
+
+
+        FederationData.Creation = DateTime.Now()
+        result = FederationData.Result
+
+        Federated(UserId) = FederationData
+
+
+        _Application.Item(FederationAppKey) = Federated
+
+
+
+
+        Return result
+
+    End Function
+
+
+
+#End Region
+
+
+#Region "Trap"
+    ''' <summary>
+    ''' Test invio trap login
+    ''' </summary>
+    Public Sub SendTrapLoginTest()
+        SendTrapLogin()
+    End Sub
+
+    ''' <summary>
+    ''' Invio del trap dopo la login
+    ''' </summary>
+    Private Sub SendTrapLogin()
+
+        If AllowSendTrapActions AndAlso Not IsNothing(TrapSender) Then
+            Dim actionvalue As WsSnmtp.dtoActionValues = New WsSnmtp.dtoActionValues()
+            With actionvalue
+                .Progressive = TrapProgressive
+                .EventId = TrapIdEnums.LoginSuccess
+                .User = New WsSnmtp.dtoUserValues()
+                .Action = New WsSnmtp.dtoActionData()
+            End With
+
+            With actionvalue.User
+                .id = Me.CurrentUser.ID
+                .login = Me.CurrentUser.Login
+                .mail = Me.CurrentUser.Mail
+                .name = Me.CurrentUser.Nome
+                .surname = Me.CurrentUser.Cognome
+                .taxCode = Me.CurrentUser.CodFiscale
+                .Ip = Me.ClientIPadress
+                .ProxyIp = Me.ProxyIPadress
+            End With
+
+            With actionvalue.Action
+                .ActionCodeId = "4624"
+                .ActionTypeId = "login"
+                .CommunityId = Me.WorkingCommunityID
+                .CommunityIsFederated = False
+                .InteractionType = InteractionType.Generic
+                .ModuleCode = "Login"
+                .ModuleId = CurrentModule.ID
+                .SuccessInfo = "Success"
+                .ObjectId = 0
+                .ObjectType = 0
+            End With
+
+            Dim TrapId As Integer = TrapIdEnums.LoginSuccess
+            TrapSender.SendTrapActionValue(TrapId, actionvalue)
+        End If
+
+    End Sub
+
+    ''' <summary>
+    ''' Invio del trap al logout
+    ''' </summary>
+    Private Sub SendTrapLogout()
+        If AllowSendTrapActions AndAlso Not IsNothing(TrapSender) Then
+            Dim actionvalue As WsSnmtp.dtoActionValues = New WsSnmtp.dtoActionValues()
+            With actionvalue
+                .Progressive = TrapProgressive
+                .EventId = TrapIdEnums.LoginSuccess
+                .User = New WsSnmtp.dtoUserValues()
+                .Action = New WsSnmtp.dtoActionData()
+            End With
+
+            With actionvalue.User
+                .id = Me.CurrentUser.ID
+                .login = Me.CurrentUser.Login
+                .mail = Me.CurrentUser.Mail
+                .name = Me.CurrentUser.Nome
+                .surname = Me.CurrentUser.Cognome
+                .taxCode = Me.CurrentUser.CodFiscale
+                .Ip = Me.ClientIPadress
+                .ProxyIp = Me.ProxyIPadress
+            End With
+
+            With actionvalue.Action
+                .ActionCodeId = "4634"
+                .ActionTypeId = "login"
+                .CommunityId = Me.WorkingCommunityID
+                .CommunityIsFederated = False
+                .InteractionType = InteractionType.Generic
+                .ModuleCode = "Logout"
+                .ModuleId = CurrentModule.ID
+                .ObjectId = 0
+                .ObjectType = 0
+                .SuccessInfo = "Success"
+            End With
+
+            Dim TrapId As Integer = TrapIdEnums.LogOut
+            TrapSender.SendTrapActionValue(TrapId, actionvalue)
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Trap login fallita
+    ''' </summary>
+    ''' <param name="login">Login inserita dall'utente</param>
+    ''' <param name="info">Informazioni aggiuntive</param>
+    Public Sub SendTrapLoginFailed(ByVal login As String, ByVal info As String)
+        If AllowSendTrapActions AndAlso Not IsNothing(TrapSender) Then
+            Dim actionvalue As WsSnmtp.dtoActionValues = New WsSnmtp.dtoActionValues()
+            With actionvalue
+                .Progressive = TrapProgressive
+                .EventId = TrapIdEnums.LoginSuccess
+                .User = New WsSnmtp.dtoUserValues()
+                .Action = New WsSnmtp.dtoActionData()
+            End With
+
+            With actionvalue.User
+                .id = Me.CurrentUser.ID
+                .login = login
+                .mail = Me.CurrentUser.Mail
+                .name = Me.CurrentUser.Nome
+                .surname = Me.CurrentUser.Cognome
+                .taxCode = Me.CurrentUser.CodFiscale
+                .Ip = Me.ClientIPadress
+                .ProxyIp = Me.ProxyIPadress
+            End With
+
+            If (String.IsNullOrWhiteSpace(info)) Then
+                info = login
+            Else
+                info = String.Format("{0},{1}", login, info)
+            End If
+
+            With actionvalue.Action
+                .ActionCodeId = "4634"
+                .ActionTypeId = "login"
+                .CommunityId = Me.WorkingCommunityID
+                .CommunityIsFederated = False
+                .InteractionType = InteractionType.Generic
+                .ModuleCode = "Login"
+                If (String.IsNullOrEmpty(info)) Then
+                    .SuccessInfo = String.Format("LoginFailed")
+                Else
+                    .SuccessInfo = String.Format("LoginFailed({0})", info)
+                End If
+
+                .ModuleId = CurrentModule.ID
+                .ObjectId = 0
+                .ObjectType = 0
+            End With
+
+            Dim TrapId As Integer = TrapIdEnums.LoginFailed
+            TrapSender.SendTrapActionValue(TrapId, actionvalue)
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Recuepra un oggetto dtoActionValue con i parametri preimpostati
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function TrapGetCurrentValues() As WsSnmtp.dtoActionValues
+        Dim actionvalue As WsSnmtp.dtoActionValues = New WsSnmtp.dtoActionValues()
+        With actionvalue
+            .Progressive = TrapProgressive
+            .EventId = TrapIdEnums.LoginSuccess
+            .User = New WsSnmtp.dtoUserValues()
+            .Action = New WsSnmtp.dtoActionData()
+        End With
+
+        With actionvalue.User
+            .id = Me.CurrentUser.ID
+            .login = Me.CurrentUser.Login
+            .mail = Me.CurrentUser.Mail
+            .name = Me.CurrentUser.Nome
+            .surname = Me.CurrentUser.Cognome
+            .taxCode = Me.CurrentUser.CodFiscale
+            .Ip = Me.ClientIPadress
+            .ProxyIp = Me.ProxyIPadress
+        End With
+
+        With actionvalue.Action
+            '.ActionCodeId = "4634"
+            '.ActionTypeId = "login"
+            .CommunityId = Me.WorkingCommunityID
+            .CommunityIsFederated = False
+            '.InteractionType = InteractionType.Generic
+            '.ModuleCode = "Login"
+            'If (String.IsNullOrEmpty(info)) Then
+            '    .SuccessInfo = String.Format("LoginFailed")
+            'Else
+            '    .SuccessInfo = String.Format("LoginFailed({0})", info)
+            'End If
+
+            .ModuleId = CurrentModule.ID
+            '.ObjectId = 0
+            '.ObjectType = 0
+        End With
+
+        Return actionvalue
+    End Function
+
+    ''' <summary>
+    ''' Invio trap generico
+    ''' </summary>
+    ''' <param name="TrapId">Id trap</param>
+    ''' <param name="actionvalue">Action value</param>
+    Public Sub TrapSendGeneric(ByVal TrapId As Integer, ByVal actionvalue As WsSnmtp.dtoActionValues)
+        If AllowSendTrapActions AndAlso Not IsNothing(TrapSender) Then
+
+            If actionvalue.Progressive = 0 Then
+                actionvalue.Progressive = TrapProgressive
+            End If
+
+            TrapSender.SendTrapActionValue(TrapId, actionvalue)
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Invio trap generico, impostando i singoli parametri
+    ''' </summary>
+    ''' <param name="TrapId">Id trap</param>
+    ''' <param name="ActionCodeId">Codice azione</param>
+    ''' <param name="ActionTypeId">Tipo azione</param>
+    ''' <param name="InteractionType">Tipo interazione</param>
+    ''' <param name="ModuleCode">Codice modulo</param>
+    ''' <param name="Info">Informaizoni da inviare</param>
+    ''' <param name="ModuleId">Id modulo</param>
+    ''' <param name="ObjectId">Id oggetto</param>
+    ''' <param name="ObjectType">Tipo di oggetto</param>
+    Public Sub TrapSendGeneric(TrapId As Integer,
+                               ActionCodeId As String,
+                               ActionTypeId As String,
+                               InteractionType As InteractionType,
+                               ModuleCode As String,
+                               Info As String,
+                               ModuleId As String,
+                               ObjectId As String,
+                               ObjectType As String)
+
+
+        Dim data As WsSnmtp.dtoActionData = New WsSnmtp.dtoActionData()
+
+        With data
+            .ActionCodeId = ActionCodeId
+            .ActionTypeId = ActionTypeId
+            .InteractionType = InteractionType
+            .ModuleCode = ModuleCode
+            .SuccessInfo = Info
+            .ModuleId = ModuleId
+            .ObjectId = ObjectId
+            .ObjectType = ObjectType
+        End With
+
+        TrapSendGeneric(TrapId, data)
+    End Sub
+
+    ''' <summary>
+    ''' Invio trap generico
+    ''' </summary>
+    ''' <param name="TrapId">Id trap</param>
+    ''' <param name="data">dtoActionData con i dati da inviare</param>
+    Public Sub TrapSendGeneric(TrapId As Integer, data As WsSnmtp.dtoActionData)
+        Dim actionvalue As WsSnmtp.dtoActionValues = TrapGetCurrentValues()
+        actionvalue.Action = data
+
+        TrapSendGeneric(TrapId, actionvalue)
+
+    End Sub
+
+
+#End Region
 End Class
 
 Public Class dtoObjectToNotify
@@ -2613,3 +3390,40 @@ Public Class dtoObjectToNotify
     Public ObjectID As String
     Public FullyQualiFiedNameField As String
 End Class
+
+''' <summary>
+''' ENUM con i moduli notificati via TRAP.
+''' </summary>
+Public Enum TrapModules
+    ''' <summary>
+    ''' Nessuno: non in uso
+    ''' </summary>
+    none = 0
+    ''' <summary>
+    ''' Login
+    ''' </summary>
+    Login = -1
+    ''' <summary>
+    ''' Servizio Bandi
+    ''' </summary>
+    SRVCFP = 43
+End Enum
+
+Module CookieHelper
+
+    Public Const CookieKeyToked As String = "Token"
+
+    Public Const CookieKeyDeviceId As String = "DeviceId"
+
+    Public Const CookieKeyCommunityId As String = "CommunityId"
+
+    Public Const CookieKeyLinkId As String = "LinkId"
+
+    Public Const CookieKeyLangId As String = "LanguageId"
+
+    Public Const CookieKeyLangCode As String = "LanguageCode"
+
+    Public Const CookieKeyServiceCode As String = "ServiceCode"
+
+    Public Const CookieKeyPersonId As String = "PersonId"
+End Module

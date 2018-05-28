@@ -468,7 +468,7 @@ namespace lm.Comol.Core.DomainModel.Helpers.Export
                 string regex = string.Format("[{0}]", System.Text.RegularExpressions.Regex.Escape(new string(System.IO.Path.GetInvalidFileNameChars())));
                 System.Text.RegularExpressions.Regex removeInvalidChars = new System.Text.RegularExpressions.Regex(regex, System.Text.RegularExpressions.RegexOptions.Singleline | System.Text.RegularExpressions.RegexOptions.Compiled | System.Text.RegularExpressions.RegexOptions.CultureInvariant);
 
-                return removeInvalidChars.Replace(filename.Replace(" ", "_"), "_");
+                return removeInvalidChars.Replace((filename.Replace(",", "_").Replace(" ", "_")), "_");
             }
         #endregion
 

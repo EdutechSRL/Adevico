@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class ViewActivity
-
+    
     '''<summary>
     '''CTRLmodalHeader control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLmodalHeader As Global.Comunita_OnLine.UC_ModalPlayerHeader
-
+    
     '''<summary>
     '''CTRLheader control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLheader As Global.Comunita_OnLine.UC_ModuleInternalUploaderHeader
-
+    
     '''<summary>
     '''LTscriptOpen control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LTscriptOpen As Global.System.Web.UI.WebControls.Literal
-
+    
     '''<summary>
     '''MLVviewActivity control.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents MLVviewActivity As Global.System.Web.UI.WebControls.MultiView
-
+    
     '''<summary>
     '''VIWactivity control.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents VIWactivity As Global.System.Web.UI.WebControls.View
-
+    
     '''<summary>
     '''LKBupdateWeight control.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LKBupdateWeight As Global.System.Web.UI.WebControls.LinkButton
-
+    
     '''<summary>
     '''LNBnewSubAct control.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LNBnewSubAct As Global.System.Web.UI.WebControls.LinkButton
-
+    
     '''<summary>
     '''LKBdeleteAct control.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LKBdeleteAct As Global.System.Web.UI.WebControls.LinkButton
-
+    
     '''<summary>
     '''HYPupdateAct control.
     '''</summary>
@@ -93,7 +93,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents HYPupdateAct As Global.System.Web.UI.WebControls.HyperLink
-
+    
     '''<summary>
     '''LKBeduPathView control.
     '''</summary>
@@ -102,7 +102,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LKBeduPathView As Global.System.Web.UI.WebControls.LinkButton
-
+    
     '''<summary>
     '''HYPpreviousAct control.
     '''</summary>
@@ -111,7 +111,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents HYPpreviousAct As Global.System.Web.UI.WebControls.HyperLink
-
+    
     '''<summary>
     '''HYPnextAct control.
     '''</summary>
@@ -120,7 +120,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents HYPnextAct As Global.System.Web.UI.WebControls.HyperLink
-
+    
     '''<summary>
     '''LBconfirmMSG control.
     '''</summary>
@@ -129,7 +129,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBconfirmMSG As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''CTRLmoduleStatusMessage control.
     '''</summary>
@@ -138,7 +138,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLmoduleStatusMessage As Global.Comunita_OnLine.UC_ActionMessages
-
+    
     '''<summary>
     '''CTRLitemMessage control.
     '''</summary>
@@ -147,7 +147,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLitemMessage As Global.Comunita_OnLine.UC_ActionMessages
-
+    
     '''<summary>
     '''CTRLversionMessage control.
     '''</summary>
@@ -156,7 +156,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLversionMessage As Global.Comunita_OnLine.UC_ActionMessages
-
+    
     '''<summary>
     '''DIVsummaryBlock control.
     '''</summary>
@@ -165,7 +165,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DIVsummaryBlock As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''DIVdescription control.
     '''</summary>
@@ -174,7 +174,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DIVdescription As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''LBdescriptionTitle control.
     '''</summary>
@@ -183,7 +183,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBdescriptionTitle As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''LBdescription control.
     '''</summary>
@@ -192,7 +192,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBdescription As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''DIVdate control.
     '''</summary>
@@ -201,7 +201,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DIVdate As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''LBdateTitle control.
     '''</summary>
@@ -210,7 +210,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBdateTitle As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''LBdate control.
     '''</summary>
@@ -219,7 +219,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBdate As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''DIVmandatory control.
     '''</summary>
@@ -228,7 +228,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DIVmandatory As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''IMGactMandatory control.
     '''</summary>
@@ -237,7 +237,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents IMGactMandatory As Global.System.Web.UI.WebControls.Image
-
+    
     '''<summary>
     '''LBtext control.
     '''</summary>
@@ -246,7 +246,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBtext As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''DIVsubAct control.
     '''</summary>
@@ -255,7 +255,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DIVsubAct As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''CTRLmessages control.
     '''</summary>
@@ -264,7 +264,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLmessages As Global.Comunita_OnLine.UC_ActionMessages
-
+    
     '''<summary>
     '''LBnoSubAct control.
     '''</summary>
@@ -273,7 +273,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LBnoSubAct As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''RPsubActivity control.
     '''</summary>
@@ -282,7 +282,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RPsubActivity As Global.System.Web.UI.WebControls.Repeater
-
+    
     '''<summary>
     '''VIWerror control.
     '''</summary>
@@ -291,7 +291,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents VIWerror As Global.System.Web.UI.WebControls.View
-
+    
     '''<summary>
     '''HYPerror control.
     '''</summary>
@@ -300,7 +300,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents HYPerror As Global.System.Web.UI.WebControls.HyperLink
-
+    
     '''<summary>
     '''CTRLerrorMessage control.
     '''</summary>
@@ -309,7 +309,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLerrorMessage As Global.Comunita_OnLine.UC_ActionMessages
-
+    
     '''<summary>
     '''VIWmessages control.
     '''</summary>
@@ -318,7 +318,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents VIWmessages As Global.System.Web.UI.WebControls.View
-
+    
     '''<summary>
     '''CTRLgenericMessages control.
     '''</summary>
@@ -327,7 +327,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLgenericMessages As Global.Comunita_OnLine.UC_ActionMessages
-
+    
     '''<summary>
     '''CTRLaddAction control.
     '''</summary>
@@ -336,7 +336,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLaddAction As Global.Comunita_OnLine.UC_AddAction
-
+    
     '''<summary>
     '''HDNdownloadTokenValue control.
     '''</summary>
@@ -345,7 +345,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents HDNdownloadTokenValue As Global.System.Web.UI.WebControls.HiddenField
-
+    
     '''<summary>
     '''CTRLaddVersion control.
     '''</summary>
@@ -354,7 +354,7 @@ Partial Public Class ViewActivity
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CTRLaddVersion As Global.Comunita_OnLine.UC_AddVersion
-
+    
     '''<summary>
     '''Master property.
     '''</summary>
@@ -363,7 +363,7 @@ Partial Public Class ViewActivity
     '''</remarks>
     Public Shadows ReadOnly Property Master() As Comunita_OnLine.AjaxPortal
         Get
-            Return CType(MyBase.Master, Comunita_OnLine.AjaxPortal)
+            Return CType(MyBase.Master,Comunita_OnLine.AjaxPortal)
         End Get
     End Property
 End Class

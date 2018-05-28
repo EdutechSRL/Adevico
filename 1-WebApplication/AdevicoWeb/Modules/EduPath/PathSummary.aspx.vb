@@ -466,7 +466,7 @@ Public Class PathSummary
                 Else
                     If (dto.Ps.Path.EndDate.HasValue) Then
                         olabel.Text = dto.Ps.Path.EndDate.Value.ToShortDateString() + " " + dto.Ps.Path.EndDate.Value.ToShortTimeString()
-                        If dto.Ps.Path.EndDateOverflow.HasValue And dto.Ps.Path.EndDate.Value <> dto.Ps.Path.EndDateOverflow.Value Then
+                        If dto.Ps.Path.EndDateOverflow.HasValue AndAlso dto.Ps.Path.EndDate.Value <> dto.Ps.Path.EndDateOverflow.Value Then
                             olabel.Text += " *"
                         End If
                     Else

@@ -43,6 +43,7 @@ Imports System.Text.RegularExpressions
     Private _isSelected As Boolean
     Private _virtualNumber As Long
 
+
     Public Enum TipoDomanda
         Nessuno = 0
         Rating = 1
@@ -340,7 +341,9 @@ Imports System.Text.RegularExpressions
     Public Shared Function findDomandaBYID(ByVal listaDom As List(Of Domanda), ByVal idDomanda As String) As Domanda
 
         Dim odomanda As New Domanda
-        odomanda = listaDom.Find(New PredicateWrapper(Of Domanda, String)(idDomanda, AddressOf trovaID))
+        'odomanda = listaDom.Find(New PredicateWrapper(Of Domanda, String)(idDomanda, AddressOf trovaID))
+
+        odomanda = listaDom.FirstOrDefault(Function(dm) dm.id = idDomanda)
 
         Return odomanda
 
