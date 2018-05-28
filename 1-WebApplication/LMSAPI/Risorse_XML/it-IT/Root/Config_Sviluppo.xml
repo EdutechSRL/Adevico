@@ -2,12 +2,12 @@
 <Resource xmlns="urn:ComolTranslation">
   <item name="footerTitolo"></item>
   <item name="footerIndirizzo"></item>
-	<item name="systemMailSender">ComunitàOnLine</item>
-	<item name="systemMail" hidden="true">HelpDesk@comunitaonline.unitn.it</item>
-	<item name="systemMailError" hidden="true">fconte@form.unitn.it</item>
-	<item name="systemMailSubject">[ComunitaOnLine]</item>
-	<item name="systemMailFirma" html="true">------------------------------------------------------------------------&lt;br&gt;Comunità On Line - Laboratorio Maieutiche&lt;br&gt;via Inama 5, 38100 Trento TN &lt;br&gt;Tel: 0461 282339&lt;br&gt;Mail: HelpDesk@comunitaonline.unitn.it&lt;br&gt;------------------------------------------------------------------------&lt;br&gt;</item>
-	<item name="systemMailFirmaNotifica" html="true">------------------------------------------------------------------------&lt;br&gt;Sistema Notifica Automatico – Si prega di non rispondere a questo indirizzo email – Comunità On Line - Laboratorio Maieutiche&lt;br&gt;via Inama 5, 38100 Trento TN &lt;br&gt;Tel: 0461 282339&lt;br&gt;Mail: HelpDesk@comunitaonline.unitn.it&lt;br&gt;------------------------------------------------------------------------&lt;br&gt;</item>
+	<item name="systemMailSender">Adevico</item>
+	<item name="systemMail" hidden="true">HelpDesk@mail.not</item>
+	<item name="systemMailError" hidden="true">HelpDesk@mail.not</item>
+	<item name="systemMailSubject">[Adevico]</item>
+	<item name="systemMailFirma" html="true">------------------------------------------------------------------------&lt;br&gt;Adevico&lt;br&gt;------------------------------------------------------------------------&lt;br&gt;</item>
+	<item name="systemMailFirmaNotifica" html="true">------------------------------------------------------------------------&lt;br&gt;Sistema Notifica Automatico&lt;br&gt;------------------------------------------------------------------------&lt;br&gt;</item>
 	<item name="aggiornamentoXML" hidden="true">4</item>
 	<item name="systemDBcodice" hidden="true">3</item>
 	<item name="systemRegistraMail" hidden="true">false</item>
@@ -17,7 +17,7 @@
 	<item name="Tutor.SaveOnDB" hidden="true">true</item>
 	<item name="Tutor.SaveOnFile" hidden="true">false</item>
 	<item name="SendMailError" hidden="true">false</item>
-	<item name="SMTPServer" hidden="true">smtpservice.unitn.it</item>
+	<item name="SMTPServer" hidden="true">smtpservice.smtp.it</item>
   <item name="copy">Copia di:</item>
   <item name="mail_NotificaAttivazione_Subject">Attivazione iscrizione alla piattaforma</item>
   <item name="mail_NotificaAttivazione_day0">Buongiorno,</item>
@@ -35,9 +35,9 @@
   <item name="Sondaggio.Mostra" hidden="true">0</item>
   <item name="Sondaggio.Scadenza" hidden="true">14/06/2007</item>
   <item name="ErrorSubject">Notifica Errore Automatica</item>
-  <item name="systemErrorMailSender" hidden="true">HelpDesk@comunitaonline.unitn.it</item>
+  <item name="systemErrorMailSender" hidden="true">HelpDesk@mail.not</item>
   <item name="systemErrorMailSenderName">Errori</item>
   <item name="ErrorSubject">Notifica Errore Automatica</item>
-  <item name="systemErrorMailSender">HelpDesk@comunitaonline.unitn.it</item>
+  <item name="systemErrorMailSender">HelpDesk@mail.not</item>
   <item name="systemErrorMailSenderName">Errori</item>
 </Resource>
